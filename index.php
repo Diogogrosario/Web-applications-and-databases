@@ -8,7 +8,6 @@
                 <a href="#" class="list-group-item list-group-item-action">Books</a>
                 <a href="#" class="list-group-item list-group-item-action">Televisions</a>
                 <!-- change this after -->
-                <a href="#" class="list-group-item list-group-item-action" style="min-height: 75vh; height: 100%;"> </a>
             </div>
         </div>
     </div>
