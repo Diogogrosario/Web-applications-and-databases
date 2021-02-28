@@ -1,25 +1,26 @@
 
-<!DOCTYPE html>
-<html>
-
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-</head>
-<body>
     <?php include_once('header.html');?>
 
     
 
     <!-- Form -->
-    <div class="mb-3">
-        <label for="formGroupExampleInput" class="form-label"><b>Username</b></label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+    <div>
+        <div class="col-md-6 offset-md-3" style="padding-top: 3%;">
+            <label style="padding-bottom: 1%;" for="formGroupExampleInput" class="form-label"><b>Username</b></label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="username">
         </div>
-        <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label"><b>Password</b></label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+        <div class="col-md-6 offset-md-3" style="padding-top: 2%;">
+            <label style="padding-bottom: 1%;" for="formGroupExampleInput2" class="form-label"><b>Password</b></label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="password">
+        </div>
+        <div class="offset-md-3" style="padding-top: 1%;">
+            <a href="#Forgot-password">Forgot password?</a>
+        </div>
+        <div style="text-align: center;">
+            <p style="padding-top: 5%; margin-bottom: 0;">Don't have an account yet</p>
+        </div>
+        <div style="text-align: center;">
+            <a href="#Sign-in">Sign in</p>
+        </div>
     </div>
-
-</body>
-</html>
+    <?php include_once('footer.html'); ?>
