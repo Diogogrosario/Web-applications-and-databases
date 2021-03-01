@@ -9,9 +9,9 @@ body {
 .list-group a {
     /* flex: 1;
     display: flex; */
-    /* white-space:nowrap;*/
+    white-space:nowrap;
     overflow: hidden;
-    /* text-overflow: ellipsis;  */
+    text-overflow: ellipsis; 
 }
 
 /* #carouselProductImages {
@@ -29,4 +29,9 @@ body {
 
 #productDetails td {
     text-align: end;
+}
+#sideMenuHomePage a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
