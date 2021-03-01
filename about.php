@@ -5,13 +5,13 @@
             <b>About us</b>
         </div>
         <div style=" font-size: 1.3rem; padding: 2%; grid-row: 2">
-            <a>In case you need some sort of help, here are some useful links:<ab>
+            <a>In case you need some sort of help, here are some useful links:</a>
         </div>
         <div style=" font-size: 1.3rem; padding: 2%; grid-row: 3">
-            <a href="#faq">FAQ:<ab>
+            <a href="#faq">FAQ:</a>
         </div>
         <div style=" font-size: 1.3rem; padding: 2%; grid-row: 4">
-            <a href="#contacts">Contacts/Locations:<ab>
+            <a href="#contacts">Contacts/Locations:</a>
         </div>
     </div>
 
