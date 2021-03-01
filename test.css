@@ -1,13 +1,17 @@
-html {
-    
+body {
+    font-family: 'Poppins', sans-serif;
 }
 
 #collapsableColumn {
     z-index: 1;
 }
+
 .list-group a {
-    flex: 1;
-    display: flex;
+    /* flex: 1;
+    display: flex; */
+    /* white-space:nowrap;*/
+    overflow: hidden;
+    /* text-overflow: ellipsis;  */
 }
 
 /* #carouselProductImages {
@@ -16,4 +20,13 @@ html {
 
 #similarProducts {
     z-index: 0;
+}
+
+
+#productDetails th {
+    text-align: start;
+}
+
+#productDetails td {
+    text-align: end;
 }
