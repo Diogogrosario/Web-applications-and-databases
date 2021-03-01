@@ -1,0 +1,19 @@
+html {
+    
+}
+
+#collapsableColumn {
+    z-index: 1;
+}
+.list-group a {
+    flex: 1;
+    display: flex;
+}
+
+/* #carouselProductImages {
+    z-index: -1;
+} */
+
+#similarProducts {
+    z-index: 0;
+}
