@@ -1,7 +1,3 @@
-html {
-    
-}
-
 #collapsableColumn {
     z-index: 1;
 }
@@ -16,4 +12,10 @@ html {
 
 #similarProducts {
     z-index: 0;
+}
+
+#sideMenuHomePage a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
