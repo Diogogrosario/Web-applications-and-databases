@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-8 offset-md-1">
-        <div class="container pt-4 pb-4 overflow-auto" style="background-color: lightgray; height: 75vh;">
+        <div class="container pt-4 pb-4 overflow-auto rounded" style="background-color: lightgray; max-height: 75vh;">
             <!-- Content here -->
             <div class="card mx-auto mt-1 mb-1" style="width: 90%;">
                 <div class="card-body">
@@ -58,11 +58,11 @@
             </div>
         </div>
     </div>
-    <div class="text-align: center; col position-absolute position-absolute top-50" style="transform: translateX(75%)">
+    <div class="col position-absolute position-absolute top-50" style="transform: translateX(35%);text-align: center;">
         <p class="d-inline" style="font-size:1.5em">Total:</p>
         <p class="d-inline" style="font-size:1.5em">47:97€</p>
         <p></p>
-        <button type="button" class="btn btn-success btn-lg" style="transform: translateX(25%)">Buy all</button>
+        <button type="button" class="btn btn-success btn-lg">Buy all</button>
     </div>
 
 <?php include_once('footer.html'); ?>
