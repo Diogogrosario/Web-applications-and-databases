@@ -1,0 +1,41 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#collapsableColumn {
+    z-index: 1;
+}
+
+#collapsableColumn.show .list-group a {
+    /* flex: 1;
+    display: flex; */
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+/* #carouselProductImages {
+    z-index: -1;
+} */
+
+#similarProducts {
+    z-index: 0;
+}
+
+
+#productDetails th {
+    text-align: start;
+}
+
+#productDetails td {
+    text-align: end;
+}
+#sideMenuHomePage a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.similarProductCard, .similarProductCard div {
+    background: transparent;
+}
