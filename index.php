@@ -231,4 +231,7 @@
                     </div>
                 </div>
             </div>
-            <?php include_once('footer.html'); ?>
+        </div>
+    </div>
+</div>
+<?php include_once('footer.html'); ?>
