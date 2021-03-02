@@ -6,7 +6,7 @@ body {
     z-index: 1;
 }
 
-.list-group a {
+#collapsableColumn.show .list-group a {
     /* flex: 1;
     display: flex; */
     white-space:nowrap;
@@ -34,4 +34,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.similarProductCard, .similarProductCard div {
+    background: transparent;
 }
