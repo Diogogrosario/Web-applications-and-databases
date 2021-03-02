@@ -7,44 +7,124 @@
         <div class="row">
             <div class="container">
                 <ul class="list-group">
-                    <div class="card mb-3">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <div class="row border-bottom border-dark pb-3">
+                        <div class="col-lg-3 col-md-3">
+                            <img src="images/pc.jpg" class="card-img-top" alt="...">
+                        </div>
+                        <div class="col border-left border-dark">
+                            <div class="row">
+                                <div class="col-8">
+                                    <h2 class="title">Asus computer</h2>
+                                    <p class="text">This asus computer is the best for it's price!</p>
+                                    <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                                <div class="col">
+                                    <div class="flex-row">
+                                        <span class="title fs-2">299.99€ </span>
+                                        <span class="title text-decoration-line-through">359.99€</span>
+                                        <span class="title">20% off!</span>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-success">Add to cart!</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="card mb-3">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <div class="row border-bottom border-dark pb-3">
+                        <div class="col-lg-3 col-md-3">
+                            <img src="images/pc.jpg" class="card-img-top" alt="...">
+                        </div>
+                        <div class="col border-left border-dark">
+                            <div class="row">
+                                <div class="col-8">
+                                    <h2 class="title">Asus computer</h2>
+                                    <p class="text">This asus computer is the best for it's price!</p>
+                                    <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                                <div class="col">
+                                    <div class="flex-row">
+                                        <span class="title fs-2">299.99€ </span>
+                                        <span class="title text-decoration-line-through">359.99€</span>
+                                        <span class="title">20% off!</span>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-success">Add to cart!</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="card mb-3">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <div class="row border-bottom border-dark pb-3">
+                        <div class="col-lg-3 col-md-3">
+                            <img src="images/pc.jpg" class="card-img-top" alt="...">
+                        </div>
+                        <div class="col border-left border-dark">
+                            <div class="row">
+                                <div class="col-8">
+                                    <h2 class="title">Asus computer</h2>
+                                    <p class="text">This asus computer is the best for it's price!</p>
+                                    <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                                <div class="col">
+                                    <div class="flex-row">
+                                        <span class="title fs-2">299.99€ </span>
+                                        <span class="title text-decoration-line-through">359.99€</span>
+                                        <span class="title">20% off!</span>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-success">Add to cart!</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="card mb-3">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <div class="row border-bottom border-dark pb-3">
+                        <div class="col-lg-3 col-md-3">
+                            <img src="images/pc.jpg" class="card-img-top" alt="...">
+                        </div>
+                        <div class="col border-left border-dark">
+                            <div class="row">
+                                <div class="col-8">
+                                    <h2 class="title">Asus computer</h2>
+                                    <p class="text">This asus computer is the best for it's price!</p>
+                                    <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                                <div class="col">
+                                    <div class="flex-row">
+                                        <span class="title fs-2">299.99€ </span>
+                                        <span class="title text-decoration-line-through">359.99€</span>
+                                        <span class="title">20% off!</span>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-success">Add to cart!</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="card mb-3">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <div class="row border-bottom border-dark pb-3">
+                        <div class="col-lg-3 col-md-3">
+                            <img src="images/pc.jpg" class="card-img-top" alt="...">
+                        </div>
+                        <div class="col border-left border-dark">
+                            <div class="row">
+                                <div class="col-8">
+                                    <h2 class="title">Asus computer</h2>
+                                    <p class="text">This asus computer is the best for it's price!</p>
+                                    <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                                <div class="col">
+                                    <div class="flex-row">
+                                        <span class="title fs-2">299.99€ </span>
+                                        <span class="title text-decoration-line-through">359.99€</span>
+                                        <span class="title">20% off!</span>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-success">Add to cart!</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </ul>
