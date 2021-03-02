@@ -14,9 +14,9 @@ body {
     text-overflow: ellipsis; 
 }
 
-/* #carouselProductImages {
-    z-index: -1;
-} */
+#carouselProductImages {
+    z-index: 0;
+}
 
 #similarProducts {
     z-index: 0;
