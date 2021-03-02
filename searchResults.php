@@ -13,7 +13,7 @@
                         </div>
                         <div class="col border-left border-dark">
                             <div class="row">
-                                <div class="col-8">
+                                <div class="col-sm-8 col-12">
                                     <h2 class="title">Asus computer</h2>
                                     <p class="text">This asus computer is the best for it's price!</p>
                                     <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="col border-left border-dark">
                             <div class="row">
-                                <div class="col-8">
+                                <div class="col-lg-8 col-md-12">
                                     <h2 class="title">Asus computer</h2>
                                     <p class="text">This asus computer is the best for it's price!</p>
                                     <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="col border-left border-dark">
                             <div class="row">
-                                <div class="col-8">
+                                <div class="col-lg-8 col-md-12">
                                     <h2 class="title">Asus computer</h2>
                                     <p class="text">This asus computer is the best for it's price!</p>
                                     <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="col border-left border-dark">
                             <div class="row">
-                                <div class="col-8">
+                                <div class="col-lg-8 col-md-12">
                                     <h2 class="title">Asus computer</h2>
                                     <p class="text">This asus computer is the best for it's price!</p>
                                     <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -109,7 +109,7 @@
                         </div>
                         <div class="col border-left border-dark">
                             <div class="row">
-                                <div class="col-8">
+                                <div class="col-lg-8 col-md-12">
                                     <h2 class="title">Asus computer</h2>
                                     <p class="text">This asus computer is the best for it's price!</p>
                                     <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
