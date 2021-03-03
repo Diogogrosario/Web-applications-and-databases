@@ -1,4 +1,5 @@
 <?php include_once('header.html'); ?>
+<?php include_once('sidebarItem.html'); ?>
 
 
     <div style="font-size: 2.5rem; grid-row: 1; padding-left: 4%;">
