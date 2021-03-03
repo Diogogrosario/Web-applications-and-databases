@@ -3,8 +3,8 @@
 
 <!-- <div class="col">
 </div> -->
-<div style="background-color:#f2f2f2;">
-    <div id="userProfile" class="container col-md-7 p-lg-5 p-3 shadow-sm" style="background-color:white">
+<div class="p-0" style="background-color:#f2f2f2;">
+    <div id="userProfile" class="container col-md-7 p-lg-5 p-3 shadow-sm h-100" style="background-color:white">
         <div class="row">
             <div class="col-3">
                 <div id="profilePic" class="d-flex rounded-circle" style="height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(images/spidercat.png);background-position:center;background-size:cover;">
