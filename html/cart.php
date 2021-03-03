@@ -6,7 +6,7 @@
         <a>Your cart: </a>
     </div>
     
-    <div class="container pt-4 pb-4 overflow-auto rounded col-lg-9 col-12" style="background-color: lightgray; max-height: 75vh; margin-left: 4%; max-width: 92%;">
+    <div class="container pt-4 pb-4 overflow-auto rounded col-lg-9 col-12" style="background-color: lightgray; max-height: 75vh; margin: auto; max-width: 92%;">
         <!-- Content here -->
         <div class="card mx-auto mt-1 mb-1" style="width: 90%;">
             <div class="card-body">
