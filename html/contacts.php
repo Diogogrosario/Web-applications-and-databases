@@ -1,29 +1,31 @@
 <?php include_once('header.html'); ?>
 
+
+<!--Google map-->
 <div class="container">
-    <div id="gridContainer" style="display: grid; grid-template-rows: 35% 30% 20%">
-        <div style="text-align: center; font-size: 2.5rem; grid-row: 1;">
-            <b>Contacts</b>
-        </div>
-        <div style=" font-size: 1.5rem; padding: 2%; grid-row: 2; text-align: center; font-weight: bold;">
-            <a>Customer support</a>
-        </div>
-        <div class="row text-break text-center" style="grid-row: 3;">
-            <div class="col-sm fs-4 col-4">
-                <p>ABCSNDKANSKDANDSONAWONN:</p>
-                <p>123-341-324</p>
-            </div>
-            <div class="col-sm align-items-center fs-4 col-4">
-                <p>adjswoiandoeanf:</p>
-                <p>123-341-324</p>
-            </div>
-            <div class="col-sm align-items-end fs-4 col-4">
-                <a>miamdmska:</a>
-                <p>123-341-324</p>
-            </div>
-        </div>
+	<div class="d-flex row">
+        <div class="col-12 col-md-8">
+        	<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
+            src="https://maps.google.co.uk/maps?f=q&source=s_q&hl=en&geocode=&q=15+Springfield+Way,+Hythe,+CT21+5SH&aq=t&sll=52.8382,-2.327815&sspn=8.047465,13.666992&ie=UTF8&hq=&hnear=15+Springfield+Way,+Hythe+CT21+5SH,+United+Kingdom&t=m&z=14&ll=51.077429,1.121722&output=embed">
+            </iframe>
+    	</div>
+    	
+      	<div class="col">
+    		<h2>Snail mail</h2>
+    		<address>
+    			<strong>Hythe Window Cleaning</strong><br>
+    			15 Springfield Way<br>
+    			Hythe<br>
+    			Kent<br>
+    			United Kingdon<br>
+    			CT21 5SH<br>
+    			<abbr title="Phone">P:</abbr> 01234 567 890
+    		</address>
+    	</div>
     </div>
 </div>
+
+<!--Google Maps-->
 
 
 <?php include_once('footer.html'); ?>
