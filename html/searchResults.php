@@ -7,13 +7,13 @@
         <div class="row">
             <div class="container">
                 <ul class="list-group">
-                    <div class="row border-bottom border-dark pb-3">
+                    <li class="row border-bottom border-dark pb-3 mt-3">
                         <div class="col-lg-3 col-md-3">
-                            <img src="images/pc.jpg" class="card-img-top" alt="...">
+                            <img src="images/phone.jpg" class="card-img-top" alt="..." style="height:100%;">
                         </div>
                         <div class="col border-left border-dark">
                             <div class="row">
-                                <div class="col-sm-8 col-12">
+                                <div class="col-sm-6 col-8">
                                     <h2 class="title">Asus computer</h2>
                                     <p class="text">This asus computer is the best for it's price!</p>
                                     <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -30,14 +30,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row border-bottom border-dark pb-3">
+                    </li>
+                    <li class="row border-bottom border-dark pb-3 mt-3">
                         <div class="col-lg-3 col-md-3">
-                            <img src="images/pc.jpg" class="card-img-top" alt="...">
+                            <img src="images/spidercat.png" class="card-img-top" alt="..." style="height:100%;">
                         </div>
                         <div class="col border-left border-dark">
                             <div class="row">
-                                <div class="col-lg-8 col-md-12">
+                                 <div class="col-sm-6 col-8">
                                     <h2 class="title">Asus computer</h2>
                                     <p class="text">This asus computer is the best for it's price!</p>
                                     <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -54,14 +54,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row border-bottom border-dark pb-3">
+                    </li>
+                    <li class="row border-bottom border-dark pb-3 mt-3">
                         <div class="col-lg-3 col-md-3">
-                            <img src="images/pc.jpg" class="card-img-top" alt="...">
+                            <img src="images/pc.jpg" class="card-img-top" alt="..." style="height:100%;">
                         </div>
                         <div class="col border-left border-dark">
                             <div class="row">
-                                <div class="col-lg-8 col-md-12">
+                                 <div class="col-sm-6 col-8">
                                     <h2 class="title">Asus computer</h2>
                                     <p class="text">This asus computer is the best for it's price!</p>
                                     <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -78,14 +78,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row border-bottom border-dark pb-3">
+                    </li>
+                    <li class="row border-bottom border-dark pb-3 mt-3">
                         <div class="col-lg-3 col-md-3">
-                            <img src="images/pc.jpg" class="card-img-top" alt="...">
+                            <img src="images/pc.jpg" class="card-img-top" alt="..." style="height:100%;">
                         </div>
                         <div class="col border-left border-dark">
                             <div class="row">
-                                <div class="col-lg-8 col-md-12">
+                                 <div class="col-sm-6 col-8">
                                     <h2 class="title">Asus computer</h2>
                                     <p class="text">This asus computer is the best for it's price!</p>
                                     <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -102,14 +102,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row border-bottom border-dark pb-3">
+                    </li>
+                    <li class="row border-bottom border-dark pb-3 mt-3">
                         <div class="col-lg-3 col-md-3">
-                            <img src="images/pc.jpg" class="card-img-top" alt="...">
+                            <img src="images/pc.jpg" class="card-img-top" alt="..." style="height:100%;">
                         </div>
                         <div class="col border-left border-dark">
                             <div class="row">
-                                <div class="col-lg-8 col-md-12">
+                                 <div class="col-sm-6 col-8">
                                     <h2 class="title">Asus computer</h2>
                                     <p class="text">This asus computer is the best for it's price!</p>
                                     <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -126,7 +126,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </li>
                 </ul>
             </div>
         </div>

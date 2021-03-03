@@ -6,7 +6,7 @@
 
         <div class="row">
 
-            <div class="d-flex flex-column justify-content-center col-2 text-center p-0" style="background-color:beige; height:100%;" id="similarProducts">
+            <div class="d-lg-flex flex-column justify-content-center col-2 text-center p-0 d-none" style="background-color:beige; height:100%;" id="similarProducts">
 
                 <h1 class="p-3 text-center fs-5 overflow-hidden">Similar Products</h1>
 
@@ -39,7 +39,7 @@
                     <!-- <h4 class="ps-5" id="productCategory">Videogame</h4> -->
                 </div>
                 <div class="row">
-                    <div class="col-7">
+                    <div class="col-lg-7 col-sm-12">
                         <div id="carouselProductImages" class="carousel carousel-dark slide" data-bs-interval="false" data-bs-touch="true">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselProductImages" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -67,7 +67,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col" id="ratingAndButtons">
                         <div class="row" style="height:20%;">
                             <div class="col" id="productRating">
                                 <span id="starRating">
