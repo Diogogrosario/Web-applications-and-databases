@@ -3,8 +3,8 @@
 
 <!-- <div class="col">
 </div> -->
-<div style="background-color:#f2f2f2">
-    <div id="userProfile" class="container col-md-7 p-5 shadow-sm" style="background-color:white">
+<div style="background-color:#f2f2f2;">
+    <div id="userProfile" class="container col-md-7 p-lg-5 p-3 shadow-sm" style="background-color:white">
         <div class="row">
             <div class="col-3">
                 <div id="profilePic" class="d-flex rounded-circle" style="height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(images/spidercat.png);background-position:center;background-size:cover;">
@@ -26,6 +26,7 @@
         <section id="profileInfo" class="row mt-5">
             <div class="col-lg-8 col-12">
                 <h2 class="mb-3">Account Info</h2>
+                <div class="table-responsive">
                 <table id="accountInfo" class="table">
                     <tbody>
                         <tr>
@@ -42,6 +43,7 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </div>
             <div class="col-lg-8 col-12 mt-4">
                 <h2 class="mb-3">Shipping Information</h2>
@@ -77,6 +79,8 @@
                     </tbody>
                 </table>
             </div>
+
+
         </section>
     </div>
 </div>

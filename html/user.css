@@ -1,3 +1,7 @@
 section#profileInfo td {
     text-align: end;
 }
+
+table#accountInfo.table td {
+    word-break: break-all;
+}
