@@ -19,16 +19,28 @@
                 </div>
             </div>
             
-            <div class="mt-3 col-lg-3 col-md-5 col-sm-6 col-12" id="categoryForm">
-                <label for="category" class="form-label">Category</label>
-                <select class="form-select" aria-label="Category" id="category">
-                    <option >...</option>
-                    <option value="1">Book</option>
-                    <option value="2">Videogame</option>
-                    <option value="3">Electrodomestic</option>
-                    <option value="4" selected>Computer</option>
-                    <option value="5">Smartphone</option>
-                </select>
+            <div class="row">
+                <div class="mt-3 col-lg-5 col-md-7 col-sm-12 col-12 d-flex flex-column justify-content-between" id="categoryImagesForm">
+                    <div id="categoryForm">
+                        <label for="category" class="form-label">Category</label>
+                        <select class="form-select" aria-label="Category" id="category">
+                            <option >...</option>
+                            <option value="1">Book</option>
+                            <option value="2">Videogame</option>
+                            <option value="3">Electrodomestic</option>
+                            <option value="4" selected>Computer</option>
+                            <option value="5">Smartphone</option>
+                        </select>
+                    </div>
+                    <div id="imagesForm" class="mt-3">
+                        <label for="formFileMultiple" class="form-label-sm">Images</label>
+                        <input class="form-control form-control-sm mt-2" type="file" id="formFileMultiple" multiple>
+                    </div>
+                </div>
+                
+                <div class="col pt-4">
+                    <img class="img-fluid" src="images/imagesForm.PNG">
+                </div>
             </div>
 
             <div class="mt-3" id="descriptionForm">
@@ -81,6 +93,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div id="itemFormSubmit" class="mt-5">
+                <button type="submit" class="btn btn-primary col-lg-5 col-md-8 col-sm-12">Submit New Product</button>
             </div>
         </form>
     </div>
