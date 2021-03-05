@@ -104,13 +104,13 @@
                 <div class="row mt-5">
                     <nav>
                         <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-                            <button class="nav-link active" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="true">Description</button>
+                            <button class="nav-link" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="false">Description</button>
                             <button class="nav-link" id="nav-details-tab" data-bs-toggle="tab" data-bs-target="#nav-details" type="button" role="tab" aria-controls="nav-details" aria-selected="false">Details</button>
-                            <button class="nav-link" id="nav-reviews-tab" data-bs-toggle="tab" data-bs-target="#nav-reviews" type="button" role="tab" aria-controls="nav-reviews" aria-selected="false">Reviews</button>
+                            <button class="nav-link active" id="nav-reviews-tab" data-bs-toggle="tab" data-bs-target="#nav-reviews" type="button" role="tab" aria-controls="nav-reviews" aria-selected="true">Reviews</button>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
+                        <div class="tab-pane fade" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
                             <section class="ps-5 pe-5" id="productDescription">
                                 <h3 class="text-start mt-4">Description</h3>
                                 <div class="mt-4 text-justify" id="descriptionText">
@@ -165,10 +165,54 @@
                             </section>
                             <!-- </div> -->
                         </div>
-                        <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
+                        <div class="tab-pane fade show active" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
                             <!-- <div class="col"> -->
-                            <section class="ps-5 pe-5" id="productReviews">
-                                <h3 class="text-start mt-4">Reviews</h3>
+                            <section class="ps-5 pe-5 col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1" id="reviewSection">
+                                <h3 class="text-start mt-4">Reviews <span class="fs-5" id="n_reviews">(2)</span></h3>
+                                <form class="mt-4 mb-5" id="newReviewForm">
+                                    <textarea required class="form-control" id="productDescription" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
+                                    <button type="submit" class="btn btn-dark btn-md col-md-6 col-lg-4 offset-md-3 offset-lg-4 col-12 mt-md-2">Submit your review</button>
+                                </form>
+                                <div class="mt-4" id="productReviews">
+                                    <div class="user_review border-bottom">
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1 col-2">
+                                                <div id="profilePic" class="d-flex rounded-circle" style="height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(images/spidercat.png);background-position:center;background-size:cover;">
+                                                </div>
+                                            </div>
+                                            <b class="col-lg-2 col-4 review_usermame">WaffleH</b>
+                                            <div class="col review_starRating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                                <i class="bi bi-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review_text mt-2 ms-2">
+                                            <p>The game is good and had some beautiful moments, but seriously lacks some polishing.</p>
+                                        </div>
+                                    </div>
+                                    <div class="user_review border-bottom mt-4">
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1 col-2">
+                                                <div id="profilePic" class="d-flex rounded-circle" style="height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(images/spidercat.png);background-position:center;background-size:cover;">
+                                                </div>
+                                            </div>
+                                            <b class="col-lg-2 col-4 review_usermame">WaffleH</b>
+                                            <div class="col review_starRating">
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-fill"></i>
+                                                <i class="bi bi-star-half"></i>
+                                                <i class="bi bi-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review_text mt-2 ms-2">
+                                            <p>The game is good and had some beautiful moments, but seriously lacks some polishing.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </section>
                             <!-- </div> -->
                         </div>
