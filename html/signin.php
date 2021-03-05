@@ -17,13 +17,15 @@
             <a href="#Forgot-password">Forgot password?</a>
         </div>
         <div style="text-align: center;">
+            <a href="./index.php">
             <button type="button" class="btn btn-primary" style="margin-top: 5%; font-size: 2em;">Sign in</button>
+            </a>
         </div>
         <div style="text-align: center;">
-            <p style="padding-top: 5%; margin-bottom: 0;">Don't have an account yet</p>
+            <p style="padding-top: 5%; margin-bottom: 0;">Don't have an account yet?</p>
         </div>
         <div style="text-align: center;  font-size: 1.3rem;">
-            <a href="#Sign-in">Sign up</p>
+            <a href="./signup.php">Sign up</p>
         </div>
     </div>
     <?php include_once('footer.html'); ?>
