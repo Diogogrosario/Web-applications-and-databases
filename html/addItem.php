@@ -4,7 +4,7 @@
 <div class="p-0" style="background-color:#f2f2f2">
     <div id="addItem" class="container col-lg-6 col-md-8 p-5 shadow-sm h-100" style="background-color:white">
         <h1 class="ps-2">Add Product</h1>
-        <form class="ps-4 pe-4">
+        <form class="ps-4 pe-4" action="./item.php">
             <div class="row mt-4">
                 <div class="col-8" id="nameForm">
                     <label for="productName" class="form-label">Name</label>

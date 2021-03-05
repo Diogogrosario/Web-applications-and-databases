@@ -10,6 +10,7 @@
 
                 <h1 class="p-3 text-center fs-5 overflow-hidden">Similar Products</h1>
 
+                <a class="item-card" href="./item.php">
                 <div class="card border-0 similarProductCard">
                     <div class="card-body ps-4 pe-3">
                         <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
@@ -17,6 +18,8 @@
                         <p class="card-text">Price.</p>
                     </div>
                 </div>
+                </a>
+                <a class="item-card" href="./item.php">
                 <div class="card border-0 similarProductCard">
                     <div class="card-body ps-4 pe-3">
                         <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
@@ -24,6 +27,8 @@
                         <p class="card-text">Price.</p>
                     </div>
                 </div>
+                </a>
+                <a class="item-card" href="./item.php">
                 <div class="card border-0 similarProductCard">
                     <div class="card-body ps-4 pe-3">
                         <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
@@ -31,6 +36,7 @@
                         <p class="card-text">Price.</p>
                     </div>
                 </div>
+                </a>
             </div>
 
             <div class="col pt-4">
