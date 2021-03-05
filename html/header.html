@@ -21,8 +21,10 @@
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapsableColumn" aria-controls="collapsableColumn" style="margin-right:2%;">
-                <i class="bi bi-list-task"></i>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCategories" aria-controls="navbarCategories" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="#">Fneuc</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -31,18 +33,18 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign in</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign up</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
+                <form class="d-flex mx-auto" style="margin-top:10px;" action="./searchResults.php">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="signin.php">Sign in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.php">Sign up</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>

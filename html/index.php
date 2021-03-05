@@ -31,202 +31,246 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                <p class="fs-1">PC</p>
+                <a class="category-text" href="searchResults.php">
+                    <p class="fs-1">PC</p>
+                </a>
                 <div class="row flex-row flex-nowrap">
                     <div class="d-flex flex-row flex-nowrap overflow-auto">
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
 
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
 
 
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
 
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <hr class="my-5" style="width:90%;margin-left:5%;">
-                <p class="fs-1">Phones</p>
+                <a class="category-text" href="searchResults.php">
+                    <p class="fs-1">Phones</p>
+                </a>
                 <div class="row flex-row flex-nowrap">
                     <div class="d-flex flex-row flex-nowrap overflow-auto">
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
 
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
 
 
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
 
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-2">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body">
-                                    <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <a class="item-card" href="./item.php">
+                                <div class="card border-0 border-right-1">
+                                    <div class="card-body">
+                                        <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>

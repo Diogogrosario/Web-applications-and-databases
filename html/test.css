@@ -45,3 +45,17 @@ main {
 .similarProductCard, .similarProductCard div {
     background: transparent;
 }
+
+h5.card-title {
+    font-weight: bold;
+}
+
+a.category-text{ 
+    text-decoration: none;
+    color: black;
+}
+
+a.item-card{ 
+    text-decoration: none;
+    color: black;
+}

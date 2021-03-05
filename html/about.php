@@ -8,10 +8,10 @@
             <a>In case you need some sort of help, here are some useful links:</a>
         </div>
         <div style=" font-size: 1.3rem; padding: 2%; grid-row: 3">
-            <a href="#faq">FAQ:</a>
+            <a href="./FAQ.php">FAQ:</a>
         </div>
         <div style=" font-size: 1.3rem; padding: 2%; grid-row: 4">
-            <a href="#contacts">Contacts/Locations:</a>
+            <a href="./contacts.php">Contacts/Locations:</a>
         </div>
     </div>
 
