@@ -15,7 +15,8 @@
                 <p class="fs-5">Account Balance:<span class="fs-4 ms-2" style="color:green;">20.00 €</span></p>
             </div>
             <div id="profileOptions" class="col-lg-4 col-md-12 col-sm-12">
-                <button type="button" class="btn btn-danger w-100 p-3 shadow rounded-0 rounded-top"><i class="bi bi-heart-fill me-2"></i>Wishlist</button>
+                <a href="./wishlist.php">
+                    <button type="button" class="btn btn-danger w-100 p-3 shadow rounded-0 rounded-top"><i class="bi bi-heart-fill me-2"></i>Wishlist</button></a>
                 <br>
 
                 <!-- Button trigger modal -->
@@ -53,7 +54,8 @@
 
 
                 <br>
-                <button type="button" class="btn btn-light w-100 p-3 shadow-sm rounded-0 rounded-bottom">Purchase History</button>
+                <a href="./purchaseHistory.php">
+                    <button type="button" class="btn btn-light w-100 p-3 shadow-sm rounded-0 rounded-bottom">Purchase History</button></a>
             </div>
         </div>
 
