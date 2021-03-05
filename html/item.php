@@ -6,7 +6,7 @@
 
         <div class="row">
 
-            <div class="d-lg-flex flex-column justify-content-center col-2 text-center p-0 d-none" style="background-color:beige; height:100%;" id="similarProducts">
+            <div class="d-lg-flex flex-column justify-content-center col-2 text-center p-0 d-none" style="background-color:lightgrey; height:100%;" id="similarProducts">
 
                 <h1 class="p-3 text-center fs-5 overflow-hidden">Similar Products</h1>
 
@@ -34,12 +34,12 @@
             </div>
 
             <div class="col pt-4">
-                <div class="row ps-5 pb-5 pt-2">
-                    <h1 id="productName">Cyberpunk 2077: Day One Edition</h1>
+                <div class="row ps-lg-5 pb-5 pt-2">
+                    <h1 id="productName" class="text-lg-start text-center">Cyberpunk 2077: Day One Edition</h1>
                     <!-- <h4 class="ps-5" id="productCategory">Videogame</h4> -->
                 </div>
                 <div class="row">
-                    <div class="col-lg-7 col-sm-12">
+                    <div class="col-lg-7 col-md-6">
                         <div id="carouselProductImages" class="carousel carousel-dark slide" data-bs-interval="false" data-bs-touch="true">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselProductImages" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -67,8 +67,8 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col" id="ratingAndButtons">
-                        <div class="row" style="height:20%;">
+                    <div class="col-lg-5 col-md-6 col-8 offset-2 offset-md-0 mt-md-0 mt-3" id="ratingAndButtons">
+                        <div class="row mb-3 text-md-start text-center">
                             <div class="col" id="productRating">
                                 <span id="starRating">
                                     <i class="bi bi-star-fill"></i>
@@ -80,14 +80,14 @@
                                 <span id="numReviews">102 Reviews</span>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col ps-3" id="buySection">
-                                <div class="ps-4" id="productPrice" style="color:red; font-size:3em;">
+                        <div class="row mb-3">
+                            <div class="col-lg-8 col-12 ps-md-3 pe-md-5" id="buySection">
+                                <div class="ps-lg-4 ps-md-0 text-lg-start text-center mb-3" id="productPrice" style="color:red; font-size:3em;">
                                     10.99 €
                                 </div>
-                                <button class="btn btn-success mt-4 w-50 rounded-0"><i class="bi bi-cart4"></i> Add to Cart</button>
-                                <br>
-                                <button class="btn btn-success mt-4 w-50 rounded-0"><i class="bi bi-heart"></i> Add to Wishlist</button>
+                                <div class="text-center fs-5 mb-1"><span style="color:green">22</span> in stock</div>
+                                <button class="btn btn-success w-100 btn-lg rounded-top rounded-0"><i class="bi bi-cart4"></i> Add to Cart</button>
+                                <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0"><i class="bi bi-heart"></i> Add to Wishlist</button>
                             </div>
                         </div>
                     </div>
@@ -125,10 +125,10 @@
                         <div class="tab-pane fade" id="nav-details" role="tabpanel" aria-labelledby="nav-details-tab">
                             <!-- <div class="col-7 text-center ps-5 pe-5"> -->
                             <section id="productDetails" class="row ps-5 pe-5 pt-3">
-                                <h3 class="text-center mt-3">Product Details</h3>
+                                <h3 class="text-center mt-3 mb-3">Product Details</h3>
 
-                                <div class="col-6" id="detailsTable_1">
-                                    <table class="table mt-3">
+                                <div class="col-md-6 col-sm-12" id="detailsTable_1">
+                                    <table class="table">
                                         <tbody>
                                             <tr>
                                                 <th scope="row">Release Date</th>
@@ -142,7 +142,7 @@
                                     </table>
                                 </div>
                                 <div class="col" id="detailsTable_2">
-                                    <table class="table mt-3" id="detailsTable2">
+                                    <table class="table" id="detailsTable2">
                                         <tbody>
                                             <tr>
                                                 <th scope="row">Age Restriction</th>

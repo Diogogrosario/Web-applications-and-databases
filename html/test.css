@@ -1,14 +1,4 @@
-@media (max-width: 991px) {
-    #ratingAndButtons
-    {
-        padding-top: 5%;
-        padding-left: 35%;
-    }
-    #productRating
-    {
-        padding-left: 5%;
-    }
-}
+
 
 body {
     font-family: 'Poppins', sans-serif;
