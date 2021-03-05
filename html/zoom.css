@@ -1,6 +1,7 @@
 .zoom {
     transition: transform .2s;
     margin: 0 auto;
+    max-width:100%;
 }
 
 .zoom:hover {

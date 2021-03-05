@@ -37,11 +37,13 @@
                 <div class="d-flex flex-row" id="itemsListMainPage">
                     <div class="col-lg-3 col-md-4 col-6">
                         <a class="item-card" href="./item.php">
-                            <div class="card border-0 border-right-1">
-                                <div class="card-body zoom" style="max-width:100%;">
-                                    <img src="images/pc.jpg" class="card-img-top" alt="images/pc.jpg">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Price.</p>
+                            <div class="card border-0 border-right-1 h-100">
+                                <div class="card-body d-flex flex-column zoom">
+                                    <img src="images/wantMoreSales.jpg" class="card-img-top" alt="images/pc.jpg">
+                                    <section id="itemInfo">
+                                        <h5 class="card-title ">Card title</h5>
+                                        <p class="card-text">Price.</p>
+                                    </section>
                                 </div>
                             </div>
                         </a>
