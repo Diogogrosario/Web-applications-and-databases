@@ -15,11 +15,13 @@
                 <p class="fs-5">Account Balance:<span class="fs-4 ms-2" style="color:green;">20.00 €</span></p>
             </div>
             <div id="profileOptions" class="col-lg-4 col-md-12 col-sm-12">
-                <button type="button" class="btn btn-danger w-100 p-3 shadow rounded-0 rounded-top"><i class="bi bi-heart-fill me-2"></i>Wishlist</button>
+                <a href="./wishlist.php">
+                    <button type="button" class="btn btn-danger w-100 p-3 shadow rounded-0 rounded-top"><i class="bi bi-heart-fill me-2"></i>Wishlist</button></a>
                 <br>
                 <button type="class" class="btn btn-dark w-100 p-3 shadow rounded-0">Add balance</button>
                 <br>
-                <button type="button" class="btn btn-light w-100 p-3 shadow-sm rounded-0 rounded-bottom">Purchase History</button>
+                <a href="./purchaseHistory.php">
+                    <button type="button" class="btn btn-light w-100 p-3 shadow-sm rounded-0 rounded-bottom">Purchase History</button></a>
             </div>
         </div>
 
@@ -27,26 +29,28 @@
             <div class="col-lg-8 col-12">
                 <h2 class="mb-3">Account Info</h2>
                 <div class="table-responsive">
-                <table id="accountInfo" class="table">
-                    <tbody>
-                        <tr>
-                            <th scope="row">Username</th>
-                            <td>WaffleH<button type="class" class="btn"><i class="bi bi-pencil-square"></i></button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Password</th>
-                            <td><button type="class" class="btn btn-dark">Change password</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">E-mail</th>
-                            <td>chingchonghanji@gmail.com<button type="class" class="btn"><i class="bi bi-pencil-square"></i></button></td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table id="accountInfo" class="table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Username</th>
+                                <td>WaffleH<button type="class" class="btn"><i class="bi bi-pencil-square"></i></button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Password</th>
+                                <td><button type="class" class="btn btn-dark">Change password</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">E-mail</th>
+                                <td>chingchonghanji@gmail.com<button type="class" class="btn"><i class="bi bi-pencil-square"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="col-lg-8 col-12 mt-4">
-                <div class="d-flex mb-2"><h2>Shipping Information</h2><button type="class" class="btn btn-lg ms-3 p-0"><i class="bi bi-pencil-square"></i></button></div>
+                <div class="d-flex mb-2">
+                    <h2>Shipping Information</h2><button type="class" class="btn btn-lg ms-3 p-0"><i class="bi bi-pencil-square"></i></button>
+                </div>
                 <table id="paymentInfo" class="table">
                     <tbody>
                         <tr>
@@ -65,7 +69,9 @@
                 </table>
             </div>
             <div class="col-lg-8 col-12 mt-4">
-            <div class="d-flex mb-2"><h2>Payment Information</h2><button type="class" class="btn btn-lg ms-3 p-0"><i class="bi bi-pencil-square"></i></button></div>
+                <div class="d-flex mb-2">
+                    <h2>Payment Information</h2><button type="class" class="btn btn-lg ms-3 p-0"><i class="bi bi-pencil-square"></i></button>
+                </div>
                 <table id="paymentInfo" class="table">
                     <tbody>
                         <tr>
