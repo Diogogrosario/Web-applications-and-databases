@@ -1,24 +1,23 @@
 <?php include_once('header.html'); ?>
 <?php include_once('sidebarItem.html'); ?>
 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"> <a href="./adminMainPage.php">Administration Area</a></li>
+        <li class="breadcrumb-item active">Manage Users</li>
+    </ol>
+</nav>
+
 <div class="col">
     <div class="container">
         <div class="offset-lg-3 col-lg-6 offset-lg-3">
             <div class="input-group p-3 justify-content-center">
                 <div class="input-group-prepend">
-                    <div class="dropdown">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-filter"></i>
-                                <div class="d-none d-lg-inline"> Select a filter
-                                </div>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Name</a></li>
-                                <li><a class="dropdown-item" href="#">User Name</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Select a filter </option>
+                        <option value="1">Name</option>
+                        <option value="2">User Name</option>
+                    </select>
                 </div>
                 <input type="text" class="form-control" aria-label="Text input with dropdown button">
             </div>
@@ -39,7 +38,9 @@
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">1</th>
                         <td>Mark</td>
-                        <td>Otto</td>
+                        <td>
+                             <a id="username-anchor"href="./user.php">Otto </a>
+                        </td>
                         <td class="d-none d-lg-table-cell">placeHolder@hotmail.com</td>
                         <td>
                             <button type="button" class="btn btn-danger"><i class="bi bi-person-x-fill"></i>
@@ -55,7 +56,9 @@
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">2</th>
                         <td>Jacob</td>
-                        <td>Thornton</td>
+                        <td>
+                             <a id="username-anchor"href="./user.php">Thornton </a>
+                        </td>
                         <td class="d-none d-lg-table-cell">placeHolder@hotmail.com</td>
                         <td>
                             <button type="button" class="btn btn-danger"><i class="bi bi-person-x-fill"></i>
@@ -65,12 +68,15 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">3</th>
                         <td>Larry</td>
-                        <td>the Bird</td>
+                        <td>
+                             <a id="username-anchor"href="./user.php">the Bird </a>
+                        </td>
                         <td class="d-none d-lg-table-cell">placeHolder@hotmail.com</td>
                         <td>
                             <button type="button" class="btn btn-danger"><i class="bi bi-person-x-fill"></i>
@@ -80,12 +86,15 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">4</th>
                         <td>Henrique</td>
-                        <td>Padoru</td>
+                        <td>
+                             <a id="username-anchor"href="./user.php">Padoru </a>
+                        </td>
                         <td class="d-none d-lg-table-cell">placeHolder@hotmail.com</td>
                         <td>
                             <button type="button" class="btn btn-danger"><i class="bi bi-person-x-fill"></i>
@@ -95,12 +104,15 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">5</th>
                         <td>Davide</td>
-                        <td>WaffleH</td>
+                        <td>
+                             <a id="username-anchor"href="./user.php">WaffleH </a>
+                        </td>
                         <td class="d-none d-lg-table-cell">placeHolder@hotmail.com</td>
                         <td>
                             <button type="button" class="btn btn-danger"><i class="bi bi-person-x-fill"></i>
@@ -110,12 +122,15 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">6</th>
                         <td>Diogo</td>
-                        <td>Ferno</td>
+                        <td>
+                             <a id="username-anchor"href="./user.php">Ferno </a>
+                        </td>
                         <td class="d-none d-lg-table-cell">placeHolder@hotmail.com</td>
                         <td>
                             <button type="button" class="btn btn-danger"><i class="bi bi-person-x-fill"></i>
@@ -125,12 +140,15 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">7</th>
                         <td>João</td>
-                        <td>Chalche</td>
+                        <td>
+                             <a id="username-anchor"href="./user.php">Chalche </a>
+                        </td>
                         <td class="d-none d-lg-table-cell">placeHolder@hotmail.com</td>
                         <td>
                             <button type="button" class="btn btn-danger"><i class="bi bi-person-x-fill"></i>
@@ -140,12 +158,15 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">8</th>
                         <td>João</td>
-                        <td>IraoDasForcas</td>
+                        <td>
+                             <a id="username-anchor"href="./user.php">IraoDasForcas </a>
+                        </td>
                         <td class="d-none d-lg-table-cell">placeHolder@hotmail.com</td>
                         <td>
                             <button type="button" class="btn btn-danger"><i class="bi bi-person-x-fill"></i>
@@ -155,12 +176,15 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">9</th>
                         <td>Eduardo</td>
-                        <td>Chequelo</td>
+                        <td>
+                             <a id="username-anchor"href="./user.php">Chequelo </a>
+                        </td>
                         <td class="d-none d-lg-table-cell">placeHolder@hotmail.com</td>
                         <td>
                             <button type="button" class="btn btn-danger"><i class="bi bi-person-x-fill"></i>
@@ -170,7 +194,8 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
