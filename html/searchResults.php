@@ -32,9 +32,36 @@
                                             <span class="title">20% off!</span>
                                         </small>
                                     </div>
+
                                     <div class="d-flex justify-content-center">
-                                        <button type="button" class="btn btn-success">Add to cart!</button>
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#balanceModal">
+                                            Add to cart!
+                                        </button>
                                     </div>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="balanceModal" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="balanceModalLabel">Add balance to account</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <label for="recipient-name" class="col-form-label"> Quantity of items?</label>
+                                                        <input type="number" class="form-control" id="recipient-name" placeholder="Amount">
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Add to cart</button>
+                                                    <button type="button" class="btn btn-primary">Add to cart and checkout</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -61,7 +88,34 @@
                                         <span class="title fs-2">2000€ </span>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <button type="button" class="btn btn-success">Add to cart!</button>
+                                        <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#balanceModal">
+                                            Add to cart!
+                                        </button>
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="balanceModal" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="balanceModalLabel">Add balance to account</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <label for="recipient-name" class="col-form-label"> Quantity of items?</label>
+                                                        <input type="number" class="form-control" id="recipient-name" placeholder="Amount">
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Add to cart</button>
+                                                    <button type="button" class="btn btn-primary">Add to cart and checkout</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +143,34 @@
                                         <span class="title fs-2">59€ </span>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <button type="button" class="btn btn-success">Add to cart!</button>
+                                        <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#balanceModal">
+                                            Add to cart!
+                                        </button>
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="balanceModal" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="balanceModalLabel">Add balance to account</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <label for="recipient-name" class="col-form-label"> Quantity of items?</label>
+                                                        <input type="number" class="form-control" id="recipient-name" placeholder="Amount">
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Add to cart</button>
+                                                    <button type="button" class="btn btn-primary">Add to cart and checkout</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
