@@ -22,7 +22,7 @@
                                     <b class="text-center fs-5" style="color: red"><span class="historyPrice">230.99</span> €</b>
                                 </div>
                                 <div class="col-lg-3 col-sm-1 d-flex flex-column justify-content-center historyDate text-center fs-5">
-                                    22/02/2021
+                                    21/02/2021
                                 </div>
                             </div>
                         </div>
