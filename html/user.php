@@ -85,7 +85,7 @@
                 <div class="d-flex mb-2">
                     <h2>Shipping Information</h2><button type="class" class="btn btn-lg ms-3 p-0"><i class="bi bi-pencil-square"></i></button>
                 </div>
-                <table id="paymentInfo" class="table">
+                <table id="shippingInfo" class="table">
                     <tbody>
                         <tr>
                             <th scope="row">Address</th>
