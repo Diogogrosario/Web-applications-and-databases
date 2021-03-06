@@ -28,7 +28,31 @@
                 </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">
+                <div class="tab-pane fade p-lg-4 p-1" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">
+                    <div class="row border-bottom pb-3 vh-50">
+                        <div class="col-lg-1 ps-3 align-self-center fs-5">
+                            1 x
+                        </div>
+                        <div class="col-lg-2 col-md-2">
+                            <a class="link-dark" href="#"><img src="images/computers/lenovoPc.jpg" class="card-img-top img-fluid" alt="..."></a>
+                        </div>
+                        <div class="col-7 border-left border-dark">
+                            <div class="row mt-lg-0 mt-3">
+                                <div class="col-12 ps-lg-0 ps-4">
+                                    <h5 class="title"><a class="link-dark" href="#">Lenovo Laptop Y-5634</a></h5>
+                                    <p class="text">This Lenovo laptop is the best for it's price, and it won't even heat up on your lap!</p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col d-flex flex-column justify-content-center text-center">
+                            <p><span class="title fs-5">299.99</span> €</p>
+                        </div>
+                    </div>
+                    <div class="row pt-3">
+                        <div class="col-lg-10 col-12 d-flex flex-column justify-content-center text-lg-end text-center pe-lg-5 fs-5">Total (w/ IVA):</div> 
+                        <div class="col-lg-2 col-12 fs-4 text-center">299.99€</div>
+                    </div>
                     <footer class="text-end mt-5 row">
                         <button type="button" class="btn btn-success offset-lg-9 col-lg-3 col-12">Proceed to Addresses <i class="bi bi-arrow-right-circle"></i></button>
                     </footer>
