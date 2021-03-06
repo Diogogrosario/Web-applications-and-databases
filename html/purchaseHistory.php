@@ -14,9 +14,9 @@
                             <div class="row ps-2">
                                 <div class="col-lg-5 col-sm-2">
                                     <!-- TODO: MUDAR DE LISTA PARA OUTRA COISA POR CAUSA DE BACKGROUND QUANDO SELECIONADO-->
-                                        <p class="border-0 pt-0 pb-0 mb-1">Asus Computer</p>
-                                        <p class="border-0 pt-0 pb-0 mb-1">Second Product</p>
-                                        <p class="border-0 pt-0 pb-0 mb-1">Third Product</p>
+                                    <p class="border-0 pt-0 pb-0 mb-1">Asus Computer</p>
+                                    <p class="border-0 pt-0 pb-0 mb-1">Second Product</p>
+                                    <p class="border-0 pt-0 pb-0 mb-1">Third Product</p>
                                 </div>
                                 <div class="col-lg-3 col-sm-1 d-flex flex-column justify-content-center">
                                     <b class="text-center fs-5" style="color: red"><span class="historyPrice">230.99</span> €</b>
@@ -43,7 +43,7 @@
                                         <h3 class="title">Asus computer</h3>
                                         <p class="text">This asus computer is the best for it's price!</p>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div class="col d-flex flex-column justify-content-center text-center">
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <div class="row pt-3">
-                            <div class="col-lg-10 col-3 d-flex flex-column justify-content-center text-lg-end text-center pe-lg-5 fs-5">Total:</div> 
+                            <div class="col-lg-10 col-3 d-flex flex-column justify-content-center text-lg-end text-center pe-lg-5 fs-5">Total:</div>
                             <div class="col-lg-2 col-9 fs-4 text-center">299.99€</div>
                         </div>
                     </div>
@@ -94,17 +94,17 @@
         <nav aria-label="Purchase history navigation" class="sticky-bottom">
             <ul class="pagination">
                 <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
                 </li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
                 </li>
             </ul>
         </nav>

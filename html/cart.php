@@ -13,8 +13,11 @@
                 <h5 class="card-title" style="display: inline;">Card title</h5>
                 <h5 class="card-text float-end fs-3 mb-0" style="padding-right: 5%">x25</h5>
                 <p class="card-text">Some quick example text to i i i i iiiiiiiiiiiiiiiiiiii build on the card i xd.</p>
-                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i> <p class="d-sm-inline d-none">Remove from cart</p></a>
-                <p class="d-inline float-end card-text fs-3">€</p><p class="d-inline card-text float-end fs-3">1999000.99</p>
+                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i>
+                    <p class="d-sm-inline d-none">Remove from cart</p>
+                </a>
+                <p class="d-inline float-end card-text fs-3">€</p>
+                <p class="d-inline card-text float-end fs-3">1999000.99</p>
             </div>
         </div>
         <div class="card m-1 mx-sm-4">
@@ -22,40 +25,59 @@
                 <h5 class="card-title" style="display: inline;">Card title</h5>
                 <h5 class="card-text float-end fs-3 mb-0" style="padding-right: 5%">x25</h5>
                 <p class="card-text">Some quick example text to i i i i iiiiiiiiiiiiiiiiiiii build on the card i xd.</p>
-                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i> <p class="d-sm-inline d-none">Remove from cart</p></a>
-                <p class="d-inline float-end card-text fs-3">€</p><p class="d-inline card-text float-end fs-3">1999000.99</p>
+                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i>
+                    <p class="d-sm-inline d-none">Remove from cart</p>
+                </a>
+                <p class="d-inline float-end card-text fs-3">€</p>
+                <p class="d-inline card-text float-end fs-3">1999000.99</p>
             </div>
-        </div><div class="card m-1 mx-sm-4">
+        </div>
+        <div class="card m-1 mx-sm-4">
             <div class="card-body p-1 p-sm-3">
                 <h5 class="card-title" style="display: inline;">Card title</h5>
                 <h5 class="card-text float-end fs-3 mb-0" style="padding-right: 5%">x25</h5>
                 <p class="card-text">Some quick example text to i i i i iiiiiiiiiiiiiiiiiiii build on the card i xd.</p>
-                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i> <p class="d-sm-inline d-none">Remove from cart</p></a>
-                <p class="d-inline float-end card-text fs-3">€</p><p class="d-inline card-text float-end fs-3">1999000.99</p>
+                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i>
+                    <p class="d-sm-inline d-none">Remove from cart</p>
+                </a>
+                <p class="d-inline float-end card-text fs-3">€</p>
+                <p class="d-inline card-text float-end fs-3">1999000.99</p>
             </div>
-        </div><div class="card m-1 mx-sm-4">
+        </div>
+        <div class="card m-1 mx-sm-4">
             <div class="card-body p-1 p-sm-3">
                 <h5 class="card-title" style="display: inline;">Card title</h5>
                 <h5 class="card-text float-end fs-3 mb-0" style="padding-right: 5%">x25</h5>
                 <p class="card-text">Some quick example text to i i i i iiiiiiiiiiiiiiiiiiii build on the card i xd.</p>
-                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i> <p class="d-sm-inline d-none">Remove from cart</p></a>
-                <p class="d-inline float-end card-text fs-3">€</p><p class="d-inline card-text float-end fs-3">1999000.99</p>
+                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i>
+                    <p class="d-sm-inline d-none">Remove from cart</p>
+                </a>
+                <p class="d-inline float-end card-text fs-3">€</p>
+                <p class="d-inline card-text float-end fs-3">1999000.99</p>
             </div>
-        </div><div class="card m-1 mx-sm-4">
+        </div>
+        <div class="card m-1 mx-sm-4">
             <div class="card-body p-1 p-sm-3">
                 <h5 class="card-title" style="display: inline;">Card title</h5>
                 <h5 class="card-text float-end fs-3 mb-0" style="padding-right: 5%">x25</h5>
                 <p class="card-text">Some quick example text to i i i i iiiiiiiiiiiiiiiiiiii build on the card i xd.</p>
-                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i> <p class="d-sm-inline d-none">Remove from cart</p></a>
-                <p class="d-inline float-end card-text fs-3">€</p><p class="d-inline card-text float-end fs-3">1999000.99</p>
+                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i>
+                    <p class="d-sm-inline d-none">Remove from cart</p>
+                </a>
+                <p class="d-inline float-end card-text fs-3">€</p>
+                <p class="d-inline card-text float-end fs-3">1999000.99</p>
             </div>
-        </div><div class="card m-1 mx-sm-4">
+        </div>
+        <div class="card m-1 mx-sm-4">
             <div class="card-body p-1 p-sm-3">
                 <h5 class="card-title" style="display: inline;">Card title</h5>
                 <h5 class="card-text float-end fs-3 mb-0" style="padding-right: 5%">x25</h5>
                 <p class="card-text">Some quick example text to i i i i iiiiiiiiiiiiiiiiiiii build on the card i xd.</p>
-                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i> <p class="d-sm-inline d-none">Remove from cart</p></a>
-                <p class="d-inline float-end card-text fs-3">€</p><p class="d-inline card-text float-end fs-3">1999000.99</p>
+                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i>
+                    <p class="d-sm-inline d-none">Remove from cart</p>
+                </a>
+                <p class="d-inline float-end card-text fs-3">€</p>
+                <p class="d-inline card-text float-end fs-3">1999000.99</p>
             </div>
         </div>
     </div>
@@ -68,6 +90,6 @@
         <button type="button" class="btn btn-success btn-lg w-50">Buy all</button>
     </div>
 </section>
-    
+
 
 <?php include_once('footer.html'); ?>

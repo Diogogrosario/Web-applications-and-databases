@@ -57,7 +57,8 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">3</th>
@@ -72,7 +73,8 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">4</th>
@@ -87,7 +89,8 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">5</th>
@@ -102,7 +105,8 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">6</th>
@@ -117,7 +121,8 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">7</th>
@@ -132,7 +137,8 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">8</th>
@@ -147,7 +153,8 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row" class="d-none d-lg-table-cell">9</th>
@@ -162,7 +169,8 @@
                             <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
-                            </button> </td>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
