@@ -29,29 +29,33 @@
             </ul>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade p-lg-4 p-1" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">
-                    <div class="row border-bottom pb-3 vh-50">
-                        <div class="col-lg-1 ps-3 align-self-center fs-5">
-                            1 x
-                        </div>
-                        <div class="col-lg-2 col-md-2">
-                            <a class="link-dark" href="#"><img src="images/computers/lenovoPc.jpg" class="card-img-top img-fluid" alt="..."></a>
-                        </div>
-                        <div class="col-7 border-left border-dark">
-                            <div class="row mt-lg-0 mt-3">
-                                <div class="col-12 ps-lg-0 ps-4">
-                                    <h5 class="title"><a class="link-dark" href="#">Lenovo Laptop Y-5634</a></h5>
-                                    <p class="text">This Lenovo laptop is the best for it's price, and it won't even heat up on your lap!</p>
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item p-0 row pb-3">
+                            <div class="row">
+                                <div class="col-lg-1 col-3 ps-3 align-self-center text-center fs-5">
+                                    1 x
                                 </div>
-                                
+                                <div class="col-lg-2 col-9">
+                                    <a class="link-dark" href="#"><img src="images/computers/lenovoPc.jpg" class="img-fluid" alt="..."></a>
+                                </div>
+                                <div class="col-lg-7 col-12 border-left border-dark">
+                                    <div class="row mt-lg-0 mt-3">
+                                        <div class="col-12 ps-lg-0 ps-4">
+                                            <h5 class="title"><a class="link-dark" href="#">Lenovo Laptop Y-5634</a></h5>
+                                            <p class="text">This Lenovo laptop is the best for it's price, and it won't even heat up on your lap!</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col d-flex flex-column justify-content-center text-center">
+                                    <p><span class="title fs-5">299.99</span> €</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col d-flex flex-column justify-content-center text-center">
-                            <p><span class="title fs-5">299.99</span> €</p>
+                        <div class="row pt-3">
+                            <div class="col-lg-10 col-12 d-flex flex-column justify-content-center text-lg-end text-center pe-lg-5 fs-5">Total (w/ IVA):</div>
+                            <div class="col-lg-2 col-12 fs-4 text-center">299.99€</div>
                         </div>
-                    </div>
-                    <div class="row pt-3">
-                        <div class="col-lg-10 col-12 d-flex flex-column justify-content-center text-lg-end text-center pe-lg-5 fs-5">Total (w/ IVA):</div> 
-                        <div class="col-lg-2 col-12 fs-4 text-center">299.99€</div>
                     </div>
                     <footer class="text-end mt-5 row">
                         <button type="button" class="btn btn-success offset-lg-9 col-lg-3 col-12">Proceed to Addresses <i class="bi bi-arrow-right-circle"></i></button>
@@ -89,13 +93,13 @@
                             <h4 class="text-center mb-4">Shipping Address</h4>
                             <div class="row mt-4">
                                 <div class="form-check text-md-start text-center col-lg-6">
-                                    <input class="form-check-input" type="checkbox" value="" id="useDefinedShipping">
+                                    <input class="form-check-input" type="radio" name="shippingAddress" id="shippindAddressDefines">
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Use previously defined shipping address
                                     </label>
                                 </div>
                                 <div class="form-check text-md-start text-center col-lg-6">
-                                    <input class="form-check-input" type="checkbox" value="" id="shippingEqualBilling">
+                                    <input class="form-check-input" type="radio" name="shippingAddress" id="shippingEqualBilling">
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Use my billing address as my shipping address
                                     </label>
@@ -184,8 +188,38 @@
                         </footer>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
+                <div class="tab-pane fade p-lg-4 p-1" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item p-0 row pb-3">
+                            <div class="row">
+                                <div class="col-lg-1 col-3 ps-3 align-self-center text-center fs-5">
+                                    1 x
+                                </div>
+                                <div class="col-lg-2 col-9">
+                                    <a class="link-dark" href="#"><img src="images/computers/lenovoPc.jpg" class="img-fluid" alt="..."></a>
+                                </div>
+                                <div class="col-lg-7 col-12 border-left border-dark">
+                                    <div class="row mt-lg-0 mt-3">
+                                        <div class="col-12 ps-lg-0 ps-4">
+                                            <h5 class="title"><a class="link-dark" href="#">Lenovo Laptop Y-5634</a></h5>
+                                            <p class="text">This Lenovo laptop is the best for it's price, and it won't even heat up on your lap!</p>
+                                        </div>
 
+                                    </div>
+                                </div>
+                                <div class="col d-flex flex-column justify-content-center text-center">
+                                    <p><span class="title fs-5">299.99</span> €</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col-lg-10 col-12 d-flex flex-column justify-content-center text-lg-end text-center pe-lg-5 fs-5">Total (w/ IVA):</div>
+                            <div class="col-lg-2 col-12 fs-4 text-center">299.99€</div>
+                        </div>
+                    </div>
+                    <footer class="text-end mt-5 row">
+                        <button type="button" class="btn btn-success offset-lg-9 col-lg-3 col-12">Proceed to Addresses <i class="bi bi-arrow-right-circle"></i></button>
+                    </footer>
                 </div>
             </div>
         </form>
