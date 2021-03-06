@@ -1,4 +1,6 @@
 <?php include_once('header.html'); ?>
+<?php include_once('sidebarItem.html'); ?>
+
 <div class="d-block">
     <div class="offset-md-5 mb-5">
         <b class="fs-1">About us</b> 
