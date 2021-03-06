@@ -4,8 +4,16 @@
   } 
 }
 
+#cartScrollElem{
+    max-height: 75vh;
+}
+
   /* Hide scrollbar for IE, Edge and Firefox */
 @media (max-width:576px){ #cartScrollElem {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+
+    /*Reduce contents window slightly on this size*/
+    max-height: 67vh;
+
 }}
