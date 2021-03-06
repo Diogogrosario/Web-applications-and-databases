@@ -1,15 +1,14 @@
+<?php include_once('header.html'); ?>
 
-    <?php include_once('header.html');?>
 
-    
-    <?php include_once('sidebarItem.html');?>
+<?php include_once('sidebarItem.html'); ?>
 
 <!-- Form -->
 <div>
     <div style="text-align: center; padding-top: 7%; font-size: 2.2em">
         <b>Account info</b>
     </div>
-    <div  style="margin: auto; width: 80%; padding-top: 3%; font-size: 1.2rem;">
+    <div style="margin: auto; width: 80%; padding-top: 3%; font-size: 1.2rem;">
         <label style="padding-bottom: 1%;" for="formGroupExampleInput" class="form-label"><b>E-mail</b></label>
         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="e-mail">
     </div>
