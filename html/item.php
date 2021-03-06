@@ -11,31 +11,37 @@
                 <h1 class="p-3 text-center fs-5 overflow-hidden">Similar Products</h1>
 
                 <a class="item-card" href="./item.php">
-                <div class="card border-0 similarProductCard">
-                    <div class="card-body ps-4 pe-3">
-                        <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Price.</p>
+                    <div class="card border-0 similarProductCard">
+                        <div class="card-body ps-4 pe-3">
+                            <img src="images/computers/alarcoGamingPc.jpg" class="card-img-top" alt="Alarco Gaming Pc">
+                            <section id="itemInfo">
+                                <h5 class="card-title">Alarco Gaming Pc</h5>
+                                <p class="card-text">150€</p>
+                            </section>
+                        </div>
                     </div>
-                </div>
                 </a>
                 <a class="item-card" href="./item.php">
-                <div class="card border-0 similarProductCard">
-                    <div class="card-body ps-4 pe-3">
-                        <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Price.</p>
+                    <div class="card border-0 similarProductCard">
+                        <div class="card-body ps-4 pe-3">
+                            <img src="images/computers/asusRog.jpg" class="card-img-top" alt="Asus Rog">
+                            <section id="itemInfo">
+                                <h5 class="card-title">Asus Rog</h5>
+                                <p class="card-text">2000€.</p>
+                            </section>
+                        </div>
                     </div>
-                </div>
                 </a>
                 <a class="item-card" href="./item.php">
-                <div class="card border-0 similarProductCard">
-                    <div class="card-body ps-4 pe-3">
-                        <img src="images/phone.jpg" class="card-img-top" alt="images/phone.jpg">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Price.</p>
+                    <div class="card border-0 similarProductCard">
+                        <div class="card-body ps-4 pe-3">
+                            <img src="images/phones/razerPhone.jpg" class="card-img-top" alt="Razer Phone">
+                            <section id="itemInfo">
+                                <h5 class="card-title">Razer Phone</h5>
+                                <p class="card-text">700€</p>
+                            </section>
+                        </div>
                     </div>
-                </div>
                 </a>
             </div>
 

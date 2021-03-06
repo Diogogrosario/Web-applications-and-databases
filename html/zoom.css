@@ -16,3 +16,11 @@
     overflow-x: auto;
     overflow-y: hidden;
 }
+
+.zoom .card-img-top
+{
+    flex-shrink:0;
+    -webkit-flex-shrink: 0;
+    width:auto;
+    max-height:200px;
+}
