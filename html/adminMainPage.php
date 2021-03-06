@@ -10,10 +10,10 @@
             <a>In case you need some sort of help, here are some useful links:</a>
         </div>
         <div class="text-center fs-4">
-            <a href="./administration.php">Manage users</a>
+            <a href="./userAdministration.php">Manage users</a>
         </div>
         <div class="text-center fs-4">
-            <a href="#contacts">Add an item</a>
+            <a href="./addItem.php">Add an item</a>
         </div>
     </div>
 
