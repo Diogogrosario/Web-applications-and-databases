@@ -122,15 +122,15 @@
                                 <div class="mt-4 text-justify" id="descriptionText">
                                     <p>Cyberpunk 2077 é uma história de ação/aventura no mundo aberto de Night City, uma megalópole obcecada com poder, glamour e alterações de corpos. Aqui serás V, um mercenário exilado que persegue um implante essencial para obter a imortalidade. Poderás personalizar o cyberware, habilidades e estilo da tua personagem e explorar uma vasta cidade onde as escolhas que tomares irão moldar a história e o mundo que te rodeia. </P>
                                     <P>JOGA COMO UM MERCENÁRIO EXILADO
-                                        <P>Transforma-te num cyberpunk, um mercenário urbano equipado com acessório cibernéticos, e cria a tua lenda nas ruas de Night City.
-                                            <P>VIVE NA CIDADE DO FUTURO
-                                                <P>Entra num enorme mundo aberto de Night City, um local com visuais, complexidades e profundidades inéditas.
-                                                    <P>ROUBA O IMPLANTE E OBTÉM A VIDA ETERNA
-                                                        <P>Aceita a missão mais arriscada da tua vida e procura o implante essencial para obter a imortalidade.
-                                                            <P>O jogo inclui os seguintes itens físicos:
-                                                                <P>- Caixa com CD de jogos <BR>- Capa reversível <BR>- Compêndio do Mundo com informações sobre o cenário e os ritos do jogo <BR>- Postais de Night City <BR>- Mapa de Night City <BR>- Autocolantes </P>
-                                                                <P>Brindes digitais incluídos:
-                                                                    <P>- Banda sonora do jogo <BR>- Minilivro de arte com uma seleção de arte do jogo <BR>- Banda desenhada Digital “Cyberpunk 2077:Your voice" <BR>- Sourcebook Cyberpunk de 2020 <BR>- Papeis de parede para computador e telemóvel </P>
+                                    <P>Transforma-te num cyberpunk, um mercenário urbano equipado com acessório cibernéticos, e cria a tua lenda nas ruas de Night City.
+                                    <P>VIVE NA CIDADE DO FUTURO
+                                    <P>Entra num enorme mundo aberto de Night City, um local com visuais, complexidades e profundidades inéditas.
+                                    <P>ROUBA O IMPLANTE E OBTÉM A VIDA ETERNA
+                                    <P>Aceita a missão mais arriscada da tua vida e procura o implante essencial para obter a imortalidade.
+                                    <P>O jogo inclui os seguintes itens físicos:
+                                    <P>- Caixa com CD de jogos <BR>- Capa reversível <BR>- Compêndio do Mundo com informações sobre o cenário e os ritos do jogo <BR>- Postais de Night City <BR>- Mapa de Night City <BR>- Autocolantes </P>
+                                    <P>Brindes digitais incluídos:
+                                    <P>- Banda sonora do jogo <BR>- Minilivro de arte com uma seleção de arte do jogo <BR>- Banda desenhada Digital “Cyberpunk 2077:Your voice" <BR>- Sourcebook Cyberpunk de 2020 <BR>- Papeis de parede para computador e telemóvel </P>
                                 </div>
                             </section>
                         </div>

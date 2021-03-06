@@ -1,4 +1,5 @@
 <?php include_once('header.html'); ?>
+<?php include_once('sidebarItem.html'); ?>
 
 <div style="text-align: center; font-size: 2.5rem; grid-row: 1; margin-bottom: 2rem;">
     <b>FAQ</b>
