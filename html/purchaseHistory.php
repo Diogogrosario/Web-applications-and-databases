@@ -12,16 +12,16 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                         <div class="container-fluid">
                             <div class="row ps-2">
-                                <div class="col-lg-5 col-sm-2">
+                                <div class="col-lg-5 col-sm-2 pb-1 pt-1">
                                     <!-- TODO: MUDAR DE LISTA PARA OUTRA COISA POR CAUSA DE BACKGROUND QUANDO SELECIONADO-->
                                     <p class="border-0 pt-0 pb-0 mb-1">Asus Computer</p>
                                     <p class="border-0 pt-0 pb-0 mb-1">Second Product</p>
                                     <p class="border-0 pt-0 pb-0 mb-1">Third Product</p>
                                 </div>
-                                <div class="col-lg-3 col-sm-1 d-flex flex-column justify-content-center">
+                                <div class="col-lg-3 col-sm-1 pb-1 pt-1 d-flex flex-column justify-content-center">
                                     <b class="text-center fs-5" style="color: red"><span class="historyPrice">230.99</span> €</b>
                                 </div>
-                                <div class="col-lg-3 col-sm-1 d-flex flex-column justify-content-center historyDate text-center fs-5">
+                                <div class="col-lg-3 col-sm-1 d-flex pb-1 pt-1 flex-column justify-content-center historyDate text-center fs-5">
                                     22/02/2021
                                 </div>
                             </div>
@@ -58,12 +58,20 @@
                 </div>
             </div>
             <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-9">Davide<br>Henrique<br>João</div>
-                                <div class="col">23/02/2021<br><br>76345678.99€</div>
+            <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <div class="container-fluid">
+                            <div class="row ps-2">
+                                <div class="col-lg-5 col-sm-2 pb-1 pt-1">
+                                    <!-- TODO: MUDAR DE LISTA PARA OUTRA COISA POR CAUSA DE BACKGROUND QUANDO SELECIONADO-->
+                                    <p class="border-0 pt-0 pb-0 mb-1">Asus Computer</p>
+                                </div>
+                                <div class="col-lg-3 col-sm-1 pb-1 pt-1 d-flex flex-column justify-content-center">
+                                    <b class="text-center fs-5" style="color: red"><span class="historyPrice">230.99</span> €</b>
+                                </div>
+                                <div class="col-lg-3 col-sm-1 d-flex pb-1 pt-1 flex-column justify-content-center historyDate text-center fs-5">
+                                    22/02/2021
+                                </div>
                             </div>
                         </div>
                     </button>
@@ -74,12 +82,21 @@
                 </div>
             </div>
             <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-9">Shrek<br>Cyberpunk 2020<br>Minecraft Premium Edition</div>
-                                <div class="col">24/02/2021<br><br>11111.11€</div>
+            <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <div class="container-fluid">
+                            <div class="row ps-2">
+                                <div class="col-lg-5 col-sm-2 pb-1 pt-1">
+                                    <!-- TODO: MUDAR DE LISTA PARA OUTRA COISA POR CAUSA DE BACKGROUND QUANDO SELECIONADO-->
+                                    <p class="border-0 pt-0 pb-0 mb-1">Second Product</p>
+                                    <p class="border-0 pt-0 pb-0 mb-1">Third Product</p>
+                                </div>
+                                <div class="col-lg-3 col-sm-1 pb-1 pt-1 d-flex flex-column justify-content-center">
+                                    <b class="text-center fs-5" style="color: red"><span class="historyPrice">230.99</span> €</b>
+                                </div>
+                                <div class="col-lg-3 col-sm-1 d-flex pb-1 pt-1 flex-column justify-content-center historyDate text-center fs-5">
+                                    22/02/2021
+                                </div>
                             </div>
                         </div>
                     </button>

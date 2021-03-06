@@ -1,8 +1,17 @@
 <?php include_once('header.html'); ?>
 <?php include_once('sidebarItem.html'); ?>
 
+
+
 <div class="p-0" style="background-color:#f2f2f2">
+    <nav aria-label="breadcrumb ms-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./adminMainPage.php">Administration Area</a></li>
+            <li class="breadcrumb-item active">Add a new item</li>
+        </ol>
+    </nav>
     <div id="addItem" class="container col-lg-6 col-md-8 p-5 shadow-sm h-100" style="background-color:white">
+
         <h1 class="ps-2">Add Product</h1>
         <form class="ps-4 pe-4" action="./item.php">
             <div class="row mt-4">
