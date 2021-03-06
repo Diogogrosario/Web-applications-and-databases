@@ -1,0 +1,13 @@
+#searchResultItemImage
+{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    max-height:150px !important;
+    width:auto !important;
+}
+
+ul#itemsList li:not(:last-child)
+{
+    border-bottom: solid 2px grey;
+}
+
