@@ -1,5 +1,5 @@
-<div class="col-lg-2 col-md-4 col-6 collapse" id="collapsableColumn">
-    <div class="accordion" id="accordionExample">
+<div class="col-lg-2 col-md-4 col-6 collapse p-0" id="collapsableColumn">
+    <div class="accordion" id="filterSideBar">
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -8,7 +8,7 @@
                 </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                data-bs-parent="#accordionExample">
+                data-bs-parent="#filterSideBar">
                 <div class="accordion-body">
                     <ul class="list-group">
                         <li class="list-group-item">
@@ -31,18 +31,25 @@
             <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Accordion Item #2
+                    Categories
                 </button>
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the
-                    collapse plugin adds the appropriate classes that we use to style each element. These classes
-                    control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                    modify any of this with custom CSS or overriding our default variables. It's also worth noting that
-                    just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
-                    overflow.
+                data-bs-parent="#filterSideBar">
+                <div class="accordion-body p-0">
+                    <div class="list-group h-100">
+                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Computers</a>
+                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Books</a>
+                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Televisions</a>
+                        <a href="./searchResults.php" class="list-group-item list-group-item-action">DVDs</a>
+                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Computer Games</a>
+                        <a href="./searchResults.php" class="list-group-item list-group-item-action">MP4</a>
+                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Disk Readers</a>
+                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Pens</a>
+                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Headphones</a>
+                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Speakers</a>
+                        <a href="./searchResults.php" class="list-group-item list-group-item-action">School Material</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -50,18 +57,37 @@
             <h2 class="accordion-header" id="headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Accordion Item #3
+                    Reviews
                 </button>
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                data-bs-parent="#accordionExample">
+                data-bs-parent="#filterSideBar">
                 <div class="accordion-body">
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                    collapse plugin adds the appropriate classes that we use to style each element. These classes
-                    control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                    modify any of this with custom CSS or overriding our default variables. It's also worth noting that
-                    just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
-                    overflow.
+                    <div class="list-group h-100">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" id="5starFilter">
+                                <label for="5starFilter"> 5 star</label><br>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" id="4starFilter">
+                                <label for="4starFilter"> 4 star</label><br>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" id="3starFilter">
+                                <label for="3starFilter"> 3 star</label><br>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" id="2starFilter">
+                                <label for="2starFilter"> 2 star</label><br>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" id="1starFilter">
+                                <label for="1starFilter"> 1 star</label><br>
+                                
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
