@@ -1,4 +1,4 @@
-<?php include_once('mainPageHeader.html'); ?>
+<?php include_once('mainPageHeader.php'); ?>
 <?php include_once('sidebarIndex.html'); ?>
 
 <div class="col-lg-10 col pe-0">

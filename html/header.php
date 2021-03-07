@@ -24,6 +24,10 @@
 
 <body>
 
+    <?php
+        $logged_in = false;
+    ?>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top pb-lg-2 pb-0">
         <div class="container-fluid">
             <button class="btn btn-lg ms-3 me-0" type="button" data-bs-toggle="collapse"
@@ -55,12 +59,21 @@
                     </div>
                 </form>
                 <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="signin.php">Sign in</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="signup.php">Sign up</a>
-                    </li>
+                            <li class="nav-item">
+                                <?php if(!$logged_in){ ?>
+                                    <a class="nav-link" href="signin.php">Sign in</a>
+                                <?php } else { ?>    
+                                    <img src="images/userIcon.png" href="user.php" class="card-img-top px-1" style="max-height: 3em; max-width: 3em;" alt="User Icon">
+                                <?php } ?>
+                            </li>
+                            <li class="nav-item">
+                                <?php if(!$logged_in){ ?>
+                                    <a class="nav-link" href="signup.php">Sign up</a>
+                                <?php } else { ?>    
+                                    <a class="nav-link" href="user.php">User</a>
+                                <?php } ?>
+                            </li>
+                            
                 </ul>
             </div>
         </div>

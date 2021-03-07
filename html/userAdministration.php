@@ -1,4 +1,4 @@
-<?php include_once('header.html'); ?>
+<?php include_once('header.php'); ?>
 <?php include_once('sidebarItem.html'); ?>
 
 <nav aria-label="breadcrumb">
