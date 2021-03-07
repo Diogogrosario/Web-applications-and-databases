@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="cart.css">
     <link rel="stylesheet" href="contacts.css">
     <link rel="stylesheet" href="searchResults.css">
+    <link rel="stylesheet" href="signin.css">
+
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
