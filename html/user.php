@@ -51,8 +51,6 @@
                     </div>
                 </div>
 
-
-
                 <br>
                 <a href="./purchaseHistory.php">
                     <button type="button" class="btn btn-light w-100 p-3 shadow-sm rounded-0 rounded-bottom">Purchase History</button></a>
@@ -123,11 +121,36 @@
                     <li class="list-group-item"><a href="./item.php">iPhone10</a> from your wish list has stock again!</li>
                 </ul>
             </div>
+
+        </section>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger p-3 shadow mt-5" data-bs-toggle="modal" data-bs-target="#deleteAccount">
+        <i class="bi bi-x-circle-fill"></i> Delete Account
+             
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="deleteAccount" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteAccountLabel">Are you sure you want to delete your account?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <label for="recipient-name" class="col-form-label"> This process cannot be reverted!</label>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger">Yes, delete my account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-    </section>
-</div>
 </div>
 
 <?php include_once('footer.html'); ?>

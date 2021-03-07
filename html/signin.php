@@ -15,11 +15,11 @@
                 <form action="" method="post" name="Sign in">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>
-                        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Username">
+                        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Username" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Password</label>
-                        <input type="password" name="password" id="password" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+                        <input type="password" name="password" id="password" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password" required>
                     </div>
                     <div class="col-md-12 text-center pt-3">
                         <button type="submit" class="btn btn-block btn-dark">Sign in</button>

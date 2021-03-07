@@ -17,12 +17,12 @@
             <div class="row mt-4">
                 <div class="col-8" id="nameForm">
                     <label for="productName" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="productName">
+                    <input type="text" class="form-control" id="productName" required>
                 </div>
                 <div class="col" id="priceForm">
                     <label for="inputPrice" class="form-label">Price</label>
                     <div class="input-group">
-                        <input type="number" class="form-control" id="inputPrice" aria-label="Euro amount (with dot and two decimal places)">
+                        <input type="number" class="form-control" id="inputPrice" aria-label="Euro amount (with dot and two decimal places)" required>
                         <span class="input-group-text">€</span>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="mt-3 col-lg-5 col-md-7 col-sm-12 col-12 d-flex flex-column justify-content-between" id="categoryImagesForm">
                     <div id="categoryForm">
                         <label for="category" class="form-label">Category</label>
-                        <select class="form-select" aria-label="Category" id="category">
+                        <select class="form-select" aria-label="Category" id="category" required>
                             <option>...</option>
                             <option value="1">Book</option>
                             <option value="2">Videogame</option>
@@ -43,7 +43,7 @@
                     </div>
                     <div id="imagesForm" class="mt-3">
                         <label for="formFileMultiple" class="form-label-sm">Images</label>
-                        <input class="form-control form-control-sm mt-2" type="file" id="formFileMultiple" multiple>
+                        <input class="form-control form-control-sm mt-2" type="file" id="formFileMultiple" multiple required>
                     </div>
                 </div>
 
