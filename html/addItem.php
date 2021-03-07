@@ -4,15 +4,15 @@
 
 
 <div class="p-0" style="background-color:#f2f2f2">
-    <nav aria-label="breadcrumb ms-2">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="./adminMainPage.php">Administration Area</a></li>
-            <li class="breadcrumb-item active">Add a new item</li>
-        </ol>
-    </nav>
-    <div id="addItem" class="container col-lg-6 col-md-8 p-5 shadow-sm h-100" style="background-color:white">
 
-        <h1 class="ps-2">Add Product</h1>
+    <div id="addItem" class="container col-lg-6 col-md-8  shadow-sm h-100" style="background-color:white">
+        <nav aria-label="breadcrumb ms-2 pb-5">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="./adminMainPage.php">Administration Area</a></li>
+                <li class="breadcrumb-item active">Add a new item</li>
+            </ol>
+        </nav>
+        <h1 class="mt-4 text-center">Add Product</h1>
         <form class="ps-4 pe-4" action="./item.php">
             <div class="row mt-4">
                 <div class="col-8" id="nameForm">
@@ -104,10 +104,10 @@
                 </div>
             </div>
 
-            <div id="itemFormSubmit" class="mt-5">
-                <button type="submit" class="btn btn-primary col-lg-5 col-md-8 col-sm-12">Submit New Product</button>
-            </div>
         </form>
+        <div class="py-4 d-flex justify-content-center" id="itemFormSubmit" class="mt-5">
+            <button type="submit" class="btn btn-primary col-lg-5 col-md-8 col-sm-12 ">Submit New Product</button>
+        </div>
     </div>
 </div>
 
