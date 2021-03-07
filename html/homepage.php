@@ -42,7 +42,7 @@
                                 <div class="card-body d-flex flex-column zoom">
                                     <img src="images/computers/pc.jpg" class="card-img-top" alt="Asus Computer">
                                     <section id="itemInfo">
-                                        <h5 class="card-title ">Asus Computer</h5>
+                                        <h5 class="card-title text-truncate">Asus Computer</h5>
                                         <p class="card-text">300€</p>
                                     </section>
                                 </div>
@@ -56,7 +56,7 @@
                                 <div class="card-body d-flex flex-column zoom">
                                     <img src="images/computers/iMac.jpg" class="card-img-top" alt="iMac">
                                     <section id="itemInfo">
-                                        <h5 class="card-title">iMac 27-Inch</h5>
+                                        <h5 class="card-title text-truncate">iMac 27-Inch</h5>
                                         <p class="card-text">1000€</p>
                                     </section>
                                 </div>
@@ -71,7 +71,7 @@
                                 <div class="card-body d-flex flex-column zoom">
                                     <img src="images/computers/lenovoPc.jpg" class="card-img-top" alt="Lenovo Pc">
                                     <section id="itemInfo">
-                                        <h5 class="card-title">Lenovo Chromebook</h5>
+                                        <h5 class="card-title text-truncate">Lenovo Chromebook</h5>
                                         <p class="card-text">250€</p>
                                     </section>
                                 </div>
@@ -85,7 +85,7 @@
                                 <div class="card-body d-flex flex-column zoom">
                                     <img src="images/computers/alarcoGamingPc.jpg" class="card-img-top" alt="Alarco Gaming Pc">
                                     <section id="itemInfo">
-                                        <h5 class="card-title">Alarco Gaming Pc</h5>
+                                        <h5 class="card-title text-truncate">Alarco Gaming Pc</h5>
                                         <p class="card-text">1500€</p>
                                     </section>
                                 </div>
@@ -98,7 +98,7 @@
                                 <div class="card-body d-flex flex-column zoom">
                                     <img src="images/computers/avantGardePc.jpg" class="card-img-top" alt="Avant Garde Gaming Pc">
                                     <section id="itemInfo">
-                                        <h5 class="card-title">Avant Garde Gaming Pc</h5>
+                                        <h5 class="card-title text-truncate">Avant Garde Gaming Pc</h5>
                                         <p class="card-text">999€</p>
                                     </section>
                                 </div>
@@ -111,7 +111,7 @@
                                 <div class="card-body d-flex flex-column zoom">
                                     <img src="images/computers/asusRog.jpg" class="card-img-top" alt="Asus Rog">
                                     <section id="itemInfo">
-                                        <h5 class="card-title">Asus Republic Of Gaming Laptop</h5>
+                                        <h5 class="card-title text-truncate">Asus Republic Of Gaming Laptop</h5>
                                         <p class="card-text">2000€</p>
                                     </section>
                                 </div>
@@ -130,7 +130,7 @@
                                 <div class="card-body d-flex flex-column zoom">
                                     <img src="images/phones/phone.jpg" class="card-img-top" alt="iPhone4">
                                     <section id="itemInfo">
-                                        <h5 class="card-title">iPhone4</h5>
+                                        <h5 class="card-title text-truncate">iPhone4</h5>
                                         <p class="card-text">250€</p>
                                     </section>
                                 </div>
@@ -143,7 +143,7 @@
                                 <div class="card-body d-flex flex-column zoom">
                                     <img src="images/phones/rogPhone.jpg" class="card-img-top" alt="Rog Phone 2">
                                     <section id="itemInfo">
-                                        <h5 class="card-title">Rog Phone 2</h5>
+                                        <h5 class="card-title text-truncate">Rog Phone 2</h5>
                                         <p class="card-text">1000€</p>
                                     </section>
                                 </div>
@@ -157,7 +157,7 @@
                                 <div class="card-body d-flex flex-column zoom">
                                     <img src="images/phones/iPhone10.jpg" class="card-img-top" alt="iPhone10">
                                     <section id="itemInfo">
-                                        <h5 class="card-title">iPhone10</h5>
+                                        <h5 class="card-title text-truncate">iPhone10</h5>
                                         <p class="card-text">1200€</p>
                                     </section>
                                 </div>
@@ -170,7 +170,7 @@
                                 <div class="card-body d-flex flex-column zoom">
                                     <img src="images/phones/poco3.jpg" class="card-img-top" alt="Poco 3">
                                     <section id="itemInfo">
-                                        <h5 class="card-title">Poco 3</h5>
+                                        <h5 class="card-title text-truncate">Poco 3</h5>
                                         <p class="card-text">449€</p>
                                     </section>
                                 </div>
@@ -183,7 +183,7 @@
                                 <div class="card-body d-flex flex-column zoom">
                                     <img src="images/phones/redmi6A.jpg" class="card-img-top" alt="Redmi6A">
                                     <section id="itemInfo">
-                                        <h5 class="card-title">Redmi6A</h5>
+                                        <h5 class="card-title text-truncate">Redmi6A</h5>
                                         <p class="card-text">600€</p>
                                     </section>
                                 </div>
@@ -196,7 +196,7 @@
                                 <div class="card-body d-flex flex-column zoom">
                                     <img src="images/phones/razerPhone.jpg" class="card-img-top" alt="Razer Phone">
                                     <section id="itemInfo">
-                                        <h5 class="card-title">Razer Phone</h5>
+                                        <h5 class="card-title text-truncate">Razer Phone</h5>
                                         <p class="card-text">700€</p>
                                     </section>
                                 </div>
