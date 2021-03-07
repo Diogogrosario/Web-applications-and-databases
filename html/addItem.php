@@ -52,9 +52,14 @@
                 </div>
             </div>
 
+            <div class="mt-3" id="breifDescriptionForm">
+                <label for="productDescription" class="form-label">Brief Description</label>
+                <textarea class="form-control" id="productShortDescription" aria-label="With textarea" placeholder="Short description with max 100 words" maxlength="100"></textarea>
+            </div>
+
             <div class="mt-3" id="descriptionForm">
                 <label for="productDescription" class="form-label">Description</label>
-                <textarea class="form-control" id="productDescription" aria-label="With textarea" maxlength="400"></textarea>
+                <textarea class="form-control" id="productDescription" aria-label="With textarea" placeholder="Description with max 400 words" maxlength="400"></textarea>
             </div>
 
             <div class="mt-4" id="productDetails">

@@ -46,7 +46,7 @@
             </div>
 
             <div class="col pt-4">
-                <div class="row ps-lg-5 pb-5 pt-2">
+                <div class="row ps-lg-5 pb-lg-5 pb-2 pt-2">
                     <h1 id="productName" class="text-lg-start text-center">Cyberpunk 2077: Day One Edition</h1>
                     <!-- <h4 class="ps-5" id="productCategory">Videogame</h4> -->
                 </div>
@@ -79,7 +79,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-6 col-8 offset-2 offset-md-0 mt-md-0 mt-3" id="ratingAndButtons">
+                    <div class="col-lg-5 col-md-6 col-12 offset-md-0 mt-md-0 mt-3" id="ratingAndButtons">
                         <div class="row mb-3 text-md-start text-center">
                             <div class="col" id="productRating">
                                 <span id="starRating">
@@ -101,7 +101,7 @@
 
 
                                 <button type="button" class="btn btn-success w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#balanceModal">
-                                    Add to cart!
+                                    <i class="bi bi-cart-plus"></i> Add to cart
                                 </button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="balanceModal" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
@@ -132,14 +132,14 @@
                 <div class="row mt-5">
                     <nav>
                         <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-                            <button class="nav-link" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="false">Description</button>
+                            <button class="nav-link active" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="false">Description</button>
                             <button class="nav-link" id="nav-details-tab" data-bs-toggle="tab" data-bs-target="#nav-details" type="button" role="tab" aria-controls="nav-details" aria-selected="false">Details</button>
-                            <button class="nav-link active" id="nav-reviews-tab" data-bs-toggle="tab" data-bs-target="#nav-reviews" type="button" role="tab" aria-controls="nav-reviews" aria-selected="true">Reviews</button>
+                            <button class="nav-link" id="nav-reviews-tab" data-bs-toggle="tab" data-bs-target="#nav-reviews" type="button" role="tab" aria-controls="nav-reviews" aria-selected="true">Reviews</button>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
-                            <section class="ps-5 pe-5" id="productDescription">
+                        <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
+                            <section class="px-md-5 px-2" id="productDescription">
                                 <h3 class="text-start mt-4">Description</h3>
                                 <div class="mt-4 text-justify" id="descriptionText">
                                     <p>Cyberpunk 2077 é uma história de ação/aventura no mundo aberto de Night City, uma megalópole obcecada com poder, glamour e alterações de corpos. Aqui serás V, um mercenário exilado que persegue um implante essencial para obter a imortalidade. Poderás personalizar o cyberware, habilidades e estilo da tua personagem e explorar uma vasta cidade onde as escolhas que tomares irão moldar a história e o mundo que te rodeia. </P>
@@ -158,7 +158,7 @@
                         </div>
                         <div class="tab-pane fade" id="nav-details" role="tabpanel" aria-labelledby="nav-details-tab">
                             <!-- <div class="col-7 text-center ps-5 pe-5"> -->
-                            <section id="productDetails" class="row ps-5 pe-5 pt-3">
+                            <section id="productDetails" class="row px-md-5 px-2 pt-3">
                                 <h3 class="text-center mt-3 mb-3">Product Details</h3>
 
                                 <div class="col-md-6 col-sm-12" id="detailsTable_1">
@@ -193,9 +193,9 @@
                             </section>
                             <!-- </div> -->
                         </div>
-                        <div class="tab-pane fade show active" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
+                        <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
                             <!-- <div class="col"> -->
-                            <section class="ps-5 pe-5 col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1" id="reviewSection">
+                            <section class="px-md-5 px-2 col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1" id="reviewSection">
                                 <h3 class="text-start mt-4">Reviews <span class="fs-5" id="n_reviews">(2)</span></h3>
                                 <form class="mt-4 mb-5" id="newReviewForm">
                                     <textarea required class="form-control" id="productDescription" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="contacts.css">
     <link rel="stylesheet" href="searchResults.css">
     <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="addItem.css">
 
 
     <link rel="preconnect" href="https://fonts.gstatic.com">

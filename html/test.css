@@ -78,3 +78,9 @@ a#username-anchor:hover{
 table td {
     text-align: end;
 }
+
+@media (max-width:576px){ 
+    .addToCartItem button {
+        width: 100% !important;
+    }
+}
