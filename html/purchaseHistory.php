@@ -14,12 +14,11 @@
                             <div class="row ps-2">
                                 <div class="col-lg-6 col-md-6 col-sm-6 pb-1 pt-1">
                                     <!-- TODO: MUDAR DE LISTA PARA OUTRA COISA POR CAUSA DE BACKGROUND QUANDO SELECIONADO-->
-                                    <p id="purchaseHistoryText" class="border-0 pt-0 pb-0 mb-1">Asus Computer</p>
-                                    <p id="purchaseHistoryText" class="border-0 pt-0 pb-0 mb-1 ">Second Product</p>
-                                    <p id="purchaseHistoryText" class="border-0 pt-0 pb-0 mb-1 ">Third Product</p>
+                                    <p id="purchaseHistoryText" class="border-0 pt-0 pb-0 mb-1">iMac 27-inch</p>
+                                    <p id="purchaseHistoryText" class="border-0 pt-0 pb-0 mb-1 ">iPhone4</p>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 pb-1 pt-1 d-flex flex-column justify-content-center">
-                                    <b class="text-center fs-5" style="color: red"><span class="historyPrice">230.99</span> €</b>
+                                    <b class="text-center fs-5" style="color: red"><span class="historyPrice">1250.00</span> €</b>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 pb-1 pt-1 d-flex flex-column justify-content-center historyDate text-center fs-5">
                                     22/02/2021
@@ -35,77 +34,97 @@
                                 1 x
                             </div>
                             <div class="col-lg-2 col-md-2">
-                                <img src="images/pc.jpg" class="card-img-top img-fluid" alt="...">
+                                <img src="images/computers/iMac.jpg" class="card-img-top img-fluid" alt="...">
                             </div>
                             <div class="col-7 border-left border-dark">
                                 <div class="row">
                                     <div class="col-sm-8 col-12">
-                                        <h3 class="title">Asus computer</h3>
-                                        <p class="text">This asus computer is the best for it's price!</p>
+                                        <h3 class="title">iMac 27-inch</h3>
+                                        <p class="text">This iMac computer is the best for it's price!</p>
                                     </div>
 
                                 </div>
                             </div>
                             <div class="col d-flex flex-column justify-content-center text-center">
-                                <p><span class="title fs-5">299.99</span> €</p>
+                                <p><span class="title fs-5">1000.00</span> €</p>
+                            </div>
+                        </div>
+                        <div class="row border-bottom pb-3 vh-50">
+                            <div class="col-lg-1 ps-5 align-self-center fs-4">
+                                1 x
+                            </div>
+                            <div class="col-lg-2 col-md-2">
+                                <img src="images/phones/phone.jpg" class="card-img-top img-fluid" alt="...">
+                            </div>
+                            <div class="col-7 border-left border-dark">
+                                <div class="row">
+                                    <div class="col-sm-8 col-12">
+                                        <h3 class="title">iPhone4</h3>
+                                        <p class="text">The best iPhone on the market!</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col d-flex flex-column justify-content-center text-center">
+                                <p><span class="title fs-5">250.00</span> €</p>
                             </div>
                         </div>
                         <div class="row pt-3">
                             <div class="col-lg-10 col-3 d-flex flex-column justify-content-center text-lg-end text-center pe-lg-5 fs-5">Total:</div>
-                            <div class="col-lg-2 col-9 fs-4 text-center">299.99€</div>
+                            <div class="col-lg-2 col-9 fs-4 text-center">1250.00€</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         <div class="container-fluid">
                             <div class="row ps-2">
-                            <div class="col-lg-6 col-md-6 col-sm-6 pb-1 pt-1">
+                                <div class="col-lg-6 col-md-6 col-sm-6 pb-1 pt-1">
                                     <!-- TODO: MUDAR DE LISTA PARA OUTRA COISA POR CAUSA DE BACKGROUND QUANDO SELECIONADO-->
                                     <p id="purchaseHistoryText" class="border-0 pt-0 pb-0 mb-1">Asus Computer</p>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 pb-1 pt-1 d-flex flex-column justify-content-center">
-                                    <b class="text-center fs-5" style="color: red"><span class="historyPrice">230.99</span> €</b>
+                                    <b class="text-center fs-5" style="color: red"><span class="historyPrice">300.00</span> €</b>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 pb-1 pt-1 d-flex flex-column justify-content-center historyDate text-center fs-5">
-                                    22/02/2021
+                                    25/02/2021
                                 </div>
                             </div>
                         </div>
                     </button>
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        <div class="container-fluid">
-                            <div class="row ps-2">
-                            <div class="col-lg-6 col-md-6 col-sm-6 pb-1 pt-1">
-                                    <!-- TODO: MUDAR DE LISTA PARA OUTRA COISA POR CAUSA DE BACKGROUND QUANDO SELECIONADO-->
-                                    <p id="purchaseHistoryText" class="border-0 pt-0 pb-0 mb-1">Second Product</p>
-                                    <p id="purchaseHistoryText" class="border-0 pt-0 pb-0 mb-1">Third Product</p>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 pb-1 pt-1 d-flex flex-column justify-content-center">
-                                    <b class="text-center fs-5" style="color: red"><span class="historyPrice">230.99</span> €</b>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 pb-1 pt-1 d-flex flex-column justify-content-center historyDate text-center fs-5">
-                                    22/02/2021
+                    <div class="accordion-body p-5 pt-4">
+                        <div class="row border-bottom pb-3 vh-50">
+                            <div class="col-lg-1 ps-5 align-self-center fs-4">
+                                1 x
+                            </div>
+                            <div class="col-lg-2 col-md-2">
+                                <img src="images/computers/pc.jpg" class="card-img-top img-fluid" alt="...">
+                            </div>
+                            <div class="col-7 border-left border-dark">
+                                <div class="row">
+                                    <div class="col-sm-8 col-12">
+                                        <h3 class="title">Asus Computer</h3>
+                                        <p class="text">This Asus computer is the best for it's price!</p>
+                                    </div>
+
                                 </div>
                             </div>
+                            <div class="col d-flex flex-column justify-content-center text-center">
+                                <p><span class="title fs-5">300.00</span> €</p>
+                            </div>
                         </div>
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
+                        <div class="row pt-3">
+                            <div class="col-lg-10 col-3 d-flex flex-column justify-content-center text-lg-end text-center pe-lg-5 fs-5">Total:</div>
+                            <div class="col-lg-2 col-9 fs-4 text-center">300.00€</div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <nav aria-label="Purchase history navigation" class="sticky-bottom">
