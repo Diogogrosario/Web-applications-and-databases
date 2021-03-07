@@ -55,7 +55,7 @@
                     <?php if ($logged_in) { ?>
 
                         <a href="cart.php" class="nav-link">
-                            <li class="nav-item d-flex me-4 align-items-center" style="color:black">
+                            <li class="nav-item d-flex me-lg-4 align-items-center" style="color:black">
                                 <i class="bi bi-cart3 fs-3 me-2"></i>Your Cart
                             </li>
                         </a>
