@@ -68,3 +68,7 @@ a#username-anchor{
 a#username-anchor:hover{
     text-decoration: underline;
 }
+
+table td {
+    text-align: end;
+}
