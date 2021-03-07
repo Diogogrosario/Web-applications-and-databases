@@ -6,7 +6,7 @@
 
         <div class="row">
 
-            <div class="d-lg-flex d-none flex-column justify-content-center col-lg-2 text-center p-0" style="background-color:lightgrey; height:100%;" id="similarProducts">
+            <div class="d-lg-block d-none col-lg-2 text-center p-0" style="background-color:#f0e9e1; min-height:100%" id="similarProducts">
 
                 <h1 class="p-3 text-center fs-5 overflow-hidden">Similar Products</h1>
 

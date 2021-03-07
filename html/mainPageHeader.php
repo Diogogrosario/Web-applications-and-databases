@@ -25,16 +25,16 @@
     $logged_in = true;
     ?>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top pb-lg-2 pb-0">
+    <nav class="navbar navbar-expand-lg sticky-top pb-lg-2 pb-0" style="background-color:#36312b">
         <div class="container-fluid">
 
             <button class="btn btn-lg ms-1 me-0 d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCategories" aria-controls="navbarCategories" style="margin-right:2%;">
-                <i class="bi bi-list-task"></i>
+                <i class="bi bi-list-task" style="color:white"></i>
             </button>
 
-            <a class="navbar-brand ms-lg-5" href="index.php"><img class="img-fluid" width="150" height="30" src="images/logo_2.png"></a>
+            <a class="navbar-brand ms-lg-5" href="index.php"><img class="img-fluid" width="150" height="30" src="images/logo_light.png"></a>
             <button class="navbar-toggler btn btn-lg border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi bi-lg bi-person-circle"></i>
+                <i class="bi bi-lg bi-person-circle" style="color:white"></i>
             </button>
 
             <div class="collapse navbar-collapse d-lg-flex justify-content-between text-center" id="navbarSupportedContent">
@@ -48,14 +48,14 @@
                             <option value="4">Electrodomestics</option>
                         </select>
                         <input type="text" class="form-control w-50" aria-label="Text input with dropdown button">
-                        <button type="submit" class="btn btn-dark" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
+                        <button type="submit" class="btn btn-secondary" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
                     </div>
                 </form>
                 <ul class="d-flex align-items-center navbar-nav mb-2 mb-lg-0">
                     <?php if ($logged_in) { ?>
 
                         <a href="cart.php" class="nav-link">
-                            <li class="nav-item d-flex me-lg-4 align-items-center" style="color:black">
+                            <li class="nav-item d-flex me-lg-4 align-items-center" style="color:white">
                                 <i class="bi bi-cart3 fs-3 me-2"></i>Your Cart
                             </li>
                         </a>
@@ -66,7 +66,7 @@
                                     <div id="profilePic" class="d-flex rounded-circle" style="height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(images/spidercat.png);background-position:center;background-size:cover;">
                                     </div>
                                 </div>
-                                <div class="ms-2 d-flex" style="width:35%; color:black">WaffleH</div>
+                                <div class="ms-2 d-flex" style="width:35%; color:white">WaffleH</div>
                                 <!-- <a class="" id="userName_navbar" href="user.php">WaffleH</a> -->
                             </li>
                         </a>
@@ -85,8 +85,8 @@
                 </ul>
             </div>
         </div>
-        <div class="d-lg-none row w-100 h-100">
-            <form class="col-11 offset-1">
+        <div class="d-lg-none w-100">
+            <form class="col-12 pe-0">
                 <div class="input-group">
                     <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example">
                         <option selected>Category</option>
@@ -95,8 +95,8 @@
                         <option value="3">Smartphones</option>
                         <option value="4">Electrodomestics</option>
                     </select>
-                    <input type="text" class="form-control w-25" aria-label="Text input with dropdown button">
-                    <button type="submit" class="btn btn-dark w-25" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
+                    <input type="text" class="form-control w-50" aria-label="Text input with dropdown button">
+                    <button type="submit" class="btn btn-secondary w-25" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
                 </div>
             </form>
         </div>
