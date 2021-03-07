@@ -2,7 +2,7 @@
 <?php include_once('sidebarItem.html'); ?>
 
 <div class="d-block">
-    <div class="offset-md-5 mb-5">
+    <div class="mb-5 text-center">
         <b class="fs-1">About us</b>
     </div>
     <div class="offset-md-1 col-md-10 fs-2">

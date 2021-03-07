@@ -184,7 +184,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">Others</th>
-                                                <td>This game is extremely buggy, has terrible performance on consoles and low/medium end PC's and is lacking comparing to what was presented before release</td>
+                                                <td class="text-start">This game is extremely buggy, has terrible performance on consoles and low/medium end PC's and is lacking comparing to what was presented before release</td>
                                             </tr>
                                         </tbody>
                                     </table>
