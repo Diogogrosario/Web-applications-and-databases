@@ -1,83 +1,85 @@
 <?php include_once('header.php'); ?>
 <?php include_once('sidebarItem.html'); ?>
 
-
 <div class="d-none d-sm-block" style="font-size: 2.5rem; grid-row: 1; padding-left: 4%;">
     <a>Your cart: </a>
 </div>
-<div class="col col-12 offset-sm-1 col-sm-10 col-lg-9 offset-lg-0 p-0">
-    <div id="cartScrollElem" class="justify-content-center container m-0 ml-sm-3 mr-sm-3 p-0 pb-sm-4 pt-sm-4 overflow-auto rounded " style="background-color: lightgray;">
-        <!-- Content here -->
-        <div class="card m-1 mx-sm-4">
-            <div class="card-body p-1 p-sm-3">
-                <h5 class="card-title" style="display: inline;">Bee Movie (2007) DVD</h5>
-                <h5 class="card-text float-end fs-3 mb-0" style="padding-right: 5%">x5</h5>
-                <p class="card-text">Barry B. Benson, a bee just graduated from college, is disillusioned at his lone career choice: making honey.</p>
-                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i>
-                    <p class="d-sm-inline d-none">Remove from cart</p>
-                </a>
-                <p class="d-inline float-end card-text fs-3">€</p>
-                <p class="d-inline card-text float-end fs-3">29.99</p>
+<div class="list-group list-group-flush">
+    <div class="list-group-item p-0 row pb-3">
+        <div class="row">
+            <div class="col-lg-1 col-3 ps-3 align-self-center text-center fs-5">
+                1 x
+            </div>
+            <div class="col-lg-2 col-9">
+                <a class="link-dark" href="#"><img src="images/computers/lenovoPc.jpg" class="img-fluid" alt="..."></a>
+            </div>
+            <div class="col-lg-7 col-12 border-left border-dark">
+                <div class="row mt-lg-0 mt-3">
+                    <div class="col-12 ps-lg-0 ps-4">
+                        <h5 class="title"><a class="link-dark" href="#">Lenovo Laptop Y-5634</a></h5>
+                        <p class="text">This Lenovo laptop is the best for it's price, and it won't even heat up on your lap!</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col d-flex flex-column justify-content-center text-center">
+                <p><span class="title fs-5">299.99</span> €</p>
             </div>
         </div>
-        <div class="card m-1 mx-sm-4">
-            <div class="card-body p-1 p-sm-3">
-                <h5 class="card-title" style="display: inline;">Cyberpunk 2077: Day One Edition</h5>
-                <h5 class="card-text float-end fs-3 mb-0" style="padding-right: 5%">x3</h5>
-                <p class="card-text">Cyberpunk 2077 é uma história de ação/aventura no mundo aberto de Night City, uma megalópole obcecada com poder, glamour e alterações de corpos.</p>
-                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i>
-                    <p class="d-sm-inline d-none">Remove from cart</p>
-                </a>
-                <p class="d-inline float-end card-text fs-3">€</p>
-                <p class="d-inline card-text float-end fs-3">39.99</p>
+    </div>
+    <div class="list-group-item p-0 row pb-3">
+        <div class="row">
+            <div class="col-lg-1 col-3 ps-3 align-self-center text-center fs-5">
+                5 x
+            </div>
+            <div class="col-lg-2 col-9">
+                <a class="link-dark" href="#"><img src="images/movies/beeMovie.png" class="img-fluid" alt="..."></a>
+            </div>
+            <div class="col-lg-7 col-12 border-left border-dark">
+                <div class="row mt-lg-0 mt-3">
+                    <div class="col-12 ps-lg-0 ps-4">
+                        <h5 class="title"><a class="link-dark" href="#">Bee Movie (2007)</a></h5>
+                        <p class="text">Barry B. Benson, a bee just graduated from college, is disillusioned at his lone career choice: making honey.</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col d-flex flex-column justify-content-center text-center">
+                <p><span class="title fs-5">19.99</span> €</p>
             </div>
         </div>
-        <div class="card m-1 mx-sm-4">
-            <div class="card-body p-1 p-sm-3">
-                <h5 class="card-title" style="display: inline;">Asus computer</h5>
-                <h5 class="card-text float-end fs-3 mb-0" style="padding-right: 5%">x1</h5>
-                <p class="card-text">This asus computer is the best for it's price!</p>
-                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i>
-                    <p class="d-sm-inline d-none">Remove from cart</p>
-                </a>
-                <p class="d-inline float-end card-text fs-3">€</p>
-                <p class="d-inline card-text float-end fs-3">599.99</p>
+    </div>
+    <div class="list-group-item p-0 row pb-3">
+        <div class="row">
+            <div class="col-lg-1 col-3 ps-3 align-self-center text-center fs-5">
+                1 x
+            </div>
+            <div class="col-lg-2 col-9">
+                <a class="link-dark" href="#"><img src="images/computers/lenovoPc.jpg" class="img-fluid" alt="..."></a>
+            </div>
+            <div class="col-lg-7 col-12 border-left border-dark">
+                <div class="row mt-lg-0 mt-3">
+                    <div class="col-12 ps-lg-0 ps-4">
+                        <h5 class="title"><a class="link-dark" href="#">Alarco Gaming Pc</a></h5>
+                        <p class="text">This gaming computer has everything that is needed for the best gaming experience!</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col d-flex flex-column justify-content-center text-center">
+                <p><span class="title fs-5">1500.00</span> €</p>
             </div>
         </div>
-        <div class="card m-1 mx-sm-4">
-            <div class="card-body p-1 p-sm-3">
-                <h5 class="card-title" style="display: inline;">Lenovo Chromebook</h5>
-                <h5 class="card-text float-end fs-3 mb-0" style="padding-right: 5%">x2</h5>
-                <p class="card-text">This lightweight and cheap computer is perfect for the casual user!</p>
-                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i>
-                    <p class="d-sm-inline d-none">Remove from cart</p>
-                </a>
-                <p class="d-inline float-end card-text fs-3">€</p>
-                <p class="d-inline card-text float-end fs-3">250.00</p>
-            </div>
-        </div>
-        <div class="card m-1 mx-sm-4">
-            <div class="card-body p-1 p-sm-3">
-                <h5 class="card-title" style="display: inline;">Alarco Gaming Pc</h5>
-                <h5 class="card-text float-end fs-3 mb-0" style="padding-right: 5%">x1</h5>
-                <p class="card-text">This gaming computer has everything that is needed for the best gaming experience!</p>
-                <a href="#" class="btn btn-danger pt-10" style="display: inline-block;"> <i class="d-inline bi bi-cart-x-fill"></i>
-                    <p class="d-sm-inline d-none">Remove from cart</p>
-                </a>
-                <p class="d-inline float-end card-text fs-3">€</p>
-                <p class="d-inline card-text float-end fs-3">1500.00</p>
-            </div>
-        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col-lg-10 col-12 d-flex flex-column justify-content-center text-lg-end text-center pe-lg-5 fs-5">Total (w/ IVA):</div>
+        <div class="col-lg-2 col-12 fs-4 text-center">1898.95€</div>
     </div>
 </div>
 <section class="col-lg-3">
     <div class="d-flex flex-column justify-content-center text-center h-100 align-items-center">
-        <p class="m-0 d-inline" style="font-size: 1.5em;">Total:</p>
-        <p class="d-inline mb-0 mb-lg-3" style="font-size: 1.5em">2869.91€</p>
-        <p></p>
         <button type="button" class="btn btn-success btn-lg w-50">Buy all</button>
     </div>
 </section>
-
 
 <?php include_once('footer.html'); ?>
