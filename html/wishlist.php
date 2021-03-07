@@ -47,8 +47,8 @@
                             <div class="row">
                                 <div class="col-sm-6 col-8">
                                     <a class="item-card" href="./item.php">
-                                        <h2 class="title">Asus computer</h2>
-                                        <p class="text">This asus computer is the best for it's price!</p>
+                                        <h2 class="title">Lenovo Laptop Y-5634</h2>
+                                        <p class="text">This Lenovo laptop is the best for it's price, and it won't even heat up on your lap!</p>
                                         <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                     </a>
                                 </div>
@@ -78,8 +78,8 @@
                             <div class="row">
                                 <div class="col-sm-6 col-8">
                                     <a class="item-card" href="./item.php">
-                                        <h2 class="title">Asus computer</h2>
-                                        <p class="text">This asus computer is the best for it's price!</p>
+                                        <h2 class="title">Bee Movie (2007)</h2>
+                                        <p class="text">Barry B. Benson, a bee just graduated from college, is disillusioned at his lone career choice: making honey.</p>
                                         <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                     </a>
                                 </div>
@@ -109,16 +109,16 @@
                             <div class="row">
                                 <div class="col-sm-6 col-8">
                                     <a class="item-card" href="./item.php">
-                                        <h2 class="title">Asus computer</h2>
-                                        <p class="text">This asus computer is the best for it's price!</p>
+                                        <h2 class="title">Alarco Gaming Pc</h2>
+                                        <p class="text">This gaming computer has everything that is needed for the best gaming experience!</p>
                                         <p class="text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                     </a>
                                 </div>
                                 <div class="col">
                                     <div class="flex-row">
-                                        <span class="title fs-2">299.99€ </span>
-                                        <span class="title text-decoration-line-through">359.99€</span>
-                                        <span class="title">20% off!</span>
+                                        <span class="title fs-2">1500.00€ </span>
+                                        <span class="title text-decoration-line-through">2000.00€</span>
+                                        <span class="title">25% off!</span>
                                     </div>
                                     <div class="d-flex justify-content-center">
                                         <button type="button" class="btn btn-success">Add to cart!</button>
