@@ -10,30 +10,30 @@
                 <b>Account info</b>
             </div>
             <div class="pt-3">
-                <label style="padding-bottom: 1%;" for="formGroupExampleInput" class="form-label"><b>E-mail</b></label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="E-mail">
+                <label style="padding-bottom: 1%;" for="EmailInput" class="form-label"><b>E-mail</b></label>
+                <input type="text" class="form-control" id="EmailInput" placeholder="E-mail">
             </div>
             <div class="row pt-3">
                 <div class="col-md-6">
-                    <label style="padding-bottom: 1%;" for="formGroupExampleInput" class="form-label"><b>First Name</b></label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="First Name">
+                    <label style="padding-bottom: 1%;" for="firstNameInput" class="form-label"><b>First Name</b></label>
+                    <input type="text" class="form-control" id="firstNameInput" placeholder="First Name">
                 </div>
                 <div class="col-md-6">
-                    <label style="padding-bottom: 1%;" for="formGroupExampleInput" class="form-label"><b>Last Name</b></label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Last Name">
+                    <label style="padding-bottom: 1%;" for="lastNameInput" class="form-label"><b>Last Name</b></label>
+                    <input type="text" class="form-control" id="lastNameInput" placeholder="Last Name">
                 </div>
             </div>
             <div class="pt-3">
-                <label style="padding-bottom: 1%;" for="formGroupExampleInput" class="form-label"><b>Username</b></label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Username">
+                <label style="padding-bottom: 1%;" for="usernameInput" class="form-label"><b>Username</b></label>
+                <input type="text" class="form-control" id="usernameInput" placeholder="Username">
             </div>
             <div class="pt-3">
-                <label style="padding-bottom: 1%;" for="formGroupExampleInput2" class="form-label"><b>Password</b></label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Password">
+                <label style="padding-bottom: 1%;" for="passwordInput" class="form-label"><b>Password</b></label>
+                <input type="text" class="form-control" id="passwordInput" placeholder="Password">
             </div>
             <div class="pt-3">
-                <label style="padding-bottom: 1%;" for="formGroupExampleInput2" class="form-label"><b>Confirm Password</b></label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Confirm Password">
+                <label style="padding-bottom: 1%;" for="confirmPasswordInput" class="form-label"><b>Confirm Password</b></label>
+                <input type="text" class="form-control" id="confirmPasswordInput" placeholder="Confirm Password">
             </div>
 
             <div style="text-align: center; padding-bottom: 8vh">

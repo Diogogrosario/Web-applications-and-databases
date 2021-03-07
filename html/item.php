@@ -6,37 +6,37 @@
 
         <div class="row">
 
-            <div class="d-lg-flex flex-column justify-content-center col-2 text-center p-0 d-none" style="background-color:lightgrey; height:100%;" id="similarProducts">
+            <div class="d-lg-flex d-none flex-column justify-content-center col-lg-2 text-center p-0" style="background-color:lightgrey; height:100%;" id="similarProducts">
 
                 <h1 class="p-3 text-center fs-5 overflow-hidden">Similar Products</h1>
 
-                <a class="item-card" href="./item.php">
+                <a class="item-card zoom" href="./item.php">
                     <div class="card border-0 similarProductCard">
                         <div class="card-body ps-4 pe-3">
                             <img src="images/computers/alarcoGamingPc.jpg" class="card-img-top" alt="Alarco Gaming Pc">
-                            <section id="itemInfo">
+                            <section class="itemInfo">
                                 <h5 class="card-title">Alarco Gaming Pc</h5>
                                 <p class="card-text">150€</p>
                             </section>
                         </div>
                     </div>
                 </a>
-                <a class="item-card" href="./item.php">
+                <a class="item-card zoom" href="./item.php">
                     <div class="card border-0 similarProductCard">
                         <div class="card-body ps-4 pe-3">
                             <img src="images/computers/asusRog.jpg" class="card-img-top" alt="Asus Rog">
-                            <section id="itemInfo">
+                            <section class="itemInfo">
                                 <h5 class="card-title">Asus Rog</h5>
                                 <p class="card-text">2000€.</p>
                             </section>
                         </div>
                     </div>
                 </a>
-                <a class="item-card" href="./item.php">
+                <a class="item-card zoom" href="./item.php">
                     <div class="card border-0 similarProductCard">
                         <div class="card-body ps-4 pe-3">
                             <img src="images/phones/razerPhone.jpg" class="card-img-top" alt="Razer Phone">
-                            <section id="itemInfo">
+                            <section class="itemInfo">
                                 <h5 class="card-title">Razer Phone</h5>
                                 <p class="card-text">700€</p>
                             </section>
