@@ -31,7 +31,7 @@
     $pos = strrpos($url, "homepage.php");
     ?>
 
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top pb-lg-2 pb-0" style="background-color: #36312b;">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top pb-lg-2 pb-0" style="background-color:#36312b">
         <div class="container-fluid">
             <?php
 
@@ -39,7 +39,7 @@
                 $logged_in = false;
             ?>
                 <button class="btn btn-lg ms-3 me-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapsableColumn" aria-controls="collapsableColumn" style="margin-right:2%;">
-                    <i class="bi bi-list-task"></i>
+                    <i class="bi bi-list-task"  style="color:white !important"></i>
                 </button>
 
             <?php
@@ -53,7 +53,7 @@
             }
             ?>
 
-            <a class="navbar-brand ms-lg-4" href="index.php"><img class="img-fluid" width="150" height="30" src="images/logo_2.png"></a>
+            <a class="navbar-brand ms-lg-4" href="index.php"><img class="img-fluid" width="150" height="30" src="images/logo_light.png"></a>
             <button class="navbar-toggler btn btn-lg border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi bi-lg bi-person-circle"></i>
             </button>
@@ -69,7 +69,7 @@
                             <option value="4">Electrodomestics</option>
                         </select>
                         <input type="text" class="form-control w-50" aria-label="Text input with dropdown button">
-                        <button type="submit" class="btn btn-dark" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
+                        <button type="submit" class="btn btn-secondary" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
                     </div>
                 </form>
                 <ul class="navbar-nav mb-2 mb-lg-0">
@@ -82,7 +82,7 @@
                     <?php } ?>
                     <li class="nav-item">
                         <?php if (!$logged_in) { ?>
-                            <a class="nav-link" href="signin.php">Sign in</a>
+                            <a class="nav-link" href="signin.php" style="color:white !important">Sign in</a>
                         <?php } else { ?>
                             <a href="user.php">
                                 <img src="images/userIcon.png" class="card-img-top px-1" style="max-height: 3em; max-width: 3em;" alt="User Icon">
@@ -91,9 +91,9 @@
                     </li>
                     <li class="nav-item">
                         <?php if (!$logged_in) { ?>
-                            <a class="nav-link" href="signup.php">Sign up</a>
+                            <a class="nav-link" href="signup.php" style="color:white !important">Sign up</a>
                         <?php } else { ?>
-                            <a class="nav-link" href="user.php">User</a>
+                            <a class="nav-link" href="user.php" style="color:white !important">User</a>
                         <?php } ?>
                     </li>
 
