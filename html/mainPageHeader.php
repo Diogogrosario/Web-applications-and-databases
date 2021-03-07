@@ -57,6 +57,13 @@
                     </div>
                 </form>
                 <ul class="navbar-nav mb-2 mb-lg-0">
+                    <?php if($logged_in){ ?>
+                        <li class="nav-item d-lg-flex align-items-lg-center py-2 py-lg-0 px-lg-2">
+                            <a class="nav-link" href="cart.php">
+                                <i class="fas fa-shopping-cart" style="font-size: 1.5em;"></i>
+                            </a>
+                        </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <?php if(!$logged_in){ ?>
                             <a class="nav-link" href="signin.php">Sign in</a>
