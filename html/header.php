@@ -31,7 +31,7 @@
     $pos = strrpos($url, "homepage.php");
     ?>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top pb-lg-2 pb-0">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top pb-lg-2 pb-0" style="background-color: #36312b;">
         <div class="container-fluid">
             <?php
 
