@@ -9,10 +9,10 @@
             <div class="myform form ">
                 <div class="logo mb-3">
                     <div class="col-md-12 text-center">
-                        <h1>Login</h1>
+                        <h1>Sign in</h1>
                     </div>
                 </div>
-                <form action="" method="post" name="login">
+                <form action="" method="post" name="Sign in">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>
                         <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Username">
@@ -22,10 +22,10 @@
                         <input type="password" name="password" id="password" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
                     </div>
                     <div class="col-md-12 text-center pt-3">
-                        <button type="submit" class="btn btn-block btn-dark">Login</button>
+                        <button type="submit" class="btn btn-block btn-dark">Sign in</button>
                     </div>
                     <div class="col-md-12 ">
-                        <div class="login-or">
+                        <div class="signin-or">
                             <hr class="hr-or">
                             <span class="span-or">or</span>
                         </div>
