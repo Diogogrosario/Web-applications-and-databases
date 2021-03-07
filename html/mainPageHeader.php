@@ -26,10 +26,12 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top pb-lg-2 pb-0">
         <div class="container-fluid">
+        
             <button class="btn btn-lg ms-1 me-0 d-lg-none" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarCategories" aria-controls="navbarCategories" style="margin-right:2%;">
                 <i class="bi bi-list-task"></i>
             </button>
+
             <a class="navbar-brand ms-lg-5" href="index.php"><img class="img-fluid" width="150" height="30"
                     src="images/logo_2.png"></a>
             <button class="navbar-toggler btn btn-lg border-0" type="button" data-bs-toggle="collapse"
