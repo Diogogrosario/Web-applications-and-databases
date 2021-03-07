@@ -68,3 +68,13 @@ a#username-anchor{
 a#username-anchor:hover{
     text-decoration: underline;
 }
+
+@media (max-width: 577px){
+    p#purchaseHistoryText {
+        text-align: center;
+    }
+}
+
+table td {
+    text-align: end;
+}
