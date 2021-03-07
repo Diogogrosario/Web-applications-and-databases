@@ -142,17 +142,17 @@
                             <section class="px-md-5 px-2" id="productDescription">
                                 <h3 class="text-start mt-4">Description</h3>
                                 <div class="mt-4 text-justify" id="descriptionText">
-                                    <p>Cyberpunk 2077 é uma história de ação/aventura no mundo aberto de Night City, uma megalópole obcecada com poder, glamour e alterações de corpos. Aqui serás V, um mercenário exilado que persegue um implante essencial para obter a imortalidade. Poderás personalizar o cyberware, habilidades e estilo da tua personagem e explorar uma vasta cidade onde as escolhas que tomares irão moldar a história e o mundo que te rodeia. </P>
-                                    <P>JOGA COMO UM MERCENÁRIO EXILADO
-                                        <P>Transforma-te num cyberpunk, um mercenário urbano equipado com acessório cibernéticos, e cria a tua lenda nas ruas de Night City.
-                                            <P>VIVE NA CIDADE DO FUTURO
-                                                <P>Entra num enorme mundo aberto de Night City, um local com visuais, complexidades e profundidades inéditas.
-                                                    <P>ROUBA O IMPLANTE E OBTÉM A VIDA ETERNA
-                                                        <P>Aceita a missão mais arriscada da tua vida e procura o implante essencial para obter a imortalidade.
-                                                            <P>O jogo inclui os seguintes itens físicos:
-                                                                <P>- Caixa com CD de jogos <BR>- Capa reversível <BR>- Compêndio do Mundo com informações sobre o cenário e os ritos do jogo <BR>- Postais de Night City <BR>- Mapa de Night City <BR>- Autocolantes </P>
-                                                                <P>Brindes digitais incluídos:
-                                                                    <P>- Banda sonora do jogo <BR>- Minilivro de arte com uma seleção de arte do jogo <BR>- Banda desenhada Digital “Cyberpunk 2077:Your voice" <BR>- Sourcebook Cyberpunk de 2020 <BR>- Papeis de parede para computador e telemóvel </P>
+                                <p> Cyberpunk 2077 is an action/adventure story in the open world of Night City, a megalopolis obsessed with power, glamor and body changes. Here you will be V, an exiled mercenary who chases an essential implant to obtain immortality. You'll be able to customize your character's cyberware, skills and style and explore a vast city where the choices you make will shape the story and the world around you. </P>
+                                    <P> PLAYS AS AN EXILED MERCENARY
+                                        <P> Become a cyberpunk, an urban mercenary equipped with cyber accessories, and create your legend on the streets of Night City.
+                                            <P> LIVES IN THE CITY OF THE FUTURE
+                                                <P> Enter a huge open world of Night City, a place with unprecedented visuals, complexities and depths.
+                                                    <P> STEAL THE IMPLANT AND GET ETERNAL LIFE
+                                                        <P> Accept the riskiest mission of your life and look for the essential implant to obtain immortality.
+                                                            <P> The game includes the following physical items:
+                                                                <P> - Game CD box <BR> - Reversible cover <BR> - Compendium of the World with information about the scene and the rites of the game <BR> - Postcards of Night City <BR> - Map of Night City <BR > - Stickers </P>
+                                                                <P> Digital gifts included:
+                                                                    <P> - Game soundtrack <BR> - Art mini book with a selection of game art <BR> - Digital comic “Cyberpunk 2077: Your voice" <BR> - 2020 Cyberpunk Sourcebook <BR> - Wallpapers computer and mobile phone wall </P>
                                 </div>
                             </section>
                         </div>
