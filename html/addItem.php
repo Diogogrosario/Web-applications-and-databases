@@ -1,4 +1,4 @@
-<?php include_once('header.html'); ?>
+<?php include_once('header.php'); ?>
 <?php include_once('sidebarItem.html'); ?>
 
 
@@ -22,7 +22,7 @@
                 <div class="col" id="priceForm">
                     <label for="inputPrice" class="form-label">Price</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="inputPrice" aria-label="Euro amount (with dot and two decimal places)">
+                        <input type="number" class="form-control" id="inputPrice" aria-label="Euro amount (with dot and two decimal places)">
                         <span class="input-group-text">€</span>
                     </div>
                 </div>

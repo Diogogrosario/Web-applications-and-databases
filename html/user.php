@@ -1,4 +1,4 @@
-<?php include_once('header.html'); ?>
+<?php include_once('header.php'); ?>
 <?php include_once('sidebarItem.html'); ?>
 
 <!-- <div class="col">
@@ -80,12 +80,10 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <div class="col-lg-8 col-12 mt-4">
                 <div class="d-flex mb-2">
                     <h2>Shipping Information</h2><button type="class" class="btn btn-lg ms-3 p-0"><i class="bi bi-pencil-square"></i></button>
                 </div>
-                <table id="paymentInfo" class="table">
+                <table id="shippingInfo" class="table">
                     <tbody>
                         <tr>
                             <th scope="row">Address</th>
@@ -101,8 +99,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="col-lg-8 col-12 mt-4">
                 <div class="d-flex mb-2">
                     <h2>Payment Information</h2><button type="class" class="btn btn-lg ms-3 p-0"><i class="bi bi-pencil-square"></i></button>
                 </div>
@@ -120,9 +116,18 @@
                 </table>
             </div>
 
-
-        </section>
+            <div class="col-lg-4 border-start" id="notifications">
+                <h2 class="mb-3">Notifications</h2>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a href="./item.php">Asus ROG</a> from your wish list is on sale! </li>
+                    <li class="list-group-item"><a href="./item.php">iPhone10</a> from your wish list has stock again!</li>
+                </ul>
+            </div>
     </div>
+
+
+    </section>
+</div>
 </div>
 
 <?php include_once('footer.html'); ?>

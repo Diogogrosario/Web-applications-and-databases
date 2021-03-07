@@ -74,3 +74,7 @@ a#username-anchor:hover{
         text-align: center;
     }
 }
+
+table td {
+    text-align: end;
+}

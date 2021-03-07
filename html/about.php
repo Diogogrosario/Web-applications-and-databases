@@ -1,4 +1,4 @@
-<?php include_once('header.html'); ?>
+<?php include_once('header.php'); ?>
 <?php include_once('sidebarItem.html'); ?>
 
 <div class="d-block">
@@ -10,7 +10,6 @@
             those arduous times. Our aim is to provide our in shop service but in an online platform. This way our customers can still enjoy
             the products we provided before the lockdown while staying at the comfort of their homes.</a>
     </div>
-</div>
 </div>
 
 <?php include_once('footer.html'); ?>
