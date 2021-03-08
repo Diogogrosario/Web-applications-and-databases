@@ -36,8 +36,24 @@
                 <input type="text" class="form-control" id="confirmPasswordInput" placeholder="Confirm Password" required>
             </div>
 
-            <div style="text-align: center; padding-bottom: 8vh">
-                <button type="button" class="btn btn-dark" style="margin-top: 5%; font-size: 2em;">Sign up</button>
+            <div class="d-flex mt-3 flex-column justify-content-center h-50 align-items-center">
+                <button type="button" class="btn btn-success w-50" data-bs-toggle="modal" data-bs-target="#balanceModal">
+                    Sign up
+                </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="balanceModal" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                                <p for="recipient-name" class="col-form-label"> An email has been sent to your account. <br> Please verify before signing into your account</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Return to main page</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
