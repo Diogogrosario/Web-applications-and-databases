@@ -4,7 +4,7 @@
 
 
 <div class="container col-12 p-0" style="background-color: #D0D8D4">
-	<div class="col-12 offset-md-1 col-md-10 h-100 p-0" style="max-width: 100%; background-color: #F8F8F8;">
+	<div class="col-12 offset-md-1 col-md-10 h-100 p-0 bg-light" style="max-width: 100%;">
 		<div class="container" id="contact">
 			<div class="d-flex row">
 				<div class="col-12 col-md-8">
