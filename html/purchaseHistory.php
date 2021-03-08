@@ -2,11 +2,47 @@
 <?php include_once('sidebarItem.html'); ?>
 
 
+
 <div class="p-0" style="background-color:#f2f2f2;">
-    <div id="userProfile" class="col-lg-10 col-12 p-lg-5 p-3 m-lg-auto shadow-lg-sm h-100" style="background-color:white; margin:0">
-        <h1 class="text-lg-start text-center ms-lg-5 mb-4">Purchase History</h1>
+
+    <div id="userProfile" class="col-lg-10 col-12 p-lg-5 pt-lg-2 p-3 m-lg-auto shadow-lg-sm h-100" style="background-color:white; margin:0">
+        <header>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb ms-4">
+                    <li class="breadcrumb-item"> <a class="link-dark" href="./user.php">User Profile</a></li>
+                    <li class="breadcrumb-item active">Purchase History</li>
+                </ol>
+            </nav>
+            <h1 class="text-lg-start text-center ms-lg-5 mb-4">Purchase History</h1>
+
+            <div class="row mt-3 ms-lg-3 ms-md-1 me-lg-5 me-md-2 border-bottom">
+                <div class="col-md-4 col-5">
+                    Showing <span id="nResultsCurrent">1-2</span> of <span id="totalResults">2</span> purchases
+                </div>
+                <nav class="col-md-4 col-7 d-flex text-center justify-content-md-center justify-content-end" aria-label="Search Results Pages">
+                    <div class="d-flex flex-column justify-content-center">
+                        <ul class="pagination pagination-sm mb-0">
+                            <li class="page-item"><a class="page-link link-secondary">Previous</a></li>
+                            <li class="page-item"><a class="page-link link-dark" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link link-secondary">Next</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="col-md-4 col-12 d-flex justify-md-content-end justify-content-center">
+                    <label for="orderSelect" class="align-middle me-2">Order by </label>
+                    <select id="orderSelect" class="form-select form-select-sm w-50 border-bottom-0 rounded-0 rounded-top">
+                        <option value="1">Date: Most recent first</option>
+                        <option value="2">Date: Least recent first</option>
+                        <option value="3">Price: Most expensive first</i></option>
+                        <option value="4">Price: Least expensive first <i class="bi bi-arrow-down-short"></i></option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
 
         <div class="accordion accordion-flush" id="purchaseHistory" style="background-color: white">
+
             <div class="accordion-item purchaseFromHistory">
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -127,23 +163,19 @@
 
         </div>
 
-        <nav aria-label="Purchase history navigation" class="sticky-bottom">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <footer class="row mt-3 pt-2 ms-lg-3 ms-md-1 me-lg-5 me-md-2 border-top" id="searchControlsBottom">
+            <div class="col-md-4 col-5">
+                Showing <span id="nResultsCurrent">1-2</span> of <span id="totalResults">2</span> purchases
+            </div>
+            <nav class="col-md-4 col-7 d-flex text-center justify-content-md-center justify-content-end" aria-label="Search Results Pages">
+                <ul class="pagination pagination-sm mb-0">
+                    <li class="page-item"><a class="page-link link-secondary">Previous</a></li>
+                    <li class="page-item"><a class="page-link link-dark" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link link-secondary">Next</a></li>
+                </ul>
+            </nav>
+        </footer>
     </div>
+
 </div>
 <?php include_once('footer.html'); ?>

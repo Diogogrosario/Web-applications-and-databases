@@ -1,6 +1,13 @@
 <?php include_once('header.php'); ?>
 <?php include_once('sidebarItem.html'); ?>
 
+<nav class="mt-3" aria-label="breadcrumb">
+    <ol class="breadcrumb ms-4">
+        <li class="breadcrumb-item"> <a class="link-dark" href="./user.php">User Profile</a></li>
+        <li class="breadcrumb-item active">Wishlist</li>
+    </ol>
+</nav>
+
 <div class="col d-flex flex-column">
     <header class="row mt-3 ms-lg-3 ms-md-1 me-lg-5 me-md-2 pe-lg-5 pe-md-1 border-bottom" id="searchControlsTop">
         <div class="col-md-4 col-5">
