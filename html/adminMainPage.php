@@ -1,6 +1,11 @@
-<?php include_once('header.html'); ?>
+<?php include_once('header.php'); ?>
 <?php include_once('sidebarItem.html'); ?>
 
+<nav aria-label="breadcrumb ">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active">Administration Area</li>
+  </ol>
+</nav>
 
 <div class="container" style="width: 95%; margin: auto; display: grid; grid-template-rows: 25vh 25vh 10vh">
     <div style="text-align: center; font-size: 2.5rem; grid-column: 1;">

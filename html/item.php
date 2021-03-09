@@ -1,4 +1,4 @@
-<?php include_once('header.html'); ?>
+<?php include_once('header.php'); ?>
 <?php include_once('sidebarItem.html'); ?>
 
 <div class="col">
@@ -6,37 +6,37 @@
 
         <div class="row">
 
-            <div class="d-lg-flex flex-column justify-content-center col-2 text-center p-0 d-none" style="background-color:lightgrey; height:100%;" id="similarProducts">
+            <div class="d-lg-block d-none col-lg-2 text-center p-0" style="background-color:#f0e9e1; min-height:100%" id="similarProducts">
 
                 <h1 class="p-3 text-center fs-5 overflow-hidden">Similar Products</h1>
 
-                <a class="item-card" href="./item.php">
+                <a class="item-card zoom" href="./item.php">
                     <div class="card border-0 similarProductCard">
                         <div class="card-body ps-4 pe-3">
                             <img src="images/computers/alarcoGamingPc.jpg" class="card-img-top" alt="Alarco Gaming Pc">
-                            <section id="itemInfo">
+                            <section class="itemInfo">
                                 <h5 class="card-title">Alarco Gaming Pc</h5>
                                 <p class="card-text">150€</p>
                             </section>
                         </div>
                     </div>
                 </a>
-                <a class="item-card" href="./item.php">
+                <a class="item-card zoom" href="./item.php">
                     <div class="card border-0 similarProductCard">
                         <div class="card-body ps-4 pe-3">
                             <img src="images/computers/asusRog.jpg" class="card-img-top" alt="Asus Rog">
-                            <section id="itemInfo">
+                            <section class="itemInfo">
                                 <h5 class="card-title">Asus Rog</h5>
                                 <p class="card-text">2000€.</p>
                             </section>
                         </div>
                     </div>
                 </a>
-                <a class="item-card" href="./item.php">
+                <a class="item-card zoom" href="./item.php">
                     <div class="card border-0 similarProductCard">
                         <div class="card-body ps-4 pe-3">
                             <img src="images/phones/razerPhone.jpg" class="card-img-top" alt="Razer Phone">
-                            <section id="itemInfo">
+                            <section class="itemInfo">
                                 <h5 class="card-title">Razer Phone</h5>
                                 <p class="card-text">700€</p>
                             </section>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="col pt-4">
-                <div class="row ps-lg-5 pb-5 pt-2">
+                <div class="row ps-lg-5 pb-lg-5 pb-2 pt-2">
                     <h1 id="productName" class="text-lg-start text-center">Cyberpunk 2077: Day One Edition</h1>
                     <!-- <h4 class="ps-5" id="productCategory">Videogame</h4> -->
                 </div>
@@ -79,7 +79,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-6 col-8 offset-2 offset-md-0 mt-md-0 mt-3" id="ratingAndButtons">
+                    <div class="col-lg-5 col-md-6 col-12 offset-md-0 mt-md-0 mt-3" id="ratingAndButtons">
                         <div class="row mb-3 text-md-start text-center">
                             <div class="col" id="productRating">
                                 <span id="starRating">
@@ -98,7 +98,29 @@
                                     10.99 €
                                 </div>
                                 <div class="text-center fs-5 mb-1"><span style="color:green">22</span> in stock</div>
-                                <button class="btn btn-success w-100 btn-lg rounded-top rounded-0"><i class="bi bi-cart4"></i> Add to Cart</button>
+
+
+                                <button type="button" class="btn btn-success w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#balanceModal">
+                                    <i class="bi bi-cart-plus"></i> Add to cart
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="balanceModal" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <form>
+                                                    <label for="recipient-name" class="col-form-label"> Quantity of items?</label>
+                                                    <input type="number" class="form-control" id="recipient-name" placeholder="Amount" value=1>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Add to cart</button>
+                                                <button type="button" class="btn btn-primary">Add to cart and checkout</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0"><i class="bi bi-heart"></i> Add to Wishlist</button>
                             </div>
                         </div>
@@ -110,33 +132,33 @@
                 <div class="row mt-5">
                     <nav>
                         <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-                            <button class="nav-link" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="false">Description</button>
+                            <button class="nav-link active" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="false">Description</button>
                             <button class="nav-link" id="nav-details-tab" data-bs-toggle="tab" data-bs-target="#nav-details" type="button" role="tab" aria-controls="nav-details" aria-selected="false">Details</button>
-                            <button class="nav-link active" id="nav-reviews-tab" data-bs-toggle="tab" data-bs-target="#nav-reviews" type="button" role="tab" aria-controls="nav-reviews" aria-selected="true">Reviews</button>
+                            <button class="nav-link" id="nav-reviews-tab" data-bs-toggle="tab" data-bs-target="#nav-reviews" type="button" role="tab" aria-controls="nav-reviews" aria-selected="true">Reviews</button>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
-                            <section class="ps-5 pe-5" id="productDescription">
+                        <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
+                            <section class="px-md-5 px-2" id="productDescription">
                                 <h3 class="text-start mt-4">Description</h3>
                                 <div class="mt-4 text-justify" id="descriptionText">
-                                    <p>Cyberpunk 2077 é uma história de ação/aventura no mundo aberto de Night City, uma megalópole obcecada com poder, glamour e alterações de corpos. Aqui serás V, um mercenário exilado que persegue um implante essencial para obter a imortalidade. Poderás personalizar o cyberware, habilidades e estilo da tua personagem e explorar uma vasta cidade onde as escolhas que tomares irão moldar a história e o mundo que te rodeia. </P>
-                                    <P>JOGA COMO UM MERCENÁRIO EXILADO
-                                    <P>Transforma-te num cyberpunk, um mercenário urbano equipado com acessório cibernéticos, e cria a tua lenda nas ruas de Night City.
-                                    <P>VIVE NA CIDADE DO FUTURO
-                                    <P>Entra num enorme mundo aberto de Night City, um local com visuais, complexidades e profundidades inéditas.
-                                    <P>ROUBA O IMPLANTE E OBTÉM A VIDA ETERNA
-                                    <P>Aceita a missão mais arriscada da tua vida e procura o implante essencial para obter a imortalidade.
-                                    <P>O jogo inclui os seguintes itens físicos:
-                                    <P>- Caixa com CD de jogos <BR>- Capa reversível <BR>- Compêndio do Mundo com informações sobre o cenário e os ritos do jogo <BR>- Postais de Night City <BR>- Mapa de Night City <BR>- Autocolantes </P>
-                                    <P>Brindes digitais incluídos:
-                                    <P>- Banda sonora do jogo <BR>- Minilivro de arte com uma seleção de arte do jogo <BR>- Banda desenhada Digital “Cyberpunk 2077:Your voice" <BR>- Sourcebook Cyberpunk de 2020 <BR>- Papeis de parede para computador e telemóvel </P>
+                                <p> Cyberpunk 2077 is an action/adventure story in the open world of Night City, a megalopolis obsessed with power, glamor and body changes. Here you will be V, an exiled mercenary who chases an essential implant to obtain immortality. You'll be able to customize your character's cyberware, skills and style and explore a vast city where the choices you make will shape the story and the world around you. </P>
+                                    <P> PLAYS AS AN EXILED MERCENARY
+                                        <P> Become a cyberpunk, an urban mercenary equipped with cyber accessories, and create your legend on the streets of Night City.
+                                            <P> LIVES IN THE CITY OF THE FUTURE
+                                                <P> Enter a huge open world of Night City, a place with unprecedented visuals, complexities and depths.
+                                                    <P> STEAL THE IMPLANT AND GET ETERNAL LIFE
+                                                        <P> Accept the riskiest mission of your life and look for the essential implant to obtain immortality.
+                                                            <P> The game includes the following physical items:
+                                                                <P> - Game CD box <BR> - Reversible cover <BR> - Compendium of the World with information about the scene and the rites of the game <BR> - Postcards of Night City <BR> - Map of Night City <BR > - Stickers </P>
+                                                                <P> Digital gifts included:
+                                                                    <P> - Game soundtrack <BR> - Art mini book with a selection of game art <BR> - Digital comic “Cyberpunk 2077: Your voice" <BR> - 2020 Cyberpunk Sourcebook <BR> - Wallpapers computer and mobile phone wall </P>
                                 </div>
                             </section>
                         </div>
                         <div class="tab-pane fade" id="nav-details" role="tabpanel" aria-labelledby="nav-details-tab">
                             <!-- <div class="col-7 text-center ps-5 pe-5"> -->
-                            <section id="productDetails" class="row ps-5 pe-5 pt-3">
+                            <section id="productDetails" class="row px-md-5 px-2 pt-3">
                                 <h3 class="text-center mt-3 mb-3">Product Details</h3>
 
                                 <div class="col-md-6 col-sm-12" id="detailsTable_1">
@@ -162,7 +184,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">Others</th>
-                                                <td>This game is extremely buggy, has terrible performance on consoles and low/medium end PC's and is lacking comparing to what was presented before release</td>
+                                                <td class="text-start">This game is extremely buggy, has terrible performance on consoles and low/medium end PC's and is lacking comparing to what was presented before release</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -171,9 +193,9 @@
                             </section>
                             <!-- </div> -->
                         </div>
-                        <div class="tab-pane fade show active" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
+                        <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
                             <!-- <div class="col"> -->
-                            <section class="ps-5 pe-5 col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1" id="reviewSection">
+                            <section class="px-md-5 px-2 col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1" id="reviewSection">
                                 <h3 class="text-start mt-4">Reviews <span class="fs-5" id="n_reviews">(2)</span></h3>
                                 <form class="mt-4 mb-5" id="newReviewForm">
                                     <textarea required class="form-control" id="productDescription" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
