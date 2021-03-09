@@ -13,13 +13,13 @@ main {
     z-index: 1;
 }
 
-#collapsableColumn.show .list-group a {
+/* #collapsableColumn.show .list-group a {
     /* flex: 1;
     display: flex; */
     /* white-space:nowrap;
     overflow: hidden;
     text-overflow: ellipsis;  */
-}
+} */
 
 #carouselProductImages {
     z-index: 0;
@@ -75,7 +75,7 @@ a#username-anchor:hover{
     }
 }
 
-table td {
+#other table td {
     text-align: end;
 }
 
