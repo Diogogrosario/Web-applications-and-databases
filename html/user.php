@@ -39,7 +39,7 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">€</div>
                                         </div>
-                                        <input type="number" class="form-control" id="recipient-name" placeholder="Amount">
+                                        <input type="number" class="form-control" id="recipient-name" placeholder="Amount, I.e: 20">
                                     </div>
                                 </form>
                             </div>

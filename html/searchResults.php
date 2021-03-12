@@ -81,7 +81,7 @@
                                         <div class="modal-body">
                                             <form>
                                                 <label for="recipient-name" class="col-form-label"> Quantity of items?</label>
-                                                <input type="number" class="form-control" id="recipient-name" placeholder="Amount">
+                                                <input type="number" class="form-control" id="recipient-name" placeholder="Amount, I.e: 20">
                                             </form>
                                         </div>
                                         <div class="modal-footer">
@@ -147,7 +147,7 @@
                                         <div class="modal-body">
                                             <form>
                                                 <label for="recipient-name" class="col-form-label"> Quantity of items?</label>
-                                                <input type="number" class="form-control" id="recipient-name" placeholder="Amount">
+                                                <input type="number" class="form-control" id="recipient-name" placeholder="Amount, I.e: 20">
                                             </form>
                                         </div>
                                         <div class="modal-footer">
@@ -213,7 +213,7 @@
                                         <div class="modal-body">
                                             <form>
                                                 <label for="recipient-name" class="col-form-label"> Quantity of items?</label>
-                                                <input type="number" class="form-control" id="recipient-name" placeholder="Amount">
+                                                <input type="number" class="form-control" id="recipient-name" placeholder="Amount, I.e: 20">
                                             </form>
                                         </div>
                                         <div class="modal-footer">

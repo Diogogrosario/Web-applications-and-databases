@@ -15,7 +15,7 @@
                 <form action="" method="post" name="Sign in">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>
-                        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Username" required>
+                        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Username,  I.e: John Doe" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Password</label>

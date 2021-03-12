@@ -68,7 +68,7 @@
                             <option value="3">Smartphones</option>
                             <option value="4">Electrodomestics</option>
                         </select>
-                        <input type="text" class="form-control w-50" aria-label="Text input with dropdown button">
+                        <input type="text" class="form-control w-50" placeholder="Search For An Item" aria-label="Text input with dropdown button">
                         <button type="submit" class="btn btn-secondary" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
                     </div>
                 </form>

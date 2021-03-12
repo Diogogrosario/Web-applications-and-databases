@@ -11,21 +11,21 @@
             </div>
             <div class="pt-3">
                 <label style="padding-bottom: 1%;" for="EmailInput" class="form-label"><b>E-mail</b></label>
-                <input type="text" class="form-control" id="EmailInput" placeholder="E-mail" required>
+                <input type="text" class="form-control" id="EmailInput" placeholder="E-mail, I.e: email@hotmail.com" required>
             </div>
             <div class="row pt-3">
                 <div class="col-md-6">
                     <label style="padding-bottom: 1%;" for="firstNameInput" class="form-label"><b>First Name</b></label>
-                    <input type="text" class="form-control" id="firstNameInput" placeholder="First Name" required>
+                    <input type="text" class="form-control" id="firstNameInput" placeholder="First Name, I.e: John" required>
                 </div>
                 <div class="col-md-6">
                     <label style="padding-bottom: 1%;" for="lastNameInput" class="form-label"><b>Last Name</b></label>
-                    <input type="text" class="form-control" id="lastNameInput" placeholder="Last Name" required>
+                    <input type="text" class="form-control" id="lastNameInput" placeholder="Last Name, I.e: Doe" required>
                 </div>
             </div>
             <div class="pt-3">
                 <label style="padding-bottom: 1%;" for="usernameInput" class="form-label"><b>Username</b></label>
-                <input type="text" class="form-control" id="usernameInput" placeholder="Username" required>
+                <input type="text" class="form-control" id="usernameInput" placeholder="Username, I.e: JohnDoe123" required>
             </div>
             <div class="pt-3">
                 <label style="padding-bottom: 1%;" for="passwordInput" class="form-label"><b>Password</b></label>

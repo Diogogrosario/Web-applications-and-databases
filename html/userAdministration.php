@@ -47,7 +47,7 @@
                                 <div class="d-none d-lg-inline">Ban
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
+                            <button type="button" class="btn btn-success"><i class="bi bi-person-plus-fill"></i></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
                             </button>
@@ -65,7 +65,7 @@
                                 <div class="d-none d-lg-inline"> Ban
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
+                            <button type="button" class="btn btn-success"><i class="bi bi-person-plus-fill"></i></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
                             </button>
@@ -83,7 +83,7 @@
                                 <div class="d-none d-lg-inline">Ban
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
+                            <button type="button" class="btn btn-success"><i class="bi bi-person-plus-fill"></i></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
                             </button>
@@ -101,7 +101,7 @@
                                 <div class="d-none d-lg-inline">Ban
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
+                            <button type="button" class="btn btn-success"><i class="bi bi-person-plus-fill"></i></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
                             </button>
@@ -119,7 +119,7 @@
                                 <div class="d-none d-lg-inline">Ban
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
+                            <button type="button" class="btn btn-success"><i class="bi bi-person-plus-fill"></i></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
                             </button>
@@ -137,7 +137,7 @@
                                 <div class="d-none d-lg-inline">Ban
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
+                            <button type="button" class="btn btn-success"><i class="bi bi-person-plus-fill"></i></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
                             </button>
@@ -155,7 +155,7 @@
                                 <div class="d-none d-lg-inline">Ban
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
+                            <button type="button" class="btn btn-success"><i class="bi bi-person-plus-fill"></i></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
                             </button>
@@ -173,7 +173,7 @@
                                 <div class="d-none d-lg-inline">Ban
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
+                            <button type="button" class="btn btn-success"><i class="bi bi-person-plus-fill"></i></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
                             </button>
@@ -191,7 +191,7 @@
                                 <div class="d-none d-lg-inline">Ban
                                 </div>
                             </button>
-                            <button type="button" class="btn btn-success"> <i class="fas fa-user-graduate"></i>
+                            <button type="button" class="btn btn-success"><i class="bi bi-person-plus-fill"></i></i>
                                 <div class="d-none d-lg-inline"> Promote to Admin
                                 </div>
                             </button>
