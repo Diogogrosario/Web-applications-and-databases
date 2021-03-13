@@ -87,5 +87,17 @@
         </div>
     </section>
 </div>
+<<<<<<< HEAD
+<section class="col-lg-3">
+    <div class="d-flex flex-column justify-content-center text-center h-100 align-items-center">
+        <p class="m-0 d-inline" style="font-size: 1.5em;">Total:</p>
+        <p class="d-inline mb-0 mb-lg-3" style="font-size: 1.5em">47.97€</p>
+        <p></p>
+        <button type="button" class="btn btn-success btn-lg w-50">Buy all</button>
+    </div>
+</section>
+
+=======
+>>>>>>> development
 
 <?php include_once('footer.html'); ?>
