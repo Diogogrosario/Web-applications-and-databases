@@ -50,25 +50,14 @@
                             <div class="row ps-2">
                                 <div class="col-lg-6 col-md-6 col-sm-6 pb-1 pt-1">
                                     <!-- TODO: MUDAR DE LISTA PARA OUTRA COISA POR CAUSA DE BACKGROUND QUANDO SELECIONADO-->
-<<<<<<< HEAD
-                                    <p class="border-0 pt-0 pb-0 mb-1">Asus Computer</p>
-                                    <p class="border-0 pt-0 pb-0 mb-1">Second Product</p>
-                                    <p class="border-0 pt-0 pb-0 mb-1">Third Product</p>
-=======
                                     <p id="purchaseHistoryText" class="border-0 pt-0 pb-0 mb-1">iMac 27-inch</p>
                                     <p id="purchaseHistoryText" class="border-0 pt-0 pb-0 mb-1 ">iPhone4</p>
->>>>>>> development
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 pb-1 pt-1 d-flex flex-column justify-content-center">
                                     <b class="text-center fs-5" style="color: red"><span class="historyPrice">1250.00</span> €</b>
                                 </div>
-<<<<<<< HEAD
-                                <div class="col-lg-3 col-sm-1 d-flex flex-column justify-content-center historyDate text-center fs-5">
-                                    21/02/2021
-=======
                                 <div class="col-lg-3 col-md-3 col-sm-3 pb-1 pt-1 d-flex flex-column justify-content-center historyDate text-center fs-5">
                                     22/02/2021
->>>>>>> development
                                 </div>
                             </div>
                         </div>
@@ -143,27 +132,6 @@
                     </button>
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-<<<<<<< HEAD
-                    <div class="accordion-body">
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item purchaseFromHistory">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        <div class="container-fluid">
-                            <div class="row ps-2">
-                                <div class="col-lg-5 col-sm-2">
-                                    <!-- TODO: MUDAR DE LISTA PARA OUTRA COISA POR CAUSA DE BACKGROUND QUANDO SELECIONADO-->
-                                    <p class="border-0 pt-0 pb-0 mb-1">CyberPunk 2014</p>
-                                </div>
-                                <div class="col-lg-3 col-sm-1 d-flex flex-column justify-content-center">
-                                    <b class="text-center fs-5" style="color: red"><span class="historyPrice">0.99</span> €</b>
-                                </div>
-                                <div class="col-lg-3 col-sm-1 d-flex flex-column justify-content-center historyDate text-center fs-5">
-                                    12/12/2012
-                                </div>
-=======
                     <div class="accordion-body p-5 pt-4">
                         <div class="row border-bottom pb-3 vh-50">
                             <div class="col-lg-1 ps-5 align-self-center fs-4">
@@ -183,7 +151,6 @@
                             </div>
                             <div class="col d-flex flex-column justify-content-center text-center">
                                 <p><span class="title fs-5">300.00</span> €</p>
->>>>>>> development
                             </div>
                         </div>
                         <div class="row pt-3">
@@ -196,25 +163,6 @@
 
         </div>
 
-<<<<<<< HEAD
-        <nav aria-label="Purchase history navigation" class="sticky-bottom">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-=======
         <footer class="row mt-3 pt-2 ms-lg-3 ms-md-1 me-lg-5 me-md-2 border-top" id="searchControlsBottom">
             <div class="col-md-4 col-5">
                 Showing <span id="nResultsCurrent">1-2</span> of <span id="totalResults">2</span> purchases
@@ -227,7 +175,6 @@
                 </ul>
             </nav>
         </footer>
->>>>>>> development
     </div>
 
 </div>
