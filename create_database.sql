@@ -12,10 +12,10 @@ DROP TABLE IF EXISTS advertisement CASCADE;
 DROP TABLE IF EXISTS purchase_item CASCADE;
 DROP TABLE IF EXISTS purchase CASCADE;
 DROP TABLE IF EXISTS ban CASCADE;
+DROP TABLE IF EXISTS review CASCADE;
 DROP TABLE IF EXISTS item CASCADE;
 DROP TABLE IF EXISTS details CASCADE;
 DROP TABLE IF EXISTS category CASCADE;
-DROP TABLE IF EXISTS review CASCADE;
 DROP TABLE IF EXISTS authenticated CASCADE;
 DROP TABLE IF EXISTS admins CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
@@ -63,21 +63,14 @@ CREATE TABLE authenticated (
     authenticated_id INTEGER REFERENCES users(user_id) ON UPDATE CASCADE PRIMARY KEY,
     balance money DEFAULT 0 NOT NULL
 );
- 
-CREATE TABLE review (
-    review_id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES authenticated(authenticated_id) ON UPDATE CASCADE,
-    comment text,
-    "date" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
-    rating INTEGER NOT NULL CONSTRAINT rating_ck CHECK (((rating > 0) AND (rating <= 5)))
-);
+
 
 CREATE TABLE category (
     category_id SERIAL PRIMARY KEY,
     name text NOT NULL UNIQUE
 );
  
-CREATE TABLE detail (
+CREATE TABLE details (
     detail_id SERIAL PRIMARY KEY,
     name text NOT NULL UNIQUE
 );
@@ -90,7 +83,17 @@ CREATE TABLE item (
     description text NOT NULL,
     price MONEY NOT NULL CONSTRAINT pos_price CHECK (price >= 0::MONEY),
     is_archived BOOLEAN NOT NULL DEFAULT false,
-    category_id INTEGER REFERENCES category (category_id) ON UPDATE CASCADE
+    category_id INTEGER REFERENCES category (category_id) ON UPDATE CASCADE,
+    score INTEGER NOT NULL CONSTRAINT rating_ck CHECK (((score > 0) AND (score <= 5)))
+);
+ 
+CREATE TABLE review (
+    review_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES authenticated(authenticated_id) ON UPDATE CASCADE,
+    item_id INTEGER REFERENCES item(item_id) ON UPDATE CASCADE,
+    comment_text text,
+    "date" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
+    rating INTEGER NOT NULL CONSTRAINT rating_ck CHECK (((rating > 0) AND (rating <= 5)))
 );
  
 CREATE TABLE ban (
@@ -142,20 +145,20 @@ CREATE TABLE cart (
 
 CREATE TABLE wishlist (
     user_id INTEGER REFERENCES authenticated (authenticated_id) ON UPDATE CASCADE,
-    item_id INTEGER NOT NULL REFERENCES item (item_id) ON UPDATE CASCADE,
+    item_id INTEGER NOT NULL REFERENCES item(item_id) ON UPDATE CASCADE,
     add_date TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
     PRIMARY KEY (user_id, item_id)
 );
 
 CREATE TABLE discount (
     discount_id SERIAL PRIMARY KEY,
-    "percentage" INTEGER NOT NULL CONSTRAINT valid_percentage CHECK ((("percentage" > 0) AND ("percentage" <= 100))),
+    percentage INTEGER NOT NULL CONSTRAINT valid_percentage CHECK (((percentage > 0) AND (percentage <= 100))),
     begin_date TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
     end_date TIMESTAMP WITH TIME zone NOT NULL,
     CONSTRAINT ad_dates_ck CHECK (begin_date < end_date)
 );
 
-CREATE TABLE "notification" (
+CREATE TABLE notification (
     notification_id SERIAL PRIMARY KEY
     
 );
@@ -175,7 +178,7 @@ CREATE TABLE apply_discount (
     PRIMARY KEY (item_id, discount_id)
 );
 
-CREATE TABLE itemDetail (
+CREATE TABLE item_detail (
     item_id INTEGER NOT NULL REFERENCES item (item_id) ON UPDATE CASCADE,
     detail_id INTEGER NOT NULL REFERENCES detail (detail_id) ON UPDATE CASCADE,
     detail_info text NOT NULL,
