@@ -23,6 +23,10 @@ DROP TABLE IF EXISTS address CASCADE;
 DROP TABLE IF EXISTS photo CASCADE;
 DROP TABLE IF EXISTS country CASCADE;
 
+DROP TYPE IF EXISTS notificationType;
+
+CREATE TYPE notificationType AS ENUM ('Stock','Discount');
+
 CREATE TABLE country (
     country_id SERIAL PRIMARY KEY,
     name text NOT NULL CONSTRAINT country_name_uk UNIQUE
@@ -159,18 +163,12 @@ CREATE TABLE discount (
 );
 
 CREATE TABLE notification (
-    notification_id SERIAL PRIMARY KEY
-    
-);
-
-CREATE TABLE discount_notification (
     notification_id INTEGER NOT NULL REFERENCES discount (discount_id) ON UPDATE CASCADE PRIMARY KEY,
-    discount_id INTEGER NOT NULL REFERENCES discount (discount_id) ON UPDATE CASCADE
+    discount_id INTEGER REFERENCES discount (discount_id) ON UPDATE CASCADE,
+    notification_id SERIAL PRIMARY KEY,
+    type notificationType
 );
 
-CREATE TABLE stock_notification (
-    notification_id SERIAL PRIMARY KEY
-);
 
 CREATE TABLE apply_discount (
     item_id INTEGER NOT NULL REFERENCES item (item_id) ON UPDATE CASCADE,
