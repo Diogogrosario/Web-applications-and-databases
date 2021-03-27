@@ -108,7 +108,7 @@ CREATE TABLE ban (
 
 CREATE TABLE purchase (
     purchase_id SERIAL PRIMARY KEY,
-    userID INTEGER REFERENCES authenticated (authenticated_id) ON UPDATE CASCADE,
+    user_id INTEGER REFERENCES authenticated (authenticated_id) ON UPDATE CASCADE,
     "date" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL
 );
  
