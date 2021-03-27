@@ -161,9 +161,10 @@ CREATE TABLE discount (
 );
 
 CREATE TABLE notification (
+    user_id INTEGER REFERENCES authenticated (authenticated_id) ON UPDATE CASCADE,
     discount_id INTEGER REFERENCES discount (discount_id) ON UPDATE CASCADE,
     notification_id SERIAL PRIMARY KEY,
-	item_id INTEGER NOT NULL REFERENCES item(item_id) ON UPDATE CASCADE,
+    item_id INTEGER NOT NULL REFERENCES item(item_id) ON UPDATE CASCADE,
     type notificationType
 );
 
