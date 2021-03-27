@@ -1,8 +1,6 @@
 DROP TABLE IF EXISTS category_detail CASCADE;
 DROP TABLE IF EXISTS item_detail CASCADE;
 DROP TABLE IF EXISTS apply_discount CASCADE;
-DROP TABLE IF EXISTS stock_notification CASCADE;
-DROP TABLE IF EXISTS discount_notification CASCADE;
 DROP TABLE IF EXISTS notification CASCADE;
 DROP TABLE IF EXISTS discount CASCADE;
 DROP TABLE IF EXISTS wishlist CASCADE;
@@ -163,9 +161,9 @@ CREATE TABLE discount (
 );
 
 CREATE TABLE notification (
-    notification_id INTEGER NOT NULL REFERENCES discount (discount_id) ON UPDATE CASCADE PRIMARY KEY,
     discount_id INTEGER REFERENCES discount (discount_id) ON UPDATE CASCADE,
     notification_id SERIAL PRIMARY KEY,
+	item_id INTEGER NOT NULL REFERENCES item(item_id) ON UPDATE CASCADE,
     type notificationType
 );
 
