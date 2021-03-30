@@ -88,6 +88,11 @@ CREATE TABLE item (
     category_id INTEGER REFERENCES category (category_id) ON UPDATE CASCADE,
     score INTEGER NOT NULL CONSTRAINT rating_ck CHECK (((score > 0) AND (score <= 5)))
 );
+
+ALTER TABLE item
+    ADD COLUMN search tsvector
+    GENERATED ALWAYS AS (to_tsvector('english', coalesce(name, '') || ' ' || coalesce(description, ''))) STORED;
+
 CREATE TABLE review (
     review_id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES authenticated(authenticated_id) ON UPDATE CASCADE,
