@@ -14,8 +14,6 @@ DROP TABLE IF EXISTS review CASCADE;
 DROP TABLE IF EXISTS item CASCADE;
 DROP TABLE IF EXISTS details CASCADE;
 DROP TABLE IF EXISTS category CASCADE;
-DROP TABLE IF EXISTS authenticated CASCADE;
-DROP TABLE IF EXISTS admins CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS address CASCADE;
 DROP TABLE IF EXISTS photo CASCADE;
@@ -46,26 +44,18 @@ CREATE TABLE address (
 
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
-    username text NOT NULL CONSTRAINT username_uk UNIQUE,
-    email text NOT NULL CONSTRAINT user_email_uk UNIQUE,
+    username text CONSTRAINT username_uk UNIQUE,
+    email text CONSTRAINT user_email_uk UNIQUE,
     first_name text NOT NULL,
     last_name text NOT NULL,
     password text NOT NULL,
     deleted BOOLEAN DEFAULT FALSE,
+    is_admin BOOLEAN DEFAULT FALSE,
+    balance MONEY DEFAULT 0 NOT NULL,
     img INTEGER REFERENCES photo(photo_id) ON UPDATE CASCADE,
     billing_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE,
     shipping_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE
 );
-
-CREATE TABLE admins (
-    admin_id INTEGER REFERENCES users(user_id) ON UPDATE CASCADE PRIMARY KEY
-);
-
-CREATE TABLE authenticated (
-    authenticated_id INTEGER REFERENCES users(user_id) ON UPDATE CASCADE PRIMARY KEY,
-    balance money DEFAULT 0 NOT NULL
-);
-
 
 CREATE TABLE category (
     category_id SERIAL PRIMARY KEY,
@@ -86,7 +76,7 @@ CREATE TABLE item (
     price MONEY NOT NULL CONSTRAINT pos_price CHECK (price >= 0::MONEY),
     is_archived BOOLEAN NOT NULL DEFAULT false,
     category_id INTEGER REFERENCES category (category_id) ON UPDATE CASCADE,
-    score INTEGER NOT NULL CONSTRAINT rating_ck CHECK (((score > 0) AND (score <= 5)))
+    score INTEGER NOT NULL CONSTRAINT rating_ck CHECK (((score >= 0) AND (score <= 5)))
 );
 
 ALTER TABLE item
