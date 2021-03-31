@@ -85,7 +85,7 @@ ALTER TABLE item
 
 CREATE TABLE review (
     review_id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES authenticated(authenticated_id) ON UPDATE CASCADE,
+    user_id INTEGER REFERENCES users(user_id) ON UPDATE CASCADE,
     item_id INTEGER REFERENCES item(item_id) ON UPDATE CASCADE,
     comment_text text,
     "date" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE review (
 );
  
 CREATE TABLE ban (
-    admin_id INTEGER NOT NULL REFERENCES admins(admin_id) ON UPDATE CASCADE,
+    admin_id INTEGER NOT NULL REFERENCES users(user_id) ON UPDATE CASCADE,
     user_id INTEGER NOT NULL REFERENCES users(user_id) ON UPDATE CASCADE,
     "date" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
     reason text NOT NULL,
@@ -102,7 +102,7 @@ CREATE TABLE ban (
 
 CREATE TABLE purchase (
     purchase_id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES authenticated (authenticated_id) ON UPDATE CASCADE,
+    user_id INTEGER REFERENCES users(user_id) ON UPDATE CASCADE,
     "date" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL
 );
  
@@ -131,7 +131,7 @@ CREATE TABLE item_photo (
  
 
 CREATE TABLE cart (
-    user_id INTEGER REFERENCES authenticated (authenticated_id) ON UPDATE CASCADE,
+    user_id INTEGER REFERENCES users(user_id) ON UPDATE CASCADE,
     item_id INTEGER NOT NULL REFERENCES item (item_id) ON UPDATE CASCADE,
     add_date TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
     quantity INTEGER NOT NULL CONSTRAINT quantity_more_zero CHECK (quantity > 0),
@@ -140,7 +140,7 @@ CREATE TABLE cart (
  
 
 CREATE TABLE wishlist (
-    user_id INTEGER REFERENCES authenticated (authenticated_id) ON UPDATE CASCADE,
+    user_id INTEGER REFERENCES users(user_id) ON UPDATE CASCADE,
     item_id INTEGER NOT NULL REFERENCES item(item_id) ON UPDATE CASCADE,
     add_date TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
     PRIMARY KEY (user_id, item_id)
@@ -155,7 +155,7 @@ CREATE TABLE discount (
 );
 
 CREATE TABLE notification (
-    user_id INTEGER REFERENCES authenticated (authenticated_id) ON UPDATE CASCADE,
+    user_id INTEGER REFERENCES users(user_id) ON UPDATE CASCADE,
     discount_id INTEGER REFERENCES discount (discount_id) ON UPDATE CASCADE,
     notification_id SERIAL PRIMARY KEY,
     item_id INTEGER NOT NULL REFERENCES item(item_id) ON UPDATE CASCADE,
