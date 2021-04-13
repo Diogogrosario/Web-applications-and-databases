@@ -18,8 +18,6 @@ DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS address CASCADE;
 DROP TABLE IF EXISTS photo CASCADE;
 DROP TABLE IF EXISTS country CASCADE;
-DROP TABLE IF EXISTS detail CASCADE;
-DROP TABLE IF EXISTS itemdetail CASCADE;
 
 DROP TYPE IF EXISTS notificationType;
 
@@ -48,12 +46,12 @@ CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username text CONSTRAINT username_uk UNIQUE,
     email text CONSTRAINT user_email_uk UNIQUE,
-    first_name text NOT NULL,
-    last_name text NOT NULL,
-    password text NOT NULL,
+    first_name text,
+    last_name text,
+    password text,
     deleted BOOLEAN DEFAULT FALSE,
     is_admin BOOLEAN DEFAULT FALSE,
-    balance MONEY DEFAULT 0 NOT NULL,
+    balance MONEY DEFAULT 0,
     img INTEGER REFERENCES photo(photo_id) ON UPDATE CASCADE,
     billing_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE,
     shipping_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE
@@ -78,7 +76,7 @@ CREATE TABLE item (
     price MONEY NOT NULL CONSTRAINT pos_price CHECK (price >= 0::MONEY),
     is_archived BOOLEAN NOT NULL DEFAULT false,
     category_id INTEGER REFERENCES category (category_id) ON UPDATE CASCADE,
-    score INTEGER NOT NULL CONSTRAINT rating_ck CHECK (((score >= 0) AND (score <= 5))),
+    score REAL NOT NULL CONSTRAINT rating_ck CHECK (((score >= 0) AND (score <= 5))),
     search tsvector
 );
 
