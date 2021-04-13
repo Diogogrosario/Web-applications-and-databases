@@ -18,6 +18,8 @@ DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS address CASCADE;
 DROP TABLE IF EXISTS photo CASCADE;
 DROP TABLE IF EXISTS country CASCADE;
+DROP TABLE IF EXISTS detail CASCADE;
+DROP TABLE IF EXISTS itemdetail CASCADE;
 
 DROP TYPE IF EXISTS notificationType;
 
@@ -76,12 +78,9 @@ CREATE TABLE item (
     price MONEY NOT NULL CONSTRAINT pos_price CHECK (price >= 0::MONEY),
     is_archived BOOLEAN NOT NULL DEFAULT false,
     category_id INTEGER REFERENCES category (category_id) ON UPDATE CASCADE,
-    score INTEGER NOT NULL CONSTRAINT rating_ck CHECK (((score >= 0) AND (score <= 5)))
+    score INTEGER NOT NULL CONSTRAINT rating_ck CHECK (((score >= 0) AND (score <= 5))),
+    search tsvector
 );
-
-ALTER TABLE item
-    ADD COLUMN search tsvector
-    GENERATED ALWAYS AS (to_tsvector('english', coalesce(name, '') || ' ' || coalesce(description, ''))) STORED;
 
 CREATE TABLE review (
     review_id SERIAL PRIMARY KEY,
