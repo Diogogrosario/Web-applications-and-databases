@@ -156,7 +156,8 @@ CREATE TABLE notification (
     discount_id INTEGER REFERENCES discount (discount_id) ON UPDATE CASCADE,
     notification_id SERIAL PRIMARY KEY,
     item_id INTEGER NOT NULL REFERENCES item(item_id) ON UPDATE CASCADE,
-    type notificationType
+    type notificationType,
+    is_seen Boolean DEFAULT False
 );
 
 

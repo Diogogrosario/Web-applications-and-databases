@@ -30,7 +30,7 @@ INSERT INTO country (country_id, name) VALUES (15, 'Micronesia');
 INSERT INTO country (country_id, name) VALUES (16, 'Tajikistan');
 INSERT INTO country (country_id, name) VALUES (17, 'United States');
 INSERT INTO country (country_id, name) VALUES (18, 'Peru');
-INSERT INTO country (country_id, name) VALUES (19, 'Bulgaria');
+INSERT INTO country (country_id, name) VALUES (19, 'Portugal');
 INSERT INTO country (country_id, name) VALUES (20, 'Tokelau');
 
 
@@ -61,59 +61,59 @@ INSERT INTO details (detail_id, name) VALUES (23, 'Disc Format');
 INSERT INTO details (detail_id, name) VALUES (24, 'Sound');
 
 
-INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (1, 46, '2020-08-11 08:47:16', '2020-06-16 03:45:26');
+INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (1, 46, '2020-08-11 08:47:16', '2020-08-16 03:45:26');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (2, 26, '2020-08-31 03:55:46', '2021-02-22 17:58:47');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (3, 49, '2020-04-10 15:30:47', '2020-11-15 02:45:01');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (4, 52, '2020-03-21 01:06:07', '2020-11-26 16:28:20');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (5, 10, '2020-03-02 19:34:54', '2020-05-03 07:55:31');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (6, 28, '2020-04-08 21:26:30', '2020-08-24 16:45:42');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (7, 54, '2020-11-28 22:47:23', '2021-02-07 15:13:13');
-INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (8, 65, '2020-05-26 19:10:39', '2021-02-22 10:11:30');
-INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (9, 52, '2020-12-31 09:01:14', '2020-12-10 05:48:03');
-INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (10, 82, '2020-12-30 12:56:22', '2020-11-02 10:19:08');
-INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (11, 76, '2021-02-02 19:24:15', '2020-11-10 19:43:29');
+INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (8, 65, '2020-05-26 19:10:39', '2021-06-22 10:11:30');
+INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (9, 52, '2020-12-31 09:01:14', '2021-01-10 05:48:03');
+INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (10, 82, '2020-12-30 12:56:22', '2021-01-02 10:19:08');
+INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (11, 76, '2020-02-02 19:24:15', '2021-11-10 19:43:29');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (12, 1, '2020-04-01 13:01:47', '2020-10-01 13:04:25');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (13, 45, '2020-05-27 16:12:42', '2020-11-18 10:38:14');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (14, 17, '2020-05-10 20:51:33', '2020-09-14 18:14:25');
-INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (15, 18, '2021-03-06 18:44:44', '2020-08-06 11:52:43');
+INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (15, 18, '2021-03-06 18:44:44', '2021-08-06 11:52:43');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (16, 34, '2020-02-25 07:00:38', '2020-12-29 08:28:27');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (17, 23, '2020-02-26 15:01:32', '2020-05-11 06:45:20');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (18, 15, '2020-12-25 11:36:42', '2021-04-12 05:23:22');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (19, 60, '2020-03-25 19:19:40', '2021-03-21 01:12:51');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (20, 21, '2020-04-04 17:13:35', '2021-01-22 18:43:04');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (21, 72, '2020-02-16 22:55:32', '2020-04-22 15:56:40');
-INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (22, 54, '2021-01-04 11:12:39', '2020-08-18 01:10:42');
+INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (22, 54, '2021-01-04 11:12:39', '2021-08-18 01:10:42');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (23, 35, '2020-08-04 02:20:07', '2021-02-07 15:29:23');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (24, 26, '2020-11-03 11:30:28', '2021-01-13 00:58:57');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (25, 19, '2020-04-03 19:52:58', '2020-09-27 13:37:19');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (26, 54, '2020-08-11 22:01:24', '2020-09-16 13:20:04');
 INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (27, 15, '2020-03-08 18:11:59', '2020-05-26 02:43:08');
-INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (28, 77, '2021-03-15 21:17:29', '2021-02-15 01:36:31');
-INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (29, 39, '2020-10-28 14:20:53', '2020-06-14 06:16:17');
-INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (30, 88, '2021-02-23 12:32:37', '2020-08-24 14:46:22');
+INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (28, 77, '2021-03-15 21:17:29', '2021-04-15 01:36:31');
+INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (29, 39, '2020-10-28 14:20:53', '2020-11-14 06:16:17');
+INSERT INTO discount (discount_id, percentage, begin_date, end_date) VALUES (30, 88, '2021-02-23 12:32:37', '2021-08-24 14:46:22');
 
 
 
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (1, 'ASUS laptop MSXKD-231', 25, 'Cutting-edge laptop for all your needs', 'With the most recent techonology in the market, this laptop will blow you away with its tremendous power, allowing for a smooth experience even in gaming. Designed with the first 300Hz screen on a laptop, it is as powerful as it is quiet.', 2500, False, 1, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (2, 'Lenovo Thinkpad', 92, 'Small and quiet, useful on the go', '', 650, False, 1, 0, '');
-INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (3, 'My Hero Academia - Book 5', 86, NULL, 'The final stages of the U.A. High sports festival promise to be explosive as Uraraka takes on Bakugo in a head to head match! Bakugo never gives anyone a break, and the crowd holds its breath as the battle begins. The finals will push the students of Class 1-A to their limits and beyond!', '59186, 27', False, 2, 0, '');
+INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (3, 'My Hero Academia - Book 5', 86, NULL, 'The final stages of the U.A. High sports festival promise to be explosive as Uraraka takes on Bakugo in a head to head match! Bakugo never gives anyone a break, and the crowd holds its breath as the battle begins. The finals will push the students of Class 1-A to their limits and beyond!', 10, False, 2, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (4, 'The Intelligent Investor', 37, 'The Definitive Book on Value Investing', 'Presents the philosophy of "value investing", which helps protect investors against the areas of possible substantial error and teaches them to develop long-term strategies with which they will be comfortable down the road. This book enables you to make the right decisions to protect your investments and make them a success.', 19.60, False, 2, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (5, 'Robot Mi Vacuum Mop Pro', 49, 'Robot Vacuum', '', 349.99, True, 3, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (6, 'Microwave Beltax BMO-1120 - Silver', 59, NULL, '', 79.99, False, 3, 0, '');
-INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (7, 'Resident Evil Village - PS4', 68, NULL, 'First-person action - You will take on the role of Ethan Winters and experience each battle at close range and terrifying chase from an extremely close perspective.' + CHAR(13) + CHAR(10) + 'Familiar faces and new enemies - As a rule, Chris Redfield has been a hero in the Resident Evil series, but his appearance in Resident Evil Village appears to be involved in sinister reasons. A series of new adversaries who inhabit the enigmatic village will ruthlessly pursue Ethan, making his every move difficult, as he tries to understand the new nightmare in which he finds himself involved.', 69.99, False, 4, 0, '');
+INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (7, 'Resident Evil Village - PS4', 68, NULL, 'First-person action - You will take on the role of Ethan Winters and experience each battle at close range and terrifying chase from an extremely close perspective.\nFamiliar faces and new enemies - As a rule, Chris Redfield has been a hero in the Resident Evil series, but his appearance in Resident Evil Village appears to be involved in sinister reasons. A series of new adversaries who inhabit the enigmatic village will ruthlessly pursue Ethan, making his every move difficult, as he tries to understand the new nightmare in which he finds himself involved.', 69.99, False, 4, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (8, 'Minecraft Nintendo Switch Edition', 79, NULL, 'The phenomenal and unforgettable full Minecraft experience, now on the Nintendo Switch so you can play anywhere at anytime!', 29.99, False, 4, 0, NULL);
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (9, 'iPhone 12 Pro Max', 22, 'Most recent iPhone from Apple', 'High quality device designed at Apple for the most refined and excellent smartphone experience', 1629.99, False, 5, 0, '');
-INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (10, 'Smartphone SAMSUNG Galaxy Fold', 78, NULL, 'This new smartphone from the famous Samsung company is the prime example of modern smartphone technology, with a fully working screen that folds!', '6, 83', False, 5, 0, '');
+INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (10, 'Smartphone SAMSUNG Galaxy Fold', 78, NULL, 'This new smartphone from the famous Samsung company is the prime example of modern smartphone technology, with a fully working screen that folds!', 6.8, False, 5, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (11, 'Headphones Bluetooth Sony WH-1000XM3', 30, 'Wireless bluetooth headphones', '', 379.99, False, 6, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (12, 'Medicine at Midnight - LP Orange Vinil', 84, 'Vinil exclusive from Foo Figthers', '', 21.99, False, 7, 0, '');
-INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (13, 'Minions Pencil set', 50, NULL, 'Draw and paint with these pencils, from your cute and fun Minions!', '5, 28', False, 8, 0, '');
+INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (13, 'Minions Pencil set', 50, NULL, 'Draw and paint with these pencils, from your cute and fun Minions!', 5.28, False, 8, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (14, 'Frozen Pencil set', 57, NULL, 'Draw the most inspiring art with these pencils, inspired in your favourite princesses from Frozen!', 6.80, False, 8, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (15, 'Soundbar Bluetooth Signa S2', 29, NULL, '', 249.99, False, 9, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (16, 'Smart TV Samsung UHD 4K 55AU7105', 68, NULL, 'This new TV from Samsung will blow you away with its incredible screen size, resolution and beautiful colors', 699.99, False, 10, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (17, 'Smart TV Samsung Neo QLED 8K 65QN800A', 36, NULL, '8K is here and this TV proves it. Images have never been shaper and colorful than with this new Samsung TV with the most cutting edge of this time', 3520.30, False, 10, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (18, 'Fifty Shades Freed', 55, NULL, 'The most recent installment on the Fifty Shades series now with an extended DVD version, with scenes never before scene on theatre displays', 7.99, False, 11, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (19, 'How to Train your Dragon 3', 8, NULL, '', 13.99, False, 11, 0, '');
-INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (20, 'Robocop Trilogy Blu-ray', 50, NULL, 'The whole Robocop trilogy, now on Blu-ray with new scenes and enhanced image quality', '85, 66', False, 11, 0, '');
+INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (20, 'Robocop Trilogy Blu-ray', 50, NULL, 'The whole Robocop trilogy, now on Blu-ray with new scenes and enhanced image quality', 10.00, False, 11, 0, '');
 
 
 
@@ -320,7 +320,6 @@ INSERT INTO apply_discount (item_id, discount_id) VALUES (16, 14);
 INSERT INTO apply_discount (item_id, discount_id) VALUES (1, 3);
 INSERT INTO apply_discount (item_id, discount_id) VALUES (11, 4);
 INSERT INTO apply_discount (item_id, discount_id) VALUES (12, 7);
-INSERT INTO apply_discount (item_id, discount_id) VALUES (2, 15);
 INSERT INTO apply_discount (item_id, discount_id) VALUES (4, 4);
 INSERT INTO apply_discount (item_id, discount_id) VALUES (8, 9);
 INSERT INTO apply_discount (item_id, discount_id) VALUES (10, 14);
@@ -403,36 +402,36 @@ INSERT INTO category_detail (category_id, detail_id) VALUES (11, 23);
 
 
 
-INSERT INTO item_photo (photo_id, item_id) VALUES (11, 1);
-INSERT INTO item_photo (photo_id, item_id) VALUES (18, 1);
-INSERT INTO item_photo (photo_id, item_id) VALUES (28, 2);
-INSERT INTO item_photo (photo_id, item_id) VALUES (38, 2);
-INSERT INTO item_photo (photo_id, item_id) VALUES (29, 3);
-INSERT INTO item_photo (photo_id, item_id) VALUES (31, 4);
-INSERT INTO item_photo (photo_id, item_id) VALUES (33, 5);
-INSERT INTO item_photo (photo_id, item_id) VALUES (38, 6);
-INSERT INTO item_photo (photo_id, item_id) VALUES (33, 6);
-INSERT INTO item_photo (photo_id, item_id) VALUES (39, 7);
-INSERT INTO item_photo (photo_id, item_id) VALUES (34, 7);
-INSERT INTO item_photo (photo_id, item_id) VALUES (36, 7);
-INSERT INTO item_photo (photo_id, item_id) VALUES (38, 8);
-INSERT INTO item_photo (photo_id, item_id) VALUES (28, 9);
-INSERT INTO item_photo (photo_id, item_id) VALUES (37, 10);
-INSERT INTO item_photo (photo_id, item_id) VALUES (38, 11);
-INSERT INTO item_photo (photo_id, item_id) VALUES (29, 11);
-INSERT INTO item_photo (photo_id, item_id) VALUES (32, 12);
-INSERT INTO item_photo (photo_id, item_id) VALUES (33, 13);
-INSERT INTO item_photo (photo_id, item_id) VALUES (26, 14);
-INSERT INTO item_photo (photo_id, item_id) VALUES (40, 15);
-INSERT INTO item_photo (photo_id, item_id) VALUES (35, 15);
-INSERT INTO item_photo (photo_id, item_id) VALUES (28, 16);
-INSERT INTO item_photo (photo_id, item_id) VALUES (38, 16);
-INSERT INTO item_photo (photo_id, item_id) VALUES (30, 17);
-INSERT INTO item_photo (photo_id, item_id) VALUES (32, 18);
-INSERT INTO item_photo (photo_id, item_id) VALUES (26, 19);
+INSERT INTO item_photo (photo_id, item_id) VALUES (1, 1);
+INSERT INTO item_photo (photo_id, item_id) VALUES (2, 1);
+INSERT INTO item_photo (photo_id, item_id) VALUES (3, 2);
+INSERT INTO item_photo (photo_id, item_id) VALUES (4, 2);
+INSERT INTO item_photo (photo_id, item_id) VALUES (5, 3);
+INSERT INTO item_photo (photo_id, item_id) VALUES (6, 4);
+INSERT INTO item_photo (photo_id, item_id) VALUES (7, 5);
+INSERT INTO item_photo (photo_id, item_id) VALUES (8, 6);
+INSERT INTO item_photo (photo_id, item_id) VALUES (9, 6);
+INSERT INTO item_photo (photo_id, item_id) VALUES (10, 7);
+INSERT INTO item_photo (photo_id, item_id) VALUES (11, 7);
+INSERT INTO item_photo (photo_id, item_id) VALUES (12, 7);
+INSERT INTO item_photo (photo_id, item_id) VALUES (13, 8);
+INSERT INTO item_photo (photo_id, item_id) VALUES (14, 9);
+INSERT INTO item_photo (photo_id, item_id) VALUES (15, 10);
+INSERT INTO item_photo (photo_id, item_id) VALUES (16, 11);
+INSERT INTO item_photo (photo_id, item_id) VALUES (17, 11);
+INSERT INTO item_photo (photo_id, item_id) VALUES (18, 12);
+INSERT INTO item_photo (photo_id, item_id) VALUES (19, 13);
+INSERT INTO item_photo (photo_id, item_id) VALUES (20, 14);
+INSERT INTO item_photo (photo_id, item_id) VALUES (21, 15);
+INSERT INTO item_photo (photo_id, item_id) VALUES (22, 15);
+INSERT INTO item_photo (photo_id, item_id) VALUES (23, 16);
+INSERT INTO item_photo (photo_id, item_id) VALUES (24, 16);
+INSERT INTO item_photo (photo_id, item_id) VALUES (25, 17);
+INSERT INTO item_photo (photo_id, item_id) VALUES (26, 18);
+INSERT INTO item_photo (photo_id, item_id) VALUES (27, 19);
+INSERT INTO item_photo (photo_id, item_id) VALUES (28, 20);
+INSERT INTO item_photo (photo_id, item_id) VALUES (29, 20);
 INSERT INTO item_photo (photo_id, item_id) VALUES (30, 20);
-INSERT INTO item_photo (photo_id, item_id) VALUES (40, 20);
-INSERT INTO item_photo (photo_id, item_id) VALUES (34, 20);
 
 
 
@@ -461,17 +460,14 @@ INSERT INTO wishlist (user_id, item_id, add_date) VALUES (10, 5, '09/10/2016 05:
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (3, 6, '07/10/2010 00:23:00');
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (7, 13, '03/16/2012 09:12:00');
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (6, 17, '11/19/2019 03:25:00');
-INSERT INTO wishlist (user_id, item_id, add_date) VALUES (5, 4, '05/19/2014 05:03:00');
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (7, 14, '09/15/2001 00:52:00');
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (5, 4, '09/26/2019 02:12:00');
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (5, 5, '03/03/2011 02:06:00');
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (9, 13, '07/11/2003 08:52:00');
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (8, 19, '02/07/2006 02:20:00');
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (8, 1, '07/01/2003 05:38:00');
-INSERT INTO wishlist (user_id, item_id, add_date) VALUES (7, 11, '02/26/2013 07:39:00');
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (5, 17, '02/04/2012 01:52:00');
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (3, 2, '06/12/2005 06:06:00');
-INSERT INTO wishlist (user_id, item_id, add_date) VALUES (5, 4, '10/22/2007 02:53:00');
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (3, 10, '11/25/2007 07:38:00');
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (6, 13, '11/10/2005 06:16:00');
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (6, 14, '04/08/2018 03:34:00');
@@ -499,7 +495,6 @@ INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (2, 12, '02/17/20
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (2, 16, '01/19/2012 03:22:00', 791136);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (1, 6, '04/08/2001 00:08:00', 420499);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (10, 11, '06/30/2015 04:13:00', 197609);
-INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (8, 15, '10/24/2014 08:31:00', 30177);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (4, 2, '10/08/2020 04:09:00', 80862);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (10, 8, '02/19/2000 10:45:00', 452809);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (8, 11, '01/02/2000 03:07:00', 937706);
@@ -509,17 +504,12 @@ INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (8, 9, '02/22/201
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (8, 15, '11/22/2017 06:07:00', 79919);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (6, 16, '09/30/2017 07:47:00', 341931);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (4, 4, '06/20/2006 08:52:00', 691917);
-INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (9, 6, '10/10/2019 10:48:00', 936638);
-INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (10, 7, '06/29/2004 08:05:00', 805766);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (4, 14, '11/15/2002 07:15:00', 262435);
-INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (6, 16, '09/18/2013 09:05:00', 876284);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (5, 19, '10/13/2019 01:36:00', 259005);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (1, 2, '03/11/2011 04:24:00', 562391);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (7, 9, '10/25/2004 05:52:00', 38882);
-INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (2, 11, '02/27/2017 07:33:00', 664610);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (9, 14, '12/05/2011 02:34:00', 824950);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (7, 15, '11/18/2013 05:02:00', 62563);
-INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (6, 19, '11/20/2005 00:38:00', 887946);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (1, 8, '06/26/2013 10:13:00', 652476);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (10, 17, '04/02/2015 03:25:00', 483959);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (7, 2, '05/23/2019 10:22:00', 284675);
@@ -530,25 +520,23 @@ INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (10, 1, '08/17/20
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (5, 10, '09/28/2014 10:35:00', 498751);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (3, 19, '09/24/2019 02:22:00', 937278);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (8, 5, '03/26/2020 07:47:00', 307244);
-INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (4, 14, '12/23/2007 06:29:00', 136418);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (6, 3, '06/04/2003 08:48:00', 521967);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (7, 5, '05/20/2007 01:16:00', 753500);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (9, 7, '06/06/2012 01:53:00', 998619);
 INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (9, 13, '05/09/2010 09:42:00', 50961);
-INSERT INTO cart (user_id, item_id, add_date, quantity) VALUES (10, 17, '11/11/2016 01:16:00', 140749);
 
 
 
-INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (2, 8, 1, 4, 'Discount');
-INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (2, NULL, 2, 13, 'Stock');
-INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (2, NULL, 3, 13, 'Stock');
-INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (8, NULL, 4, 13, 'Stock');
-INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (8, NULL, 5, 3, 'Stock');
-INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (8, 1, 6, 9, 'Discount');
-INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (6, NULL, 7, 9, 'Stock');
-INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (6, 1, 8, 9, 'Discount');
-INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (6, NULL, 9, 11, 'Stock');
-INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (8, 1, 10, 19, 'Discount');
+INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (2, 8, 1, 4, 'Discount',False);
+INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (2, NULL, 2, 13, 'Stock',False);
+INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (2, NULL, 3, 13, 'Stock',False);
+INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (8, NULL, 4, 13, 'Stock',False);
+INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (8, NULL, 5, 3, 'Stock',False);
+INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (8, 1, 6, 9, 'Discount',False);
+INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (6, NULL, 7, 9, 'Stock',False);
+INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (6, 1, 8, 9, 'Discount',False);
+INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (6, NULL, 9, 11, 'Stock',False);
+INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (8, 1, 10, 19, 'Discount',False);
 
 
 
@@ -565,26 +553,26 @@ INSERT INTO purchase (purchase_id, user_id, date) VALUES (10, 10, '10/10/2015 05
 
 
 
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (8, 11, '05, 37', 1);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (5, 1, '4174, 27', 2);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (6, 7, '65671, 41', 1);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (1, 9, '78777, 62', 3);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (7, 19, '37081, 80', 1);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (5, 2, '43791, 88', 2);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (2, 11, '21, 62', 5);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (3, 18, '4, 05', 3);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (1, 2, '1, 35', 2);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (5, 7, '562, 90', 1);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (7, 9, '25469, 87', 2);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (2, 19, '59835, 15', 1);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (4, 3, '47, 88', 2);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (1, 12, '0, 69', 4);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (3, 13, '33242, 28', 3);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (1, 20, '1962, 65', 6);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (8, 4, '375, 97', 3);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (3, 5, '59, 42', 6);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (5, 12, '54101, 88', 10);
-INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (9, 17, '5875, 08', 1);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (8, 11, 05.37, 1);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (5, 1, 4174.27, 2);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (6, 7, 65671, 1);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (1, 9, 78777.62, 3);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (7, 19, 37081.80, 1);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (5, 2, 3791.88, 2);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (2, 11, 21.62, 5);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (3, 18, 4.05, 3);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (1, 2, 1.35, 2);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (5, 7, 562.90, 1);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (7, 9, 25469.87, 2);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (2, 19, 59835.15, 1);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (4, 3, 47.88, 2);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (1, 12, 0.69, 4);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (3, 13, 33242.28, 3);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (1, 20, 1962.65, 6);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (8, 4, 375.97, 3);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (3, 5, 59.42, 6);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (5, 12, 54101.88, 10);
+INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (9, 17, 5875.08, 1);
 
 
 
