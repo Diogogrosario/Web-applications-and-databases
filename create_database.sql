@@ -344,10 +344,13 @@ DROP FUNCTION IF EXISTS update_item_tsvector() CASCADE;
 CREATE FUNCTION update_item_tsvector() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    update item 
-	set search = setweight(to_tsvector('english',coalesce(item.name,'')), 'A') ||
-	setweight(to_tsvector('english',coalesce(item.description,'')), 'B')
-	where new.item_id=item.item_id;
+	IF pg_trigger_depth() <=1 THEN 
+    		update item 
+		set search = setweight(to_tsvector('english',coalesce(item.name,'')), 'A') ||
+		setweight(to_tsvector('english',coalesce(item.description,'')), 'B')
+		where new.item_id=item.item_id;
+	
+	END IF;
     RETURN NEW;
 
 END
@@ -355,7 +358,7 @@ END
 $BODY$
 LANGUAGE plpgsql;
 CREATE TRIGGER update_item_tsvector
-AFTER INSERT ON item
+AFTER INSERT OR UPDATE ON item
 FOR EACH ROW
 EXECUTE PROCEDURE update_item_tsvector();
 
@@ -385,7 +388,7 @@ $BODY$
 
 LANGUAGE plpgsql;
 CREATE TRIGGER update_item_tsvector_detail
-AFTER INSERT ON item_detail
+AFTER INSERT OR UPDATE ON item_detail
 FOR EACH ROW
 EXECUTE PROCEDURE update_item_tsvector_detail();
 
