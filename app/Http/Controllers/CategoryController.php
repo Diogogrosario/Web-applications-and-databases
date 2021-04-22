@@ -18,7 +18,7 @@ class CategoryController extends Controller
     
     public function show($category_id)
     {
-       $item = Item::where("category_id",$category_id)->orderBy("item_id")->get();
-       return $item;
+       $category = Item::find($category_id);
+       return $category;
     }
 }
