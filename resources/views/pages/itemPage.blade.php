@@ -3,6 +3,13 @@
 
 @include('partials.sidebarItem')
 
+@section('title')
+    <title>
+        {{$item["name"]}}
+    </title>
+@endsection
+
+
 @section("content")
 <div class="col">
     <div class="content">

@@ -17,7 +17,6 @@ class ItemPageController extends Controller
     public function show($id)
     {
         $item = Item::find($id);
-
         return view('pages.itemPage')->with('item', $item);
     }
 }
