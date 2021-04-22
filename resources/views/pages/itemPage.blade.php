@@ -57,9 +57,15 @@
                     <div class="col-lg-7 col-md-6">
                         <div id="carouselProductImages" class="carousel carousel-dark slide" data-bs-interval="false" data-bs-touch="true">
                             <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselProductImages" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselProductImages" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselProductImages" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                @foreach ($item->photos as $key => $photo)
+                                    @if ($key==0)
+                                        <button type="button" data-bs-target="#carouselProductImages" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                        
+                                    @else
+                                        <button type="button" data-bs-target="#carouselProductImages" data-bs-slide-to="{{ $key }}" aria-label="{{'Slide' . ($key+1)}} "></button>
+                                        
+                                    @endif
+                                @endforeach
                             </div>
                             <div class="carousel-inner" style="width:100%; height:40vh">
                                 
@@ -93,21 +99,28 @@
                         <div class="row mb-3 text-md-start text-center">
                             <div class="col" id="productRating">
                                 <span id="starRating">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-                                    <i class="bi bi-star"></i>
+                                    @for ($i = 0; $i < 5; $i++)
+                                        @if($i<$item["score"] && ($i+1)>$item["score"]) {{-- for half stars --}}
+                                            <i class="bi bi-star-half"></i>
+                                        @elseif ($i<$item["score"])
+                                            <i class="bi bi-star-fill"></i>
+                                        @else
+                                            <i class="bi bi-star"></i>
+                                        @endif
+                                        
+                                    @endfor
+                                    
                                 </span>
-                                <span id="numReviews">102 Reviews</span>
+                                <span id="numReviews">{{$item->reviews()->count()}} Reviews</span>
                             </div>
                         </div>
+                                        
                         <div class="row mb-3">
                             <div class="col-lg-8 col-12 ps-md-3 pe-md-5" id="buySection">
                                 <div class="ps-lg-4 ps-md-0 text-lg-start text-center mb-3" id="productPrice" style="color:red; font-size:3em;">
                                      {{ $item["price"] }} {{-- TODO: DISCOUNTS --}}
                                 </div>
-                                <div class="text-center fs-5 mb-1"><span style="color:green">22</span> in stock</div>
+                                <div class="text-center fs-5 mb-1"><span style="color:green">{{ $item["stock"] }}</span> in stock</div>
 
 
                                 <button type="button" class="btn btn-success w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#balanceModal">
@@ -156,89 +169,45 @@
                                 </div>
                             </section>
                         </div>
-                        <div class="tab-pane fade" id="nav-details" role="tabpanel" aria-labelledby="nav-details-tab">
-                            <!-- <div class="col-7 text-center ps-5 pe-5"> -->
-                            <section id="productDetails" class="row px-md-5 px-2 pt-3">
-                                <h3 class="text-center mt-3 mb-3">Product Details</h3>
-                                @php
-                                    $half = ceil($item->details->count() / 2);
-                                    $chunks = $item->details->chunk($half);
-                                @endphp
-                                <div class="col-md-6 col-sm-12" id="detailsTable_1">
-                                    <table class="table">
-                                        <tbody>
-                                            @foreach ($chunks[0] as $item)
-                                                <tr>
-                                                    <th scope="row"> {{$item["name"]}} </th>
-                                                    <td> {{$item->pivot["detail_info"]}} </td>
-                                                </tr> 
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col" id="detailsTable_2">
-                                    <table class="table">
-                                        <tbody>
-                                            @foreach ($chunks[1] as $item)
-                                                <tr>
-                                                    <th scope="row"> {{$item["name"]}} </th>
-                                                    <td> {{$item->pivot["detail_info"]}} </td>
-                                                </tr> 
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
 
-                            </section>
-                            <!-- </div> -->
+                        {{-- Item Details --}}
+                        <div class="tab-pane fade" id="nav-details" role="tabpanel" aria-labelledby="nav-details-tab">
+                            @include("partials.itemDetails", array("item" => $item))
                         </div>
+
                         <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
                             <!-- <div class="col"> -->
                             <section class="px-md-5 px-2 col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1" id="reviewSection">
-                                <h3 class="text-start mt-4">Reviews <span class="fs-5" id="n_reviews">(2)</span></h3>
+                                <h3 class="text-start mt-4">Reviews <span class="fs-5" id="n_reviews">({{ $item->reviews()->count() }})</span></h3>
                                 <form class="mt-4 mb-5" id="newReviewForm">
                                     <textarea required class="form-control" id="productDescription" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
                                     <button type="submit" class="btn btn-dark btn-md col-md-6 col-lg-4 offset-md-3 offset-lg-4 col-12 mt-md-2">Submit your review</button>
                                 </form>
                                 <div class="mt-4" id="productReviews">
-                                    <div class="user_review border-bottom">
-                                        <div class="row">
-                                            <div class="col-lg-1 col-md-1 col-2">
-                                                <div id="profilePic" class="d-flex rounded-circle" style="height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(images/spidercat.png);background-position:center;background-size:cover;">
-                                                </div>
-                                            </div>
-                                            <b class="col-lg-2 col-4 review_usermame">WaffleH</b>
-                                            <div class="col review_starRating">
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-half"></i>
-                                                <i class="bi bi-star"></i>
-                                            </div>
-                                        </div>
-                                        <div class="review_text mt-2 ms-2">
-                                            <p>The game is good and had some beautiful moments, but seriously lacks some polishing.</p>
-                                        </div>
-                                    </div>
                                     <div class="user_review border-bottom mt-4">
-                                        <div class="row">
+                                        @foreach ($item->reviews()->get() as $review)
+                                            <div class="row">
                                             <div class="col-lg-1 col-md-1 col-2">
                                                 <div id="profilePic" class="d-flex rounded-circle" style="height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(images/spidercat.png);background-position:center;background-size:cover;">
                                                 </div>
                                             </div>
                                             <b class="col-lg-2 col-4 review_usermame">WaffleH</b>
                                             <div class="col review_starRating">
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-half"></i>
-                                                <i class="bi bi-star"></i>
+                                                @for ($i = 0; $i < 5; $i++)
+                                                    @if ($i<$review["rating"])
+                                                        <i class="bi bi-star-fill"></i>
+                                                    @else
+                                                        <i class="bi bi-star"></i>
+                                                    @endif
+                                                    
+                                                @endfor
                                             </div>
                                         </div>
                                         <div class="review_text mt-2 ms-2">
-                                            <p>The game is good and had some beautiful moments, but seriously lacks some polishing.</p>
+                                            <p> {{ $review["comment_text"] }} </p>
                                         </div>
-                                    </div>
+                                        @endforeach
+                                    </div> 
                                 </div>
                             </section>
                             <!-- </div> -->

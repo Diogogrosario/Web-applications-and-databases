@@ -20,7 +20,7 @@
           }
           ?>
 
-          <a class="navbar-brand ms-lg-4" href="index.php"><img class="img-fluid" width="150" height="30" src="{{ asset('img/logo_light.png') }}"></a>
+          <a class="navbar-brand ms-lg-4" href="/"><img class="img-fluid" width="150" height="30" src="{{ asset('img/logo_light.png') }}"></a>
           <button class="navbar-toggler btn btn-lg border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <i class="bi bi-lg bi-person-circle"></i>
           </button>

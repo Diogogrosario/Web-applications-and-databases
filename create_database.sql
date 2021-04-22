@@ -282,7 +282,7 @@ $BODY$
 LANGUAGE plpgsql;
 
 CREATE TRIGGER score_on_review 
-AFTER UPDATE ON review
+AFTER INSERT ON review
 FOR EACH ROW
 EXECUTE PROCEDURE update_score();
 

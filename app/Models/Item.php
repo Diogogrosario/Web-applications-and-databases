@@ -21,4 +21,8 @@ class Item extends Model
   public function details() {
     return $this->belongsToMany(Details::class,"item_detail", "item_id", "detail_id")->withPivot('detail_info');
   }
+
+  public function reviews() {
+    return $this->hasMany(Review::class,"item_id");
+  }
 }

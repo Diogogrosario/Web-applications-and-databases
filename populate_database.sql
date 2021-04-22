@@ -586,7 +586,7 @@ INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VAL
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (10, 8, 9, 'its a good phone, better than most but wayyy too expensive', '03/03/2006 07:52:00', 3);
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (11, 3, 9, 'Ive always bought iPhones for years and this one doesnt disappoint! It is a bit expensive but you cannot find anything better out there', '03/26/2003 04:18:00', 5);
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (12, 6, 9, 'apple what are you doing???', '12/17/2001 00:38:00', 1);
-INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (13, 8, 10, 'I was enjoying it, until the folding part of the screen started getting weird', '05/29/2013 10:34:00', 2);
+INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (13, 8, 10, 23:00 22/04/2021'I was enjoying it, until the folding part of the screen started getting weird', '05/29/2013 10:34:00', 2);
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (14, 4, 11, 'perfect weight and sound. always use them to listen to music while im studying', '12/11/2005 00:43:00', 5);
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (15, 2, 16, 'Ive been gaming on this tv and its just a blast. Amazing quality', '01/22/2016 01:17:00', 5);
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (16, 6, 17, 'the image quality is just stunning. best tv ive ever bought', '04/30/2013 09:43:00', 5);
