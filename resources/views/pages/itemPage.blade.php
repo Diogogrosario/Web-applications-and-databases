@@ -105,7 +105,7 @@
                         <div class="row mb-3">
                             <div class="col-lg-8 col-12 ps-md-3 pe-md-5" id="buySection">
                                 <div class="ps-lg-4 ps-md-0 text-lg-start text-center mb-3" id="productPrice" style="color:red; font-size:3em;">
-                                    10.99 €
+                                     {{ $item["price"] }} {{-- TODO: DISCOUNTS --}}
                                 </div>
                                 <div class="text-center fs-5 mb-1"><span style="color:green">22</span> in stock</div>
 
@@ -151,18 +151,8 @@
                         <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
                             <section class="px-md-5 px-2" id="productDescription">
                                 <h3 class="text-start mt-4">Description</h3>
-                                <div class="mt-4 text-justify" id="descriptionText">
-                                <p> Cyberpunk 2077 is an action/adventure story in the open world of Night City, a megalopolis obsessed with power, glamor and body changes. Here you will be V, an exiled mercenary who chases an essential implant to obtain immortality. You'll be able to customize your character's cyberware, skills and style and explore a vast city where the choices you make will shape the story and the world around you. </P>
-                                    <P> PLAYS AS AN EXILED MERCENARY
-                                        <P> Become a cyberpunk, an urban mercenary equipped with cyber accessories, and create your legend on the streets of Night City.
-                                            <P> LIVES IN THE CITY OF THE FUTURE
-                                                <P> Enter a huge open world of Night City, a place with unprecedented visuals, complexities and depths.
-                                                    <P> STEAL THE IMPLANT AND GET ETERNAL LIFE
-                                                        <P> Accept the riskiest mission of your life and look for the essential implant to obtain immortality.
-                                                            <P> The game includes the following physical items:
-                                                                <P> - Game CD box <BR> - Reversible cover <BR> - Compendium of the World with information about the scene and the rites of the game <BR> - Postcards of Night City <BR> - Map of Night City <BR > - Stickers </P>
-                                                                <P> Digital gifts included:
-                                                                    <P> - Game soundtrack <BR> - Art mini book with a selection of game art <BR> - Digital comic “Cyberpunk 2077: Your voice" <BR> - 2020 Cyberpunk Sourcebook <BR> - Wallpapers computer and mobile phone wall </P>
+                                <div class="mt-4 text-justify pb-5" id="descriptionText">
+                                    {{ $item["description"] }}
                                 </div>
                             </section>
                         </div>
@@ -170,32 +160,31 @@
                             <!-- <div class="col-7 text-center ps-5 pe-5"> -->
                             <section id="productDetails" class="row px-md-5 px-2 pt-3">
                                 <h3 class="text-center mt-3 mb-3">Product Details</h3>
-
+                                @php
+                                    $half = ceil($item->details->count() / 2);
+                                    $chunks = $item->details->chunk($half);
+                                @endphp
                                 <div class="col-md-6 col-sm-12" id="detailsTable_1">
                                     <table class="table">
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">Release Date</th>
-                                                <td>10-12-2020</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Platform</th>
-                                                <td>PlayStation 4</td>
-                                            </tr>
+                                            @foreach ($chunks[0] as $item)
+                                                <tr>
+                                                    <th scope="row"> {{$item["name"]}} </th>
+                                                    <td> {{$item->pivot["detail_info"]}} </td>
+                                                </tr> 
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="col" id="detailsTable_2">
-                                    <table class="table" id="detailsTable2">
+                                    <table class="table">
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">Age Restriction</th>
-                                                <td>18+</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Others</th>
-                                                <td class="text-start">This game is extremely buggy, has terrible performance on consoles and low/medium end PC's and is lacking comparing to what was presented before release</td>
-                                            </tr>
+                                            @foreach ($chunks[1] as $item)
+                                                <tr>
+                                                    <th scope="row"> {{$item["name"]}} </th>
+                                                    <td> {{$item->pivot["detail_info"]}} </td>
+                                                </tr> 
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

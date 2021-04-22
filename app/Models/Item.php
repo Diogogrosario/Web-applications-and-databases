@@ -17,4 +17,8 @@ class Item extends Model
   public function photos() {
     return $this->belongsToMany(Photo::class,"item_photo", "item_id", "photo_id");
   }
+
+  public function details() {
+    return $this->belongsToMany(Details::class,"item_detail", "item_id", "detail_id")->withPivot('detail_info');
+  }
 }
