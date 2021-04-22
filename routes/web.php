@@ -14,7 +14,7 @@
 Route::get('/', 'HomepageController@show');
 
 // Cards
-Route::get('item/{id}', 'ItemController@show');
+Route::get('item/{id}', 'ItemPageController@show');
 Route::get('category/{category}', 'CategoryController@show');
 
 
