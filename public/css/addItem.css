@@ -1,0 +1,6 @@
+textarea#productShortDescription, textarea#productDescription
+{
+    resize: none !important;
+    height: 150px;
+}
+

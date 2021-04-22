@@ -8,11 +8,13 @@ class Item extends Model
 {
   // Don't add create and update timestamps in database.
   public $timestamps  = false;
+  protected $table = 'item';
+  protected $primaryKey = 'item_id';
 
   /**
    * The card this item belongs to.
    */
-  public function card() {
-    return $this->belongsTo('App\Models\Card');
+  public function photos() {
+    return $this->belongsToMany(Photo::class,"item_photo", "item_id", "photo_id");
   }
 }

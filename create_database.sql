@@ -123,7 +123,6 @@ CREATE TABLE advertisement (
 CREATE TABLE item_photo (
     photo_id INTEGER NOT NULL REFERENCES photo (photo_id) ON UPDATE CASCADE PRIMARY KEY,
     item_id INTEGER NOT NULL REFERENCES item (item_id) ON UPDATE CASCADE
-
 );
  
 

@@ -1,0 +1,15 @@
+@media (max-width:992px){ 
+    #notifications {
+    border: none !important;
+    padding-top:10px
+  } 
+}
+
+
+section#profileInfo td {
+    text-align: end;
+}
+
+table#accountInfo.table td {
+    word-break: break-all;
+}
