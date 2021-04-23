@@ -52,9 +52,9 @@ CREATE TABLE users (
     deleted BOOLEAN DEFAULT FALSE,
     is_admin BOOLEAN DEFAULT FALSE,
     balance MONEY DEFAULT 0,
-    img INTEGER REFERENCES photo(photo_id) ON UPDATE CASCADE,
-    billing_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE,
-    shipping_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE
+    img INTEGER REFERENCES photo(photo_id) ON UPDATE CASCADE ON DELETE SET NULL,
+    billing_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE ON DELETE SET NULL,
+    shipping_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
 CREATE TABLE category (
