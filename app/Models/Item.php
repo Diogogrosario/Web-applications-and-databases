@@ -25,4 +25,9 @@ class Item extends Model
   public function reviews() {
     return $this->hasMany(Review::class,"item_id");
   }
+
+  public function getRandomItemsSameCategory($amout)
+  {
+    return Item::where("category_id",$this["category_id"])->where("item_id",'!=',$this["item_id"])->inRandomOrder()->limit($amout)->get();
+  }
 }

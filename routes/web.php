@@ -13,9 +13,13 @@
 // Home
 Route::get('/', 'HomepageController@show');
 
-// Cards
+// Pages
 Route::get('item/{id}', 'ItemPageController@show');
 Route::get('category/{category}', 'CategoryController@show');
+Route::get('searchResults', 'SearchResultsController@show');
+Route::get('about', 'AboutPageController@show');
+Route::get('faq', 'FaqPageController@show');
+Route::get('contacts', 'ContactsPageController@show');
 
 
 // // API
@@ -26,8 +30,8 @@ Route::get('category/{category}', 'CategoryController@show');
 // Route::delete('api/item/{id}', 'ItemController@delete');
 
 // // Authentication
-// Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-// Route::post('login', 'Auth\LoginController@login');
-// Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-// Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-// Route::post('register', 'Auth\RegisterController@register');
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');

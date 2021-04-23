@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 
-@include('partials.sidebarItem')
 
 @section('title')
     <title>
@@ -11,48 +10,27 @@
 
 
 @section("content")
+@include('partials.sidebarItem',["categories" => $categories])
+
 <div class="col">
     <div class="content">
-
         <div class="row">
-
             <div class="d-lg-block d-none col-lg-2 text-center p-0" style="background-color:#f0e9e1; min-height:100%" id="similarProducts">
-
                 <h1 class="p-3 text-center fs-5 overflow-hidden">Similar Products</h1>
-
-                <a class="item-card zoom" href="./item.php">
-                    <div class="card border-0 similarProductCard">
-                        <div class="card-body ps-4 pe-3">
-                            <img src="images/computers/alarcoGamingPc.jpg" class="card-img-top" alt="Alarco Gaming Pc">
-                            <section class="itemInfo">
-                                <h5 class="card-title">Alarco Gaming Pc</h5>
-                                <p class="card-text">150€</p>
-                            </section>
+                @foreach ($item->getRandomItemsSameCategory(3) as $randomItem)
+                    <a class="item-card zoom" href="{{'./' . $randomItem["item_id"]}}">
+                        <div class="card border-0 similarProductCard">
+                            <div class="card-body ps-4 pe-3">
+                                {{-- TODO: Change when we have images--}}
+                                <img src="{{ $randomItem->photos->sortBy('photo_id')[0]["path"] }}" class="card-img-top" alt="Alarco Gaming Pc">
+                                <section class="itemInfo">
+                                    <h5 class="card-title">{{$randomItem["name"]}}</h5>
+                                    <p class="card-text">{{$randomItem["price"]}}€</p>
+                                </section>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <a class="item-card zoom" href="./item.php">
-                    <div class="card border-0 similarProductCard">
-                        <div class="card-body ps-4 pe-3">
-                            <img src="images/computers/asusRog.jpg" class="card-img-top" alt="Asus Rog">
-                            <section class="itemInfo">
-                                <h5 class="card-title">Asus Rog</h5>
-                                <p class="card-text">2000€.</p>
-                            </section>
-                        </div>
-                    </div>
-                </a>
-                <a class="item-card zoom" href="./item.php">
-                    <div class="card border-0 similarProductCard">
-                        <div class="card-body ps-4 pe-3">
-                            <img src="images/phones/razerPhone.jpg" class="card-img-top" alt="Razer Phone">
-                            <section class="itemInfo">
-                                <h5 class="card-title">Razer Phone</h5>
-                                <p class="card-text">700€</p>
-                            </section>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                @endforeach
             </div>
 
             <div class="col pt-4">
@@ -157,8 +135,6 @@
                     </div>
                 </div>
 
-
-
                 <div class="row mt-5">
                     <nav>
                         <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
@@ -172,7 +148,9 @@
                             <section class="px-md-5 px-2" id="productDescription">
                                 <h3 class="text-start mt-4">Description</h3>
                                 <div class="mt-4 text-justify pb-5" id="descriptionText">
-                                    {{ $item["description"] }}
+                                    @foreach(explode('\n',$item["description"]) as $row)
+                                        <p>{{ $row }}</p>
+                                    @endforeach
                                 </div>
                             </section>
                         </div>
@@ -191,30 +169,11 @@
                                     <button type="submit" class="btn btn-dark btn-md col-md-6 col-lg-4 offset-md-3 offset-lg-4 col-12 mt-md-2">Submit your review</button>
                                 </form>
                                 <div class="mt-4" id="productReviews">
+                                    @foreach ($item->reviews()->get() as $review)
                                     <div class="user_review border-bottom mt-4">
-                                        @foreach ($item->reviews()->get() as $review)
-                                            <div class="row">
-                                            <div class="col-lg-1 col-md-1 col-2">
-                                                <div id="profilePic" class="d-flex rounded-circle" style="height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(images/spidercat.png);background-position:center;background-size:cover;">
-                                                </div>
-                                            </div>
-                                            <b class="col-lg-2 col-4 review_usermame">WaffleH</b>
-                                            <div class="col review_starRating">
-                                                @for ($i = 0; $i < 5; $i++)
-                                                    @if ($i<$review["rating"])
-                                                        <i class="bi bi-star-fill"></i>
-                                                    @else
-                                                        <i class="bi bi-star"></i>
-                                                    @endif
-                                                    
-                                                @endfor
-                                            </div>
-                                        </div>
-                                        <div class="review_text mt-2 ms-2">
-                                            <p> {{ $review["comment_text"] }} </p>
-                                        </div>
-                                        @endforeach
+                                            @include("partials.review",array($review))
                                     </div> 
+                                    @endforeach
                                 </div>
                             </section>
                             <!-- </div> -->

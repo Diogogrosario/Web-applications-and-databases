@@ -1,5 +1,3 @@
-<!-- Done -->
-
 <div class="col-lg-2 col-md-3 col-12 collapse p-0 show" id="searchFiltersBar" style="background-color: #f2f2f2;">
     <div class="accordion" id="filterSideBar" style="background-color: white;">
         <div class="accordion-item" >
@@ -25,6 +23,22 @@
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
                             100-200€
                         </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                            200-500€
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                            500-1000€
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                            1000-2000€
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                            < 2000€
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -40,17 +54,9 @@
                 data-bs-parent="#filterSideBar">
                 <div class="accordion-body p-0">
                     <div class="list-group h-100">
-                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Computers</a>
-                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Books</a>
-                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Televisions</a>
-                        <a href="./searchResults.php" class="list-group-item list-group-item-action">DVDs</a>
-                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Computer Games</a>
-                        <a href="./searchResults.php" class="list-group-item list-group-item-action">MP4</a>
-                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Disk Readers</a>
-                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Pens</a>
-                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Headphones</a>
-                        <a href="./searchResults.php" class="list-group-item list-group-item-action">Speakers</a>
-                        <a href="./searchResults.php" class="list-group-item list-group-item-action">School Material</a>
+                        @foreach ($categories as $cat)
+                            <a href="./searchResults.php" class="list-group-item list-group-item-action text-center">{{$cat["name"]}}</a>                       
+                        @endforeach
                     </div>
                 </div>
             </div>

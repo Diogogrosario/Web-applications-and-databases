@@ -26,7 +26,7 @@
           </button>
 
           <div class="collapse navbar-collapse d-lg-flex justify-content-between text-center" id="navbarSupportedContent">
-              <form class="d-lg-inline d-none w-50 ms-5">
+              <form action="/searchResults"class="d-lg-inline d-none w-50 ms-5" method="get">
                   <div class="input-group">
                       <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example">
                           <option selected>All</option>
@@ -35,7 +35,7 @@
                           <option value="3">Smartphones</option>
                           <option value="4">Electrodomestics</option>
                       </select>
-                      <input type="text" class="form-control w-50" placeholder="Search For An Item" aria-label="Text input with dropdown button">
+                      <input type="text" id="search" name="search" class="form-control w-50" placeholder="Search For An Item" aria-label="Text input with dropdown button">
                       <button type="submit" class="btn btn-secondary" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
                   </div>
               </form>
@@ -49,7 +49,7 @@
                   <?php } ?>
                   <li class="nav-item">
                       <?php if (!$logged_in) { ?>
-                          <a class="nav-link" href="signin.php" style="color:white !important">Sign in</a>
+                          <a class="nav-link" href="/login" style="color:white !important">Login</a>
                       <?php } else { ?>
                           <a href="user.php">
                               <img src="{{ asset('img/userIcon.png') }}" class="card-img-top px-1" style="max-height: 3em; max-width: 3em;" alt="User Icon">
@@ -58,7 +58,7 @@
                   </li>
                   <li class="nav-item">
                       <?php if (!$logged_in) { ?>
-                          <a class="nav-link" href="signup.php" style="color:white !important">Sign up</a>
+                          <a class="nav-link" href="/register" style="color:white !important">Register</a>
                       <?php } else { ?>
                           <a class="nav-link" href="user.php" style="color:white !important">User</a>
                       <?php } ?>
