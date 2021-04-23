@@ -2,7 +2,6 @@
 
 
 @section('content')
-@include('partials.sidebarItem',["categories" => $categories])
 <!-- Form -->
 <form method="POST" action="{{ route('register') }}">
   {{ csrf_field() }}

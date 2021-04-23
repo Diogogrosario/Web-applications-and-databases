@@ -5,9 +5,13 @@
           if (!$pos) {
               $logged_in = false;
           ?>
+              @if (isset($categories))
+                    
               <button class="btn btn-lg ms-3 me-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapsableColumn" aria-controls="collapsableColumn" style="margin-right:2%;">
                   <i class="bi bi-list-task"  style="color:white !important"></i>
               </button>
+              @endif
+
 
           <?php
           } else {
@@ -26,20 +30,24 @@
           </button>
 
           <div class="collapse navbar-collapse d-lg-flex justify-content-between text-center" id="navbarSupportedContent">
-              <form action="/searchResults"class="d-lg-inline d-none w-50 ms-5" method="get">
-                  <div class="input-group">
-                      <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example" id="category" name="category">
-                          <option selected value="-1">All</option>
+                    
+                <form action="/searchResults"class="d-lg-inline d-none w-50 ms-5" method="get">
+                    <div class="input-group">
+                        @if (isset($categories))
 
-                          @foreach ($categories as $key => $cat)
-                                <option value={{$key+1}}>{{$cat["name"]}}</option>
-                          @endforeach
+                        <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example" id="category" name="category">
+                            <option selected value="-1">All</option>
 
-                      </select>
-                      <input type="text" id="search" name="search" class="form-control w-50" placeholder="Search For An Item" aria-label="Text input with dropdown button">
-                      <button type="submit" class="btn btn-secondary" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
-                  </div>
-              </form>
+                            @foreach ($categories as $key => $cat)
+                                    <option value={{$key+1}}>{{$cat["name"]}}</option>
+                            @endforeach
+                        @endif
+                        
+                        </select>
+                        <input type="text" id="search" name="search" class="form-control w-50" placeholder="Search For An Item" aria-label="Text input with dropdown button">
+                        <button type="submit" class="btn btn-secondary" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
+                    </div>
+                </form>
               <ul class="navbar-nav mb-2 mb-lg-0">
                   <?php if($logged_in){ ?>
                       <li class="nav-item d-lg-flex align-items-lg-center py-2 py-lg-0 px-lg-2">
@@ -69,19 +77,21 @@
           </div>
       </div>
       <div class="d-lg-none row w-100 h-100">
-        <form action="/searchResults" class="col-11 offset-1" method="get">
-            <div class="input-group">
-                <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example" id="category" name="category">
-                    <option selected value="-1">All</option>
+        @if(isset($categories))
+            <form action="/searchResults" class="col-11 offset-1" method="get">
+                <div class="input-group">
+                    <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example" id="category" name="category">
+                        <option selected value="-1">All</option>
 
-                    @foreach ($categories as $key => $cat)
-                          <option value={{$key}}>{{$cat["name"]}}</option>
-                    @endforeach
+                        @foreach ($categories as $key => $cat)
+                            <option value={{$key}}>{{$cat["name"]}}</option>
+                        @endforeach
 
-                </select>
-                <input type="text" id="searchSmall" name="search" class="form-control w-25" placeholder="Search For An Item" aria-label="Text input with dropdown button">
-                <button type="submit" class="btn btn-dark w-25" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
-            </div>
-        </form>
+                    </select>
+                    <input type="text" id="searchSmall" name="search" class="form-control w-25" placeholder="Search For An Item" aria-label="Text input with dropdown button">
+                    <button type="submit" class="btn btn-dark w-25" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
+                </div>
+            </form>
+        @endif
       </div>
   </nav>
