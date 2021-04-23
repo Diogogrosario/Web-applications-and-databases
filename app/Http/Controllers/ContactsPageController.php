@@ -10,7 +10,7 @@ class ContactsPageController extends Controller
 {
     public function show()
     {
-        $categories = Category::all();
+        $categories = Category::all()->sortBy("category_id");
         
         return view('pages.contacts')->with("categories", $categories);
     }

@@ -29,7 +29,7 @@ class SearchResultsController extends Controller
 
         
 
-        $categories = Category::all();
+        $categories = Category::all()->sortBy("category_id");
 
     //    return $items;
         return view("pages.searchResults")->with("searchResults",$searchResults)->with("categories",$categories);

@@ -18,7 +18,7 @@ class HomepageController extends Controller
     {
         $items1 = Item::where("category_id",1)->orderBy("item_id")->get();
         $items2 = Item::where("category_id",2)->orderBy("item_id")->get();
-        $categories = Category::all()->orderBy("category_id");
+        $categories = Category::all()->sortBy("category_id");
         return view('pages.homepage')->with('items1', $items1)->with('items2', $items2)->with('categories', $categories);
     }
 }

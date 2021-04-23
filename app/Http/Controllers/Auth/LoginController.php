@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Models\Category;
 
 class LoginController extends Controller
 {
@@ -44,5 +45,10 @@ class LoginController extends Controller
     public function home() {
         return redirect('login');
     }
-
+    
+    public function show()
+    {
+        $categories = Category::all()->sortBy("category_id");
+        return view('auth.login')->with('categories', $categories);
+    }
 }

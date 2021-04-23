@@ -32,7 +32,7 @@
                           <option selected value="-1">All</option>
 
                           @foreach ($categories as $key => $cat)
-                                <option value={{$key}}>{{$cat["name"]}}</option>
+                                <option value={{$key+1}}>{{$cat["name"]}}</option>
                           @endforeach
 
                       </select>

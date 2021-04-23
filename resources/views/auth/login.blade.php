@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+@include('partials.sidebarItem',["categories" => $categories])
+
 
 <div class="p-0" style="background-color:#f2f2f2;">
     <div class="container col-md-7 p-lg-5 p-3 shadow-sm h-100" style="background-color:white">

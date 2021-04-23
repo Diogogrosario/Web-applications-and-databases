@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Models\Category;
+
 
 class RegisterController extends Controller
 {
@@ -67,5 +69,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function show()
+    {
+        $categories = Category::all()->sortBy("category_id");
+        return view('auth.register')->with('categories', $categories);
     }
 }
