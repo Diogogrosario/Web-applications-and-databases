@@ -20,8 +20,10 @@ DROP TABLE IF EXISTS photo CASCADE;
 DROP TABLE IF EXISTS country CASCADE;
 
 DROP TYPE IF EXISTS notificationType;
+DROP TYPE IF EXISTS purchaseState;
 
 CREATE TYPE notificationType AS ENUM ('Stock','Discount');
+CREATE TYPE purchaseState AS ENUM ('Sent','Processing','Arrived');
 
 CREATE TABLE country (
     country_id SERIAL PRIMARY KEY,
@@ -100,7 +102,8 @@ CREATE TABLE ban (
 CREATE TABLE purchase (
     purchase_id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(user_id) ON UPDATE CASCADE,
-    "date" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL
+    "date" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
+    state purchaseState
 );
  
 CREATE TABLE purchase_item (
@@ -123,6 +126,7 @@ CREATE TABLE advertisement (
 CREATE TABLE item_photo (
     photo_id INTEGER NOT NULL REFERENCES photo (photo_id) ON UPDATE CASCADE PRIMARY KEY,
     item_id INTEGER NOT NULL REFERENCES item (item_id) ON UPDATE CASCADE
+
 );
  
 
@@ -343,12 +347,11 @@ DROP FUNCTION IF EXISTS update_item_tsvector() CASCADE;
 CREATE FUNCTION update_item_tsvector() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-	IF pg_trigger_depth() <=1 THEN 
-    		update item 
-		set search = setweight(to_tsvector('english',coalesce(item.name,'')), 'A') ||
-		setweight(to_tsvector('english',coalesce(item.description,'')), 'B')
-		where new.item_id=item.item_id;
-	
+    IF pg_trigger_depth() <=1 THEN 
+            update item 
+	    set search = setweight(to_tsvector('english',coalesce(item.name,'')), 'A') ||
+	    setweight(to_tsvector('english',coalesce(item.description,'')), 'B')
+	    where new.item_id=item.item_id;
 	END IF;
     RETURN NEW;
 

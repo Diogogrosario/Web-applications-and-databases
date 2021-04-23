@@ -28,12 +28,13 @@
           <div class="collapse navbar-collapse d-lg-flex justify-content-between text-center" id="navbarSupportedContent">
               <form action="/searchResults"class="d-lg-inline d-none w-50 ms-5" method="get">
                   <div class="input-group">
-                      <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example">
-                          <option selected>All</option>
-                          <option value="1">Computers</option>
-                          <option value="2">Televisions</option>
-                          <option value="3">Smartphones</option>
-                          <option value="4">Electrodomestics</option>
+                      <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example" id="category" name="category">
+                          <option selected value="-1">All</option>
+
+                          @foreach ($categories as $key => $cat)
+                                <option value={{$key}}>{{$cat["name"]}}</option>
+                          @endforeach
+
                       </select>
                       <input type="text" id="search" name="search" class="form-control w-50" placeholder="Search For An Item" aria-label="Text input with dropdown button">
                       <button type="submit" class="btn btn-secondary" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
@@ -68,18 +69,19 @@
           </div>
       </div>
       <div class="d-lg-none row w-100 h-100">
-          <form class="col-11 offset-1">
-              <div class="input-group">
-                  <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example">
-                      <option selected>Category</option>
-                      <option value="1">Computers</option>
-                      <option value="2">Televisions</option>
-                      <option value="3">Smartphones</option>
-                      <option value="4">Electrodomestics</option>
-                  </select>
-                  <input type="text" class="form-control w-25" aria-label="Text input with dropdown button">
-                  <button type="submit" class="btn btn-dark w-25" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
-              </div>
-          </form>
+        <form action="/searchResults" class="col-11 offset-1" method="get">
+            <div class="input-group">
+                <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example" id="category" name="category">
+                    <option selected value="-1">All</option>
+
+                    @foreach ($categories as $key => $cat)
+                          <option value={{$key}}>{{$cat["name"]}}</option>
+                    @endforeach
+
+                </select>
+                <input type="text" id="searchSmall" name="search" class="form-control w-25" placeholder="Search For An Item" aria-label="Text input with dropdown button">
+                <button type="submit" class="btn btn-dark w-25" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
+            </div>
+        </form>
       </div>
   </nav>

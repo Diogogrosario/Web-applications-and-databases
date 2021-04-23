@@ -20,8 +20,10 @@ DROP TABLE IF EXISTS photo CASCADE;
 DROP TABLE IF EXISTS country CASCADE;
 
 DROP TYPE IF EXISTS notificationType;
+DROP TYPE IF EXISTS purchaseState;
 
 CREATE TYPE notificationType AS ENUM ('Stock','Discount');
+CREATE TYPE purchaseState AS ENUM ('Sent','Processing','Arrived');
 
 CREATE TABLE country (
     country_id SERIAL PRIMARY KEY,
@@ -100,7 +102,8 @@ CREATE TABLE ban (
 CREATE TABLE purchase (
     purchase_id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(user_id) ON UPDATE CASCADE,
-    "date" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL
+    "date" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
+    state purchaseState
 );
  
 CREATE TABLE purchase_item (
@@ -123,6 +126,7 @@ CREATE TABLE advertisement (
 CREATE TABLE item_photo (
     photo_id INTEGER NOT NULL REFERENCES photo (photo_id) ON UPDATE CASCADE PRIMARY KEY,
     item_id INTEGER NOT NULL REFERENCES item (item_id) ON UPDATE CASCADE
+
 );
  
 
@@ -343,12 +347,11 @@ DROP FUNCTION IF EXISTS update_item_tsvector() CASCADE;
 CREATE FUNCTION update_item_tsvector() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-	IF pg_trigger_depth() <=1 THEN 
-    		update item 
-		set search = setweight(to_tsvector('english',coalesce(item.name,'')), 'A') ||
-		setweight(to_tsvector('english',coalesce(item.description,'')), 'B')
-		where new.item_id=item.item_id;
-	
+    IF pg_trigger_depth() <=1 THEN 
+            update item 
+	    set search = setweight(to_tsvector('english',coalesce(item.name,'')), 'A') ||
+	    setweight(to_tsvector('english',coalesce(item.description,'')), 'B')
+	    where new.item_id=item.item_id;
 	END IF;
     RETURN NEW;
 
@@ -579,6 +582,15 @@ commit;
 
 
 
+
+
+
+
+
+
+
+
+
 INSERT INTO category (category_id, name) VALUES (1, 'Computers');
 INSERT INTO category (category_id, name) VALUES (2, 'Books');
 INSERT INTO category (category_id, name) VALUES (3, 'Eletrodomestics');
@@ -690,7 +702,7 @@ INSERT INTO item (item_id, name, stock, brief_description, description, price, i
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (13, 'Minions Pencil set', 50, NULL, 'Draw and paint with these pencils, from your cute and fun Minions!', 5.28, False, 8, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (14, 'Frozen Pencil set', 57, NULL, 'Draw the most inspiring art with these pencils, inspired in your favourite princesses from Frozen!', 6.80, False, 8, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (15, 'Soundbar Bluetooth Signa S2', 29, NULL, '', 249.99, False, 9, 0, '');
-INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (16, 'Smart TV Samsung UHD 4K 55AU7105', 0, NULL, 'This new TV from Samsung will blow you away with its incredible screen size, resolution and beautiful colors', 699.99, False, 10, 0, '');
+INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (16, 'Smart TV Samsung UHD 4K 55AU7105', 68, NULL, 'This new TV from Samsung will blow you away with its incredible screen size, resolution and beautiful colors', 699.99, False, 10, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (17, 'Smart TV Samsung Neo QLED 8K 65QN800A', 36, NULL, '8K is here and this TV proves it. Images have never been shaper and colorful than with this new Samsung TV with the most cutting edge of this time', 3520.30, False, 10, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (18, 'Fifty Shades Freed', 55, NULL, 'The most recent installment on the Fifty Shades series now with an extended DVD version, with scenes never before scene on theatre displays', 7.99, False, 11, 0, '');
 INSERT INTO item (item_id, name, stock, brief_description, description, price, is_archived, category_id, score, search) VALUES (19, 'How to Train your Dragon 3', 8, NULL, '', 13.99, False, 11, 0, '');
@@ -1119,16 +1131,16 @@ INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, 
 
 
 
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (1, 3, '12/27/2003 09:09:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (2, 3, '07/29/2012 02:09:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (3, 4, '05/30/2017 01:17:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (4, 5, '09/12/2000 07:13:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (5, 6, '08/12/2006 00:14:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (6, 6, '02/10/2011 04:52:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (7, 6, '07/01/2000 04:25:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (8, 8, '05/28/2017 01:44:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (9, 9, '08/25/2003 04:53:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (10, 10, '10/10/2015 05:38:00');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (1, 3, '12/27/2003 09:09:00','Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (2, 3, '07/29/2012 02:09:00','Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (3, 4, '05/30/2017 01:17:00','Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (4, 5, '09/12/2000 07:13:00','Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (5, 6, '08/12/2006 00:14:00','Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (6, 6, '02/10/2011 04:52:00','Processing');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (7, 6, '07/01/2000 04:25:00','Processing');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (8, 8, '05/28/2017 01:44:00','Processing');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (9, 9, '08/25/2003 04:53:00','Sent');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (10, 10, '10/10/2015 05:38:00','Sent');
 
 
 
