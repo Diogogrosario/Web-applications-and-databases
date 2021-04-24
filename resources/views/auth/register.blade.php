@@ -23,28 +23,28 @@
               </div>
               <div class="row pt-3">
                   <div class="col-md-6">
-                    <label style="padding-bottom: 1%;" for="firstName" class="form-label"><b>First Name</b></label>
-                    <input id="firstName" type="text" name="firstName" value="{{ old('firstName') }}" required autofocus class="form-control" placeholder="First Name, I.e: John">
-                    @if ($errors->has('firstName'))
+                    <label style="padding-bottom: 1%;" for="first_name" class="form-label"><b>First Name</b></label>
+                    <input id="first_name" type="text" name="first_name" value="{{ old('first_name') }}" required autofocus class="form-control" placeholder="First Name, I.e: John">
+                    @if ($errors->has('first_name'))
                       <span class="error">
-                          {{ $errors->first('firstName') }}
+                          {{ $errors->first('first_name') }}
                       </span>
                     @endif
                   </div>
 
                   <div class="col-md-6">
-                    <label style="padding-bottom: 1%;" for="lastName" class="form-label"><b>Last Name</b></label>
-                    <input id="lastName" type="text" name="lastName" value="{{ old('lastName') }}" required autofocus class="form-control" placeholder="First Name, I.e: John">
+                    <label style="padding-bottom: 1%;" for="last_name" class="form-label"><b>Last Name</b></label>
+                    <input id="last_name" type="text" name="last_name" value="{{ old('lastName') }}" required autofocus class="form-control" placeholder="Last Name, I.e: John">
                     @if ($errors->has('error'))
                       <span class="error">
-                          {{ $errors->first('lastName') }}
+                          {{ $errors->first('last_name') }}
                       </span>
                     @endif
                   </div>
               </div>
               <div class="pt-3">
-                <label style="padding-bottom: 1%;" for="Username"  class="form-label"><b>Username</b></label>
-                <input id="Username" type="text" name="Username" value="{{ old('Username') }}" required class="form-control" placeholder="Username, I.e: JonDoe2">
+                <label style="padding-bottom: 1%;" for="username"  class="form-label"><b>Username</b></label>
+                <input id="username" type="text" name="username" value="{{ old('username') }}" required class="form-control" placeholder="Username, I.e: JonDoe2">
                 @if ($errors->has('Username'))
                   <span class="error">
                       {{ $errors->first('Username') }}
@@ -61,18 +61,18 @@
                   @endif
                 </div>
               <div class="pt-3">
-                <label style="padding-bottom: 1%;" for="confirmPassword"  class="form-label"><b>confirmPassword</b></label>
-                <input id="confirmPassword" type="confirmPassword" name="confirmPassword" value="{{ old('confirmPassword') }}" required class="form-control" placeholder="confirmPassword">
-                @if ($errors->has('confirmPassword'))
+                <label style="padding-bottom: 1%;" for="password_confirmation"  class="form-label"><b>Confirm Password</b></label>
+                <input id="password_confirmation" type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" required class="form-control" placeholder="Confirm Password">
+                @if ($errors->has('password_confirmation'))
                   <span class="error">
-                      {{ $errors->first('confirmPassword') }}
+                      {{ $errors->first('password_confirmation') }}
                   </span>
                 @endif
               </div>
               </div>
 
               <div class="d-flex mt-3 flex-column justify-content-center h-50 align-items-center">
-                  <button type="button" class="btn btn-success w-50" >
+                  <button type="submit" class="btn btn-success w-50" >
                       Register
                   </button>
               </div>              

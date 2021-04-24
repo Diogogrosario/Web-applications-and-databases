@@ -20,6 +20,7 @@ Route::get('searchResults', 'SearchResultsController@show');
 Route::get('about', 'AboutPageController@show');
 Route::get('faq', 'FaqPageController@show');
 Route::get('contacts', 'ContactsPageController@show');
+Route::get('userProfile', 'UserProfileController@show');
 
 
 // // API

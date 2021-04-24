@@ -1,10 +1,17 @@
-<!-- Done -->
+@extends('layouts.app')
 
-<?php include_once('header.php'); ?>
-<?php include_once('sidebarItem.html'); ?>
 
-<!-- <div class="col">
-</div> -->
+@section('title')
+    <title>
+        {{-- Change to user's name --}}
+        User Profile
+    </title>
+@endsection
+
+
+@section("content")
+@include('partials.sidebarItem',["categories" => $categories])
+
 <div class="p-0" style="background-color:#f2f2f2;">
     <div id="userProfile" class="container col-md-7 p-lg-5 p-3 shadow-sm h-100" style="background-color:white">
         <div class="row">
@@ -154,5 +161,4 @@
         </div>
     </div>
 </div>
-
-<?php include_once('footer.html'); ?>
+@endsection
