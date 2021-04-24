@@ -51,7 +51,7 @@
               <ul class="navbar-nav mb-2 mb-lg-0">
                   <?php if($logged_in){ ?>
                       <li class="nav-item d-lg-flex align-items-lg-center py-2 py-lg-0 px-lg-2">
-                          <a class="nav-link" href="cart.php">
+                          <a class="nav-link" href="userProfile/1/cart">
                               <i class="fas fa-shopping-cart" style="font-size: 1.5em;"></i>
                           </a>
                       </li>
@@ -60,7 +60,7 @@
                       <?php if (!$logged_in) { ?>
                           <a class="nav-link" href="/login" style="color:white !important">Login</a>
                       <?php } else { ?>
-                          <a href="user.php">
+                          <a href="userProfile/1">
                               <img src="{{ asset('img/userIcon.png') }}" class="card-img-top px-1" style="max-height: 3em; max-width: 3em;" alt="User Icon">
                           </a>
                       <?php } ?>
@@ -69,7 +69,7 @@
                       <?php if (!$logged_in) { ?>
                           <a class="nav-link" href="/register" style="color:white !important">Register</a>
                       <?php } else { ?>
-                          <a class="nav-link" href="user.php" style="color:white !important">User</a>
+                          <a class="nav-link" href="/userProfile/1" style="color:white !important">User</a>
                       <?php } ?>
                   </li>
 

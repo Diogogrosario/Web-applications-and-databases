@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 
+@section('title')
+    <title>Contact Us</title>
+@endsection
+
+
 <!--Google map-->
 @section("content")
 @include('partials.sidebarItem',["categories" => $categories])

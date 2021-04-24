@@ -20,11 +20,11 @@
                 </div>
             </div>
             <div id="profileMainInfo" class="col-lg-5 col-md-9 col-9">
-                <h1 class="p-2">WaffleH</h1>
-                <p class="fs-5">Account Balance:<span class="fs-4 ms-2" style="color:green;">20.00 €</span></p>
+                <h1 class="p-2">{{ $user["first_name"] }}</h1>
+                <p class="fs-5">Account Balance:<span class="fs-4 ms-2" style="color:green;">{{ $user["balance"] }}</span></p>
             </div>
             <div id="profileOptions" class="col-lg-4 col-md-12 col-sm-12">
-                <a href="./wishlist.php">
+                <a href={{$user["user_id"] . "/wishlist"}}>
                     <button type="button" class="btn btn-danger w-100 p-3 shadow rounded-0 rounded-top"><i class="bi bi-heart-fill me-2"></i>Wishlist</button></a>
                 <br>
 
@@ -74,7 +74,7 @@
                         <tbody>
                             <tr>
                                 <th scope="row">Username</th>
-                                <td>WaffleH<button type="class" class="btn"><i class="bi bi-pencil-square"></i></button></td>
+                                <td>{{ $user["username"] }}<button type="class" class="btn"><i class="bi bi-pencil-square"></i></button></td>
                             </tr>
                             <tr>
                                 <th scope="row">Password</th>
@@ -82,7 +82,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">E-mail</th>
-                                <td>chingchonghanji@gmail.com<button type="class" class="btn"><i class="bi bi-pencil-square"></i></button></td>
+                                <td>{{ $user["email"] }}<button type="class" class="btn"><i class="bi bi-pencil-square"></i></button></td>
                             </tr>
                         </tbody>
                     </table>

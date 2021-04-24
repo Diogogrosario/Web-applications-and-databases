@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Register</title>
+@endsection
 
 @section('content')
 <!-- Form -->

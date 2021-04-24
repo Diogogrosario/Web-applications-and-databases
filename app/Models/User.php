@@ -33,6 +33,19 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    public function wishlist() {
+        return $this->belongsToMany(Item::class,"wishlist", "user_id", "item_id")->get();
+    }
+
+    public function cart() {
+        return $this->belongsToMany(Item::class,"cart", "user_id", "item_id")->withPivot('quantity')->get();
+    }
+
+    public function cartTotal() {
+        return $this->belongsToMany(Item::class,"cart", "user_id", "item_id")->withPivot('quantity')->sum(\DB::raw('quantity * price'));
+    }
+
     /**
      * The cards this user owns.
      */

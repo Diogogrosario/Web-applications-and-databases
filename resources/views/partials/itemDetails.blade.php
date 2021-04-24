@@ -5,30 +5,33 @@
             $half = ceil($item->details->count() / 2);
             $chunks = $item->details->chunk($half);
         @endphp
-        <div class="col-md-6 col-sm-12" id="detailsTable_1">
-            <table class="table">
-                <tbody>
-                    @foreach ($chunks[0] as $item)
-                        <tr>
-                            <th scope="row"> {{$item["name"]}} </th>
-                            <td> {{$item->pivot["detail_info"]}} </td>
-                        </tr> 
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-        <div class="col" id="detailsTable_2">
-            <table class="table">
-                <tbody>
-                    @foreach ($chunks[1] as $item)
-                        <tr>
-                            <th scope="row"> {{$item["name"]}} </th>
-                            <td> {{$item->pivot["detail_info"]}} </td>
-                        </tr> 
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-
+        @if (count($chunks) > 0)
+            <div class="col-md-6 col-sm-12" id="detailsTable_1">
+                <table class="table">
+                    <tbody>
+                        @foreach ($chunks[0] as $item)
+                            <tr>
+                                <th scope="row"> {{$item["name"]}} </th>
+                                <td> {{$item->pivot["detail_info"]}} </td>
+                            </tr> 
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="col" id="detailsTable_2">
+                <table class="table">
+                    <tbody>
+                        @if (count($chunks) > 1)
+                            @foreach ($chunks[1] as $item)
+                                <tr>
+                                    <th scope="row"> {{$item["name"]}} </th>
+                                    <td> {{$item->pivot["detail_info"]}} </td>
+                                </tr> 
+                            @endforeach
+                        @endif
+                    </tbody>
+                </table>
+            </div>
+        @endif
     </section>
     <!-- </div> -->
