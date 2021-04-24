@@ -23,6 +23,7 @@ Route::get('contacts', 'ContactsPageController@show');
 Route::get('userProfile/{id}', 'UserProfileController@show');
 Route::get('userProfile/{id}/wishlist', 'WishlistController@show');
 Route::get('userProfile/{id}/cart', 'CartController@show');
+Route::get('userProfile/{id}/purchaseHistory', 'PurchaseHistoryController@show');
 
 // // API
 // Route::put('api/cards', 'CardController@create');

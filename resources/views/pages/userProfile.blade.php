@@ -61,7 +61,7 @@
                 </div>
 
                 <br>
-                <a href="./purchaseHistory.php">
+                <a href={{$user["user_id"] . "/purchaseHistory"}}>
                     <button type="button" class="btn btn-light w-100 p-3 shadow-sm rounded-0 rounded-bottom">Purchase History</button></a>
             </div>
         </div>
@@ -126,14 +126,19 @@
             <div class="col-lg-4 border-start" id="notifications">
                 <h2 class="mb-3">Notifications</h2>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="./item.php">Asus ROG</a> from your wish list is on sale! </li>
-                    <li class="list-group-item"><a href="./item.php">iPhone10</a> from your wish list has stock again!</li>
+                    @foreach ($user->notifications() as $notification)
+                    @if ($notification->pivot["type"] == "Discount")
+                        <li class="list-group-item"><a href={{"/item/" . $notification["item_id"]}}>{{ $notification["name"] }}</a> from your wish list is on sale! </li>   
+                    @else
+                        <li class="list-group-item"><a href={{"/item/" . $notification["item_id"]}}>{{ $notification["name"] }}</a> from your wish list has stock again!</li>
+                    @endif
+                    @endforeach 
                 </ul>
             </div>
 
         </section>
 
-        <!-- Button trigger modal -->
+        <!-- Button trigger modal  -->
         <button type="button" class="btn btn-danger p-3 shadow mt-5" data-bs-toggle="modal" data-bs-target="#deleteAccount">
         <i class="bi bi-x-circle-fill"></i> Delete Account
              

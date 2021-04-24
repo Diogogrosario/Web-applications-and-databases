@@ -46,6 +46,15 @@ class User extends Authenticatable
         return $this->belongsToMany(Item::class,"cart", "user_id", "item_id")->withPivot('quantity')->sum(\DB::raw('quantity * price'));
     }
 
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class, "user_id")->orderBy("date", "DESC");
+    }
+
+    public function notifications() {
+        return $this->belongsToMany(Item::class,"notification", "user_id", "item_id")->withPivot("type")->where('is_seen',false)->get();
+    }
+
     /**
      * The cards this user owns.
      */
