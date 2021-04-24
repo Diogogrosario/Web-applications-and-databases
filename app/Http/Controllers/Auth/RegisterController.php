@@ -85,7 +85,7 @@ class RegisterController extends Controller
     {
         $validation = $this->validator($request->all());
         if ($validation->fails())  {
-            return redirect()->back()->with(['errors'=>$validation->errors()->toArray()]);
+            return redirect()->back()->withErrors($validation);
         }
         else{
             $user = $this->create($request->all());
