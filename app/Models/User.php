@@ -55,6 +55,14 @@ class User extends Authenticatable
         return $this->belongsToMany(Item::class,"notification", "user_id", "item_id")->withPivot("type")->where('is_seen',false)->get();
     }
 
+    public function billingAddress() {
+        return Address::find($this["billing_address"]);
+    }
+
+    public function shippingAddress() {
+        return Address::find($this["shipping_address"]);
+    }
+
     /**
      * The cards this user owns.
      */

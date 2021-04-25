@@ -20,11 +20,11 @@ class SearchResultsController extends Controller
             if($q!=null)
                 $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
                 ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
-            $searchResults = $searchResults->get();
+            $searchResults = $searchResults->where("is_archived",false)->get();
         }
         else
             $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
-            ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))
+            ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)
             ->get();
 
         

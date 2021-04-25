@@ -25,6 +25,11 @@ Route::get('userProfile/{id}/wishlist', 'WishlistController@show');
 Route::get('userProfile/{id}/cart', 'CartController@show');
 Route::get('userProfile/{id}/purchaseHistory', 'PurchaseHistoryController@show');
 
+//Management
+Route::get('management', 'ManagementController@show');
+Route::get('management/manageUsers', 'UserAdministrationController@show');
+Route::get('management/addItem', 'AddItemController@show');
+
 // // API
 // Route::put('api/cards', 'CardController@create');
 // Route::delete('api/cards/{card_id}', 'CardController@delete');
