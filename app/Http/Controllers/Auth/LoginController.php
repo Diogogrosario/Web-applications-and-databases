@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\Category;
+use Illuminate\Http\Request;  
 
 class LoginController extends Controller
 {
@@ -44,6 +46,16 @@ class LoginController extends Controller
 
     public function home() {
         return redirect('login');
+    }
+
+    public function login(Request $request)
+    {
+        if(Auth::attempt($request->only('email', 'password')))
+            $request->session()->regenerate();
+        else
+            return redirect('/login');
+
+        return redirect('/login')->with(['message'=>'Account Successfully Created.']);
     }
     
     public function show()

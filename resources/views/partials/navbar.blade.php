@@ -1,9 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top pb-lg-2 pb-0" style="background-color:#36312b">
       <div class="container-fluid">
           <?php
+            $logged_in = false;
+
+
+          if(Auth::check())
+            $logged_in = true;
             
           if (!$pos) {
-              $logged_in = false;
           ?>
               @if (isset($categories))
                     
@@ -15,7 +19,6 @@
 
           <?php
           } else {
-              $logged_in = true;
           ?>
               <button class="btn btn-lg ms-1 me-0 d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCategories" aria-controls="navbarCategories" style="margin-right:2%;">
                   <i class="bi bi-list-task" style="color:white !important"></i>
@@ -51,7 +54,7 @@
               <ul class="navbar-nav mb-2 mb-lg-0">
                   <?php if($logged_in){ ?>
                       <li class="nav-item d-lg-flex align-items-lg-center py-2 py-lg-0 px-lg-2">
-                          <a class="nav-link" href="userProfile/1/cart">
+                          <a class="nav-link" href={{"/userProfile/" . Auth::id() . "/cart"}}>
                               <i class="fas fa-shopping-cart" style="font-size: 1.5em;"></i>
                           </a>
                       </li>
@@ -60,7 +63,7 @@
                       <?php if (!$logged_in) { ?>
                           <a class="nav-link" href="/login" style="color:white !important">Login</a>
                       <?php } else { ?>
-                          <a href="userProfile/1">
+                          <a href={{ "/userProfile/" . Auth::id() }}>
                               <img src="{{ asset('img/userIcon.png') }}" class="card-img-top px-1" style="max-height: 3em; max-width: 3em;" alt="User Icon">
                           </a>
                       <?php } ?>
@@ -68,9 +71,14 @@
                   <li class="nav-item">
                       <?php if (!$logged_in) { ?>
                           <a class="nav-link" href="/register" style="color:white !important">Register</a>
+
                       <?php } else { ?>
-                          <a class="nav-link" href="/userProfile/1" style="color:white !important">User</a>
+                            <div class="d-flex justify-content-center">
+                                <a class="nav-link" href={{"/userProfile/" . Auth::id()}} style="color:white !important">{{ Auth::user()["username"] }}&nbsp;&nbsp; |</a>
+                                <a class="nav-link ps-0" href="/logout" style="color:white !important">&nbsp;&nbsp; Logout</a>
+                            </div>
                       <?php } ?>
+
                   </li>
 
               </ul>

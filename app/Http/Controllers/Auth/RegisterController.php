@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -67,7 +68,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'username ' => $data['username'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'first_name' => $data['first_name'],
@@ -88,8 +89,11 @@ class RegisterController extends Controller
             return redirect()->back()->withErrors($validation);
         }
         else{
-            $user = $this->create($request->all());
-            // Auth::login($user); 
+            $this->create($request->all());
+
+            if(Auth::attempt($request->only('email', 'password')))
+                $request->session()->regenerate();
+
             return redirect('/login')->with(['message'=>'Account Successfully Created.']);
         }
     }

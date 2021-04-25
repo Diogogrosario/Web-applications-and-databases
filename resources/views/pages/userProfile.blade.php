@@ -91,7 +91,7 @@
                     <h2>Shipping Information</h2><button type="class" class="btn btn-lg ms-3 p-0"><i class="bi bi-pencil-square"></i></button>
                 </div>
                 <table id="shippingInfo" class="table">
-                    @if ($user->shippingAddress()->get()->isEmpty())
+                    @if ($user->shippingAddress() == null)
                     <tbody>
                         <tr>
                             <th scope="row">Address</th>

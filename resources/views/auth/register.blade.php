@@ -48,9 +48,9 @@
               <div class="pt-3">
                 <label style="padding-bottom: 1%;" for="username"  class="form-label"><b>Username</b></label>
                 <input id="username" type="text" name="username" value="{{ old('username') }}" required class="form-control" placeholder="Username, I.e: JonDoe2">
-                @if ($errors->has('Username'))
+                @if ($errors->has('username'))
                   <span class="error">
-                      {{ $errors->first('Username') }}
+                      {{ $errors->first('username') }}
                   </span>
                 @endif
             </div>
