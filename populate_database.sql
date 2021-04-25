@@ -538,16 +538,16 @@ INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, 
 
 
 
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (1, 3, '12/27/2003 09:09:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (2, 3, '07/29/2012 02:09:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (3, 4, '05/30/2017 01:17:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (4, 5, '09/12/2000 07:13:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (5, 6, '08/12/2006 00:14:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (6, 6, '02/10/2011 04:52:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (7, 6, '07/01/2000 04:25:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (8, 8, '05/28/2017 01:44:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (9, 9, '08/25/2003 04:53:00');
-INSERT INTO purchase (purchase_id, user_id, date) VALUES (10, 10, '10/10/2015 05:38:00');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (1, 3, '12/27/2003 09:09:00','Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (2, 3, '07/29/2012 02:09:00','Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (3, 4, '05/30/2017 01:17:00','Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (4, 5, '09/12/2000 07:13:00','Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (5, 6, '08/12/2006 00:14:00','Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (6, 6, '02/10/2011 04:52:00','Processing');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (7, 6, '07/01/2000 04:25:00','Processing');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (8, 8, '05/28/2017 01:44:00','Processing');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (9, 9, '08/25/2003 04:53:00','Sent');
+INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (10, 10, '10/10/2015 05:38:00','Sent');
 
 
 

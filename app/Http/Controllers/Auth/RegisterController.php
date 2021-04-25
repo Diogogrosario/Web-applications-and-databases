@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Models\Category;
+use Illuminate\Http\Request;  
 
 class RegisterController extends Controller
 {
@@ -27,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/cards';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,9 +51,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255'
         ]);
     }
 
@@ -63,9 +68,33 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name']
         ]);
+    }
+
+    public function show()
+    {
+        $categories = Category::all()->sortBy("category_id");
+        return view('auth.register')->with('categories', $categories);
+    }
+
+    public function register(Request $request)
+    {
+        $validation = $this->validator($request->all());
+        if ($validation->fails())  {
+            return redirect()->back()->withErrors($validation);
+        }
+        else{
+            $this->create($request->all());
+
+            if(Auth::attempt($request->only('email', 'password')))
+                $request->session()->regenerate();
+
+            return redirect('/login')->with(['message'=>'Account Successfully Created.']);
+        }
     }
 }

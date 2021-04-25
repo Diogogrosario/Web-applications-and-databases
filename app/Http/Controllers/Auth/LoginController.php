@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Models\Category;
+use Illuminate\Http\Request;  
 
 class LoginController extends Controller
 {
@@ -25,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/cards';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -45,4 +48,19 @@ class LoginController extends Controller
         return redirect('login');
     }
 
+    public function login(Request $request)
+    {
+        if(Auth::attempt($request->only('email', 'password')))
+            $request->session()->regenerate();
+        else
+            return redirect('/login');
+
+        return redirect('/login')->with(['message'=>'Account Successfully Created.']);
+    }
+    
+    public function show()
+    {
+        $categories = Category::all()->sortBy("category_id");
+        return view('auth.login')->with('categories', $categories);
+    }
 }
