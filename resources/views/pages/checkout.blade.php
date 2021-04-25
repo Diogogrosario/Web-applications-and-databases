@@ -81,7 +81,46 @@
                                 </label>
                             </div>
                             <table id="billingAddress_checkout" class="mt-4 mb-5 table">
+                                @if (Auth::user()->shippingAddress() == null)
                                 <tbody>
+                                    <tr>
+                                        <th scope="row">Address</th>
+                                        <td>Not Set</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">City</th>
+                                        <td>Not Set</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Country</th>
+                                        <td>Not Set</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Zip Code</th>
+                                        <td>Not Set</td>
+                                    </tr>
+                                </tbody>
+                                @else
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Address</th>
+                                            <td>{{ Auth::user()->shippingAddress()["street"] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">City</th>
+                                            <td>{{ Auth::user()->shippingAddress()["city"] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Country</th>
+                                            <td>{{ Auth::user()->shippingAddress()->country()["name"] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Zip Code</th>
+                                            <td>{{ Auth::user()->shippingAddress()["zip_code"] }}</td>
+                                        </tr>
+                                    </tbody>
+                                @endif
+                                {{-- <tbody>
                                     <tr>
                                         <th scope="row">Address</th>
                                         <td>Rua Yay nº20 Areias</td>
@@ -98,7 +137,7 @@
                                         <th scope="row">Zip Code</th>
                                         <td>5960-313</td>
                                     </tr>
-                                </tbody>
+                                </tbody> --}}
                             </table>
                         </div>
                         <div id="shippingAddressDiv_checkout" class="col-lg-6">
