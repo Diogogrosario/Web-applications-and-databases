@@ -24,6 +24,7 @@ Route::get('userProfile/{id}', 'UserProfileController@show');
 Route::get('userProfile/{id}/wishlist', 'WishlistController@show');
 Route::get('userProfile/{id}/cart', 'CartController@show');
 Route::get('userProfile/{id}/purchaseHistory', 'PurchaseHistoryController@show');
+Route::get('checkout', 'CheckoutController@show');
 
 //Management
 Route::get('management', 'ManagementController@show');

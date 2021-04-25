@@ -26,7 +26,10 @@
             <div class="fs-4 text-center mx-auto">{{$user->cartTotal()}}</div>
         </section>
         <div class="text-center ">
-            <button type="button" class="btn btn-success btn-lg w-50 mx-auto">Checkout</button>
+            <form action="/checkout">
+                <button  type="submit" class="btn btn-success btn-lg w-50 mx-auto">Checkout</button>
+
+            </form>
         </div>
     </section>
 </div>
