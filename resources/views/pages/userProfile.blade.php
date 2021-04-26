@@ -16,7 +16,7 @@
     <div id="userProfile" class="container col-md-7 p-lg-5 p-3 shadow-sm h-100" style="background-color:white">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-3 mb-1">
-                <div id="profilePic" class="d-flex rounded-circle" style="height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(images/spidercat.png);background-position:center;background-size:cover;">
+                <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(\"" . asset("/img/spidercat.png") . "\");background-position:center;background-size:cover;"}}>
                 </div>
             </div>
             <div id="profileMainInfo" class="col-lg-5 col-md-9 col-9">

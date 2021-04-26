@@ -73,12 +73,12 @@
                           <a class="nav-link" href="/register" style="color:white !important">Register</a>
 
                       <?php } else { ?>
-                            <div class="d-flex justify-content-center">
-                                <a class="nav-link" href={{"/userProfile/" . Auth::id()}} style="color:white !important">{{ Auth::user()["username"] }}&nbsp;&nbsp; |</a>
-                                <a class="nav-link ps-0" href="/logout" style="color:white !important">&nbsp;&nbsp; Logout</a>
+                            <div class="d-flex justify-content-center ">
+                                <a class="nav-link" href={{"/userProfile/" . Auth::id()}} style="color:white !important">{{ Auth::user()["username"] }}&nbsp; |</a>
+                                <a class="nav-link ps-0" href={{"/manage"}} style="color:white !important">&nbsp;Manage&nbsp; |</a>
+                                <a class="nav-link ps-0" href="/logout" style="color:white !important">&nbsp; Logout</a>
                             </div>
                       <?php } ?>
-
                   </li>
 
               </ul>
