@@ -12,21 +12,28 @@ class ItemPolicy
 {
     use HandlesAuthorization;
 
-    public function create(User $user, Item $item)
+    public function create(User $user)
     {
-      // User can only create items in cards they own
-      return $user->id == $item->card->user_id;
+      return $user["is_admin"];
     }
 
-    public function update(User $user, Item $item)
+    public function update(User $user)
     {
-      // User can only update items in cards they own
-      return $user->id == $item->card->user_id;
+      return $user["is_admin"];
     }
 
-    public function delete(User $user, Item $item)
+    public function delete(User $user)
     {
-      // User can only delete items in cards they own
-      return $user->id == $item->card->user_id;
+      return $user["is_admin"];
+    }
+
+    public function wishlist()
+    {
+      return Auth::check();
+    }
+
+    public function cart()
+    {
+      return Auth::check();
     }
 }

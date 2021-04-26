@@ -15,21 +15,20 @@ Route::get('/', 'HomepageController@show');
 
 // Pages
 Route::get('item/{id}', 'ItemPageController@show');
-Route::get('category/{category}', 'CategoryController@show');
 Route::get('searchResults', 'SearchResultsController@show');
 Route::get('about', 'AboutPageController@show');
 Route::get('faq', 'FaqPageController@show');
 Route::get('contacts', 'ContactsPageController@show');
-Route::get('userProfile/{id}', 'UserProfileController@show');
-Route::get('userProfile/{id}/wishlist', 'WishlistController@show');
-Route::get('userProfile/{id}/cart', 'CartController@show');
-Route::get('userProfile/{id}/purchaseHistory', 'PurchaseHistoryController@show');
+Route::get('userProfile/{id}', 'UserProfileController@show')->middleware('canSeeProfile');
+Route::get('userProfile/{id}/wishlist', 'WishlistController@show')->middleware('canSeeProfile');
+Route::get('userProfile/{id}/cart', 'CartController@show')->middleware('canSeeProfile');
+Route::get('userProfile/{id}/purchaseHistory', 'PurchaseHistoryController@show')->middleware('canSeeProfile');
 Route::get('checkout', 'CheckoutController@show');
 
 //Management
-Route::get('management', 'ManagementController@show');
-Route::get('management/manageUsers', 'UserAdministrationController@show');
-Route::get('management/addItem', 'AddItemController@show');
+Route::get('management', 'ManagementController@show')->middleware('admin');
+Route::get('management/manageUsers', 'UserAdministrationController@show')->middleware('admin');
+Route::get('management/addItem', 'AddItemController@show')->middleware('admin');
 
 // // API
 // Route::put('api/cards', 'CardController@create');
