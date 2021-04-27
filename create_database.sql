@@ -446,7 +446,6 @@ BEFORE INSERT ON cart
 FOR EACH ROW
 EXECUTE PROCEDURE check_if_already_on_cart();
 
-
 --Trigger 10
 DROP FUNCTION if exists notify_admin_if_out_of_stock CASCADE;
 DROP TRIGGER if exists notify_admin ON item CASCADE;
