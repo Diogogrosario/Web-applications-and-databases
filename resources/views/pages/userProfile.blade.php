@@ -20,9 +20,11 @@
                 </div>
             </div>
             <div id="profileMainInfo" class="col-lg-5 col-md-9 col-9">
-                <h1 class="p-2">{{ $user["first_name"] }}</h1>
-                <p class="fs-5">Account Balance:<span class="fs-4 ms-2" style="color:green;">{{ $user["balance"] }}</span></p>
+                <h2 class="px-2 pt-2">{{ $user["first_name"] }} {{ $user["last_name"]}}</h1>
+                <p class="fs-5 px-2 fw-bold mt-lg-3 col-12 d-none d-md-block">Balance:<span class="fs-4 ms-2" style="color:green;">{{ $user["balance"] }}</span></p>
             </div>
+            <p class="text-center d-block d-md-none px-2 fw-bold mt-lg-3 col-12">Balance:<span class="fs-4 ms-2" style="color:green;">{{ $user["balance"] }}</span></p>
+
             <div id="profileOptions" class="col-lg-4 col-md-12 col-sm-12">
                 <a href={{$user["user_id"] . "/wishlist"}}>
                     <button type="button" class="btn btn-danger w-100 p-3 shadow rounded-0 rounded-top"><i class="bi bi-heart-fill me-2"></i>Wishlist</button></a>
@@ -64,6 +66,7 @@
                 <a href={{$user["user_id"] . "/purchaseHistory"}}>
                     <button type="button" class="btn btn-light w-100 p-3 shadow-sm rounded-0 rounded-bottom">Purchase History</button></a>
             </div>
+        
         </div>
 
         <section id="profileInfo" class="row mt-5">

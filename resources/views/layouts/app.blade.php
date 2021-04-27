@@ -30,13 +30,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
+    <script type="text/javascript" src="{{asset('js/ajax.js')}}" defer></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <script type="text/javascript">
         // Fix for Firefox autofocus CSS bug
         // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
-    </script>
-    <script type="text/javascript" src={{ asset('js/app.js') }} defer>
     </script>
 
   </head>

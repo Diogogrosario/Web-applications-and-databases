@@ -36,6 +36,8 @@ Route::get('management/addItem', 'AddItemController@show')->middleware('admin');
 // Route::put('api/cards/{card_id}/', 'ItemController@create');
 // Route::post('api/item/{id}', 'ItemController@update');
 // Route::delete('api/item/{id}', 'ItemController@delete');
+Route::post('products/{id}/review', 'ReviewController@submit');
+Route::delete('products/{id}/review/{reviewId}', 'ReviewController@delete');
 
 // // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

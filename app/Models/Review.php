@@ -12,13 +12,19 @@ class Review extends Model
     protected $table = 'review';
     protected $primaryKey = 'review_id';
 
+    protected $fillable = [
+        'user_id','item_id', 'comment_text', 'rating',
+    ];
+
     public function user()
     {
-        return $this->hasOne(User::class,"user_id")->get();
+        $this->refresh();
+        return $this->belongsTo(User::class,"user_id")->get();
     }
 
 
     public function getDate() {
         return date('Y-m-d', strtotime($this["date"]));
     }
+
 }

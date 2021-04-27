@@ -21,7 +21,7 @@ class Item extends Model
   }
 
   public function reviews() {
-    return $this->hasMany(Review::class,"item_id");
+    return $this->hasMany(Review::class,"item_id")->orderBy("date", "desc");
   }
 
   public function getRandomItemsSameCategory($amout)

@@ -12,6 +12,7 @@
 @section("content")
 @include('partials.sidebarItem',["categories" => $categories])
 
+
 <div class="col">
     <div class="content">
         <div class="row">
@@ -165,20 +166,44 @@
                             <section class="px-md-5 px-2 col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1" id="reviewSection">
                                 <h3 class="text-start mt-4">Reviews <span class="fs-5" id="n_reviews">({{ $item->reviews()->count() }})</span></h3>
                                 
+                                <script type="text/javascript" src="{{asset('js/item_page.js')}}" defer></script>
+
+
                                 @if (Auth::check())
                                     <form class="mt-4 mb-5" id="newReviewForm">
-                                        <textarea required class="form-control" id="productDescription" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
-                                        <button type="submit" class="btn btn-dark btn-md col-md-6 col-lg-4 offset-md-3 offset-lg-4 col-12 mt-md-2">Submit your review</button>
+                                        <meta name="csrf-token" content="{{ csrf_token() }}">
+                                        <meta name="item_id" content="{{ $item['item_id'] }}">
+                                        <textarea required class="form-control" id="new_review_text" name="review_text" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
+                                        
+                                        <div class="rate">
+                                            <input type="radio" id="star5" name="rate" value="5" />
+                                            <label for="star5" title="text">5 stars</label>
+                                            <input type="radio" id="star4" name="rate" value="4" />
+                                            <label for="star4" title="text">4 stars</label>
+                                            <input type="radio" id="star3" name="rate" value="3" />
+                                            <label for="star3" title="text">3 stars</label>
+                                            <input type="radio" id="star2" name="rate" value="2" />
+                                            <label for="star2" title="text">2 stars</label>
+                                            <input type="radio" id="star1" name="rate" value="1" />
+                                            <label for="star1" title="text">1 star</label>
+                                        </div>
+                                        
+                                        <button type="button" form="newReviewForm" class="btn btn-dark btn-md col-md-6 col-lg-4 offset-md-3 offset-lg-4 col-12 mt-md-2">Submit your review</button>
                                     </form> 
                                 @endif
                                 
-                                <div class="mt-4" id="productReviews">
+                                <section class="mt-4" id="productReviews">
                                     @foreach ($item->reviews()->get() as $review)
-                                    <div class="user_review border-bottom mt-4">
-                                            @include("partials.review",array($review))
-                                    </div> 
+                                        @php
+                                            $review_id = $review["review_id"];
+                                            $review_user =  $review->user()[0];
+                                            $review_rating = $review["rating"];
+                                            $review_date = $review->getDate();
+                                            $review_text = $review["comment_text"]
+                                        @endphp
+                                        @include("partials.review",array($review_id, $review_user, $review_rating, $review_date, $review_text))
                                     @endforeach
-                                </div>
+                                </section>
                             </section>
                             <!-- </div> -->
                         </div>
