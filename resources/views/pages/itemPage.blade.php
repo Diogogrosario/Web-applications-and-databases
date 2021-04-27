@@ -164,10 +164,14 @@
                             <!-- <div class="col"> -->
                             <section class="px-md-5 px-2 col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1" id="reviewSection">
                                 <h3 class="text-start mt-4">Reviews <span class="fs-5" id="n_reviews">({{ $item->reviews()->count() }})</span></h3>
-                                <form class="mt-4 mb-5" id="newReviewForm">
-                                    <textarea required class="form-control" id="productDescription" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
-                                    <button type="submit" class="btn btn-dark btn-md col-md-6 col-lg-4 offset-md-3 offset-lg-4 col-12 mt-md-2">Submit your review</button>
-                                </form>
+                                
+                                @if (Auth::check())
+                                    <form class="mt-4 mb-5" id="newReviewForm">
+                                        <textarea required class="form-control" id="productDescription" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
+                                        <button type="submit" class="btn btn-dark btn-md col-md-6 col-lg-4 offset-md-3 offset-lg-4 col-12 mt-md-2">Submit your review</button>
+                                    </form> 
+                                @endif
+                                
                                 <div class="mt-4" id="productReviews">
                                     @foreach ($item->reviews()->get() as $review)
                                     <div class="user_review border-bottom mt-4">

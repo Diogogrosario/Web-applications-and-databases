@@ -1026,8 +1026,8 @@ INSERT INTO item_photo (photo_id, item_id) VALUES (30, 20);
 
 
 
-INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (1, 'Tom9', 'Freddy.Bergdahl@telefonica.com', 'Rachel', 'Hummel', 'E6MM7ndGb22eq3K5v10ACxLDFVmAKZmNgePm3AWrssEitMI00wa72A1FVzt8FvymLylng2WG2cVTcnTzVAlpsGLZiZeZdc4NiIv6mpE', False, True, '8128488.8', 41, 7, 7);
-INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (2, 'Sophia', 'Mart.Hollman@msn.dk', 'Lia', 'Polti', 'TyNHIpa6MKX444MXmmO5qcNaC8QjHS7GLRQXjUKIlCQ2SSFGcKKcvC0ppNSEAIygTFH0MMHiin4eznQ2jYLdTSaUVIP6try8bSHprUuzfSjNnDVB1Z0pVqjkOLhEV6MnZS', False, True, '5223662.0', 42, 7, 7);
+INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (1, 'Lbaw2021NormalUser', 'normallogin@gmail.com', 'Rachel', 'Hummel', '$2y$10$eSVHRjoF5AzoLLqMhfW2meNE1s4O0OwPqWSuLmJl/OzIkvQ95Y/Hi', False, False, '8128488.8', 41, 7, 7);
+INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (2, 'LbawAdmin2021', 'lbawAdmin@gmail.com', 'Lia', 'Polti', '$2y$10$W5RgDZEJVmBepJEVMQ702eKIhGm0MD44A6x9BP/OsGyEv60heQaAS', False, True, '5223662.0', 42, 7, 7);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (3, 'Carlos83', 'gamingwithapotato@gmail.com', 'Herbert', 'Anderson', 'btWp5iKDSHBYQyZZ7sHIa0zDaATKZbeeSeCycslTiaXyeOemaY1vWYGWXHWijO2pKpmJex08LsomZ7ySNzaMZbKIELfkYhIwoEuDJ2QhSQXY24EwJhcJ5ZQYYBQ7VVfTEXio2GcVABEQgeEoJJHfBb8gBpDtCT0gmUhei1dmunu', False, False, '2938243.84', 43, 16, 16);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (4, 'Helma', 'FreddyWarner@gawab.ca', 'Fons', 'Lawton', 'LgMjfTOWQBTFcsYhiBNdXFIlPTHcC5As82bBHDLyKQedYTadPbM2bkUULpSdxr66wWfMMERFtypXB2hLZNsfiftmhBqkBAXs268TL5ZIdpe7MhD8NanLtHMaVTDnSPcOT4Sf6aEbs3PlvaHL63jk6oUovkrdxHSnHlkBMWAXTDTyh7kko50yuj0Lmp', False, False, '9568377.54', 44, 21, 21);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (5, 'Bess0', 'BiancaDulisse2@lycos.co.uk', 'Isaac', 'Cohen', 'FI5UQZrxYEDkEEQCz3E368V6jc3cwswNM3flBO0uWJveppbkE1MyQtYKQrsoZIdFMEb4YWmI3YypgPig0eOSJlVfUtOfb37ipo3phmOeFp8y2w2u637UCiD8781eoZISDTRC', False, False, '7089429.27', 45, NULL, 21);
@@ -1187,3 +1187,18 @@ INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VAL
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (18, 6, 18, 'Not as good as the other ones, but still a fun ride', '05/11/2002 01:41:00', 3);
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (19, 6, 19, 'EPIIIICCCCC!! MUST WATCH', '05/11/2006 04:41:00', 5);
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (20, 7, 20, 'Average movie, not much to say', '09/06/2013 06:28:00', 3);
+
+
+-- Sync the auto increment ids
+SELECT pg_catalog.setval(pg_get_serial_sequence('users', 'user_id'), (SELECT MAX(user_id) FROM users));
+SELECT pg_catalog.setval(pg_get_serial_sequence('notification', 'notification_id'), (SELECT MAX(notification_id) FROM notification));
+SELECT pg_catalog.setval(pg_get_serial_sequence('discount', 'discount_id'), (SELECT MAX(discount_id) FROM discount));
+SELECT pg_catalog.setval(pg_get_serial_sequence('advertisement', 'advertisement_id'), (SELECT MAX(advertisement_id) FROM advertisement));
+SELECT pg_catalog.setval(pg_get_serial_sequence('purchase', 'purchase_id'), (SELECT MAX(purchase_id) FROM purchase));
+SELECT pg_catalog.setval(pg_get_serial_sequence('review', 'review_id'), (SELECT MAX(review_id) FROM review));
+SELECT pg_catalog.setval(pg_get_serial_sequence('item', 'item_id'), (SELECT MAX(item_id) FROM item));
+SELECT pg_catalog.setval(pg_get_serial_sequence('details', 'detail_id'), (SELECT MAX(detail_id) FROM details));
+SELECT pg_catalog.setval(pg_get_serial_sequence('category', 'category_id'), (SELECT MAX(category_id) FROM category));
+SELECT pg_catalog.setval(pg_get_serial_sequence('address', 'address_id'), (SELECT MAX(address_id) FROM address));
+SELECT pg_catalog.setval(pg_get_serial_sequence('photo', 'photo_id'), (SELECT MAX(photo_id) FROM photo));
+SELECT pg_catalog.setval(pg_get_serial_sequence('country', 'country_id'), (SELECT MAX(country_id) FROM country));

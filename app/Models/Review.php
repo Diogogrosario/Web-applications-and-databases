@@ -11,4 +11,14 @@ class Review extends Model
     public $timestamps  = false;
     protected $table = 'review';
     protected $primaryKey = 'review_id';
+
+    public function user()
+    {
+        return $this->hasOne(User::class,"user_id")->get();
+    }
+
+
+    public function getDate() {
+        return date('Y-m-d', strtotime($this["date"]));
+    }
 }
