@@ -594,3 +594,18 @@ INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VAL
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (18, 6, 18, 'Not as good as the other ones, but still a fun ride', '05/11/2002 01:41:00', 3);
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (19, 6, 19, 'EPIIIICCCCC!! MUST WATCH', '05/11/2006 04:41:00', 5);
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (20, 7, 20, 'Average movie, not much to say', '09/06/2013 06:28:00', 3);
+
+
+-- Sync the auto increment ids
+SELECT pg_catalog.setval(pg_get_serial_sequence('users', 'user_id'), (SELECT MAX(user_id) FROM users));
+SELECT pg_catalog.setval(pg_get_serial_sequence('notification', 'notification_id'), (SELECT MAX(notification_id) FROM notification));
+SELECT pg_catalog.setval(pg_get_serial_sequence('discount', 'discount_id'), (SELECT MAX(discount_id) FROM discount));
+SELECT pg_catalog.setval(pg_get_serial_sequence('advertisement', 'advertisement_id'), (SELECT MAX(advertisement_id) FROM advertisement));
+SELECT pg_catalog.setval(pg_get_serial_sequence('purchase', 'purchase_id'), (SELECT MAX(purchase_id) FROM purchase));
+SELECT pg_catalog.setval(pg_get_serial_sequence('review', 'review_id'), (SELECT MAX(review_id) FROM review));
+SELECT pg_catalog.setval(pg_get_serial_sequence('item', 'item_id'), (SELECT MAX(item_id) FROM item));
+SELECT pg_catalog.setval(pg_get_serial_sequence('details', 'detail_id'), (SELECT MAX(detail_id) FROM details));
+SELECT pg_catalog.setval(pg_get_serial_sequence('category', 'category_id'), (SELECT MAX(category_id) FROM category));
+SELECT pg_catalog.setval(pg_get_serial_sequence('address', 'address_id'), (SELECT MAX(address_id) FROM address));
+SELECT pg_catalog.setval(pg_get_serial_sequence('photo', 'photo_id'), (SELECT MAX(photo_id) FROM photo));
+SELECT pg_catalog.setval(pg_get_serial_sequence('country', 'country_id'), (SELECT MAX(country_id) FROM country));
