@@ -1,4 +1,4 @@
-<div class="list-group-item p-0 row pb-3">
+<div class="list-group-item p-0 row py-3">
     
     <div class="row">
         <div class="col-lg-1 col-3 ps-3 align-self-center text-center fs-5">
