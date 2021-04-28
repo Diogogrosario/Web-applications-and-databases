@@ -46,18 +46,22 @@
 
                     <div class="addToCartItem d-flex mt-lg-0 mt-2 flex-column justify-content-center pb-2 h-50 align-items-center">
                         @if ($item["stock"]>0)
-                            <button type="button" class="btn btn-success w-50" data-bs-toggle="modal" data-bs-target="#balanceModal">
+                            <button type="button" class="btn btn-success w-50" data-bs-toggle="modal" data-bs-target="#addCartModal_{{$item['item_id']}}">
                                 <i class="bi bi-cart-plus"></i> Add to cart
                             </button>
                         @else
-                            <button type="button" disabled class="btn btn-secondary w-50" data-bs-toggle="modal" data-bs-target="#balanceModal">
+                            <button type="button" disabled class="btn btn-secondary w-50">
                                 <i class="bi bi-cart-plus"></i> Add to cart
                             </button>
                         @endif
                         
                     </div>
+                    
+                    @if ($item["stock"]>0)
+                        @include('partials.addCartModal',array($item))
+                    @endif
 
-                    <!-- Modal -->
+                    {{-- <!-- Modal -->
                     <div class="modal fade" id="balanceModal" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -74,7 +78,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

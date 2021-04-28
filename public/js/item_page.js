@@ -1,6 +1,5 @@
 const reviewList = document.querySelector("section#productReviews");
 
-
 function addEventListeners() {
     let reviewForm = document.querySelector('#newReviewForm button');
     if(reviewForm != null)

@@ -15,4 +15,8 @@ class CartController extends Controller
         
         return view('pages.cart')->with("user", $user)->with("categories", $categories);
     }
+
+    public function addToCart($id, $quantity) {
+        
+    }
 }
