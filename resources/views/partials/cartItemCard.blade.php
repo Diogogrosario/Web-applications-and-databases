@@ -1,3 +1,5 @@
+<div class="list-group-item p-0 row pb-3">
+    
     <div class="row">
         <div class="col-lg-1 col-3 ps-3 align-self-center text-center fs-5">
             {{$item->pivot["quantity"]}} x
@@ -18,3 +20,4 @@
             <p><span class="title fs-5">{{ $item["price"] }}</span></p>
         </div>
     </div>
+</div>

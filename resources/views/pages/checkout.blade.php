@@ -39,9 +39,7 @@
                 <div class="tab-pane fade show active p-lg-4 p-1" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">
                     <div class="list-group list-group-flush">
                         @foreach (Auth::user()->cart() as $item)
-                            <div class="list-group-item p-0 row pb-3">
-                                @include("partials.cartItemCard",array("item" => $item))
-                            </div>
+                                @include("partials.checkoutItemCard",array("item" => $item))
                         @endforeach
                         <div class="row pt-3">
                             <div class="col-lg-10 col-12 d-flex flex-column justify-content-center text-lg-end text-center pe-lg-5 fs-5">Total (w/ IVA):</div>
