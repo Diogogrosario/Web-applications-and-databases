@@ -194,14 +194,7 @@
                                 
                                 <section class="mt-4" id="productReviews">
                                     @foreach ($item->reviews()->get() as $review)
-                                        @php
-                                            $review_id = $review["review_id"];
-                                            $review_user =  $review->user()[0];
-                                            $review_rating = $review["rating"];
-                                            $review_date = $review->getDate();
-                                            $review_text = $review["comment_text"]
-                                        @endphp
-                                        @include("partials.review",array($review_id, $review_user, $review_rating, $review_date, $review_text))
+                                        @include("partials.review",array($review))
                                     @endforeach
                                 </section>
                             </section>

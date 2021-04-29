@@ -20,9 +20,13 @@ function submitNewReviewRequest(event) {
     let data = {"review_text": review_text, "star_rating": star_rating};
 
     sendAjaxRequest('post', url, data, function () {
-        console.log(this.response);
         if (this.status === 200) {
-            // console.log(jsonData);
+            let parser = new DOMParser();
+	        let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
+            let doc = document.getElementById("productReviews");
+            doc.insertBefore(add, doc.childNodes[0]);
+
+            
         }});
 }
 
