@@ -85,9 +85,41 @@ a#username-anchor:hover{
     }
 }
 
-
-
-
+.editRate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.editRate:not(:checked) > input {
+    position:absolute;
+    visibility: hidden;
+}
+.editRate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.editRate:not(:checked) > label:before {
+    content: '★ ';
+}
+.editRate > input:checked ~ label {
+    color: #1b1b1b;    
+}
+.editRate:not(:checked) > label:hover,
+.editRate:not(:checked) > label:hover ~ label {
+    color: #535353;  
+}
+.editRate > input:checked + label:hover,
+.editRate > input:checked + label:hover ~ label,
+.editRate > input:checked ~ label:hover,
+.editRate > input:checked ~ label:hover ~ label,
+.editRate > label:hover ~ input:checked ~ label {
+    color: #1b1b1b;
+}
 
 .rate {
     float: left;

@@ -29,6 +29,32 @@ class ReviewController extends Controller
 
         return $review;
     }
+    
+    public function getFrom($id)
+    {
+        $review = Review::find($id);
+        return view("partials.editReviewForm")->with("review",$review);
+    }
+
+    public function getReview($id)
+    {
+        $review = Review::find($id);
+        return view("partials.review")->with("review",$review);
+    }
+
+    public function updateReview(Request $request)
+    {
+        $reviewId = $request->route('reviewId');
+        $review = Review::find($reviewId);
+        $data = $request->all();
+
+        $review->comment_text = $data["review_text"];
+        $review->rating = $data["star_rating"];
+
+        $review->save();
+
+        return view("partials.review")->with("review",$review);
+    }
 
     public function submit(Request $request)
     {

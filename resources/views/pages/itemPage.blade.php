@@ -189,7 +189,7 @@
                                         </div>
                                         
                                         <button type="button" form="newReviewForm" class="btn btn-dark btn-md col-md-6 col-lg-4 offset-md-3 offset-lg-4 col-12 mt-md-2">Submit your review</button>
-                                    </form> 
+                                    </form>
                                 @endif
                                 
                                 <section class="mt-4" id="productReviews">
