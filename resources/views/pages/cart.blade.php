@@ -8,15 +8,21 @@
 
 @include('partials.sidebarItem',["categories" => $categories])
 
+<script type="text/javascript" src="{{asset('js/cart.js')}}" defer></script>
+
 <div class="d-none d-sm-block" style="font-size: 2.5rem; grid-row: 1; padding-left: 4%;">
     <a>Your cart: </a>
 </div>
 <div class="row">
-    <section class="col-lg-9">
-        <div class="list-group list-group-flush" id="cartList">
-            @foreach ($user->cart() as $item)
-                @include('partials.cartItemCard', array("item" => $item))
-            @endforeach
+    <section class="col-lg-9 ps-md-5">
+        <div class="list-group list-group-flush" id="cartList">      
+            @if ($user->cart()->count() == 0)
+                <p> Your cart is currently empty</p>
+            @else
+                @foreach ($user->cart() as $item)
+                    @include('partials.cartItemCard', array("item" => $item))
+                @endforeach
+            @endif                 
         </div>
     </section>
 

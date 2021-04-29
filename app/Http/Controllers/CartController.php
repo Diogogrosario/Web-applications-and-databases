@@ -30,10 +30,28 @@ class CartController extends Controller
             $item = Item::find($id);
 
             if($item["stock"] > 0) {
-                return DB::select('call addToCart(?,?,?)', array(Auth::user()["user_id"], $id, $quantity));
+                DB::select('call addToCart(?,?,?)', array(Auth::user()["user_id"], $id, $quantity));
+                return response()->json("Item added to cart successfuly.", 200);
             } else {
-                return response()->json("Object has no stock", 406);
+                return response()->json("Item does not have enough stock", 406);
             }
         });
+    }
+
+    public function removeFromCart($id) {
+        $user = Auth::user();
+
+        if($user == null) {
+            return response()->json("Unauthenticated", 401);
+        }
+        
+        // $deleted = DB::delete('delete cart where user_id=? AND item_id=?', array($user["user_id"], $id));
+        $deleted = DB::table('cart')->where('user_id', $user["user_id"])->where('item_id', $id)->delete();
+
+        if($deleted <= 0) {
+            return response()->json("Product not in the user's cart", 406);
+        } else {
+            return response()->json("Product removed from cart successfuly", 200);
+        }
     }
 }

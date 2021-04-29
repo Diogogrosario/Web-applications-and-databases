@@ -39,6 +39,7 @@ Route::get('management/addItem', 'AddItemController@show')->middleware('admin');
 Route::post('products/{id}/review', 'ReviewController@submit');
 Route::delete('products/{id}/review/{reviewId}', 'ReviewController@delete');
 Route::post('api/cart/{id}/{quantity}', 'CartController@addToCart');
+Route::delete('api/cart/{id}', 'CartController@removeFromCart');
 
 // // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

@@ -43,6 +43,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Item::class,"cart", "user_id", "item_id")->withPivot('quantity')->get();
     }
 
+    public function cartItem($item_id) {
+        return $this->belongsToMany(Item::class,"cart", "user_id", "item_id")->withPivot('quantity')->where('item_id', $item_id)->get();
+    }
+
     public function cartTotal() {
         return $this->belongsToMany(Item::class,"cart", "user_id", "item_id")->withPivot('quantity')->sum(\DB::raw('quantity * price'));
     }

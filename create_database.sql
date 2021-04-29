@@ -468,6 +468,25 @@ AFTER UPDATE ON item
 FOR EACH ROW
 EXECUTE PROCEDURE notify_admin_if_out_of_stock();
 
+--Trigger 11
+DROP FUNCTION if exists update_stock_remove_from_cart CASCADE;
+DROP TRIGGER if exists update_stock_remove_from_cart ON cart CASCADE;
+CREATE FUNCTION update_stock_remove_from_cart() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    UPDATE item
+    SET stock = stock + OLD.quantity
+    WHERE item.item_id = OLD.item_id;
+    RETURN OLD;
+END
+$BODY$
+
+LANGUAGE plpgsql;
+CREATE TRIGGER update_stock_remove_from_cart
+AFTER DELETE ON cart
+FOR EACH ROW
+EXECUTE PROCEDURE update_stock_remove_from_cart();
+
 
 --Rule 1
 DROP rule IF EXISTS users_delete_rule ON users CASCADE;
@@ -501,7 +520,7 @@ DO INSTEAD (
 
 --Transaction 1
 
-CREATE OR REPLACE PROCEDURE addToCart(userID INTEGER, itemID INTEGER, quantityBought INTEGER)
+CREATE OR REPLACE PROCEDURE add_to_cart(userID INTEGER, itemID INTEGER, quantityBought INTEGER)
 LANGUAGE plpgsql AS $$
 DECLARE
 BEGIN
