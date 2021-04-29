@@ -501,11 +501,11 @@ DO INSTEAD (
 
 --Transaction 1
 
-CREATE OR REPLACE PROCEDURE remove_stock(userID INTEGER, itemID INTEGER, quantityBought INTEGER)
+CREATE OR REPLACE PROCEDURE addToCart(userID INTEGER, itemID INTEGER, quantityBought INTEGER)
 LANGUAGE plpgsql AS $$
 DECLARE
 BEGIN
-    SELECT item_id
+    PERFORM item_id
     FROM cart
     WHERE user_id = userID AND item_id = itemID;
 
@@ -541,7 +541,6 @@ BEGIN
 END
 $$;
 
-COMMIT;
 
 --Transaction 2
 
@@ -599,4 +598,3 @@ SELECT sum((price - price*get_discount(item_id, now())) * quantity) INTO sum_pri
     END IF;
 END
 $$;
-commit;

@@ -12,6 +12,8 @@
 @include('partials.sidebarItem',["categories" => $categories])
 @include('partials.sidebarFilter',["categories" => $categories])
 
+<script type="text/javascript" src="{{asset('js/cart.js')}}" defer></script>
+
 <div class="col d-flex flex-column">
     <header class="row mt-3 ms-lg-3 ms-md-1 me-lg-5 me-md-2 pe-lg-5 pe-md-1 border-bottom" id="searchControlsTop">
         <div class="col-md-4 col-5">

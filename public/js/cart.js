@@ -9,6 +9,7 @@ function addEventListeners() {
 
 function addProductToCart(event) {
     event.preventDefault();
+    console.log("Add to cart");
 
     let product_id = this.closest('div.modal').getAttribute('data-id');
     let quantity = document.querySelector('input#quantity_' + product_id).value;
@@ -28,6 +29,7 @@ function addProductToCartCheckout(event) {
 
 function checkAddCart() {
     console.log(this);
-
-    
+    console.log(this.responseText);
 }
+
+addEventListeners();
