@@ -41,6 +41,8 @@
                         @foreach (Auth::user()->cart() as $item)
                                 @include("partials.checkoutItemCard",array("item" => $item))
                         @endforeach
+ 
+
                         <div class="row pt-3">
                             <div class="col-lg-10 col-12 d-flex flex-column justify-content-center text-lg-end text-center pe-lg-5 fs-5">Total (w/ IVA):</div>
                             <div class="col-lg-2 col-12 fs-4 text-center">{{Auth::user()->cartTotal()}}</div>
