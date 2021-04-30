@@ -33,23 +33,26 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                <section class="categoryLine" id="computerMain">
-                    <h2 class="ms-5 mt-3 mb-3">
-                        <a class="category-text" href="searchResults.php">
-                            Computers
-                        </a>
-                    </h2>
-                    <div class="d-flex flex-row flex-nowrap" id="itemsListMainPage">
-                        @foreach ($items1 as $item)
-                            @include('partials.homePageItemCard', array("item" => $item))
-                        @endforeach
-                    </div>
-                </section>
+                @foreach ($itemsArray as $items)
+                    <section class="categoryLine" id="computerMain">
+                        <h2 class="ms-5 mt-3 mb-3">
+                            <a class="category-text" href={{"searchResults?category=" . $items[0]->category()["category_id"]}}>
+                                {{ $items[0]->category()["name"] }}
+                            </a>
+                        </h2>
+                        <div class="d-flex flex-row flex-nowrap" id="itemsListMainPage">
+                            @foreach ($items as $item)
+                                @include('partials.homePageItemCard', array("item" => $item))
+                            @endforeach
+                        </div>
+                    </section>
                 <hr class="my-5" style="width:90%;margin-left:5%;">
-                <section class="categoryLine" id="phonesMain">
+                @endforeach
+
+                {{-- <section class="categoryLine" id="phonesMain">
                     <h2 class="ms-5 mt-0 mb-3">
                         <a class="category-text" href="searchResults.php">
-                            Phones
+                            {{ $items2[0]->category()["name"] }}
                         </a>
                     </h2>
                     <div class="d-flex flex-row flex-nowrap" id="itemsListMainPage">
@@ -58,7 +61,7 @@
                         @endforeach
                     </div>
                     </div>
-                </section>
+                </section> --}}
             </div>
         </div>
     </div>

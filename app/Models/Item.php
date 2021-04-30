@@ -16,6 +16,10 @@ class Item extends Model
     return $this->belongsToMany(Photo::class,"item_photo", "item_id", "photo_id");
   }
 
+  public function category() {
+    return $this->belongsTo(Category::class,"category_id")->get()[0];
+  }
+
   public function details() {
     return $this->belongsToMany(Details::class,"item_detail", "item_id", "detail_id")->withPivot('detail_info');
   }
