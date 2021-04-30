@@ -12,6 +12,7 @@
 @section("content")
 @include('partials.sidebarItem',["categories" => $categories])
 
+<script type="text/javascript" src="{{asset('js/cart.js')}}" defer></script>
 
 <div class="col">
     <div class="content">
@@ -109,27 +110,13 @@
                                 <div class="text-center fs-5 mb-1"><span style="color:green">{{ $item["stock"] }}</span> in stock</div>
 
 
-                                <button type="button" class="btn btn-success w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#balanceModal">
+                                <button type="button" class="btn btn-success w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#addCartModal_{{$item['item_id']}}">
                                     <i class="bi bi-cart-plus"></i> Add to cart
                                 </button>
                                 <!-- Modal -->
-                                <div class="modal fade" id="balanceModal" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <form>
-                                                    <label for="recipient-name" class="col-form-label"> Quantity of items?</label>
-                                                    <input type="number" class="form-control" id="recipient-name" placeholder="Amount, I.e: 20" value=1>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Add to cart</button>
-                                                <button type="button" class="btn btn-primary">Add to cart and checkout</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @if ($item["stock"]>0)
+                                    @include('partials.addCartModal',array($item))
+                                @endif
                                 <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0"><i class="bi bi-heart"></i> Add to Wishlist</button>
                             </div>
                         </div>

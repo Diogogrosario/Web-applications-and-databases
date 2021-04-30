@@ -45,7 +45,7 @@ function checkAddCartCheckout() {
     console.log(this);
     console.log(this.responseText);
 
-    window.location.replace('checkout'); // MAYBE CHANGE THIS
+    window.location.replace('/checkout'); // MAYBE CHANGE THIS
 }
 
 
