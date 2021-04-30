@@ -10,40 +10,60 @@ use App\Models\User;
 
 class ReviewController extends Controller
 {
-    public function submit(Request $request) {
+    
+    public function createReview(Request $request) {
         $data = $request->all();
         $product_id = $request->route('id');
         $user_id = Auth::user()['user_id'];
 
-        // if(Review::where('user_id', $user_id)->where('item_id', $product_id)->exists()) {
-            
-        //     return response()->json("User cannot review a product more than once", 403);
+        $review = new Review();
 
-        // } else {
-            $review = Review::create([
-                'user_id' => $user_id,
-                'item_id' => $product_id,
-                'comment_text' => $data['review_text'], 
-                'rating' => $data['star_rating']
-            ]);
+        $this->authorize('create', $review);
+       
+        $review = Review::create([
+            'user_id' => $user_id,
+            'item_id' => $product_id,
+            'comment_text' => $data['review_text'], 
+            'rating' => $data['star_rating']
+        ]);
 
-            // $review = new Review;
-            // $review->user_id = Auth::user()['user_id'];
-            // $review->item_id = $product_id;
-            // $review->comment_text = $data['review_text'];
-            // $review->rating = $data['star_rating'];
+        return $review;
+    }
+    
+    public function getFrom($id)
+    {
+        $review = Review::find($id);
+        return view("partials.editReviewForm")->with("review",$review);
+    }
 
-            // $user = User::find(Auth::user()['user_id']);
-            // $review->user()->save($user);
+    public function getReview($id)
+    {
+        $review = Review::find($id);
+        return view("partials.review")->with("review",$review);
+    }
 
-            // $review->save();
+    public function updateReview(Request $request)
+    {
+        $reviewId = $request->route('reviewId');
+        $review = Review::find($reviewId);
+        $data = $request->all();
 
-            // $review->load('user');
-            
-            $view = View::make('partials/review', [$review])->with('review', $review)->render();
+        $review->comment_text = $data["review_text"];
+        $review->rating = $data["star_rating"];
 
-            return response()->json($view, 200);
-        // }
+        $review->save();
+
+        return view("partials.review")->with("review",$review);
+    }
+
+    public function submit(Request $request)
+    {
+        $review = $this->createReview($request);
+
+        $view = view('partials.review')->with('review', $review);
+
+
+        return $view;
     }
 
     public function delete(Request $request) {
