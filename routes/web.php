@@ -38,6 +38,8 @@ Route::get('management/addItem', 'AddItemController@show')->middleware('admin');
 // Route::delete('api/item/{id}', 'ItemController@delete');
 Route::get("api/item", 'ItemController@getItems');
 Route::get("api/item/{id}", 'ItemController@get');
+Route::get("api/users/{id}", 'UserController@get');
+Route::get("api/users/{id}/purchaseHistory", 'UserController@getPurchaseHistory');
 
 Route::post('products/{id}/review', 'ReviewController@submit');
 Route::delete('products/{id}/review/{reviewId}', 'ReviewController@delete');

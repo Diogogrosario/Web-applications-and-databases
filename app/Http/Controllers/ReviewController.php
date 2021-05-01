@@ -80,6 +80,10 @@ class ReviewController extends Controller
         $reviewToDelete = Review::find($reviewId);
         $currentUser = Auth::user();
 
+        if(!$reviewToDelete->exists()) {
+            return response()->json("Review does not exist", 406);
+            }
+
         $this->authorize('delete', $reviewToDelete);
 
 
@@ -87,11 +91,7 @@ class ReviewController extends Controller
             $reviewToDelete->delete();
             return response()->json("Review deleted successfuly", 200);
         } else {
-            if($reviewToDelete->exists()) {
-                return response()->json("User not authorized to delete the review" . $reviewToDelete["review_id"] . $currentUser["user_id"], 403);
-            } else {
-                return response()->json("Review does not exist", 406);
-            }
+            return response()->json("User not authorized to delete the review" . $reviewToDelete["review_id"] . $currentUser["user_id"], 403);   
         }
     }
 }
