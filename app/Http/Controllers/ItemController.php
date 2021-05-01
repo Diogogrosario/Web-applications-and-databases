@@ -59,6 +59,41 @@ class ItemController extends Controller
         return $item;
     }
 
+    public function showItems(Request $request)
+    {
+        $q = request()->query('query');
+        $c = request()->query('category');
+        $p = request()->query('priceRange');
+        $r = request()->query('review');
+
+        $items = DB::table("item");
+
+        if($q != null)
+            $items = $items->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
+                    ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
+        if($c != null)
+        {
+            $category = Category::where("name",$c);
+            if($category->first())
+            {
+                $items = $items->where("category_id",$category->get()[0]["category_id"]);
+            }
+            else{
+                return collect([]);
+            }
+        }
+        if($p != null)
+        {
+            $items = $items->where("price","<=",$p);
+        }
+        if($r != null)
+        {
+            $items = $items->where("score",">=",$r);
+        }
+
+        return $items->get();
+    }
+
     /**
      * Display the specified resource.
      *

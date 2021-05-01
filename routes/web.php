@@ -30,12 +30,14 @@ Route::get('management', 'ManagementController@show')->middleware('admin');
 Route::get('management/manageUsers', 'UserAdministrationController@show')->middleware('admin');
 Route::get('management/addItem', 'AddItemController@show')->middleware('admin');
 
-// // API
+// API
 // Route::put('api/cards', 'CardController@create');
 // Route::delete('api/cards/{card_id}', 'CardController@delete');
 // Route::put('api/cards/{card_id}/', 'ItemController@create');
 // Route::post('api/item/{id}', 'ItemController@update');
 // Route::delete('api/item/{id}', 'ItemController@delete');
+Route::get("api/item", 'ItemController@showItems');
+
 Route::post('products/{id}/review', 'ReviewController@submit');
 Route::delete('products/{id}/review/{reviewId}', 'ReviewController@delete');
 Route::post('api/cart/{id}/{quantity}', 'CartController@addToCart');
