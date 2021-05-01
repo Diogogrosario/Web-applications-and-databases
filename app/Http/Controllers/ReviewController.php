@@ -48,6 +48,9 @@ class ReviewController extends Controller
         $review = Review::find($reviewId);
         $data = $request->all();
 
+        $this->authorize('update', $review);
+
+
         $review->comment_text = $data["review_text"];
         $review->rating = $data["star_rating"];
 
@@ -76,6 +79,9 @@ class ReviewController extends Controller
         
         $reviewToDelete = Review::find($reviewId);
         $currentUser = Auth::user();
+
+        $this->authorize('delete', $reviewToDelete);
+
 
         if($reviewToDelete->exists() && ($reviewToDelete["user_id"] == $currentUser["user_id"] || $currentUser["is_admin"] == true)) {
             $reviewToDelete->delete();
