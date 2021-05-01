@@ -59,7 +59,7 @@ class ItemController extends Controller
         return $item;
     }
 
-    public function showItems(Request $request)
+    public function getItems(Request $request)
     {
         $q = request()->query('query');
         $c = request()->query('category');
@@ -100,10 +100,12 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function get($id)
     {
         $item = Item::find($id);
 
+        if(is_null($item))
+            abort(404);
 
         return $item;
     }
