@@ -14,6 +14,10 @@ class CartController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        if(is_null($user))
+        {
+            abort(404);
+        }
         $categories = Category::all()->sortBy("category_id");
         
         return view('pages.cart')->with("user", $user)->with("categories", $categories);
@@ -28,6 +32,7 @@ class CartController extends Controller
         return DB::transaction(function() use ($id, $quantity) {
 
             $item = Item::find($id);
+            
 
             if($item["stock"] > 0) {
                 DB::select('call addToCart(?,?,?)', array(Auth::user()["user_id"], $id, $quantity));

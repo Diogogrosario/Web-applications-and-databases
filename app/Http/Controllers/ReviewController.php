@@ -30,7 +30,7 @@ class ReviewController extends Controller
         return $review;
     }
     
-    public function getFrom($id)
+    public function getForm($id)
     {
         $review = Review::find($id);
         return view("partials.editReviewForm")->with("review",$review);
@@ -39,6 +39,10 @@ class ReviewController extends Controller
     public function getReview($id)
     {
         $review = Review::find($id);
+        if(is_null($review))
+        {
+            abort(404);
+        }
         return view("partials.review")->with("review",$review);
     }
 
@@ -46,6 +50,10 @@ class ReviewController extends Controller
     {
         $reviewId = $request->route('reviewId');
         $review = Review::find($reviewId);
+        if(is_null($review))
+        {
+            abort(404);
+        }
         $data = $request->all();
 
         $this->authorize('update', $review);
@@ -80,7 +88,7 @@ class ReviewController extends Controller
         $reviewToDelete = Review::find($reviewId);
         $currentUser = Auth::user();
 
-        if(!$reviewToDelete->exists()) {
+        if(is_null($reviewToDelete)) {
             return response()->json("Review does not exist", 406);
             }
 

@@ -45,7 +45,7 @@ Route::post('products/{id}/review', 'ReviewController@submit');
 Route::delete('products/{id}/review/{reviewId}', 'ReviewController@delete');
 Route::post('api/cart/{id}/{quantity}', 'CartController@addToCart');
 Route::delete('api/cart/{id}', 'CartController@removeFromCart');
-Route::post('item/getReviewForm/{id}', 'ReviewController@getFrom');
+Route::post('item/getReviewForm/{id}', 'ReviewController@getForm');
 Route::post('item/getReview/{id}', 'ReviewController@getReview');
 Route::put('review/{reviewId}', 'ReviewController@updateReview');
 
