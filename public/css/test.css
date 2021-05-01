@@ -123,7 +123,7 @@ a#username-anchor:hover{
 
 .rate {
     float: left;
-    height: 46px;
+    height: 70px;
     padding: 0 10px;
 }
 .rate:not(:checked) > input {

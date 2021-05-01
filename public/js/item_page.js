@@ -15,20 +15,37 @@ function submitNewReviewRequest(event) {
     let url = "/products/" + product_id + "/review";
 
     let review_text = document.getElementById("new_review_text").value;
-    let star_rating = document.querySelector("input[name=rate]:checked").value;
-    
-    let data = {"review_text": review_text, "star_rating": star_rating};
-    
-    sendAjaxRequest('post', url, data, function () {
-        if (this.status === 200) {
-            document.getElementById("new_review_text").value = "";
-            let parser = new DOMParser();
-	        let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
-            let doc = document.getElementById("productReviews");
-            doc.insertBefore(add, doc.childNodes[0]);
+    let star_selected = document.querySelector("input[name=rate]:checked");
 
-            
-        }});
+    if(star_selected == null)
+    {
+        let starForm = document.getElementById("newReviewStar");
+        
+        let parser = new DOMParser();
+        let add = parser.parseFromString("<div style='color: red;' id='noStarSelected'>Select a rating</div>", 'text/html').body.childNodes[0];;
+
+        starForm.appendChild(add);
+    }
+    else{
+        let star_rating = star_selected.value
+        let data = {"review_text": review_text, "star_rating": star_rating};
+
+        let errorStars = document.getElementById('noStarSelected');
+
+        if(errorStars != null)
+            errorStars.remove();
+        
+        sendAjaxRequest('post', url, data, function () {
+            if (this.status === 200) {
+                document.getElementById("new_review_text").value = "";
+                let parser = new DOMParser();
+                let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
+                let doc = document.getElementById("productReviews");
+                doc.insertBefore(add, doc.childNodes[0]);
+
+                
+            }});
+        }
 }
 
 function deleteReviewRequest(review_id) {
@@ -68,16 +85,33 @@ function submitEditRequest(review_id) {
     let url = '/review/' + review_id;
 
     let review_text =  document.getElementById("edit_review_text").value;
-    let star_rating = document.querySelector("input[name=editRate]:checked").value;
+    let star_selected = document.querySelector("input[name=editRate]:checked");
 
-    let data = {"review_text": review_text, "star_rating": star_rating};
+    if(star_selected == null)
+    {
+        let starForm = document.getElementById("editReviewStar");
+        
+        let parser = new DOMParser();
+        let add = parser.parseFromString("<div style='color: red;' id='noEditStarSelected'>Select a rating</div>", 'text/html').body.childNodes[0];;
 
-    sendAjaxRequest('put', url, data, function () {
-        if (this.status === 200) {
-            let parser = new DOMParser();
-	        let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
-            doc.replaceWith(add);
-        }});
+        starForm.appendChild(add);
+    }
+    else{
+        let star_rating = star_selected.value;
+        let data = {"review_text": review_text, "star_rating": star_rating};
+
+        let errorStars = document.getElementById('noEditStarSelected');
+
+        if(errorStars != null)
+            errorStars.remove();
+
+        sendAjaxRequest('put', url, data, function () {
+            if (this.status === 200) {
+                let parser = new DOMParser();
+                let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
+                doc.replaceWith(add);
+            }});
+        }
 }
 
 function cancelEditRequest(review_id) {

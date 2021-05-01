@@ -1,7 +1,7 @@
 <form class="mt-4 mb-5" id={{"editReviewForm_" . $review["review_id"]}}>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <textarea required class="form-control" id="edit_review_text" name="review_text" placeholder={{$review["comment_text"]}} aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
-    <div class="editRate">
+    <div class="editRate" id="editReviewStar">
         <input type="radio" id="editStar5" name="editRate" value="5" />
         <label for="editStar5" title="text">5 stars</label>
         <input type="radio" id="editStar4" name="editRate" value="4" />

@@ -162,7 +162,7 @@
                                         <meta name="item_id" content="{{ $item['item_id'] }}">
                                         <textarea required class="form-control" id="new_review_text" name="review_text" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
                                         
-                                        <div class="rate">
+                                        <div id="newReviewStar" class="rate">
                                             <input type="radio" id="star5" name="rate" value="5" />
                                             <label for="star5" title="text">5 stars</label>
                                             <input type="radio" id="star4" name="rate" value="4" />
@@ -173,10 +173,15 @@
                                             <label for="star2" title="text">2 stars</label>
                                             <input type="radio" id="star1" name="rate" value="1" />
                                             <label for="star1" title="text">1 star</label>
+
+                                            {{-- <div style="color: red;">Please select a rating</div> --}}
+                                            
                                         </div>
+
                                         
                                         <button type="button" form="newReviewForm" class="btn btn-dark btn-md col-md-6 col-lg-4 offset-md-3 offset-lg-4 col-12 mt-md-2">Submit your review</button>
                                     </form>
+
                                 @endif
                                 
                                 <section class="mt-4" id="productReviews">
