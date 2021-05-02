@@ -31,11 +31,6 @@ Route::get('management/manageUsers', 'UserAdministrationController@show')->middl
 Route::get('management/addItem', 'AddItemController@show')->middleware('admin');
 
 // API
-// Route::put('api/cards', 'CardController@create');
-// Route::delete('api/cards/{card_id}', 'CardController@delete');
-// Route::put('api/cards/{card_id}/', 'ItemController@create');
-// Route::post('api/item/{id}', 'ItemController@update');
-// Route::delete('api/item/{id}', 'ItemController@delete');
 Route::get("api/item", 'ItemController@getItems');
 Route::get("api/item/{id}", 'ItemController@get');
 Route::get("api/users/{id}", 'UserController@get');
