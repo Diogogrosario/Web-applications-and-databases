@@ -446,6 +446,47 @@ BEFORE INSERT ON cart
 FOR EACH ROW
 EXECUTE PROCEDURE check_if_already_on_cart();
 
+--Trigger 10
+DROP FUNCTION if exists notify_admin_if_out_of_stock CASCADE;
+DROP TRIGGER if exists notify_admin ON item CASCADE;
+CREATE FUNCTION notify_admin_if_out_of_stock() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF (NEW.stock = 0 AND OLD.stock <> 0) THEN
+        INSERT INTO notification(user_id, discount_id, item_id, type)
+        SELECT users.user_id, NULL, NEW.item_id, 'Stock'
+        FROM users 
+        WHERE users.is_admin = TRUE;
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+
+LANGUAGE plpgsql;
+CREATE TRIGGER notify_admin
+AFTER UPDATE ON item
+FOR EACH ROW
+EXECUTE PROCEDURE notify_admin_if_out_of_stock();
+
+--Trigger 11
+DROP FUNCTION if exists update_stock_remove_from_cart CASCADE;
+DROP TRIGGER if exists update_stock_remove_from_cart ON cart CASCADE;
+CREATE FUNCTION update_stock_remove_from_cart() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    UPDATE item
+    SET stock = stock + OLD.quantity
+    WHERE item.item_id = OLD.item_id;
+    RETURN OLD;
+END
+$BODY$
+
+LANGUAGE plpgsql;
+CREATE TRIGGER update_stock_remove_from_cart
+AFTER DELETE ON cart
+FOR EACH ROW
+EXECUTE PROCEDURE update_stock_remove_from_cart();
+
 
 --Rule 1
 DROP rule IF EXISTS users_delete_rule ON users CASCADE;
@@ -479,11 +520,11 @@ DO INSTEAD (
 
 --Transaction 1
 
-CREATE OR REPLACE PROCEDURE remove_stock(userID INTEGER, itemID INTEGER, quantityBought INTEGER)
+CREATE OR REPLACE PROCEDURE add_to_cart(userID INTEGER, itemID INTEGER, quantityBought INTEGER)
 LANGUAGE plpgsql AS $$
 DECLARE
 BEGIN
-    SELECT item_id
+    PERFORM item_id
     FROM cart
     WHERE user_id = userID AND item_id = itemID;
 
@@ -519,7 +560,6 @@ BEGIN
 END
 $$;
 
-COMMIT;
 
 --Transaction 2
 
@@ -577,15 +617,6 @@ SELECT sum((price - price*get_discount(item_id, now())) * quantity) INTO sum_pri
     END IF;
 END
 $$;
-commit;
-
-
-
-
-
-
-
-
 
 
 
@@ -1025,7 +1056,6 @@ INSERT INTO item_photo (photo_id, item_id) VALUES (29, 20);
 INSERT INTO item_photo (photo_id, item_id) VALUES (30, 20);
 
 
-
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (1, 'Lbaw2021NormalUser', 'normallogin@gmail.com', 'Rachel', 'Hummel', '$2y$10$eSVHRjoF5AzoLLqMhfW2meNE1s4O0OwPqWSuLmJl/OzIkvQ95Y/Hi', False, False, '8128488.8', 41, 7, 7);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (6, 'LbawAdmin2021', 'lbawAdmin@gmail.com', 'Lia', 'Polti', '$2y$10$W5RgDZEJVmBepJEVMQ702eKIhGm0MD44A6x9BP/OsGyEv60heQaAS', False, True, '5223662.0', 42, 7, 7);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (3, 'Carlos83', 'gamingwithapotato@gmail.com', 'Herbert', 'Anderson', 'btWp5iKDSHBYQyZZ7sHIa0zDaATKZbeeSeCycslTiaXyeOemaY1vWYGWXHWijO2pKpmJex08LsomZ7ySNzaMZbKIELfkYhIwoEuDJ2QhSQXY24EwJhcJ5ZQYYBQ7VVfTEXio2GcVABEQgeEoJJHfBb8gBpDtCT0gmUhei1dmunu', False, False, '2938243.84', 43, 16, 16);
@@ -1036,6 +1066,7 @@ INSERT INTO users (user_id, username, email, first_name, last_name, password, de
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (8, 'Piotr', 'Mandy.Fernandez5@freeweb.co.uk', 'Shermie', 'Helfrich', 'Y81DcKmovDAcVMYS47A6bsb1mSNqNlLvHXXrqNzvtxy4aK3uPZRwI5yVjstKp27NrRFZwdY50TMKDh1I0iwKCoEyvN81GjCvKVUtjYpeJUBLs1fgypQUSCj8ZiTvZ2zeCJngQUoWaZvkpO5WHl2Vn67gwP7ba033QApowfwnExc3dqdIoQIIk5XimAdcq1yt8lFRbFyHlvtQzRnNwVRSzoYnJQR8DcDSVqJLHwxOwNg6B7pHqqXS', False, False, '2299613.26', 48, 22, 22);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (9, 'Herb246', 'Trees.Gaskins5@gawab.es', 'Pieter', 'Orcutt', 'rNlwgEByc12R715pWnUlKzqtUI3kC3gvsFV2HPgRdUSi5dce64hZXZYXJ2zlWYjMLzPQFna6hEZ7QdOCtPGUauUufDDOjrfIg8joPvALzxEaMjgyvnChJOXgJwpwKbx3KtNsy3UbgOL4jgDAV', False, False, '2950352.32', 49, NULL, 22);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (10, NULL, NULL, NULL, NULL, 'xFUYINBeq4oPvnONs18WJZ0RqwjYYFPA4MuwQalgNjPODG2FEBcYjYN6azaYebnt6dfpg3AnBgfY4sq4Erv8', True, False, NULL, NULL, NULL, NULL);
+
 
 
 
