@@ -49,10 +49,7 @@ function submitNewReviewRequest(event) {
 }
 
 function deleteReviewRequest(review_id) {
-
-    let product_id = document.querySelector("meta[name=item_id]").content;
-
-    let url = "/item/" + product_id + "/review/" + review_id;
+    let url = "/review/" + review_id;
 
     let data = null;
 

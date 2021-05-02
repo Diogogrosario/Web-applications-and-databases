@@ -28,8 +28,9 @@ function addProductToCart(event, checkout) {
 
     let product_id = this.closest('div.modal').getAttribute('data-id');
     let quantity = document.querySelector('input#quantity_' + product_id).value;
-    let url = "/api/cart/" + product_id + "/" + quantity;
-    sendAjaxRequest("POST", url, null, handler);
+    let data = {"product_id": product_id, "quantity": quantity};
+    let url = "/cart";
+    sendAjaxRequest("POST", url, data, handler);
 }
 
 function addProductToCartCheckout(event) {
@@ -56,7 +57,7 @@ function removeFromCart(event) {
 
     let product_id = this.closest('div.cart-item').getAttribute("data-id");
 
-    let url = "/api/cart/" + product_id;
+    let url = "/cart/" + product_id;
     sendAjaxRequest("DELETE", url, null, function() {
         console.log(this.responseText);
 

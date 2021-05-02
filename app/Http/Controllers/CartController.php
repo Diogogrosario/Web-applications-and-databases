@@ -23,7 +23,10 @@ class CartController extends Controller
         return view('pages.cart')->with("user", $user)->with("categories", $categories);
     }
 
-    public function addToCart($id, $quantity) {
+    public function addToCart(Request $request) {
+        $data = $request->all();
+        $id = $data["product_id"];
+        $quantity = $data["quantity"];
 
         if(Auth::user() == null) {
             return response()->json("Unauthenticated", 406);
@@ -35,7 +38,7 @@ class CartController extends Controller
             
 
             if($item["stock"] > 0) {
-                DB::select('call addToCart(?,?,?)', array(Auth::user()["user_id"], $id, $quantity));
+                DB::select('call add_to_cart(?,?,?)', array(Auth::user()["user_id"], $id, $quantity));
                 return response()->json("Item added to cart successfuly.", 200);
             } else {
                 return response()->json("Item does not have enough stock", 406);

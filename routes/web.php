@@ -42,11 +42,11 @@ Route::get("api/users/{id}", 'UserController@get');
 Route::get("api/users/{id}/purchaseHistory", 'UserController@getPurchaseHistory');
 
 Route::post('item/{id}/review', 'ReviewController@submit');
-Route::delete('item/{id}/review/{reviewId}', 'ReviewController@delete');
-Route::post('api/cart/{id}/{quantity}', 'CartController@addToCart');
-Route::delete('api/cart/{id}', 'CartController@removeFromCart');
+Route::post('cart', 'CartController@addToCart');
+Route::delete('cart/{id}', 'CartController@removeFromCart');
 Route::post('item/getReviewForm/{id}', 'ReviewController@getForm');
 Route::post('item/getReview/{id}', 'ReviewController@getReview');
+Route::delete('review/{reviewId}', 'ReviewController@delete');
 Route::put('review/{reviewId}', 'ReviewController@updateReview');
 
 // // Authentication
