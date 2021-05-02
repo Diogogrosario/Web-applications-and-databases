@@ -12,7 +12,7 @@ function submitNewReviewRequest(event) {
 
     let product_id = document.querySelector("meta[name=item_id]").content;
 
-    let url = "/products/" + product_id + "/review";
+    let url = "/item/" + product_id + "/review";
 
     let review_text = document.getElementById("new_review_text").value;
     let star_selected = document.querySelector("input[name=rate]:checked");
@@ -52,7 +52,7 @@ function deleteReviewRequest(review_id) {
 
     let product_id = document.querySelector("meta[name=item_id]").content;
 
-    let url = "/products/" + product_id + "/review/" + review_id;
+    let url = "/item/" + product_id + "/review/" + review_id;
 
     let data = null;
 

@@ -41,8 +41,8 @@ Route::get("api/item/{id}", 'ItemController@get');
 Route::get("api/users/{id}", 'UserController@get');
 Route::get("api/users/{id}/purchaseHistory", 'UserController@getPurchaseHistory');
 
-Route::post('products/{id}/review', 'ReviewController@submit');
-Route::delete('products/{id}/review/{reviewId}', 'ReviewController@delete');
+Route::post('item/{id}/review', 'ReviewController@submit');
+Route::delete('item/{id}/review/{reviewId}', 'ReviewController@delete');
 Route::post('api/cart/{id}/{quantity}', 'CartController@addToCart');
 Route::delete('api/cart/{id}', 'CartController@removeFromCart');
 Route::post('item/getReviewForm/{id}', 'ReviewController@getForm');

@@ -95,11 +95,9 @@ class ReviewController extends Controller
         $this->authorize('delete', $reviewToDelete);
 
 
-        if($reviewToDelete->exists() && ($reviewToDelete["user_id"] == $currentUser["user_id"] || $currentUser["is_admin"] == true)) {
-            $reviewToDelete->delete();
-            return response()->json("Review deleted successfuly", 200);
-        } else {
-            return response()->json("User not authorized to delete the review" . $reviewToDelete["review_id"] . $currentUser["user_id"], 403);   
-        }
+        $reviewToDelete->delete();
+        
+        return response()->json("Review deleted successfuly", 200);
+
     }
 }
