@@ -55,7 +55,7 @@
                   <?php if($logged_in){ ?>
                       <li class="nav-item d-lg-flex align-items-lg-center py-2 py-lg-0 px-lg-2">
                           <a class="nav-link" href={{"/userProfile/" . Auth::id() . "/cart"}}>
-                              <i class="fas fa-shopping-cart" style="font-size: 1.5em;"></i>
+                            <i class="bi bi-cart" style="font-size: 1.5em;"></i>
                           </a>
                       </li>
                   <?php } ?>
