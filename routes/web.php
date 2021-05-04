@@ -36,13 +36,20 @@ Route::get("api/item/{id}", 'ItemController@get');
 Route::get("api/users/{id}", 'UserController@get');
 Route::get("api/users/{id}/purchaseHistory", 'UserController@getPurchaseHistory');
 
+// Reviews
 Route::post('item/{id}/review', 'ReviewController@submit');
-Route::post('cart', 'CartController@addToCart');
-Route::delete('cart/{id}', 'CartController@removeFromCart');
 Route::post('item/getReviewForm/{id}', 'ReviewController@getForm');
 Route::post('item/getReview/{id}', 'ReviewController@getReview');
 Route::delete('review/{reviewId}', 'ReviewController@delete');
 Route::put('review/{reviewId}', 'ReviewController@updateReview');
+
+// Cart
+Route::post('cart', 'CartController@addToCart');
+Route::delete('cart/{id}', 'CartController@removeFromCart');
+
+// Wishlist
+Route::post('wishlist', 'WishlistController@addToWishlist');
+Route::delete('wishlist/{id}', 'WishlistController@removeFromWishlist');
 
 // // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

@@ -4,6 +4,9 @@ function addEventListeners() {
     let reviewForm = document.querySelector('#newReviewForm button');
     if(reviewForm != null)
         reviewForm.addEventListener("click", submitNewReviewRequest);
+
+    let wishListButton = document.querySelector('button.add-wishlist');
+    wishListButton.addEventListener("click", wishlistRequest)
 }
 
 
@@ -124,6 +127,38 @@ function cancelEditRequest(review_id) {
 	        let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
             doc.replaceWith(add);
         }});
+}
+
+function wishlistRequest(e) {
+    let url = '/wishlist';
+    let item_id = e.target.getAttribute('data-id');
+    let data = null;
+    let type = "add";
+    let method = "post";
+
+    if(e.target.classList.contains("add-wishlist")) {
+        data = {'item_id': item_id};
+    } else {
+        method = "delete";
+        url += '/' + item_id;
+        type = "remove";
+    }
+
+    sendAjaxRequest(method, url, data, function() {
+        console.log(this.response);
+        if(this.status === 200) {
+            if(type == "add") {
+                e.target.innerHTML = '<i class="bi bi-heart-fill"></i> Remove from Wishlist';
+                e.target.classList.add("remove-wishlist");
+                e.target.classList.remove("add-wishlist");
+            } else {
+                e.target.innerHTML = '<i class="bi bi-heart"></i> Add to Wishlist';
+                e.target.classList.remove("remove-wishlist");
+                e.target.classList.add("add-wishlist");
+            }
+        }
+
+    });
 }
 
 

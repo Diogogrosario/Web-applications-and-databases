@@ -117,7 +117,7 @@
                                 @if ($item["stock"]>0)
                                     @include('partials.addCartModal',array($item))
                                 @endif
-                                <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0"><i class="bi bi-heart"></i> Add to Wishlist</button>
+                                <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0 add-wishlist" data-id="{{$item['item_id']}}"><i class="bi bi-heart"></i> Add to Wishlist</button>
                             </div>
                         </div>
                     </div>
