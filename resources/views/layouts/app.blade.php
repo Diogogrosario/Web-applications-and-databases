@@ -76,9 +76,9 @@
           </div>
       </main>
       <footer class="footer" style="background-color: #EAE7DE;">
-              <a href="about" class="ps-2 float-right"> About </a>
-              <a href="faq" class="ps-2 float-right"> FAQ </a>
-              <a href="contacts" class="ps-2 float-right"> Contact Us </a>
+              <a href="/about" class="ps-2 float-right"> About </a>
+              <a href="/faq" class="ps-2 float-right"> FAQ </a>
+              <a href="/contacts" class="ps-2 float-right"> Contact Us </a>
       </footer>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
