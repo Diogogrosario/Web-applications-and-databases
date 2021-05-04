@@ -19,11 +19,17 @@
                 {{ $review->getDate() }}
             </div>
             @if (Auth::check())
-                @if (Auth::user()["user_id"] ==  $review->user()[0]["user_id"])
+                @if (Auth::user()["user_id"] == $review->user()[0]["user_id"])
                     <div class="col-lg-1 d-flex pt-0">
                         <button class="btn delete_review" style="background-color: transparent; color:red;" onclick={{"deleteReviewRequest(".$review["review_id"].")"}}><i class="bi bi-trash-fill"></i></button>
                         <button class="btn edit_review" style="background-color: transparent; color:grey;" onclick={{"editReviewRequest(".$review["review_id"].")"}}><i class="bi bi-pen-fill"></i></button>
                     </div>
+                @else
+                    @if (Auth::user()["is_admin"])
+                        <div class="col-lg-1 d-flex pt-0">
+                            <button class="btn delete_review" style="background-color: transparent; color:red;" onclick={{"deleteReviewRequest(".$review["review_id"].")"}}><i class="bi bi-trash-fill"></i></button>
+                        </div>
+                    @endif
                 @endif
             @endif
         </div>
