@@ -39,6 +39,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Item::class,"wishlist", "user_id", "item_id")->get();
     }
 
+    public function wishlistItem($item_id) {
+        return $this->belongsToMany(Item::class,"wishlist", "user_id", "item_id")->where('wishlist.item_id', $item_id)->get();
+    }
+
     public function cart() {
         return $this->belongsToMany(Item::class,"cart", "user_id", "item_id")->withPivot('quantity')->get();
     }

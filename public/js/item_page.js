@@ -5,7 +5,7 @@ function addEventListeners() {
     if(reviewForm != null)
         reviewForm.addEventListener("click", submitNewReviewRequest);
 
-    let wishListButton = document.querySelector('button.add-wishlist');
+    let wishListButton = document.querySelector('button.wishlist');
     wishListButton.addEventListener("click", wishlistRequest)
 }
 
@@ -144,21 +144,27 @@ function wishlistRequest(e) {
         type = "remove";
     }
 
+    console.log(data);
+    switchWishlistButton(e.target, type)
+
     sendAjaxRequest(method, url, data, function() {
         console.log(this.response);
-        if(this.status === 200) {
-            if(type == "add") {
-                e.target.innerHTML = '<i class="bi bi-heart-fill"></i> Remove from Wishlist';
-                e.target.classList.add("remove-wishlist");
-                e.target.classList.remove("add-wishlist");
-            } else {
-                e.target.innerHTML = '<i class="bi bi-heart"></i> Add to Wishlist';
-                e.target.classList.remove("remove-wishlist");
-                e.target.classList.add("add-wishlist");
-            }
-        }
-
+        if(this.status !== 200) {
+            switchWishlistButton(e.target, type == "add" ? "remove" : "add");
+        } 
     });
+}
+
+function switchWishlistButton(button, type) {
+    if(type == "add") {
+        button.innerHTML = '<i class="bi bi-heart-fill"></i> Remove from Wishlist';
+        button.classList.add("remove-wishlist");
+        button.classList.remove("add-wishlist");
+    } else {
+        button.innerHTML = '<i class="bi bi-heart"></i> Add to Wishlist';
+        button.classList.remove("remove-wishlist");
+        button.classList.add("add-wishlist");
+    }
 }
 
 

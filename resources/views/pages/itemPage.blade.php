@@ -117,7 +117,15 @@
                                 @if ($item["stock"]>0)
                                     @include('partials.addCartModal',array($item))
                                 @endif
-                                <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0 add-wishlist" data-id="{{$item['item_id']}}"><i class="bi bi-heart"></i> Add to Wishlist</button>
+                                <?php $user = Auth::user()?>
+                                @if (!($user === null))
+                                    @if ($user->wishlistItem($item["item_id"])->count() > 0)
+                                        <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0 wishlist" data-id="{{$item['item_id']}}"><i class="bi bi-heart-fill"></i> Remove from Wishlist</button>   
+                                    @else
+                                        <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0 wishlist add-wishlist" data-id="{{$item['item_id']}}"><i class="bi bi-heart"></i> Add to Wishlist</button>
+                                        
+                                    @endif
+                                @endif
                             </div>
                         </div>
                     </div>

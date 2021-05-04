@@ -4,7 +4,7 @@
 @section('title')
     <title>
         {{-- Change to user's name --}}
-        User Profile
+        {{$user["first_name"]}}'s Profile
     </title>
 @endsection
 
