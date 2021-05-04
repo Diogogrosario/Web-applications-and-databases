@@ -13,6 +13,7 @@
 @include('partials.sidebarItem',["categories" => $categories])
 
 <script type="text/javascript" src="{{asset('js/cart.js')}}" defer></script>
+<script type="text/javascript" src="{{asset('js/wishlist.js')}}" defer></script>
 
 <div class="col">
     <div class="content">
@@ -120,7 +121,7 @@
                                 <?php $user = Auth::user()?>
                                 @if (!($user === null))
                                     @if ($user->wishlistItem($item["item_id"])->count() > 0)
-                                        <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0 wishlist" data-id="{{$item['item_id']}}"><i class="bi bi-heart-fill"></i> Remove from Wishlist</button>   
+                                        <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0 wishlist remove-wishlist" data-id="{{$item['item_id']}}"><i class="bi bi-heart-fill"></i> Remove from Wishlist</button>   
                                     @else
                                         <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0 wishlist add-wishlist" data-id="{{$item['item_id']}}"><i class="bi bi-heart"></i> Add to Wishlist</button>
                                         

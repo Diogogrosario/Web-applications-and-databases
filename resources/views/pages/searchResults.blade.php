@@ -13,6 +13,7 @@
 @include('partials.sidebarFilter',["categories" => $categories])
 
 <script type="text/javascript" src="{{asset('js/cart.js')}}" defer></script>
+<script type="text/javascript" src="{{asset('js/wishlist.js')}}" defer></script>
 
 <div class="col d-flex flex-column">
     <header class="row mt-3 ms-lg-3 ms-md-1 me-lg-5 me-md-2 pe-lg-5 pe-md-1 border-bottom" id="searchControlsTop">
@@ -39,6 +40,7 @@
         </div>
     </header>
     <ul class="list-group list-group-flush px-md-5 px-1" id="searchItemsList">
+        <?php $user = Auth::user(); ?>
         @foreach ($searchResults as $item)
             @include('partials.searchResultItemCard',array($item))
         @endforeach

@@ -15,7 +15,7 @@
                             </a>
                         </h4>
                         <div class="wishlistButton col">
-                            <button type="button" class="btn btn-lg p-0 px-1">
+                            <button type="button" class="btn btn-lg p-0 px-1 wishlist-list remove-wishlist" data-id="{{$item['item_id']}}">
                                 <i class="bi bi-x-circle" style="color:red"></i>
                             </button>
                         </div>

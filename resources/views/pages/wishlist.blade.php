@@ -10,6 +10,8 @@
 
 @include('partials.sidebarItem',["categories" => $categories])
 
+<script type="text/javascript" src="{{asset('js/wishlist.js')}}" defer></script>
+
 <nav class="mt-3" aria-label="breadcrumb">
     <ol class="breadcrumb ms-4">
         <li class="breadcrumb-item"> <a class="link-dark" href={{"/userProfile/" . $user["user_id"]}}>User Profile</a></li>
@@ -41,7 +43,7 @@
             </select>
         </div>
     </header>
-    <ul class="list-group list-group-flush px-md-5 px-1" id="searchItemsList">
+    <ul class="list-group list-group-flush px-md-5 px-1" id="wishItemsList">
         @foreach ($user->wishlist() as $item)
             @include('partials.wishlistItemCard', array("item" => $item))
         @endforeach

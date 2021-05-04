@@ -4,9 +4,6 @@ function addEventListeners() {
     let reviewForm = document.querySelector('#newReviewForm button');
     if(reviewForm != null)
         reviewForm.addEventListener("click", submitNewReviewRequest);
-
-    let wishListButton = document.querySelector('button.wishlist');
-    wishListButton.addEventListener("click", wishlistRequest)
 }
 
 
@@ -127,44 +124,6 @@ function cancelEditRequest(review_id) {
 	        let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
             doc.replaceWith(add);
         }});
-}
-
-function wishlistRequest(e) {
-    let url = '/wishlist';
-    let item_id = e.target.getAttribute('data-id');
-    let data = null;
-    let type = "add";
-    let method = "post";
-
-    if(e.target.classList.contains("add-wishlist")) {
-        data = {'item_id': item_id};
-    } else {
-        method = "delete";
-        url += '/' + item_id;
-        type = "remove";
-    }
-
-    console.log(data);
-    switchWishlistButton(e.target, type)
-
-    sendAjaxRequest(method, url, data, function() {
-        console.log(this.response);
-        if(this.status !== 200) {
-            switchWishlistButton(e.target, type == "add" ? "remove" : "add");
-        } 
-    });
-}
-
-function switchWishlistButton(button, type) {
-    if(type == "add") {
-        button.innerHTML = '<i class="bi bi-heart-fill"></i> Remove from Wishlist';
-        button.classList.add("remove-wishlist");
-        button.classList.remove("add-wishlist");
-    } else {
-        button.innerHTML = '<i class="bi bi-heart"></i> Add to Wishlist';
-        button.classList.remove("remove-wishlist");
-        button.classList.add("add-wishlist");
-    }
 }
 
 
