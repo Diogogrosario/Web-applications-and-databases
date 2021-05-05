@@ -46,6 +46,7 @@ Route::put('review/{reviewId}', 'ReviewController@updateReview');
 // Cart
 Route::post('cart', 'CartController@addToCart');
 Route::delete('cart/{id}', 'CartController@removeFromCart');
+Route::patch('cart/{id}', 'CartController@updateQuantity');
 
 // Wishlist
 Route::post('wishlist', 'WishlistController@addToWishlist');

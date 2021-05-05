@@ -62,4 +62,29 @@ class CartController extends Controller
             return response()->json("Product removed from cart successfuly", 200);
         }
     }
+
+    public function updateQuantity(Request $request, $id) {
+        
+        $quantity = $request->all()["quantity"];
+
+        $user = Auth::user();
+
+        if($user == null) {
+            return response()->json("Unauthenticated", 401);
+        }
+        $user_id = $user['user_id'];
+
+        return DB::transaction(function() use ($id, $quantity, $user_id) {
+
+            $item = Item::find($id);
+            
+
+            if($item["stock"] >= $quantity) {
+                DB::update('update cart set quantity = ? where user_id = ? and item_id = ?', [$quantity, $user_id, $id]);
+                return response()->json("Item quantity updated successfuly.", 200);
+            } else {
+                return response()->json("Item does not have enough stock", 406);
+            }
+        });
+    }
 }

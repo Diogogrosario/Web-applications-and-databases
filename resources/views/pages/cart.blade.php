@@ -20,7 +20,7 @@
                 <p> Your cart is currently empty</p>
             @else
                 @foreach ($user->cart() as $item)
-                    @include('partials.cartItemCard', array("item" => $item))
+                    @include('partials.cartItemCard', array("item" => $item, "index" => $loop->index))
                 @endforeach
             @endif                 
         </div>

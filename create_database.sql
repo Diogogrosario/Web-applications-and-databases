@@ -487,6 +487,24 @@ AFTER DELETE ON cart
 FOR EACH ROW
 EXECUTE PROCEDURE update_stock_remove_from_cart();
 
+--Trigger 12
+DROP FUNCTION if exists update_stock_update_quantity_cart CASCADE;
+DROP TRIGGER if exists update_stock_update_quantity_cart ON cart CASCADE;
+CREATE FUNCTION update_stock_update_quantity_cart() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    UPDATE item
+    SET stock = stock - (NEW.quantity - OLD.quantity)
+    WHERE item.item_id = OLD.item_id;
+    RETURN NEW;
+END
+$BODY$
+
+LANGUAGE plpgsql;
+CREATE TRIGGER update_stock_update_quantity_cart
+BEFORE UPDATE ON cart
+FOR EACH ROW
+EXECUTE PROCEDURE update_stock_update_quantity_cart();
 
 --Rule 1
 DROP rule IF EXISTS users_delete_rule ON users CASCADE;

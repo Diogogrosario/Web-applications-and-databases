@@ -1,3 +1,4 @@
+let quantities = [];
 
 function addEventListeners() {
     let addButtons = document.querySelectorAll('button.add_cart');
@@ -13,6 +14,12 @@ function addEventListeners() {
     let removeButtons = document.querySelectorAll('button.remove_cart');
     for(let removeButton of removeButtons) {
         removeButton.addEventListener("click", removeFromCart);
+    }
+
+    let quantitiyInputs = document.querySelectorAll('input.product-quantity');
+    for(let quantityInput of quantitiyInputs) {
+        quantities[quantityInput.getAttribute("data-id")] = quantityInput.value;
+        quantityInput.addEventListener("change", updateQuantity);
     }
 }
 
@@ -69,5 +76,30 @@ function removeFromCart(event) {
     });
 }
 
+function updateQuantity(event) {
+    event.preventDefault();
+
+    let product_index = this.getAttribute("data-id");
+    let product_id = this.closest('div.cart-item').getAttribute("data-id");
+    let url = "/cart/" + product_id;
+    let quantity = this.value;
+    let input = this;
+
+    if(quantity == 0) {
+        removeFromCart.call(this, event);
+        return;
+    }
+
+    sendAjaxRequest("PATCH", url, {'quantity': quantity}, function() {
+        console.log(this.responseText);
+        if(this.status != 200) {
+            console.log("error");
+            input.value = quantities[product_index];
+        } else {
+            quantities[product_index] = quantity;
+            input.value = quantity;
+        }
+    });
+}
 
 addEventListeners();
