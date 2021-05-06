@@ -97,7 +97,7 @@ function updateQuantity(event) {
             input.value = quantities[product_index];
         } else {
             quantities[product_index] = quantity;
-            input.value = quantity;
+            // input.value = quantity;
         }
     });
 }
