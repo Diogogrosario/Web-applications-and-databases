@@ -78,7 +78,6 @@ class CartController extends Controller
 
             $item = Item::find($id);
             
-
             if($item["stock"] >= $quantity) {
                 DB::update('update cart set quantity = ? where user_id = ? and item_id = ?', [$quantity, $user_id, $id]);
                 return response()->json("Item quantity updated successfuly.", 200);

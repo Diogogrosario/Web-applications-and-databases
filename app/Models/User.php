@@ -61,7 +61,11 @@ class User extends Authenticatable
     }
 
     public function notifications() {
-        return $this->belongsToMany(Item::class,"notification", "user_id", "item_id")->withPivot("type")->where('is_seen',false)->get();
+        return $this->belongsToMany(Item::class,"notification", "user_id", "item_id")->withPivot("notification_id")->withPivot("type")->get();
+    }
+
+    public function unseenNotifications() {
+        return $this->belongsToMany(Item::class,"notification", "user_id", "item_id")->withPivot("notification_id")->withPivot("type")->where('is_seen',false)->get();
     }
 
     public function billingAddress() {

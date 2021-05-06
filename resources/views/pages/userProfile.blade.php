@@ -12,6 +12,8 @@
 @section("content")
 @include('partials.sidebarItem',["categories" => $categories])
 
+<script type="text/javascript" src="{{ asset('js/userPage.js') }}" defer></script>
+
 <div class="p-0" style="background-color:#f2f2f2;">
     <div id="userProfile" class="container col-md-7 p-lg-5 p-3 shadow-sm h-100" style="background-color:white">
         <div class="row">
@@ -147,11 +149,39 @@
             <div class="col-lg-4 border-start" id="notifications">
                 <h2 class="mb-3">Notifications</h2>
                 <ul class="list-group list-group-flush">
-                    @foreach ($user->notifications() as $notification)
+                    @foreach ($user->unseenNotifications() as $notification)
                     @if ($notification->pivot["type"] == "Discount")
-                        <li class="list-group-item"><a href={{"/item/" . $notification["item_id"]}}>{{ $notification["name"] }}</a> from your wish list is on sale! </li>   
+                        <li class="list-group-item d-flex">
+                            <section class="col-10">
+                                <a href={{"/item/" . $notification["item_id"]}}>{{ $notification["name"] }}</a> from your wish list is on sale! 
+                            </section>
+                            <section class="col d-flex align-items-center justify-content-center">
+
+                                <form method="POST" action={{ "/notification/" . $notification->pivot["notification_id"] }}>
+                                    {{ csrf_field() }}
+                                    <button type="submit" data-id={{ $notification->pivot["notification_id"] }} class="deleteNotificationButton" style="background-color: white; border: none;">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </form>
+
+                            </section>
+                        </li>   
                     @else
-                        <li class="list-group-item"><a href={{"/item/" . $notification["item_id"]}}>{{ $notification["name"] }}</a> from your wish list has stock again!</li>
+                        <li class="list-group-item d-flex">
+                            <section class="col-10">
+                                <a href={{"/item/" . $notification["item_id"]}}>{{ $notification["name"] }}</a> from your wish list has stock again!
+                            </section>
+                            <section class="col d-flex align-items-center justify-content-center">
+
+                                <form method="POST" action={{ "/notification/" . $notification->pivot["notification_id"] }}>
+                                    {{ csrf_field() }}
+                                    <button type="submit" data-id={{ $notification->pivot["notification_id"] }} class="deleteNotificationButton" style="background-color: white; border: none;">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </form>
+
+                            </section>
+                        </li> 
                     @endif
                     @endforeach 
                 </ul>
