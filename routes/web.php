@@ -35,6 +35,8 @@ Route::get("api/item", 'ItemController@getItems');
 Route::get("api/item/{id}", 'ItemController@get');
 Route::get("api/users/{id}", 'UserController@get');
 Route::get("api/users/{id}/purchaseHistory", 'UserController@getPurchaseHistory');
+Route::get("category/{id}/details", 'CategoryController@getDetails');
+
 
 // Reviews
 Route::post('item/{id}/review', 'ReviewController@submit');

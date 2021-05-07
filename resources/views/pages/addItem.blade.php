@@ -8,8 +8,9 @@
 @section('content')
 @include('partials.sidebarItem',["categories" => $categories])
 
-<div class="p-0" style="background-color:#f2f2f2">
+<script type="text/javascript" src="{{asset('js/addItem.js')}}" defer></script>
 
+<div class="p-0" style="background-color:#f2f2f2">
     <div id="addItem" class="container col-lg-6 col-md-8  shadow-sm h-100" style="background-color:white">
         <nav aria-label="breadcrumb ms-2 pb-5">
             <ol class="breadcrumb">
@@ -37,13 +38,11 @@
                 <div class="mt-3 col-lg-5 col-md-7 col-sm-12 col-12 d-flex flex-column justify-content-between" id="categoryImagesForm">
                     <div id="categoryForm">
                         <label for="category" class="form-label">Category</label>
-                        <select class="form-select" aria-label="Category" id="category" required>
+                        <select class="form-select" aria-label="Category" id="categoryDropdown" required>
                             <option>...</option>
-                            <option value="1">Book</option>
-                            <option value="2">Videogame</option>
-                            <option value="3">Electrodomestic</option>
-                            <option value="4" selected>Computer</option>
-                            <option value="5">Smartphone</option>
+                            @foreach ($categories as $category)
+                                <option value={{$category["category_id"]}}>{{$category["name"]}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div id="imagesForm" class="mt-3">
@@ -71,7 +70,8 @@
                 <h5>Details</h5>
 
                 <div class="ps-lg-3 ps-md-2 ps-sm-0 pe-lg-3 pe-md-2 pe-sm-0" id="productDetailsForms">
-                    <div id="detailForm1">
+
+                    {{-- <div id="detailForm1">
                         <label for="detail1" class="form-label">Processor</label>
                         <div class="input-group">
                             <select class="form-select" aria-label="Category" id="detail1">
@@ -110,7 +110,8 @@
                             </select>
                             <input type="text" class="form-control w-50" id="detail3Full">
                         </div>
-                    </div>
+                    </div> --}}
+
                 </div>
             </div>
 
