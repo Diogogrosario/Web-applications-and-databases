@@ -31,6 +31,7 @@ Route::get('management/manageUsers', 'UserAdministrationController@show')->middl
 Route::get('management/addItem', 'AddItemController@show')->middleware('admin');
 Route::get('unban/{id}', 'ManagementController@unbanUser')->middleware('admin');
 Route::get('promote/{id}', 'ManagementController@promoteUser')->middleware('admin');
+Route::get('ban/{id}', 'ManagementController@banUser')->middleware('admin');
 
 // API
 Route::get("api/item", 'ItemController@getItems');

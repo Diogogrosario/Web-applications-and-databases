@@ -1,7 +1,4 @@
-function unbanUser(id) {
-
-    console.log(id);
-    
+function unbanUser(id) {    
     let url = "/unban/" + id;
 
     let data = null;
@@ -10,34 +7,18 @@ function unbanUser(id) {
         console.log(this.response);
         if (this.status === 200) {
             let buttons = document.getElementById("actionButtons" + id);
-            let str =`
-                    <section id="actionButtons` + id + `">
-                        <button data-id=` + id + ` type="button" class="banButton btn btn-danger"><i class="bi bi-person-x-fill"></i>
-                            <div class="d-none d-lg-inline">Ban &nbsp;&nbsp;&nbsp;&nbsp;
-                            </div>
-                        </button>
-                        <button data-id=` + id + ` type="button" class="promoteButton btn btn-success" onclick="promoteUser(` + id + `)" }}><i class="bi bi-person-plus-fill"></i></i>
-                            <div class="d-none d-lg-inline"> Promote to Admin
-                            </div>
-                        </button>
-                    </section>
-                    `;
             let parser = new DOMParser();
-            let add = parser.parseFromString(str, 'text/html').body.childNodes[0];
+            let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
             buttons.replaceWith(add);
         }});
 }
 
-function promoteUser(id) {
-
-    console.log(id);
-    
+function promoteUser(id) {    
     let url = "/promote/" + id;
 
     let data = null;
     
     sendAjaxRequest('GET', url, data, function () {
-        console.log(this.response);
         if (this.status === 200) {
             let buttons = document.getElementById("actionButtons" + id);
             let str=`<section id="actionButtons` + id + `">
@@ -54,21 +35,19 @@ function promoteUser(id) {
         }});
 }
 
-function banUser(event) {
-    event.preventDefault();
-    let userId = this.getAttribute("data-id");
-
-    console.log(userId)
-    // let button = this;
+function banUser(id) {
     
-    // let url = "/ban/" + notificationId;
+    let reason = document.getElementById("banReason" + id).value;
+    
+    let url = "/ban/" + id + "?reason=" + reason;
 
-    // let data = null;
+    let data = null;
 
-    // sendAjaxRequest('GET', url, data, function () {
-    //     console.log(this.response);
-    //     if (this.status === 200) {
-    //         // console.log(jsonData);
-    //         button.closest("tr").remove();
-    //     }});
+    sendAjaxRequest('GET', url, data, function () {
+        if (this.status === 200) {
+            let buttons = document.getElementById("actionButtons" + id);
+            let parser = new DOMParser();
+            let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
+            buttons.replaceWith(add);
+        }});
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class ManagementController extends Controller
@@ -22,6 +23,25 @@ class ManagementController extends Controller
             ->where('user_id',$id)
             ->delete();
         
+        return view("partials.promoteOrBanUserModal",array("user" => $user));
+    }
+
+    public function banUser(Request $request, $id)
+    {
+        $user = User::find($id);
+        if(is_null($user))
+        {
+            abort(404);
+        }
+        
+        DB::table("ban")->insert(
+            array('user_id' => $id,
+            'admin_id' => Auth::user()["user_id"],
+            'reason' => $request->input("reason")
+            )
+        );
+
+        return view("partials.unbanUserModal",array("user" => $user));
     }
 
     public function promoteUser($id)
