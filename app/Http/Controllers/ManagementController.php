@@ -24,6 +24,19 @@ class ManagementController extends Controller
         
     }
 
+    public function promoteUser($id)
+    {
+        $user = User::find($id);
+        if(is_null($user))
+        {
+            abort(404);
+        }
+
+        $user["is_admin"] = true;
+
+        $user->save();
+    }
+
     public function show()
     {
         $categories = Category::all()->sortBy("category_id");
