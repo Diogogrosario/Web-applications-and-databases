@@ -74,11 +74,11 @@
 
                       <?php } else { ?>
                             <div class="d-flex justify-content-center ">
-                                <a class="nav-link" href={{"/userProfile/" . Auth::id()}} style="color:white !important">{{ Auth::user()["username"] }}&nbsp; |</a>
+                                <a class="nav-link p-1" href={{"/userProfile/" . Auth::id()}} style="color:white !important; border-right: 1px solid">{{ Auth::user()["username"] }}</a>
                                 @if (Auth::user()["is_admin"])
-                                <a class="nav-link ps-0" href={{"/management"}} style="color:white !important">&nbsp;Manage&nbsp; |</a>
+                                <a class="nav-link p-1" href={{"/management"}} style="color:white !important; border-right: 1px solid; border-left:" >Manage</a>
                                 @endif
-                                <a class="nav-link ps-0" href="/logout" style="color:white !important">&nbsp; Logout</a>
+                                <a class="nav-link p-1" href="/logout" style="color:white !important;">Logout</a>
                             </div>
                       <?php } ?>
                   </li>
