@@ -13,7 +13,7 @@ class UserAdministrationController extends Controller
     public function show()
     {
         $categories = Category::all()->sortBy("category_id");
-        $users = User::where("deleted",false)->get();
+        $users = User::where("deleted",false)->where("is_admin",false)->get();
         
         return view('pages.userAdministration')->with("categories", $categories)->with("users",$users);
     }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 
 class User extends Authenticatable
@@ -76,10 +77,7 @@ class User extends Authenticatable
         return Address::find($this["shipping_address"]);
     }
 
-    /**
-     * The cards this user owns.
-     */
-     public function cards() {
-      return $this->hasMany('App\Models\Review');
+     public function isBanned() {
+      return !empty(DB::select("SELECT * FROM ban WHERE user_id = ?", array($this->user_id)));
     }
 }

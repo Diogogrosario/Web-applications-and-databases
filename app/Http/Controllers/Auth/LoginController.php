@@ -40,7 +40,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function getUser(){
+    public function getUser(Request $request){
         return $request->user();
     }
 
@@ -51,11 +51,18 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         if(Auth::attempt($request->only('email', 'password')))
+        {
+            if(Auth::user()->isBanned())
+            {
+                Auth::logout();
+                return redirect('/login')->with(['banned'=>'Account Is Banned.']);
+            }
             $request->session()->regenerate();
+        }
         else
             return redirect('/login');
 
-        return redirect('/login')->with(['message'=>'Account Successfully Created.']);
+        return redirect('/login');
     }
     
     public function show()

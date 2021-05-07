@@ -11,6 +11,11 @@
     <div class="container col-md-7 p-lg-5 p-3 shadow-sm h-100" style="background-color:white">
         <div class="col-md-7 mx-auto">
             <div class="myform form ">
+                @if (session('banned'))
+                    <span class="error text-center">
+                        <h3 style="color: red">{{ session('banned') }}</h3>
+                    </span>
+                @endif
                 <div class="logo mb-3">
                     <div class="col-md-12 text-center">
                         <h1>Sign in</h1>

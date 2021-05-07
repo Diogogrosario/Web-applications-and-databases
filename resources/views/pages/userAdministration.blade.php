@@ -10,6 +10,10 @@
 
 
 @section("content")
+
+<script type="text/javascript" src="{{asset('js/manageUsers.js')}}" defer></script>
+
+
 @include('partials.sidebarItem',["categories" => $categories])
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
