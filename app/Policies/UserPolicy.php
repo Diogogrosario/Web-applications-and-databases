@@ -13,7 +13,7 @@ class UserPolicy
 
     public function delete(User $user, User $userToDelete)
     {
-        return $userToDelete["user_id"] == Auth::user()["user_id"] || $user["is_admin"];
+        return $userToDelete["user_id"] == Auth::user()["user_id"] || Auth::user()["is_admin"];
 
     }
 }

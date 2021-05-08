@@ -59,7 +59,7 @@ Route::patch('cart/{id}', 'CartController@updateQuantity');
 Route::post('wishlist', 'WishlistController@addToWishlist');
 Route::delete('wishlist/{id}', 'WishlistController@removeFromWishlist');
 
-// // Authentication
+// Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
