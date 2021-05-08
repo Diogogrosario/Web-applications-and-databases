@@ -77,7 +77,17 @@ class User extends Authenticatable
         return Address::find($this["shipping_address"]);
     }
 
-     public function isBanned() {
+    public function isBanned() {
       return !empty(DB::select("SELECT * FROM ban WHERE user_id = ?", array($this->user_id)));
     }
+
+    public function banReason($id) {
+        $ban = DB::select("SELECT * FROM ban WHERE user_id = ?", array($id))[0];
+        if(!empty($ban)){
+            if($ban->reason == "")
+                return "No reason was given";
+            return $ban->reason;
+        }
+        return "No reason was given";
+      }
 }

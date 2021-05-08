@@ -17,7 +17,7 @@
                     <form>
                         <div class="mb-3">
                           <label for="message-text" class="col-form-label">Reason:</label>
-                          <textarea class="form-control" id={{ "banReason" . $user["user_id"]}} style="resize: none"></textarea>
+                          <textarea class="form-control" id={{ "banReason" . $user["user_id"]}} style="resize: none" required></textarea>
                         </div>
                     </form>
                 </div>

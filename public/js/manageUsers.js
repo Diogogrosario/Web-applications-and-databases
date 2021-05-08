@@ -4,7 +4,6 @@ function unbanUser(id) {
     let data = null;
 
     sendAjaxRequest('GET', url, data, function () {
-        console.log(this.response);
         if (this.status === 200) {
             let buttons = document.getElementById("actionButtons" + id);
             let parser = new DOMParser();
@@ -38,6 +37,9 @@ function promoteUser(id) {
 function banUser(id) {
     
     let reason = document.getElementById("banReason" + id).value;
+
+    if(reason=="")
+        reason = "No Reason Was Given"
     
     let url = "/ban/" + id + "?reason=" + reason;
 
