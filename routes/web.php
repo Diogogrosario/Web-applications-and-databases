@@ -16,6 +16,7 @@ Route::get('/', 'HomepageController@show');
 // Pages
 Route::get('item/{id}', 'ItemPageController@show');
 Route::get('searchResults', 'SearchResultsController@show');
+Route::post('searchResultsAjax', 'SearchResultsController@showAjax');
 Route::get('about', 'AboutPageController@show');
 Route::get('faq', 'FaqPageController@show');
 Route::get('contacts', 'ContactsPageController@show');
