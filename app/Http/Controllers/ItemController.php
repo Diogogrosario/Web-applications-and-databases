@@ -117,4 +117,20 @@ class ItemController extends Controller
 
         return $item;
     }
+
+    public function updateItem(Request $request,$id){
+
+
+        $stock = $request->input("stock");
+        $price = $request->input("price");
+        
+        
+        $item = Item::find($id);
+        $item["stock"] = $stock;
+        $item["price"] = $price;
+
+        $item->save();
+
+        return back();
+    }
 }
