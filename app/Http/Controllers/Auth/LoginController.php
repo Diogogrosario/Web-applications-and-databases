@@ -60,7 +60,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
         }
         else
-            return redirect('/login');
+            return redirect('/login')->with(["unknownAccount"=>'Incorrect User Or Password!']);
 
         return redirect('/login');
     }

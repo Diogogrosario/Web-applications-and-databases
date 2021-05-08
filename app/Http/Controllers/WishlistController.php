@@ -13,11 +13,8 @@ class WishlistController extends Controller
 {
     public function show($id)
     {
-        $user = User::find($id);
-        if(is_null($user))
-        {
-            abort(404);
-        }
+        $user = User::findOrFail($id);
+
         $categories = Category::all()->sortBy("category_id");
         
         return view('pages.wishlist')->with("user", $user)->with("categories", $categories);

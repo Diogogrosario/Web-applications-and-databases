@@ -17,11 +17,8 @@ class ItemPageController extends Controller
      */
     public function show($id)
     {
-        $item = Item::find($id);
-        if(is_null($item))
-        {
-            abort(404);
-        }
+        $item = Item::findOrFail($id);
+       
         $categories = Category::all()->sortBy("category_id");
         
         return view('pages.itemPage')->with('item', $item)->with("categories", $categories);

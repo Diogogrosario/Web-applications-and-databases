@@ -15,6 +15,12 @@
                     <span class="error text-center">
                         <h3 style="color: red">{{ session('banned') }}</h3>
                     </span>
+                @else
+                    @if (session('unknownAccount'))
+                        <span class="error text-center">
+                            <h3 style="color: red">{{ session('unknownAccount') }}</h3>
+                        </span>
+                    @endif
                 @endif
                 <div class="logo mb-3">
                     <div class="col-md-12 text-center">

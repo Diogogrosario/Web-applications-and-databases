@@ -11,29 +11,22 @@ class UserController extends Controller
 {
     public function get($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
 
-        if(is_null($user))
-            abort(404);
-        
         return $user;
     }
 
     public function getPurchaseHistory($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
 
-        if(is_null($user))
-            abort(404);
-        
         return $user->purchases()->get();
     }
 
     public function deleteAccount($id)
     {
-        $user = User::find($id);
-        if(is_null($user))
-            abort(404);
+        $user = User::findOrFail($id);
+
 
         $this->authorize('delete', $user);
 

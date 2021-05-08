@@ -13,11 +13,8 @@ class ManagementController extends Controller
 {
     public function unbanUser($id)
     {
-        $user = User::find($id);
-        if(is_null($user))
-        {
-            abort(404);
-        }
+        $user = User::findOrFail($id);
+
 
         DB::table('ban')
             ->where('user_id',$id)
@@ -28,11 +25,8 @@ class ManagementController extends Controller
 
     public function banUser(Request $request, $id)
     {
-        $user = User::find($id);
-        if(is_null($user))
-        {
-            abort(404);
-        }
+        $user = User::findOrFail($id);
+
         
         DB::table("ban")->insert(
             array('user_id' => $id,
@@ -46,11 +40,8 @@ class ManagementController extends Controller
 
     public function promoteUser($id)
     {
-        $user = User::find($id);
-        if(is_null($user))
-        {
-            abort(404);
-        }
+        $user = User::findOrFail($id);
+
 
         $user["is_admin"] = true;
 

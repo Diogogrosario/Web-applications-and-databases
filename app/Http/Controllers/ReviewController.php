@@ -38,22 +38,16 @@ class ReviewController extends Controller
 
     public function getReview($id)
     {
-        $review = Review::find($id);
-        if(is_null($review))
-        {
-            abort(404);
-        }
+        $review = Review::findOrFail($id);
+
         return view("partials.review")->with("review",$review);
     }
 
     public function updateReview(Request $request)
     {
         $reviewId = $request->route('reviewId');
-        $review = Review::find($reviewId);
-        if(is_null($review))
-        {
-            abort(404);
-        }
+        $review = Review::findOrFail($reviewId);
+
         $data = $request->all();
 
         $this->authorize('update', $review);

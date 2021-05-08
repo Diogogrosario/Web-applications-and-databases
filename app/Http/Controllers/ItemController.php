@@ -38,11 +38,8 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = Item::find($id);
-        if(is_null($item))
-        {
-            abort(404);
-        }
+        $item = Item::findOrFail($id);
+        
         $this->authorize('update', $item);
         $item->done = $request->input('done');
         $item->save();
@@ -57,11 +54,8 @@ class ItemController extends Controller
      */
     public function delete(Request $request, $id)
     {
-        $item = Item::find($id);
-        if(is_null($item))
-        {
-            abort(404);
-        }
+        $item = Item::findOrFail($id);
+        
         $this->authorize('delete', $item);
         $item->delete();
         return $item;
@@ -110,10 +104,8 @@ class ItemController extends Controller
      */
     public function get($id)
     {
-        $item = Item::find($id);
+        $item = Item::findOrFail($id);
 
-        if(is_null($item))
-            abort(404);
 
         return $item;
     }
