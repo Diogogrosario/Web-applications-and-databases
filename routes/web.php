@@ -32,12 +32,16 @@ Route::get('management/addItem', 'AddItemController@show')->middleware('admin');
 Route::get('unban/{id}', 'ManagementController@unbanUser')->middleware('admin');
 Route::get('promote/{id}', 'ManagementController@promoteUser')->middleware('admin');
 Route::get('ban/{id}', 'ManagementController@banUser')->middleware('admin');
+Route::delete('/userProfile/{id}', 'UserController@deleteAccount');
+
+
 
 // API
 Route::get("api/item", 'ItemController@getItems');
 Route::get("api/item/{id}", 'ItemController@get');
 Route::get("api/users/{id}", 'UserController@get');
 Route::get("api/users/{id}/purchaseHistory", 'UserController@getPurchaseHistory');
+
 
 // Reviews
 Route::post('item/{id}/review', 'ReviewController@submit');

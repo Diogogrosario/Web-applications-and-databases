@@ -196,7 +196,7 @@
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="deleteAccount" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
+        <div class="modal fade" id="deleteAccount" tabindex="-1" aria-labelledby="deleteAccountLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -210,7 +210,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger">Yes, delete my account</button>
+
+                        <button id="deleteAccountButton" type="submit" class="btn btn-danger" onclick={{"deleteAccount(".$user["user_id"].")"}}>Yes, delete my account</button>
+
                     </div>
                 </div>
             </div>

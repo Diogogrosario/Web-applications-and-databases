@@ -1,9 +1,7 @@
 function addEventListeners() {
     let notificationButtons = document.querySelectorAll('.deleteNotificationButton');
-    console.log(notificationButtons);
     for(let notificationButton of notificationButtons)
     {
-        console.log(notificationButton.getAttribute("data-id"));
         notificationButton.addEventListener("click", seeNotification);
     }
 }
@@ -23,6 +21,19 @@ function seeNotification(event) {
         if (this.status === 200) {
             // console.log(jsonData);
             button.closest("li").remove();
+        }});
+}
+
+function deleteAccount(id) {
+    
+    let url = "/userProfile/" + id;
+
+    let data = null;
+
+    sendAjaxRequest('DELETE', url, data, function () {
+        console.log(this.response);
+        if (this.status === 200) {
+            window.location.replace('/');
         }});
 }
 
