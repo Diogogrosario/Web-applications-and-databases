@@ -42,9 +42,6 @@ class SearchResultsController extends Controller
             $priceRanges = preg_split('/[,]/', $data['priceRanges']);
             
 
-            //$prices = preg_split("~-~", $priceRanges);
-            $min_price = "0";
-            $max_price = "50";
 
             $priceQuerryString = "(";
 
@@ -59,7 +56,7 @@ class SearchResultsController extends Controller
                     $priceQuerryString .= "(price < " . $priceRanges[$i + 1] . "::money)";
                 }*/
                 else{
-                    $priceQuerryString .= "((price > " . $priceRanges[$i] . "::money) AND (price < " . $priceRanges[$i+1] . "::money))";
+                    $priceQuerryString .= "((price > " . $priceRanges[$i] . "::money) AND (price <= " . $priceRanges[$i+1] . "::money))";
                     if(($i < count($priceRanges) - 1 - 2)){
                         $priceQuerryString .= "OR";
                     }
@@ -71,38 +68,85 @@ class SearchResultsController extends Controller
 
         }
 
+        if(isset($data['starRatings'])){
+            $starRatings = preg_split('/[,]/', $data['starRatings']);
+
+            $starRatingsString = "(";
+
+            for($i = 0; $i < count($starRatings) - 1; $i+=2){
+                $starRatingsString .= "((score >= " . $starRatings[$i] . ") AND (score <= " . $starRatings[$i+1] . "))";
+                if(($i < count($starRatings) - 1 - 2)){
+                    $starRatingsString .= "OR";
+                }
+            }
+            
+            $starRatingsString .= ")";
+
+        }
+
+
         $q = $data['search'];
         $cat = $data['category'];
 
         $filteredByCat;
-        if(isset($data['priceRanges'])){
-            if($cat!=null && $cat!=-1){
-                $searchResults =  Item::where("category_id",$cat);
-                if($q!=null)
-                    $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))->whereRaw($priceQuerryString)
-                    ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
-                $searchResults = $searchResults->where("is_archived",false)->get();
+        if(isset($data['starRatings'])){
+            if(isset($data['priceRanges'])){
+                if($cat!=null && $cat!=-1){
+                    $searchResults =  Item::where("category_id",$cat);
+                    if($q!=null)
+                        $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))->whereRaw($priceQuerryString)->whereRaw($starRatingsString)
+                        ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
+                    $searchResults = $searchResults->where("is_archived",false)->get();
+                }
+                else
+                    $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
+                    ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)->whereRaw($priceQuerryString)->whereRaw($starRatingsString)
+                    ->get();
+        
             }
-            else
-                $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
-                ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)->whereRaw($priceQuerryString)
-                ->get();
-    
+            else{
+                if($cat!=null && $cat!=-1){
+                    $searchResults =  Item::where("category_id",$cat);
+                    if($q!=null)
+                        $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))->whereRaw($starRatingsString)
+                        ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
+                    $searchResults = $searchResults->where("is_archived",false)->get();
+                }
+                else
+                    $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
+                    ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)->whereRaw($starRatingsString)
+                    ->get();
+            }
         }
         else{
-            if($cat!=null && $cat!=-1){
-                $searchResults =  Item::where("category_id",$cat);
-                if($q!=null)
-                    $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
-                    ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
-                $searchResults = $searchResults->where("is_archived",false)->get();
+            if(isset($data['priceRanges'])){
+                if($cat!=null && $cat!=-1){
+                    $searchResults =  Item::where("category_id",$cat);
+                    if($q!=null)
+                        $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))->whereRaw($priceQuerryString)
+                        ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
+                    $searchResults = $searchResults->where("is_archived",false)->get();
+                }
+                else
+                    $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
+                    ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)->whereRaw($priceQuerryString)
+                    ->get();
+        
             }
-            else
-                $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
-                ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)
-                ->get();
+            else{
+                if($cat!=null && $cat!=-1){
+                    $searchResults =  Item::where("category_id",$cat);
+                    if($q!=null)
+                        $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
+                        ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
+                    $searchResults = $searchResults->where("is_archived",false)->get();
+                }
+                else
+                    $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
+                    ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)
+                    ->get();
+            }
         }
-
         
 
         

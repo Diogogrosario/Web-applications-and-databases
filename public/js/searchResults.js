@@ -1,4 +1,5 @@
 var priceRangeList;
+var starList;
 function addPriceFilterEventListeners() {
     priceRangeList = document.querySelector('#priceButtons');
     let priceRangeButtons = priceRangeList.querySelectorAll('li');
@@ -56,12 +57,42 @@ function seeNotification(event) {
         }
     }
 
-    let data;
-    if(priceRangeValues.length > 0){
-        data = {"priceRanges": priceRangeValues, "category": category, "search": search};
+    let starListItems = starList.children;
+    let reversedStarListItems = [];
+    for(let i = 0; i < starListItems.length; i++){
+        reversedStarListItems.push(starListItems[starListItems.length - 1 - i]);
     }
-    else{
-        data = {"category": category, "search": search};
+    let starRatingValues = [];
+    
+
+
+    for(let i = 0; i < reversedStarListItems.length; i++){
+        if(reversedStarListItems[i].querySelector("input:checked") != null){
+            let sameValue = false;
+            if(starRatingValues.length > 0){
+                if(starRatingValues[starRatingValues.length - 1] == reversedStarListItems[i].querySelector("input").value - 1){
+                    starRatingValues.pop();
+                    starRatingValues.push(reversedStarListItems[i].querySelector("input").value);
+                    sameValue = true;
+                }
+            }
+            if(!sameValue){
+                starRatingValues.push(reversedStarListItems[i].querySelector("input").value - 1);
+                starRatingValues.push(reversedStarListItems[i].querySelector("input").value);
+            }
+        }
+    }
+
+
+
+    let data;
+    data = {"category": category, "search": search};
+        
+    if(priceRangeValues.length > 0){
+        data["priceRanges"] = priceRangeValues;
+    }
+    if(starRatingValues.length > 0){
+        data["starRatings"] = starRatingValues;
     }
 
     sendAjaxRequest('POST', url, data, function () {

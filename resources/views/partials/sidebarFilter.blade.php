@@ -78,23 +78,23 @@
                     <div class="list-group h-100">
                         <ul id="starButtons" class="list-group">
                             <li class="list-group-item">
-                                <input class="form-check-input me-1" type="checkbox" id="5starFilter">
+                                <input class="form-check-input me-1" type="checkbox" id="5starFilter" value="5">
                                 <label for="5starFilter"> 5 star</label><br>
                             </li>
                             <li class="list-group-item">
-                                <input class="form-check-input me-1" type="checkbox" id="4starFilter">
+                                <input class="form-check-input me-1" type="checkbox" id="4starFilter" value="4">
                                 <label for="4starFilter"> 4 star</label><br>
                             </li>
                             <li class="list-group-item">
-                                <input class="form-check-input me-1" type="checkbox" id="3starFilter">
+                                <input class="form-check-input me-1" type="checkbox" id="3starFilter" value="3">
                                 <label for="3starFilter"> 3 star</label><br>
                             </li>
                             <li class="list-group-item">
-                                <input class="form-check-input me-1" type="checkbox" id="2starFilter">
+                                <input class="form-check-input me-1" type="checkbox" id="2starFilter" value="2">
                                 <label for="2starFilter"> 2 star</label><br>
                             </li>
                             <li class="list-group-item">
-                                <input class="form-check-input me-1" type="checkbox" id="1starFilter">
+                                <input class="form-check-input me-1" type="checkbox" id="1starFilter" value="1">
                                 <label for="1starFilter"> 1 star</label><br>
                                 
                             </li>
