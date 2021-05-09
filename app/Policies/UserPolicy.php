@@ -16,4 +16,9 @@ class UserPolicy
         return $userToDelete["user_id"] == Auth::user()["user_id"] || Auth::user()["is_admin"];
 
     }
+
+    public function edit(User $user, User $userToEdit)
+    {
+        return Auth::user()["user_id"] == $user["user_id"];
+    }
 }

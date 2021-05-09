@@ -35,6 +35,8 @@ Route::get('ban/{id}', 'ManagementController@banUser')->middleware('admin');
 Route::delete('/userProfile/{id}', 'UserController@deleteAccount');
 
 
+// Edit user profile
+Route::patch('userProfile/edit', 'UserController@edit');
 
 // API
 Route::get("api/item", 'ItemController@getItems');

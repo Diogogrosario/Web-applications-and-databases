@@ -33,4 +33,22 @@ class UserController extends Controller
         Auth::logout();
         $user->delete();
     }
+
+    public function edit(Request $request)
+    {
+        $user = Auth::user();
+
+        $this->authorize('edit', $user);
+
+        $username = $request->input("username");
+
+        if($username != null)
+        {
+            $user["username"] = $username;
+        }
+
+        $user->save();
+
+        return $username;
+    }
 }

@@ -77,9 +77,26 @@
                 <div class="table-responsive">
                     <table id="accountInfo" class="table">
                         <tbody>
-                            <tr>
+                            <tr id="username">
                                 <th scope="row">Username</th>
-                                <td>{{ $user["username"] }}<button type="class" class="btn"><i class="bi bi-pencil-square"></i></button></td>
+                                <td>
+                                    <section id="userNameContent">
+                                        {{ $user["username"] }}
+                                        <button type="class" class="btn" onclick="{{"editUsernameForm('" . $user["username"] . "'," . $user["user_id"] . ")" }}">
+                                            <i class="bi bi-pencil-square" ></i>
+                                        </button>
+                                    </section>
+                                </td>
+                                {{-- <td >
+                                    <form action="/userProfile/edit" method="post">
+
+                                        <textarea name="newUsername" class="w-100 h-50" id="newUsername" rows=1 style="resize: none;" placeholder={{$user["username"]}}></textarea>
+
+                                        <button id="submitNewUsername" type="class" class="btn btn-success"><i class="bi bi-check-circle-fill"></i> Submit</button>
+                                        <button id="cancelNewUsername" type="class" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancel</button></td>
+
+                                    </form>
+                                </td> --}}
                             </tr>
                             <tr>
                                 <th scope="row">Password</th>
