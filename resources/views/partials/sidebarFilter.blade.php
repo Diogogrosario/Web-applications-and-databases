@@ -76,7 +76,7 @@
                 data-bs-parent="#filterSideBar">
                 <div class="accordion-body">
                     <div class="list-group h-100">
-                        <ul class="list-group">
+                        <ul id="starButtons" class="list-group">
                             <li class="list-group-item">
                                 <input class="form-check-input me-1" type="checkbox" id="5starFilter">
                                 <label for="5starFilter"> 5 star</label><br>

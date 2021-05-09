@@ -15,6 +15,16 @@ function addPriceFilterEventListeners() {
     }*/
 }
 
+function addStarFilterEventListeners() {
+    starList = document.querySelector('#starButtons');
+    let priceRangeButtons = starList.querySelectorAll('li');
+    for(let priceRangeCheckbox of priceRangeButtons)
+    {
+        priceRangeCheckbox.addEventListener("change", seeNotification);
+    }
+}
+
+
 function seeNotification(event) {
     
     let url = "searchResultsAjax";
@@ -46,9 +56,13 @@ function seeNotification(event) {
         }
     }
 
-
-    let data = {"priceRanges": priceRangeValues, "category": category, "search": search};
-
+    let data;
+    if(priceRangeValues.length > 0){
+        data = {"priceRanges": priceRangeValues, "category": category, "search": search};
+    }
+    else{
+        data = {"category": category, "search": search};
+    }
 
     sendAjaxRequest('POST', url, data, function () {
         if (this.status === 200) {
@@ -93,3 +107,4 @@ function findGetParameter(parameterName) {
 }
 
 addPriceFilterEventListeners();
+addStarFilterEventListeners();
