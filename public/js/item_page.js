@@ -6,6 +6,14 @@ function addEventListeners() {
         reviewForm.addEventListener("click", submitNewReviewRequest);
 }
 
+function addItem(item){
+    console.log("Add item");
+}
+
+function deleteItem(item){
+    console.log("Delete item");
+}
+
 
 function submitNewReviewRequest(event) {
     event.preventDefault();
