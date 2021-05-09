@@ -168,9 +168,16 @@
                         </li>   
                     @else
                         <li class="list-group-item d-flex">
-                            <section class="col-10">
-                                <a href={{"/item/" . $notification["item_id"]}}>{{ $notification["name"] }}</a> from your wish list has stock again!
-                            </section>
+                            @if (Auth::user()["is_admin"] and $notification["stock"] == 0)
+                                <section class="col-10">
+                                    <a href={{"/item/" . $notification["item_id"]}}>{{ $notification["name"] }}</a> has ran out of stock!
+                                </section>
+                            @else
+                                <section class="col-10">
+                                    <a href={{"/item/" . $notification["item_id"]}}>{{ $notification["name"] }}</a> has stock again!
+                                </section>
+                            @endif
+                            
                             <section class="col d-flex align-items-center justify-content-center">
 
                                 <form method="POST" action={{ "/notification/" . $notification->pivot["notification_id"] }}>

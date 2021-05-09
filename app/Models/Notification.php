@@ -11,4 +11,9 @@ class Notification extends Model
     public $timestamps  = false;
     protected $table = 'notification';
     protected $primaryKey = 'notification_id';
+
+    public function item()
+    {
+        return $this->hasOne(Item::class,"item_id");
+    }
 }
