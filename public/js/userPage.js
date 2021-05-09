@@ -69,6 +69,10 @@ function submitNewUsername(){
             let parser = new DOMParser();
             let add = parser.parseFromString(str, 'text/html').body.firstChild;
 
+            let navbarUsername = document.getElementById("navbarUsername");
+            
+            navbarUsername.innerHTML = newUsername + "&nbsp; |";
+
             doc.replaceWith(add);
         }});
 }

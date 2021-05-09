@@ -74,7 +74,7 @@
 
                       <?php } else { ?>
                             <div class="d-flex justify-content-center ">
-                                <a class="nav-link" href={{"/userProfile/" . Auth::id()}} style="color:white !important">{{ Auth::user()["username"] }}&nbsp; |</a>
+                                <a id="navbarUsername" class="nav-link" href={{"/userProfile/" . Auth::id()}} style="color:white !important">{{ Auth::user()["username"] }}&nbsp; |</a>
                                 @if (Auth::user()["is_admin"])
                                 <a class="nav-link ps-0" href={{"/management"}} style="color:white !important">&nbsp;Manage&nbsp; |</a>
                                 @endif
