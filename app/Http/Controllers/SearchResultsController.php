@@ -85,14 +85,31 @@ class SearchResultsController extends Controller
         }
 
 
+
+
         $q = $data['search'];
-        $cat = $data['category'];
+
+        if(isset($data['category'])){
+            $cat = preg_split('/[,]/', $data['category']);
+            $catString = "(";
+            $catString .= "category_id = " . $cat[0];
+            
+            for($i = 1; $i < count($cat); $i++){
+                $catString .= " OR category_id = " . $cat[$i];
+            }
+            
+            $catString .= ")";
+        }
+        else{
+            $cat = -1;
+        }
+
 
         $filteredByCat;
         if(isset($data['starRatings'])){
             if(isset($data['priceRanges'])){
                 if($cat!=null && $cat!=-1){
-                    $searchResults =  Item::where("category_id",$cat);
+                    $searchResults =  Item::whereRaw($catString);//("category_id",$cat);
                     if($q!=null)
                         $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))->whereRaw($priceQuerryString)->whereRaw($starRatingsString)
                         ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
@@ -106,7 +123,7 @@ class SearchResultsController extends Controller
             }
             else{
                 if($cat!=null && $cat!=-1){
-                    $searchResults =  Item::where("category_id",$cat);
+                    $searchResults =  Item::whereRaw($catString);
                     if($q!=null)
                         $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))->whereRaw($starRatingsString)
                         ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
@@ -121,7 +138,7 @@ class SearchResultsController extends Controller
         else{
             if(isset($data['priceRanges'])){
                 if($cat!=null && $cat!=-1){
-                    $searchResults =  Item::where("category_id",$cat);
+                    $searchResults =  Item::whereRaw($catString);
                     if($q!=null)
                         $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))->whereRaw($priceQuerryString)
                         ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
@@ -135,7 +152,7 @@ class SearchResultsController extends Controller
             }
             else{
                 if($cat!=null && $cat!=-1){
-                    $searchResults =  Item::where("category_id",$cat);
+                    $searchResults =  Item::whereRaw($catString);
                     if($q!=null)
                         $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
                         ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
