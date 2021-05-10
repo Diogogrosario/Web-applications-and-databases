@@ -36,7 +36,13 @@ Route::delete('/userProfile/{id}', 'UserController@deleteAccount');
 
 
 // Edit user profile
-Route::patch('userProfile/edit', 'UserController@edit');
+Route::patch('userProfile/editUsername', 'UserController@editUsername');
+Route::patch('userProfile/editShippingAddress', 'UserController@editShipAddr');
+Route::post('userProfile/edit', 'UserController@edit');
+
+Route::get("userProfile/edit/getShippingInfo", 'UserController@getShippingInfo');
+Route::get('userProfile/edit/getShippingForm', 'UserController@getShippingForm');
+
 
 // API
 Route::get("api/item", 'ItemController@getItems');

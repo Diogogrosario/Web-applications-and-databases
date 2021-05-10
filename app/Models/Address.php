@@ -13,6 +13,10 @@ class Address extends Model
     protected $table = 'address';
     protected $primaryKey = 'address_id';
 
+    protected $fillable = [
+        'country_id','street', 'city',
+    ];
+
     public function country()
     {
         return $this->belongsTo(Country::class,'country_id')->get()[0];

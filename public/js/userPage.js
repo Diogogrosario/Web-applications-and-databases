@@ -4,12 +4,6 @@ function addEventListeners() {
     {
         notificationButton.addEventListener("click", seeNotification);
     }
-
-    // let submitButton = document.getElementById("submitNewUsername");
-    // submitButton.addEventListener("click",submitNewUsername);
-
-    // let cancelButton = document.getElementById("cancelNewUsername");
-    // submitButton.addEventListener("click",submitNewUsername);
 }
 
 function editUsernameForm(username, id){
@@ -30,7 +24,6 @@ function editUsernameForm(username, id){
     let parser = new DOMParser();
     let add = parser.parseFromString(str, 'text/html').body.firstChild;
 
-    console.log(add);
     doc.replaceWith(add);
 
     //can't add in the beggining since these buttons do not exist
@@ -53,10 +46,9 @@ function submitNewUsername(){
 
     let data = {'username': newUsername};
 
-    let url = "/userProfile/edit";
+    let url = "/userProfile/editUsername";
 
     sendAjaxRequest('PATCH', url, data, function () {
-        console.log(this.response);
         if (this.status === 200) {
 
             let str = `<section id="userNameContent">
@@ -111,7 +103,6 @@ function seeNotification(event) {
 
     sendAjaxRequest('PATCH', url, data, function () {
         if (this.status === 200) {
-            // console.log(jsonData);
             button.closest("li").remove();
         }});
 }
@@ -126,6 +117,60 @@ function deleteAccount(id) {
         if (this.status === 200) {
             window.location.replace('/');
         }});
+}
+
+function getShippingEditForm()
+{
+    let url = "/userProfile/edit/getShippingForm";
+
+    sendAjaxRequest('GET', url, null, function () {
+        if (this.status === 200) {
+            let doc = document.getElementById("userShipping");
+            let parser = new DOMParser();
+            let add = parser.parseFromString(this.response, 'text/html').body.firstChild;
+
+            doc.replaceWith(add);
+
+            document.getElementById("submitNewAddress").addEventListener("click",submitNewShippingInfo);
+        }});
+}
+
+function getShippingInfo()
+{
+    let url = "/userProfile/edit/getShippingInfo";
+
+    sendAjaxRequest('GET', url, null, function () {
+        if (this.status === 200) {
+            let doc = document.getElementById("userShipping");
+            let parser = new DOMParser();
+            let add = parser.parseFromString(this.response, 'text/html').body.firstChild;
+
+            doc.replaceWith(add);
+        }});    
+}
+
+function submitNewShippingInfo(event)
+{
+    event.preventDefault();
+    let url = "/userProfile/editShippingAddress";
+
+    let newCountryDropdown = document.getElementById("newCountry");
+    let newCountry = newCountryDropdown.value;
+
+    let newCity = document.getElementById("newCity").value;
+
+    let newStreet = document.getElementById("newStreet").value;
+
+    let data = {'newStreet': newStreet, "newCountry": newCountry, "newCity": newCity};
+
+    sendAjaxRequest('PATCH', url, data, function () {
+        if (this.status === 200) {
+            let doc = document.getElementById("userShipping");
+            let parser = new DOMParser();
+            let add = parser.parseFromString(this.response, 'text/html').body.firstChild;
+
+            doc.replaceWith(add);
+        }});    
 }
 
 addEventListeners();
