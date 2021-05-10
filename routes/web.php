@@ -30,6 +30,8 @@ Route::get('management', 'ManagementController@show')->middleware('admin');
 Route::get('management/manageUsers', 'UserAdministrationController@show')->middleware('admin');
 Route::get('management/addItem', 'AddItemController@show')->middleware('admin');
 Route::post('management/item/{id}', 'ItemController@updateItem')->middleware('admin');
+Route::patch('management/item/{id}', 'ItemController@putAvailable')->middleware('admin');
+Route::delete('management/item/{id}', 'ItemController@deleteItem')->middleware('admin');
 
 // API
 Route::get("api/item", 'ItemController@getItems');

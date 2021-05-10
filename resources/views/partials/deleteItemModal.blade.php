@@ -1,3 +1,5 @@
+
+<section id="deleteItemSection">
 <div class="modal fade" id="deleteItemModal_{{$item['item_id']}}" data-id="{{$item['item_id']}}" tabindex="-1" aria-labelledby="deleteItemModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -34,8 +36,12 @@
                     </div>
                 </div>
                 <div class="text-center my-1" > Are you sure you want to delete? </div>
-                <button type="button" onclick="deleteItem({{$item}})" id="deleteItemButton" class="btn btn-secondary close_modals w-100" data-bs-dismiss="modal">Yes</button>
+                <button type="button" onclick="deleteItem({{$item["item_id"]}})" id="deleteItemButton" class="btn btn-secondary close_modals w-100" data-bs-dismiss="modal">Yes</button>
             </div> 
         </div>
     </div>
 </div>
+<button type="button" class="btn btn-dark w-100 btn-lg rounded-bottom rounded-0" data-bs-toggle="modal" data-bs-target="#deleteItemModal_{{$item['item_id']}}">
+    <i class="bi bi-trash-fill"></i> Delete item
+</button>
+</section>

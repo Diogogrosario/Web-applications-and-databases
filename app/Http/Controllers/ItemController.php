@@ -29,25 +29,6 @@ class ItemController extends Controller
         return $item;
     }
 
-    /**
-     * Updates the state of an individual item.
-     *
-     * @param  int  $id
-     * @param  Request request containing the new state
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        $item = Item::find($id);
-        if(is_null($item))
-        {
-            abort(404);
-        }
-        $this->authorize('update', $item);
-        $item->done = $request->input('done');
-        $item->save();
-        return $item;
-    }
 
     /**
      * Deletes an individual item.
@@ -116,6 +97,29 @@ class ItemController extends Controller
             abort(404);
 
         return $item;
+    }
+
+    public function putAvailable($id){
+        $item = Item::findOrFail($id);
+
+
+        $this->authorize('update', $item);
+        $item["is_archived"] = false;
+
+        $item->save();
+
+        return view("partials.deleteItemModal")->with("item",$item);
+    }
+ 
+    public function deleteItem($id){
+        $item = Item::findOrFail($id);
+
+        $this->authorize('update', $item);
+        $item["is_archived"] = true;
+        
+        $item->save();
+
+        return view("partials.addItemModal")->with("item",$item);
     }
 
     public function updateItem(Request $request,$id){

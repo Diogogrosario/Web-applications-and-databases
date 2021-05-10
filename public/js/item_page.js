@@ -6,12 +6,39 @@ function addEventListeners() {
         reviewForm.addEventListener("click", submitNewReviewRequest);
 }
 
-function addItem(item){
-    console.log("Add item");
+function addItem(item_id){
+    let url = "/management/item/" + item_id;
+
+    let data = null;
+
+    sendAjaxRequest('PATCH', url, data, function () {
+        console.log(this.response);
+        if (this.status === 200) {
+            // console.log(jsonData);
+            let sectionToRemove = document.getElementById("addItemSection");
+            let parser = new DOMParser();
+            let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
+            console.log(add);
+            sectionToRemove.replaceWith(add);
+
+        }});
 }
 
-function deleteItem(item){
-    console.log("Delete item");
+function deleteItem(item_id){
+    let url = "/management/item/" + item_id;
+
+    let data = null;
+
+    sendAjaxRequest('DELETE', url, data, function () {
+        console.log(this.response);
+        if (this.status === 200) {
+            // console.log(jsonData);
+            let sectionToRemove = document.getElementById("deleteItemSection");
+            let parser = new DOMParser();
+            let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
+            console.log(add);
+            sectionToRemove.replaceWith(add);
+        }});
 }
 
 
@@ -24,7 +51,7 @@ function submitNewReviewRequest(event) {
 
     let review_text = document.getElementById("new_review_text").value;
     let star_selected = document.querySelector("input[name=rate]:checked");
-
+c
     if(star_selected == null)
     {
         let starForm = document.getElementById("newReviewStar");

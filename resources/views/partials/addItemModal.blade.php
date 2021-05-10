@@ -1,3 +1,5 @@
+
+<section id="addItemSection">
 <div class="modal fade" id="addItemModal_{{$item['item_id']}}" data-id="{{$item['item_id']}}" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -35,8 +37,12 @@
                 </div>
                 
                 <div class="text-center my-1" > Are you sure you want to re-add this item for sale? </div>
-                <button type="button" onclick="addItem({{$item}})" id="addItemButton" class="btn btn-secondary close_modals w-100" data-bs-dismiss="modal">Yes</button>
+                <button type="button" onclick="addItem({{$item["item_id"]}})" id="addItemButton" class="btn btn-secondary close_modals w-100" data-bs-dismiss="modal">Yes</button>
             </div> 
         </div>
     </div>
 </div>
+<button type="button" class="btn btn-dark w-100 btn-lg rounded-bottom rounded-0" data-bs-toggle="modal" data-bs-target="#addItemModal_{{$item['item_id']}}">
+    <i class="bi bi-plus-circle-fill"></i> Put item back on sale
+</button>
+</section>

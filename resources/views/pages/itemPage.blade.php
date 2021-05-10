@@ -134,15 +134,9 @@
                                         <i class="bi bi-pencil-square"></i> Edit item
                                     </button>
                                     @if (!$item["is_archived"])
-                                    @include('partials.deleteItemModal',array($item))
-                                    <button type="button" class="btn btn-dark w-100 btn-lg rounded-bottom rounded-0" data-bs-toggle="modal" data-bs-target="#deleteItemModal_{{$item['item_id']}}">
-                                        <i class="bi bi-trash-fill"></i> Delete item
-                                    </button>
+                                        @include('partials.deleteItemModal',array($item))
                                     @else
-                                    @include('partials.addItemModal',array($item))
-                                    <button type="button" class="btn btn-dark w-100 btn-lg rounded-bottom rounded-0" data-bs-toggle="modal" data-bs-target="#addItemModal_{{$item['item_id']}}">
-                                        <i class="bi bi-plus-circle-fill"></i> Put item back on sale
-                                    </button>
+                                        @include('partials.addItemModal',array($item))
                                     @endif
                                 @endif
                             </div>
