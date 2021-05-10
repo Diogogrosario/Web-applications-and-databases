@@ -4,6 +4,38 @@ function addEventListeners() {
     let reviewForm = document.querySelector('#newReviewForm button');
     if(reviewForm != null)
         reviewForm.addEventListener("click", submitNewReviewRequest);
+    let editItemButton = document.getElementById("editItemButton");
+    if(editItemButton!= null)
+        editItemButton.addEventListener("click", editItemRequest);
+}
+
+function editItemRequest(event){
+    event.preventDefault();
+    let item_id = this.getAttribute("data-id");
+    let url = "/management/item/" + item_id;
+
+    let stock = document.getElementById("new_stock_"+item_id).value;
+    let price = document.getElementById("new_price_"+item_id).value;
+    let data = {"stock": stock, "price": price};
+
+    sendAjaxRequest('POST', url, data, function () {
+        console.log(this.response);
+        if (this.status === 200) {
+            let stockDisplay = document.getElementById("stockDisplay");
+            stockDisplay.innerHTML = stock;
+            let priceDisplay = document.getElementById("productPrice");
+            priceDisplay.innerHTML = "$"+price;
+            let addCartModalPriceDisplay = document.getElementById("addCartModalPrice");
+            addCartModalPriceDisplay.innerHTML = "$"+price;
+            let editCartModalPriceDisplay = document.getElementById("editCartModalPrice");
+            editCartModalPriceDisplay.innerHTML = "$"+price;
+            let readdCartModalPriceDisplay = document.getElementById("readdCartModalPrice");
+            if(readdCartModalPriceDisplay != null)
+                readdCartModalPriceDisplay.innerHTML = "$"+price;
+            let deleteCartModalPriceDisplay = document.getElementById("deleteCartModalPrice");
+            if(deleteCartModalPriceDisplay != null)
+                deleteCartModalPriceDisplay.innerHTML = "$"+price;
+        }});
 }
 
 function addItem(item_id){

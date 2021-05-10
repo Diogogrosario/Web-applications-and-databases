@@ -109,7 +109,7 @@
                                 <div class="ps-lg-4 ps-md-0 text-lg-start text-center mb-3" id="productPrice" style="color:red; font-size:3em;">
                                      {{ $item["price"] }} {{-- TODO: DISCOUNTS --}}
                                 </div>
-                                <div class="text-center fs-5 mb-1"><span style="color:green">{{ $item["stock"] }}</span> in stock</div>
+                                <div class="text-center fs-5 mb-1"><span id="stockDisplay" style="color:green">{{ $item["stock"] }}</span> in stock</div>
 
 
                                 <button type="button" class="btn btn-success w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#addCartModal_{{$item['item_id']}}">

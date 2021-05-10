@@ -23,7 +23,7 @@
                                 <div class="h-50 align-items-center mt-lg-0 mt-2 text-center">
                                     <span>
                                         {{-- TODO: check for discounts --}}
-                                        <span class="title fs-3 itemPrice" style="color:#e3203e">{{ $item["price"] }}</span>
+                                        <span class="title fs-3 itemPrice" id="editCartModalPrice" style="color:#e3203e">{{ $item["price"] }}</span>
                                         {{-- <small class="align-top itemPreviousPriceDiscount">    <--- original price
                                             <span class="title text-decoration-line-through">360€</span>
                                         </small> --}}
@@ -39,9 +39,9 @@
                     <input required type="number" class="form-control" name="stock" id="new_stock_{{$item['item_id']}}" value={{ $item["stock"] }} placeholder="Amount, I.e: 20">
 
                     <label for="new_price_{{$item['item_id']}}" class="col form-label"> New Price?</label>
-                    <input required type="number" name="price" class="form-control" id="new_price_{{$item['item_id']}}" value={{ $item->getPriceInt() }} placeholder="Amount, I.e: 20">
+                    <input required type="number" step="0.01" name="price" class="form-control" id="new_price_{{$item['item_id']}}" value={{ $item->getPriceInt() }} placeholder="Amount, I.e: 20">
                     
-                    <button type="submit" class="btn btn-primary edit_item w-100">Edit Item</button>
+                    <button type="submit" id="editItemButton" data-id="{{$item['item_id']}}" class="btn btn-primary edit_item w-100" data-bs-dismiss="modal">Edit Item</button>
                     <button type="button" class="btn btn-secondary close_modals w-100" data-bs-dismiss="modal">Cancel</button>
                 </form>
             </div> 
