@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
+use App\Models\Address;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -46,22 +47,38 @@ class UserController extends Controller
         $street = $request->input("newStreet");
         $country = $request->input("newCountry");
         $city = $request->input("newCity");
+        $zip = $request->input("newZip");
 
         if($username != null)
         {
             $user["username"] = $username;
         }
-        if($street != null)
-        {
-            $userShipAddress["street"] = $street;
+        if($userShipAddress == null){
+            $userShipAddress = Address::create([
+                'country_id' => $country,
+                'street' => $street,
+                'city' => $city,
+                'zip_code' => $zip
+            ]);
+            $user["shipping_address"] = $userShipAddress["address_id"];
         }
-        if($country != null)
-        {
-            $userShipAddress["country_id"] = $country;
-        }
-        if($city != null)
-        {
-            $userShipAddress["city"] = $city;
+        else{
+            if($street != null && $street != "")
+            {
+                $userShipAddress["street"] = $street;
+            }
+            if($country != null && $country != "")
+            {
+                $userShipAddress["country_id"] = $country;
+            }
+            if($city != null && $city != "")
+            {
+                $userShipAddress["city"] = $city;
+            }
+            if($zip != null && $zip != "")
+            {
+                $userShipAddress["zip_code"] = $zip;
+            }
         }
         
         $userShipAddress->save();
@@ -94,23 +111,40 @@ class UserController extends Controller
         $user = Auth::user();
         $this->authorize('edit', $user);
 
-        $userShipAddress = Auth::user()->shippingAddress();
-
         $street = $request->input("newStreet");
         $country = $request->input("newCountry");
         $city = $request->input("newCity");
+        $zip = $request->input("newZip");
 
-        if($street != null && $street != "")
-        {
-            $userShipAddress["street"] = $street;
+        
+
+        $userShipAddress = Auth::user()->shippingAddress();
+        if($userShipAddress == null){
+            $userShipAddress = Address::create([
+                'country_id' => $country,
+                'street' => $street,
+                'city' => $city,
+                'zip_code' => $zip
+            ]);
+            $user["shipping_address"] = $userShipAddress["address_id"];
         }
-        if($country != null && $country != "")
-        {
-            $userShipAddress["country_id"] = $country;
-        }
-        if($city != null && $city != "")
-        {
-            $userShipAddress["city"] = $city;
+        else{
+            if($street != null && $street != "")
+            {
+                $userShipAddress["street"] = $street;
+            }
+            if($country != null && $country != "")
+            {
+                $userShipAddress["country_id"] = $country;
+            }
+            if($city != null && $city != "")
+            {
+                $userShipAddress["city"] = $city;
+            }
+            if($zip != null && $zip != "")
+            {
+                $userShipAddress["zip_code"] = $zip;
+            }
         }
         
         $userShipAddress->save();

@@ -14,6 +14,10 @@
                     <td>Not Set</td>
                 </tr>
                 <tr>
+                    <th scope="row">Zip-Code</th>
+                    <td>Not Set</td>
+                </tr>
+                <tr>
                     <th scope="row">Country</th>
                     <td>Not Set</td>
                 </tr>
@@ -27,6 +31,10 @@
                 <tr>
                     <th scope="row">City</th>
                     <td>{{ $user->shippingAddress()["city"] }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Zip-Code</th>
+                    <td>{{ $user->shippingAddress()["zip_code"] }}</td>
                 </tr>
                 <tr>
                     <th scope="row">Country</th>

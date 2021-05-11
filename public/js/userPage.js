@@ -131,7 +131,6 @@ function getShippingEditForm()
 
             doc.replaceWith(add);
 
-            document.getElementById("submitNewAddress").addEventListener("click",submitNewShippingInfo);
         }});
 }
 
@@ -161,9 +160,15 @@ function submitNewShippingInfo(event)
 
     let newStreet = document.getElementById("newStreet").value;
 
-    let data = {'newStreet': newStreet, "newCountry": newCountry, "newCity": newCity};
+    let zip = document.getElementById("newZip").value;
+
+    console.log(zip);
+
+    let data = {'newStreet': newStreet, "newCountry": newCountry, "newCity": newCity, "newZip": zip};
 
     sendAjaxRequest('PATCH', url, data, function () {
+        console.log(this.response);
+
         if (this.status === 200) {
             let doc = document.getElementById("userShipping");
             let parser = new DOMParser();
