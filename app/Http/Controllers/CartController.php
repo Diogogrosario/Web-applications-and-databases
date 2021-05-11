@@ -56,7 +56,7 @@ class CartController extends Controller
         if($deleted <= 0) {
             return response()->json("Product not in the user's cart", 406);
         } else {
-            return response()->json("Product removed from cart successfuly", 200);
+            return response()->json(['total'=> $user->cartTotal()], 200);
         }
     }
 
@@ -69,15 +69,16 @@ class CartController extends Controller
         if($user == null) {
             return response()->json("Unauthenticated", 401);
         }
-        $user_id = $user['user_id'];
+        
 
-        return DB::transaction(function() use ($id, $quantity, $user_id) {
+        return DB::transaction(function() use ($id, $quantity, $user) {
 
             $item = Item::find($id);
-            
+            $user_id = $user['user_id'];
+
             if($item["stock"] >= $quantity) {
                 DB::update('update cart set quantity = ? where user_id = ? and item_id = ?', [$quantity, $user_id, $id]);
-                return response()->json("Item quantity updated successfuly.", 200);
+                return response()->json(['total'=> $user->cartTotal()], 200);
             } else {
                 return response()->json("Item does not have enough stock", 406);
             }

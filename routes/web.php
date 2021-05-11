@@ -78,3 +78,5 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::post('notification/{notificationId}', 'NotificationController@putIsSeen');
 Route::patch('notification/{notificationId}', 'NotificationController@putIsSeenAjax');
 
+// Checkout
+Route::get("checkout/address/{type}", 'CheckoutController@getAddressForm');

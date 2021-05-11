@@ -72,6 +72,7 @@ function removeFromCart(event) {
             let cartItem = document.querySelector('div.cart-item[data-id="'+product_id+'"]');
             if(cartItem != null)
                 cartItem.remove();
+            checkEmpty(JSON.parse(this.responseText)['total'])
         }
     });
 }
@@ -92,14 +93,30 @@ function updateQuantity(event) {
 
     sendAjaxRequest("PATCH", url, {'quantity': quantity}, function() {
         console.log(this.responseText);
+
         if(this.status != 200) {
             console.log("error");
             input.value = quantities[product_index];
         } else {
             quantities[product_index] = quantity;
             // input.value = quantity;
+            checkEmptyAndValue(JSON.parse(this.responseText)['total'])
         }
     });
+}
+
+function checkEmptyAndValue(total) {
+    let list = document.querySelector('#cartList');
+    let totalElement = document.querySelector('#cart_total')
+    totalElement.innerHTML = total;
+    if(list.children.length == 0) {
+        let emptyCartP = document.createElement('p');
+        emptyCartP.style = "background-color:#e8d0b0;"
+        emptyCartP.classList.add("text-center");
+        emptyCartP.classList.add("fs-3");
+        emptyCartP.innerHTML = "Your cart is empty";
+        list.appendChild(emptyCartP);
+    }
 }
 
 addEventListeners();

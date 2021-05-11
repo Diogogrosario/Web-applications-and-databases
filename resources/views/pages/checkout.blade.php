@@ -12,7 +12,7 @@
 <div class="p-0" style="background-color:#f2f2f2;">
     <div id="checkoutPage" class="container col-lg-7 col-md-11 p-lg-4 p-3 shadow-sm h-100" style="background-color:white">
         <h2 class="ps-lg-5 mb-4">Checkout</h2>
-        <form>
+        <form method="post">
             <ul class="nav nav-tabs mb-3 nav-fill text-center" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active w-100" id="pills-overview-tab" data-bs-toggle="pill" data-bs-target="#pills-overview" type="button" role="tab" aria-controls="pills-overview" aria-selected="false">
@@ -54,12 +54,14 @@
                 </div>
 
                 <div class="tab-pane fade" id="pills-addresses" role="tabpanel" aria-labelledby="pills-addresses-tab">
+                    
+
                     <div class="row p-4" id="addresses_checkout">
                         <div id="billingAddressDiv_checkout" class="col-lg-6 col-12">
                             <h4 class="text-center mb-4">Billing Address</h4>
                             <div class="form-check mt-4 ps-5">
-                                <input class="form-check-input" checked type="checkbox" value="useDefinedBilling" id="useDefinedBilling">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                <input class="form-check-input" type="checkbox" value="" id="useDefinedBilling">
+                                <label class="form-check-label" for="useDefinedBilling">
                                     Use previously defined billing address
                                 </label>
                             </div>
@@ -103,32 +105,15 @@
                                         </tr>
                                     </tbody>
                                 @endif
-                                {{-- <tbody>
-                                    <tr>
-                                        <th scope="row">Address</th>
-                                        <td>Rua Yay nº20 Areias</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">City</th>
-                                        <td>Santo Tirso</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Country</th>
-                                        <td>Portugal</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Zip Code</th>
-                                        <td>5960-313</td>
-                                    </tr>
-                                </tbody> --}}
                             </table>
                         </div>
-                        <div id="shippingAddressDiv_checkout" class="col-lg-6">
+
+                        <div class="col-lg-6 addressForm">
                             <h4 class="text-center mb-4">Shipping Address</h4>
                             <div class="row mt-4 ps-3">
                                 <div class="form-check text-md-start col-12">
-                                    <input class="form-check-input" type="radio" name="shippingAddress" id="shippindAddressDefines">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                    <input class="form-check-input" type="radio" name="shippingAddress" id="useDefinedShipping">
+                                    <label class="form-check-label" for="useDefinedShipping">
                                         Use previously defined shipping address
                                     </label>
                                 </div>
@@ -139,7 +124,7 @@
                                     </label>
                                 </div>
                                 <div class="form-check text-md-start col-12">
-                                    <input class="form-check-input" checked type="radio" name="shippingAddress" id="shippingEqualBilling">
+                                    <input class="form-check-input" checked type="radio" name="shippingAddress" id="otherShipping">
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Insert a different shipping address
                                     </label>
@@ -166,6 +151,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <footer class="ps-4 mt-3 row">
                             <button type="button" class="btn btn-dark col-lg-3 col-12"><i class="bi bi-arrow-left-circle"></i> Go Back</button>
                             <button type="button" class="btn btn-success offset-lg-6 col-lg-3 col-12">Proceed to Payment <i class="bi bi-arrow-right-circle"></i></button>
@@ -176,7 +162,7 @@
                 <div class="tab-pane fade" id="pills-shipping" role="tabpanel" aria-labelledby="pills-shipping-tab">
                     <div id="shippingChoose" class="p-3 px-lg-5 px-md-2 px-1">
                         <h5 class="mb-4 ms-4 text-lg-start text-center">Please select the desired shipping method</h5>
-                        <ul class="list-group list-group-flush">
+                        {{-- <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <div class="form-check row">
                                     <div class="col-1">
@@ -225,7 +211,7 @@
                                     </div>
                                 </div>
                             </li>
-                        </ul>
+                        </ul> --}}
                         <footer class="text-end mt-5 row">
                             <button type="button" class="btn btn-dark col-lg-3 col-12"><i class="bi bi-arrow-left-circle"></i> Go Back</button>
                             <button type="button" class="btn btn-success offset-lg-6 col-lg-3 col-12">Proceed to Payment <i class="bi bi-arrow-right-circle"></i></button>
@@ -245,44 +231,21 @@
                         </div>
 
                         <div id="paymentMethods" class="mt-4">
-                            <h5 class="mb-4 ms-4 text-lg-start text-center">Please select the desired payment method</h5>
-                            <ul class="list-group list-group-flush px-lg-5">
+                            <h5 class="mb-4 ms-4 text-lg-start text-center">Please select the desired payment method to conclude purchase</h5>
+                            <ul class="list-group list-group-flush px-lg-5 text-center">
                                 <li class="list-group-item">
-                                    <div class="form-check row">
-                                        <div class="col-1">
-                                            <input class="form-check-input" type="radio" name="paymentMethod" id="ballance">
-                                        </div>
-                                        <div class="col-12">
-                                            <label class="form-check-label row" for="ballance">
-                                                <img src="images/payments/wallet.png" class="d-md-inline d-none col-2 img-fluid thumbnail">
-                                                <div class="col-7 ps-3 fs-5" class="paymentName">
-                                                    Account Ballance
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
+                                    <button type="button" class="btn btn-success">Pay with account balance</button>
                                 </li>
-                                <li class="list-group-item">
-                                    <div class="form-check row">
-                                        <div class="col-1">
-                                            <input class="form-check-input" type="radio" name="paymentMethod" id="paypal">
-                                        </div>
-                                        <div class="col-12">
-                                            <label class="form-check-label row" for="paypal">
-                                                <img src="images/payments/paypal.png" class="d-md-inline d-none col-2 img-fluid thumbnail">
-                                                <div class="col-7 ps-3 fs-5" class="paymentName">
-                                                    PayPal
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
+                                <li class="list-group-item d-block">
+                                    <a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_SbyPP_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark"></a>
+                                    <button type="button" class="btn btn-warning">Pay with Paypal</button>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <footer class="text-end mt-5 row">
                         <button type="button" class="btn btn-dark col-lg-3 col-12"><i class="bi bi-arrow-left-circle"></i> Go Back</button>
-                        <button type="button" class="btn btn-success offset-lg-6 col-lg-3 col-12">Finish and Pay</button>
+                        {{-- <button type="button" class="btn btn-success offset-lg-6 col-lg-3 col-12">Finish and Pay</button> --}}
                     </footer>
                 </div>
             </div>

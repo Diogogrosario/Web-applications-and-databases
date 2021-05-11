@@ -29,7 +29,7 @@
     <section class="col-lg-3 flex-column d-flex border-start justify-content-center pb-3" id="totalInfo">
         <section class="pb-4">
             <div class="text-center mx-auto fs-5">Total (w/ IVA):</div>
-            <div class="fs-4 text-center mx-auto">{{$user->cartTotal()}}</div>
+            <p class="fs-4 text-center mx-auto" id="cart_total">{{$user->cartTotal()}}</p>
         </section>
         <div class="text-center ">
             <form action="/checkout">
