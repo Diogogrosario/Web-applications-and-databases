@@ -40,7 +40,11 @@ function checkSelectedCategory(){
     let catRangeButtons = catList.querySelectorAll('li');
     let category = findGetParameter("category");
     if(category != -1 && category != null){
-        catRangeButtons[category].querySelector("input").checked = true;
+        let tmp = document.getElementById(category);
+        if(tmp != null){
+            tmp.checked = true;
+        }
+        //catRangeButtons[category].querySelector("input").checked = true;
     }
 }
 
@@ -60,7 +64,7 @@ function seeNotification(event) {
 
     for(let i = 0; i < catItems.length; i++){
         if(catItems[i].querySelector("input:checked") != null){
-            category.push(i);
+            category.push(catItems[i].querySelector("input").value);
         }
     }
 
@@ -115,9 +119,10 @@ function seeNotification(event) {
 
 
 
-    let data;
-    data = {"search": search};
-        
+    let data = {};
+    if(search != null){
+        data["search"] = search;
+    }
     if(category.length > 0){
         data["category"] = category;
     }
@@ -130,6 +135,7 @@ function seeNotification(event) {
     }
 
     sendAjaxRequest('POST', url, data, function () {
+        console.log(this.response);
         if (this.status === 200) {
             let searchPage = document.querySelector("#searchPage");
             

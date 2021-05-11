@@ -58,7 +58,7 @@
                         <ul id="categoryButtons" class="list-group">
                             @foreach ($categories as $cat)
                                 <li class="list-group-item">
-                                    <input type="checkbox" name="category" value={{$cat["category_id"]}}>
+                                    <input type="checkbox" name="category" id={{$cat["category_id"]}} value={{$cat["category_id"]}}>
                                     {{$cat["name"]}}  
                                 </li>                 
                             @endforeach

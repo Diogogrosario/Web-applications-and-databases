@@ -41,8 +41,8 @@
                         <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example" id="category" name="category">
                             <option selected value="-1">All</option>
 
-                            @foreach ($categories as $key => $cat)
-                                    <option value={{$key+1}}>{{$cat["name"]}}</option>
+                            @foreach ($categories as $cat)
+                                    <option value={{$cat["category_id"]}}>{{$cat["name"]}}</option>
                             @endforeach
                         @endif
                         
@@ -93,8 +93,8 @@
                     <select class="form-select fs-lg-3" aria-placeholder="Category" id="search_category" aria-label="Default select example" name="category">
                         <option selected value="-1">All</option>
 
-                        @foreach ($categories as $key => $cat)
-                            <option value={{$key}}>{{$cat["name"]}}</option>
+                        @foreach ($categories as $cat)
+                            <option value={{$cat["category_id"]}}>{{$cat["name"]}}</option>
                         @endforeach
 
                     </select>
