@@ -13,31 +13,31 @@
                 <div class="accordion-body">
                     <ul id="priceButtons" class="list-group">
                         <li class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="0-50" aria-label="...">
+                            <input class="form-check-input me-1" type="checkbox" id="0-50" value="0-50" aria-label="...">
                             0-50€
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="50-100" aria-label="...">
+                            <input class="form-check-input me-1" type="checkbox" id="50-100" value="50-100" aria-label="...">
                             50-100€
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="100-200" aria-label="...">
+                            <input class="form-check-input me-1" type="checkbox" id="100-200" value="100-200" aria-label="...">
                             100-200€
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="200-500" aria-label="...">
+                            <input class="form-check-input me-1" type="checkbox" id="200-500" value="200-500" aria-label="...">
                             200-500€
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="500-1000" aria-label="...">
+                            <input class="form-check-input me-1" type="checkbox" id="500-1000" value="500-1000" aria-label="...">
                             500-1000€
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="1000-2000" aria-label="...">
+                            <input class="form-check-input me-1" type="checkbox" id="1000-2000" value="1000-2000" aria-label="...">
                             1000-2000€
                         </li>
                         <li class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="2000-" aria-label="...">
+                            <input class="form-check-input me-1" type="checkbox" id="2000-" value="2000-" aria-label="...">
                             < 2000€
                         </li>
                     </ul>

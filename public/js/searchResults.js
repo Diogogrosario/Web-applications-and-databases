@@ -6,14 +6,14 @@ function addPriceFilterEventListeners() {
     let priceRangeButtons = priceRangeList.querySelectorAll('li');
     for(let priceRangeCheckbox of priceRangeButtons)
     {
-        priceRangeCheckbox.addEventListener("change", seeNotification);
+        priceRangeCheckbox.addEventListener("change", filterItems);
     }
     /*let notificationButtons = document.querySelectorAll('.deleteNotificationButton');
     console.log(notificationButtons);
     for(let notificationButton of notificationButtons)
     {
         console.log(notificationButton.getAttribute("data-id"));
-        notificationButton.addEventListener("click", seeNotification);
+        notificationButton.addEventListener("click", filterItems);
     }*/
 }
 
@@ -22,7 +22,7 @@ function addStarFilterEventListeners() {
     let priceRangeButtons = starList.querySelectorAll('li');
     for(let priceRangeCheckbox of priceRangeButtons)
     {
-        priceRangeCheckbox.addEventListener("change", seeNotification);
+        priceRangeCheckbox.addEventListener("change", filterItems);
     }
 }
 
@@ -31,7 +31,7 @@ function addCategoryFilterEventListeners() {
     let catRangeButtons = categoryList.querySelectorAll('li');
     for(let catRangeCheckbox of catRangeButtons)
     {
-        catRangeCheckbox.addEventListener("change", seeNotification);
+        catRangeCheckbox.addEventListener("change", filterItems);
     }
 }
 
@@ -48,8 +48,60 @@ function checkSelectedCategory(){
     }
 }
 
+function checkSelectedCategories(){
+    //let catList = document.querySelector('#categoryButtons');
+    //let catRangeButtons = catList.querySelectorAll('li');
+    let categoryString = findGetParameter("categories");
+    
+    if(categoryString != null && categoryString != ""){
+        let categories = categoryString.split("+");
+        for(let category of categories){
+            if(category != "-1" && category != null && category != ""){
+                let tmp = document.getElementById(category);
+                if(tmp != null){
+                    tmp.checked = true;
+                }
+            }
+        }
+    }
+}
 
-function seeNotification(event) {
+function checkSelectedPrices(){
+    //let catList = document.querySelector('#priceButtons');
+    //let catRangeButtons = catList.querySelectorAll('li');
+    let categoryString = findGetParameter("priceRanges");
+    
+    if(categoryString != null && categoryString != ""){
+        let categories = categoryString.split("+");
+        for(let category of categories){
+            if(category != "" && category != null){
+                let tmp = document.getElementById(category);
+                if(tmp != null){
+                    tmp.checked = true;
+                }
+            }
+        }
+    }
+}
+
+function checkSelectedRatings(){
+    let categoryString = findGetParameter("starRatings");
+    
+    if(categoryString != null && categoryString != ""){
+        let categories = categoryString.split("+");
+        for(let category of categories){
+            if(category != "" && category != null){
+                let tmp = document.getElementById(category + "starFilter");
+                if(tmp != null){
+                    tmp.checked = true;
+                }
+            }
+        }
+    }
+}
+
+
+function filterItems(event) {
     
     let url = "searchResultsAjax";
 
@@ -144,11 +196,10 @@ function seeNotification(event) {
     }
     
     let urlString = createURLString(search, category, priceRangeValues, starRatingValues);
-    console.log(urlString);
     window.history.pushState(state , "Search Results", urlString);
 
     sendAjaxRequest('POST', url, data, function () {
-        console.log(this.response);
+        //console.log(this.response);
         if (this.status === 200) {
             let searchPage = document.querySelector("#searchPage");
             
@@ -191,7 +242,21 @@ function createURLString(search, categories, priceRanges, starRatings){
 
     urlString += "&search=" + search;
 
-    urlString += "&priceRanges=" + search;
+    urlString += "&priceRanges=";
+    let plist = [];
+    let priceItems = priceRangeList.children;
+    for(let i = 0; i < priceItems.length; i++){
+        if(priceItems[i].querySelector("input:checked") != null){
+            plist.push(priceItems[i].querySelector("input").value);
+        }
+    }
+    for(let index = 0; index < plist.length; index++){
+        urlString += plist[index];
+        if(index != plist.length - 1){
+            urlString += "+";
+        }
+    }
+    /*
     for(let index = 0; index < priceRanges.length; index++){
         urlString += priceRanges[index];
         if(index != priceRanges.length - 1){
@@ -200,9 +265,25 @@ function createURLString(search, categories, priceRanges, starRatings){
             else
                 urlString += "+";
         }
-    }
+    }*/
     
-    urlString += "&starRatings=" + search;
+    urlString += "&starRatings=";
+
+    let slist = [];
+    let starItems = starList.children;
+    for(let i = 0; i < starItems.length; i++){
+        if(starItems[i].querySelector("input:checked") != null){
+            slist.push(starItems[i].querySelector("input").value);
+        }
+    }
+    for(let index = 0; index < slist.length; index++){
+        urlString += slist[index];
+        if(index != slist.length - 1){
+            urlString += "+";
+        }
+    }
+
+    /*
     for(let index = 0; index < starRatings.length; index++){
         urlString += starRatings[index];
         if(index != starRatings.length - 1){
@@ -211,7 +292,7 @@ function createURLString(search, categories, priceRanges, starRatings){
             else
                 urlString += "+";
         }
-    }
+    }*/
 
     return urlString;
 }
@@ -231,4 +312,7 @@ function findGetParameter(parameterName) {
 addPriceFilterEventListeners();
 addStarFilterEventListeners();
 addCategoryFilterEventListeners();
-checkSelectedCategory();
+//checkSelectedCategory();
+checkSelectedCategories();
+checkSelectedPrices();
+checkSelectedRatings();
