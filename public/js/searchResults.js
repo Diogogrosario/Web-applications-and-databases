@@ -120,6 +120,7 @@ function seeNotification(event) {
 
 
     let data = {};
+
     if(search != null){
         data["search"] = search;
     }
@@ -133,6 +134,18 @@ function seeNotification(event) {
     if(starRatingValues.length > 0){
         data["starRatings"] = starRatingValues;
     }
+
+    let state = {};
+    state["search"] = search;
+    state["category"] = category[0];
+    state["priceRange"] = priceRangeValues[0];
+    if(search == null){
+        search = "";
+    }
+    
+    let urlString = createURLString(search, category, priceRangeValues, starRatingValues);
+    console.log(urlString);
+    window.history.pushState(state , "Search Results", urlString);
 
     sendAjaxRequest('POST', url, data, function () {
         console.log(this.response);
@@ -163,6 +176,44 @@ function seeNotification(event) {
             // console.log(jsonData);
             button.closest("li").remove();
         }});*/
+}
+
+function createURLString(search, categories, priceRanges, starRatings){
+    var urlString = "searchResults?";
+
+    urlString += "categories=";
+    for(let index = 0; index < categories.length; index++){
+        urlString += categories[index];
+        if(index != categories.length - 1){
+            urlString += "+";
+        }
+    }
+
+    urlString += "&search=" + search;
+
+    urlString += "&priceRanges=" + search;
+    for(let index = 0; index < priceRanges.length; index++){
+        urlString += priceRanges[index];
+        if(index != priceRanges.length - 1){
+            if(index % 2 == 0)
+                urlString += "-"
+            else
+                urlString += "+";
+        }
+    }
+    
+    urlString += "&starRatings=" + search;
+    for(let index = 0; index < starRatings.length; index++){
+        urlString += starRatings[index];
+        if(index != starRatings.length - 1){
+            if(index % 2 == 0)
+                urlString += "-"
+            else
+                urlString += "+";
+        }
+    }
+
+    return urlString;
 }
 
 //https://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript
