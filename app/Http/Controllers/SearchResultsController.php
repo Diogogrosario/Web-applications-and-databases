@@ -191,7 +191,7 @@ class SearchResultsController extends Controller
         $categories = Category::all()->sortBy("category_id");
 
         //    return $items;
-        return view("partials.searchResultList")->with("searchResults", $searchResults);
+        return view("partials.searchResultList")->with("searchResults", $searchResults)->with("categories",$categories);
     }
 
 }

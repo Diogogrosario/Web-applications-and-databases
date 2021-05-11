@@ -8,13 +8,6 @@ function addPriceFilterEventListeners() {
     {
         priceRangeCheckbox.addEventListener("change", filterItems);
     }
-    /*let notificationButtons = document.querySelectorAll('.deleteNotificationButton');
-    console.log(notificationButtons);
-    for(let notificationButton of notificationButtons)
-    {
-        console.log(notificationButton.getAttribute("data-id"));
-        notificationButton.addEventListener("click", filterItems);
-    }*/
 }
 
 function addStarFilterEventListeners() {
@@ -36,21 +29,16 @@ function addCategoryFilterEventListeners() {
 }
 
 function checkSelectedCategory(){
-    let catList = document.querySelector('#categoryButtons');
-    let catRangeButtons = catList.querySelectorAll('li');
     let category = findGetParameter("category");
     if(category != -1 && category != null){
         let tmp = document.getElementById(category);
         if(tmp != null){
             tmp.checked = true;
         }
-        //catRangeButtons[category].querySelector("input").checked = true;
     }
 }
 
 function checkSelectedCategories(){
-    //let catList = document.querySelector('#categoryButtons');
-    //let catRangeButtons = catList.querySelectorAll('li');
     let categoryString = findGetParameter("categories");
     
     if(categoryString != null && categoryString != ""){
@@ -67,8 +55,6 @@ function checkSelectedCategories(){
 }
 
 function checkSelectedPrices(){
-    //let catList = document.querySelector('#priceButtons');
-    //let catRangeButtons = catList.querySelectorAll('li');
     let categoryString = findGetParameter("priceRanges");
     
     if(categoryString != null && categoryString != ""){
@@ -102,9 +88,7 @@ function checkSelectedRatings(){
 
 
 function filterItems(event) {
-    
     let url = "searchResultsAjax";
-
 
     //let category = findGetParameter("category");
     let search = findGetParameter("search");
@@ -168,9 +152,6 @@ function filterItems(event) {
     }
 
     
-
-
-
     let data = {};
 
     if(search != null){
@@ -209,24 +190,6 @@ function filterItems(event) {
             
             
     }});
-    
-    
-
-    //event.preventDefault();
-    /*let notificationId = this.getAttribute("data-id");
-
-    let button = this;
-    
-    let url = "/notification/" + notificationId;
-
-    let data = null;
-
-    sendAjaxRequest('PATCH', url, data, function () {
-        console.log(this.response);
-        if (this.status === 200) {
-            // console.log(jsonData);
-            button.closest("li").remove();
-        }});*/
 }
 
 function createURLString(search, categories, priceRanges, starRatings){

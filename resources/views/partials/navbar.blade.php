@@ -38,7 +38,7 @@
                     <div class="input-group">
                         @if (isset($categories))
 
-                        <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example" id="category" name="category">
+                        <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example" id="category" name="categories">
                             <option selected value="-1">All</option>
 
                             @foreach ($categories as $cat)
