@@ -312,7 +312,7 @@ function findGetParameter(parameterName) {
 addPriceFilterEventListeners();
 addStarFilterEventListeners();
 addCategoryFilterEventListeners();
-//checkSelectedCategory();
 checkSelectedCategories();
 checkSelectedPrices();
 checkSelectedRatings();
+filterItems();
