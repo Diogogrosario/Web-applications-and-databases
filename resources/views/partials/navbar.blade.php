@@ -38,11 +38,11 @@
                     <div class="input-group">
                         @if (isset($categories))
 
-                        <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example" id="category" name="category">
+                        <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example" id="categories" name="categories">
                             <option selected value="-1">All</option>
 
-                            @foreach ($categories as $key => $cat)
-                                    <option value={{$key+1}}>{{$cat["name"]}}</option>
+                            @foreach ($categories as $cat)
+                                    <option value={{$cat["category_id"]}}>{{$cat["name"]}}</option>
                             @endforeach
                         @endif
                         
@@ -90,11 +90,11 @@
         @if(isset($categories))
             <form action="/searchResults" class="col-11 offset-1" method="get">
                 <div class="input-group">
-                    <select class="form-select fs-lg-3" aria-placeholder="Category" id="search_category" aria-label="Default select example" name="category">
+                    <select class="form-select fs-lg-3" aria-placeholder="Category" id="search_category" aria-label="Default select example" name="categories">
                         <option selected value="-1">All</option>
 
-                        @foreach ($categories as $key => $cat)
-                            <option value={{$key}}>{{$cat["name"]}}</option>
+                        @foreach ($categories as $cat)
+                            <option value={{$cat["category_id"]}}>{{$cat["name"]}}</option>
                         @endforeach
 
                     </select>
