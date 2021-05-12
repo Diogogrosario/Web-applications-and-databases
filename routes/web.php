@@ -80,3 +80,7 @@ Route::patch('notification/{notificationId}', 'NotificationController@putIsSeenA
 
 // Checkout
 Route::get("checkout/address/{type}", 'CheckoutController@getAddressForm');
+Route::get("checkout/toAddresses", 'CheckoutController@toAddresses');
+Route::post("checkout/toShipping", 'CheckoutController@toShipping');
+Route::post("checkout/toPayment", 'CheckoutController@toPayment');
+Route::post("checkout", 'CheckoutController@finishCheckout');

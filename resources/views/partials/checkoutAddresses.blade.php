@@ -1,5 +1,5 @@
 <div class="tab-pane fade show active" id="pills-addresses" role="tabpanel" aria-labelledby="pills-addresses-tab">
-    <div class="row p-4" id="addresses_checkout">
+    <form method="post" action="{{action('CheckoutController@toShipping')}}" class="row p-4" id="addresses_checkout_form">
         <div id="billingAddressDiv_checkout" class="col-lg-6 col-12">
             <h4 class="text-center mb-4">Billing Address</h4>
             <div class="form-check mt-4 ps-5">
@@ -103,5 +103,5 @@
             <button type="button" class="btn btn-dark col-lg-3 col-12"><i class="bi bi-arrow-left-circle"></i> Go Back</button>
             <button type="button" class="btn btn-success offset-lg-6 col-lg-3 col-12">Proceed to Payment <i class="bi bi-arrow-right-circle"></i></button>
         </footer>
-    </div>
+    </form>
 </div>
