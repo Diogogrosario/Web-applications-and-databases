@@ -5,7 +5,8 @@ let billingShipping = document.querySelector('input#shippingEqualBilling');
 let shippingOther = document.querySelector('input#otherShipping');
 
 function addEventListeners() {
-    useBilling.addEventListener('change', updateBilling);
+    if(useBilling != null)
+        useBilling.addEventListener('change', updateBilling);
 }
 
 
@@ -13,6 +14,10 @@ function updateBilling() {
     if(this.checked) {
 
     }
+}
+
+function updateShipping() {
+
 }
 
 function getAddressEditForm(type)
@@ -24,13 +29,41 @@ function getAddressEditForm(type)
 
     sendAjaxRequest('GET', url, null, function () {
         if (this.status === 200) {
+            let parser = new DOMParser();
+            let form = parser.parseFromString(this.response, 'text/html').body;
+
+            if(type == "billing") {
+                let formPlace = document.querySelector()
+            } else {
+
+            }
+            let doc = document.getElementById("userShipping");
+            .firstChild;
+
+            doc.replaceWith(add);
+
+        }});
+}
+
+function getAddress(type)
+{
+    let url = "/userProfile/edit/getShippingInfo";
+
+    if(type == "billing") {
+
+    } else if(type != "shipping") {
+
+    } else 
+        return;
+
+    sendAjaxRequest('GET', url, null, function () {
+        if (this.status === 200) {
             let doc = document.getElementById("userShipping");
             let parser = new DOMParser();
             let add = parser.parseFromString(this.response, 'text/html').body.firstChild;
 
             doc.replaceWith(add);
-
-        }});
+        }});    
 }
 
 addEventListeners();
