@@ -278,4 +278,4 @@ addCategoryFilterEventListeners();
 checkSelectedCategories();
 checkSelectedPrices();
 checkSelectedRatings();
-filterItems();
+//filterItems();
