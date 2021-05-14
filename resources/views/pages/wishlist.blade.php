@@ -10,7 +10,7 @@
 
 @include('partials.sidebarItem',["categories" => $categories])
 
-<script type="text/javascript" src="{{asset('js/wishlist.js')}}" defer></script>
+<script src="{{asset('js/wishlist.js')}}" defer></script>
 
 <nav class="mt-3" aria-label="breadcrumb">
     <ol class="breadcrumb ms-4">

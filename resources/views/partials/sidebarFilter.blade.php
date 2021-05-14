@@ -1,4 +1,4 @@
-<script type="text/javascript" src="{{ asset('js/searchResults.js') }}" defer></script>
+<script src="{{ asset('js/searchResults.js') }}" defer></script>
 <div class="col-lg-2 col-md-3 col-12 collapse p-0 show" id="searchFiltersBar" style="background-color: #f2f2f2;">
     <div class="accordion" id="filterSideBar" style="background-color: white;">
         <div class="accordion-item" >

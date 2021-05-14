@@ -12,8 +12,8 @@
 @include('partials.sidebarItem',["categories" => $categories])
 @include('partials.sidebarFilter',["categories" => $categories])
 
-<script type="text/javascript" src="{{asset('js/cart.js')}}" defer></script>
-<script type="text/javascript" src="{{asset('js/wishlist.js')}}" defer></script>
+<script src="{{asset('js/cart.js')}}" defer></script>
+<script src="{{asset('js/wishlist.js')}}" defer></script>
 
 @include('partials.searchResultList', ["searchResults" => $searchResults])
 @endsection

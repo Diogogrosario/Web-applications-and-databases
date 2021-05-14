@@ -15,8 +15,8 @@ function editUsernameForm(username, id){
 
                         <textarea name="newUsername" class="w-100 h-50" required id="newUsername" rows=1 style="resize: none;" placeholder=` + username + `></textarea>
                         
-                        <button id="submitNewUsername" data-id='` + id + `' type="class" class="btn btn-success"><i class="bi bi-check-circle-fill"></i> Submit</button>
-                        <button id="cancelNewUsername" data-id='` + id + `'  type="class" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancel</button></td>
+                        <button id="submitNewUsername" data-id='` + id + `' type="button" class="btn btn-success"><i class="bi bi-check-circle-fill"></i> Submit</button>
+                        <button id="cancelNewUsername" data-id='` + id + `'  type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancel</button></td>
 
                     </form>
                 </section>`
@@ -53,7 +53,7 @@ function submitNewUsername(){
 
             let str = `<section id="userNameContent">
                     ` + newUsername + `
-                    <button type="class" class="btn" onclick=editUsernameForm('` + newUsername + `',` + userId + `)>
+                    <button type="button" class="btn" onclick=editUsernameForm('` + newUsername + `',` + userId + `)>
                         <i class="bi bi-pencil-square" ></i>
                     </button>
                 </section>`
@@ -79,7 +79,7 @@ function cancelNewUsername(event){
 
     let str = `<section id="userNameContent">
                     ` + username + `
-                    <button type="class" class="btn" onclick=editUsernameForm('` + username + `',` + userId + `)>
+                    <button type="button" class="btn" onclick=editUsernameForm('` + username + `',` + userId + `)>
                         <i class="bi bi-pencil-square" ></i>
                     </button>
                 </section>`
@@ -130,6 +130,8 @@ function getShippingEditForm()
             let add = parser.parseFromString(this.response, 'text/html').body.firstChild;
 
             doc.replaceWith(add);
+
+            document.getElementById("submitNewAddress").addEventListener("click",submitNewShippingInfo);
 
         }});
 }

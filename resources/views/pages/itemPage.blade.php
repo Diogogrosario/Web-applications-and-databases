@@ -12,8 +12,8 @@
 @section("content")
 @include('partials.sidebarItem',["categories" => $categories])
 
-<script type="text/javascript" src="{{asset('js/cart.js')}}" defer></script>
-<script type="text/javascript" src="{{asset('js/wishlist.js')}}" defer></script>
+<script src="{{asset('js/cart.js')}}" defer></script>
+<script src="{{asset('js/wishlist.js')}}" defer></script>
 
 <div class="col">
     <div class="content">
@@ -161,12 +161,12 @@
                             <section class="px-md-5 px-2 col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1" id="reviewSection">
                                 <h3 class="text-start mt-4">Reviews <span class="fs-5" id="n_reviews">({{ $item->reviews()->count() }})</span></h3>
                                 
-                                <script type="text/javascript" src="{{asset('js/item_page.js')}}" defer></script>
+                                <script src="{{asset('js/item_page.js')}}" defer></script>
 
 
                                 @if (Auth::check())
                                     <form class="mt-4 mb-5" id="newReviewForm">
-                                        <meta name="csrf-token" content="{{ csrf_token() }}">
+                                        {{csrf_field()}}
                                         <meta name="item_id" content="{{ $item['item_id'] }}">
                                         <textarea required class="form-control" id="new_review_text" name="review_text" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
                                         
