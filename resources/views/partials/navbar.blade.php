@@ -27,18 +27,18 @@
           }
           ?>
 
-          <a class="navbar-brand ms-lg-4" href="/"><img class="img-fluid" width="150" height="30" src="{{ asset('img/logo_light.png') }}"></a>
+          <a class="navbar-brand ms-lg-4" href="/"><img class="img-fluid" width="150" height="30" src="{{ asset('img/logo_light.png') }}" alt="logo"></a>
           <button class="navbar-toggler btn btn-lg border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <i class="bi bi-lg bi-person-circle"></i>
           </button>
 
           <div class="collapse navbar-collapse d-lg-flex justify-content-between text-center" id="navbarSupportedContent">
                     
-                <form action="/searchResults"class="d-lg-inline d-none w-50 ms-5" method="get">
+                <form action="/searchResults" class="d-lg-inline d-none w-50 ms-5" method="get">
                     <div class="input-group">
                         @if (isset($categories))
 
-                        <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example" id="categories" name="categories">
+                        <select class="form-select fs-lg-3" id="categories" name="categories">
                             <option selected value="-1">All</option>
 
                             @foreach ($categories as $cat)
@@ -90,7 +90,7 @@
         @if(isset($categories))
             <form action="/searchResults" class="col-11 offset-1" method="get">
                 <div class="input-group">
-                    <select class="form-select fs-lg-3" aria-placeholder="Category" id="search_category" aria-label="Default select example" name="categories">
+                    <select class="form-select fs-lg-3" id="search_category" name="categories">
                         <option selected value="-1">All</option>
 
                         @foreach ($categories as $cat)

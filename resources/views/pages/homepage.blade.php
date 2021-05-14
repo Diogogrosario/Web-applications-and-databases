@@ -50,11 +50,11 @@
                 @foreach ($itemsArray as $items)
                     <section class="categoryLine">
                         <h2 class="ms-5 mt-3 mb-3">
-                            <a class="category-text" href={{"searchResults?category=" . $items[0]->category()["category_id"]}}>
+                            <a class="category-text" href="{{"searchResults?category=" . $items[0]->category()["category_id"]}}">
                                 {{ $items[0]->category()["name"] }}
                             </a>
                         </h2>
-                        <div class="d-flex flex-row flex-nowrap" id="itemsListMainPage">
+                        <div class="d-flex flex-row flex-nowrap itemsListMainPage">
                             @foreach ($items as $item)
                                 @include('partials.homePageItemCard', array("item" => $item))
                             @endforeach
