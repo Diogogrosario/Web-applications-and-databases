@@ -25,7 +25,7 @@
 
                 <div class="row mt-3 ms-lg-3 ms-md-1 me-lg-5 me-md-2 border-bottom">
                     <div class="col-md-4 col-5">
-                        Showing <span id="nResultsCurrent">1-{{$user->purchases()->count()}}</span> of <span id="totalResults">{{$user->purchases()->count()}}</span> purchases
+                        Showing <span id="nResultsCurrentTop">1-{{$user->purchases()->count()}}</span> of <span id="totalResultsTop">{{$user->purchases()->count()}}</span> purchases
                     </div>
                     <nav class="col-md-4 col-7 d-flex text-center justify-content-md-center justify-content-end" aria-label="Search Results Pages">
                         <div class="d-flex flex-column justify-content-center">
@@ -41,8 +41,8 @@
                         <select id="orderSelect" class="form-select form-select-sm w-50 border-bottom-0 rounded-0 rounded-top">
                             <option value="1">Date: Most recent first</option>
                             <option value="2">Date: Least recent first</option>
-                            <option value="3">Price: Most expensive first</i></option>
-                            <option value="4">Price: Least expensive first <i class="bi bi-arrow-down-short"></i></option>
+                            <option value="3">Price: Most expensive first</option>
+                            <option value="4">Price: Least expensive first</option>
                         </select>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
 
             <footer class="row mt-3 pt-2 ms-lg-3 ms-md-1 me-lg-5 me-md-2 border-top" id="searchControlsBottom">
                 <div class="col-md-4 col-5">
-                    Showing <span id="nResultsCurrent">1-{{$user->purchases()->count()}}</span> of <span id="totalResults">{{$user->purchases()->count()}}</span> purchases
+                    Showing <span id="nResultsCurrentBot">1-{{$user->purchases()->count()}}</span> of <span id="totalResultsBot">{{$user->purchases()->count()}}</span> purchases
                 </div>
                 <nav class="col-md-4 col-7 d-flex text-center justify-content-md-center justify-content-end" aria-label="Search Results Pages">
                     <ul class="pagination pagination-sm mb-0">

@@ -38,7 +38,7 @@
                         </li>
                         <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" id="2000-" value="2000-" aria-label="...">
-                            < 2000€
+                            {{"< 2000€"}}
                         </li>
                     </ul>
                 </div>

@@ -60,13 +60,13 @@
                                 @foreach ($item->photos->sortBy('photo_id') as $key => $item_photo)
                                     @if ($key==0)
                                         <div class="carousel-item active text-center">
-                                            <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[0]["path"]) }}" class="card-img-top mx-auto" alt={{ $item["name"] . "image"}} style="max-height:40vh;height:auto;width:auto;max-width:80%;display:block;">  
+                                            <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[0]["path"]) }}" class="card-img-top mx-auto" alt="{{ $item["name"] . "image"}}" style="max-height:40vh;height:auto;width:auto;max-width:80%;display:block;">  
                                             {{-- <img src="{{ $item_photo["path"] }}" class="d-block img-fluid mx-auto" alt="Cyberpunk1" style="max-height:40vh;"> --}}
                                         </div>
                                     @endif
                                     @if ($key > 0)
                                         <div class="carousel-item text-center">
-                                            <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[$key]["path"]) }}" class="card-img-top  mx-auto" alt={{ $item["name"] . "image"}} style="max-height:40vh;height:auto;width:auto;max-width:80%;display:block;">  
+                                            <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[$key]["path"]) }}" class="card-img-top  mx-auto" alt="{{ $item["name"] . "image"}}" style="max-height:40vh;height:auto;width:auto;max-width:80%;display:block;">  
                                         </div>
                                     @endif
                                 @endforeach
