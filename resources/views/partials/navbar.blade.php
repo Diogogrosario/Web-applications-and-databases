@@ -62,19 +62,19 @@
                   <li class="nav-item">
                       <?php if (!$logged_in) { ?>
                           <a class="nav-link" href="/login" style="color:white !important">Login</a>
-                      <?php } else { ?>
-                          <a href={{ "/userProfile/" . Auth::id() }}>
-                              <img src="{{ asset('img/userIcon.png') }}" class="card-img-top px-1" style="max-height: 3em; max-width: 3em;" alt="User Icon">
-                          </a>
-                      <?php } ?>
+                      <?php }  ?>
                   </li>
                   <li class="nav-item">
                       <?php if (!$logged_in) { ?>
                           <a class="nav-link" href="/register" style="color:white !important">Register</a>
 
                       <?php } else { ?>
-                            <div class="d-flex justify-content-center ">
-                                <a id="navbarUsername" class="nav-link" href={{"/userProfile/" . Auth::id()}} style="color:white !important">{{ Auth::user()["username"] }}&nbsp; |</a>
+                            <div class="d-flex justify-content-center pt-1">
+                                <a href={{ "/userProfile/" . Auth::id() }} class="d-block" style="width: 3vw;">
+                                    <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(\"" . asset("/img/users/" . Auth::user()->image()->first()["path"]) . "\");background-position:center;background-size:cover;"}}>
+                                    </div>
+                                  </a>
+                                <a id="navbarUsername" class="nav-link ms-2" href={{"/userProfile/" . Auth::id()}} style="color:white !important">{{ Auth::user()["username"] }}&nbsp; |</a>
                                 @if (Auth::user()["is_admin"])
                                 <a class="nav-link ps-0" href={{"/management"}} style="color:white !important">&nbsp;Manage&nbsp; |</a>
                                 @endif

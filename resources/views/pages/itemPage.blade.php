@@ -25,7 +25,7 @@
                         <div class="card border-0 similarProductCard">
                             <div class="card-body ps-4 pe-3">
                                 {{-- TODO: Change when we have images--}}
-                                <img src="{{ $randomItem->photos->sortBy('photo_id')[0]["path"] }}" class="card-img-top" alt="Alarco Gaming Pc">
+                                <img src="{{ asset('img/items/' . $randomItem->photos->sortBy('photo_id')[0]["path"]) }}" class="card-img-top" alt="{{ $randomItem["name"] }}">
                                 <section class="itemInfo">
                                     <h5 class="card-title">{{$randomItem["name"]}}</h5>
                                     <p class="card-text">{{$randomItem["price"]}}€</p>
@@ -55,19 +55,18 @@
                                     @endif
                                 @endforeach
                             </div>
-                            <div class="carousel-inner" style="width:100%; height:40vh">
+                            <div class="carousel-inner d-flex" style="width:100%; height:40vh">
                                 
                                 @foreach ($item->photos->sortBy('photo_id') as $key => $item_photo)
                                     @if ($key==0)
-                                        <div class="carousel-item active">
-                                            {{-- when we have actuall images
-                                            <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[0]) }}" class="card-img-top" alt="iPhone4">  --}}
-                                            <img src="{{ $item_photo["path"] }}" class="d-block img-fluid mx-auto" alt="Cyberpunk1" style="max-height:40vh;">
+                                        <div class="carousel-item active text-center">
+                                            <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[0]["path"]) }}" class="card-img-top mx-auto" alt={{ $item["name"] . "image"}} style="max-height:40vh;height:auto;width:auto;max-width:80%;display:block;">  
+                                            {{-- <img src="{{ $item_photo["path"] }}" class="d-block img-fluid mx-auto" alt="Cyberpunk1" style="max-height:40vh;"> --}}
                                         </div>
                                     @endif
                                     @if ($key > 0)
-                                        <div class="carousel-item">
-                                            <img src="{{ $item_photo["path"] }}" class="d-block img-fluid mx-auto" alt="Cyberpunk2" style="max-height:40vh;">
+                                        <div class="carousel-item text-center">
+                                            <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[$key]["path"]) }}" class="card-img-top  mx-auto" alt={{ $item["name"] . "image"}} style="max-height:40vh;height:auto;width:auto;max-width:80%;display:block;">  
                                         </div>
                                     @endif
                                 @endforeach

@@ -18,10 +18,10 @@
                     </div>
                     <div class="carousel-inner" style="width:100%; height:20vh">
                         <div class="carousel-item active">
-                            <img src="{{ asset('img/wantMoreSales.jpg') }}" class="img-fluid" alt="More Sales" style='height:20vh; width: 100%; object-fit: contain'>
+                            <img src="{{ asset('img/sales/wantMoreSales.jpg') }}" class="img-fluid" alt="More Sales" style='height:20vh; width: 100%; object-fit: contain'>
                         </div>
                         <div class="carousel-item">
-                            <img src="{{ asset('img/wantMoreSales2.jpg') }}" class="d-block img-fluid mx-auto" style='height:20vh; width: 100%; object-fit: contain' alt="Shrek" style="max-height:40vh;">
+                            <img src="{{ asset('img/sales/wantMoreSales2.jpg') }}" class="d-block img-fluid mx-auto" style='height:20vh; width: 100%; object-fit: contain' alt="Shrek" style="max-height:40vh;">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselProductImages" data-bs-slide="prev">
@@ -34,7 +34,7 @@
                     </button>
                 </div>
                 @foreach ($itemsArray as $items)
-                    <section class="categoryLine" id="computerMain">
+                    <section class="categoryLine">
                         <h2 class="ms-5 mt-3 mb-3">
                             <a class="category-text" href={{"searchResults?category=" . $items[0]->category()["category_id"]}}>
                                 {{ $items[0]->category()["name"] }}

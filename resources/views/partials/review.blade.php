@@ -1,7 +1,7 @@
 <div class="user_review border-bottom mt-4" id={{"review_" . $review["review_id"]}}>
     <div class="row">
         <div class="col-lg-1 col-md-1 col-2">
-            <div id="profilePic" class="d-flex rounded-circle" style="height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(images/spidercat.png);background-position:center;background-size:cover;">
+            <div id="profilePic" class="d-flex rounded-circle" style=" {{ "height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(" . asset("/img/users/" . $review->user()[0]->image()->first()["path"]) . ");background-position:center;background-size:cover;" }}">
             </div>
         </div>
         <b class="col-lg-5 col-4 review_usermame">{{  $review->user()[0]["username"] }}</b>
