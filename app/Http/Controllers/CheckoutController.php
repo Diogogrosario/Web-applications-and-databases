@@ -145,12 +145,22 @@ class CheckoutController extends Controller
         return redirect('/checkout?step=3');
     }
 
-    public function finishBalance() {
+    public function finishCheckout(Request $request) {
         $this->authorize('checkout', Auth::user());
-        return redirect('/checkout');
-    }
 
-    public function finishPaypal() {
+        if(!$request->session()->has('shipping') || !$request->session()->has('shipping')) {
+            return redirect()->route('checkout')->with('error', 'Invalid checkout information. Could not proceed to payment.');
+        }
+
+        $post = $request->post();
+        if($post['finish'] == "Balance") {
+            // TODO: pay with balance
+            
+        } else if($post['finish'] == "Paypal") {
+            // TODO: pay with paypal
+        } else {
+            return redirect()->route('checkout')->with('error', 'Invalid payment option.');
+        }
         return redirect('/');
     }
 }

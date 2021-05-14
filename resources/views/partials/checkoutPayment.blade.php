@@ -1,5 +1,11 @@
 <div class="tab-pane fade p-lg-4 p-1 show active" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
+    @if (session('error'))
+        <div class="alert alert-danger" role="alert">
+        {{session('error')}}
+        </div>
+    @endif
     <form method="post" action="{{action('CheckoutController@finishCheckout')}}" id="payment_choose_form">
+        @csrf
         <div class="list-group list-group-flush">
             <div class="list-group-item p-0 row pb-3">
                 @foreach (Auth::user()->cart() as $item)
@@ -15,11 +21,11 @@
                 <h5 class="mb-4 ms-4 text-lg-start text-center">Please select the desired payment method to conclude purchase</h5>
                 <ul class="list-group list-group-flush px-lg-5 text-center">
                     <li class="list-group-item">
-                        <button type="submit" class="btn btn-success">Pay with account balance</button>
+                        <button type="submit" class="btn btn-success" name="finish" value="Balance">Pay with account balance</button>
                     </li>
                     <li class="list-group-item d-block">
                         <a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_SbyPP_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark"></a>
-                        <button type="submit" class="btn btn-warning">Pay with Paypal</button>
+                        <button type="submit" class="btn btn-warning" name="finish" value="Paypal">Pay with Paypal</button>
                     </li>
                 </ul>
             </div>

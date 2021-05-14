@@ -1,4 +1,9 @@
 <div class="tab-pane fade show active" id="pills-shipping" role="tabpanel" aria-labelledby="pills-shipping-tab">
+    @if (session('error'))
+        <div class="alert alert-danger" role="alert">
+        {{session('error')}}
+        </div>
+    @endif
     <form method="post" action="{{action('CheckoutController@toPayment')}}" id="shippingChoose" class="p-3 px-lg-5 px-md-2 px-1">
         @csrf
         <h5 class="mb-4 ms-4 text-lg-start text-center">Please select the desired shipping method</h5>
