@@ -13,4 +13,8 @@ class AddItemController extends Controller
         
         return view('pages.addItem')->with("categories", $categories);
     }
+
+    public function addItem(){
+        
+    }
 }

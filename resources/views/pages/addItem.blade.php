@@ -19,7 +19,7 @@
             </ol>
         </nav>
         <h1 class="mt-4 text-center">Add Product</h1>
-        <form class="ps-4 pe-4" method="POST" action="/item">
+        <form class="ps-4 pe-4">
             <div class="row mt-4">
                 <div class="col-8" id="nameForm">
                     <label for="productName" class="form-label">Name</label>
@@ -68,55 +68,12 @@
 
             <div class="mt-4" id="productDetails">
                 <h5>Details</h5>
-
                 <div class="ps-lg-3 ps-md-2 ps-sm-0 pe-lg-3 pe-md-2 pe-sm-0" id="productDetailsForms">
-
-                    {{-- <div id="detailForm1">
-                        <label for="detail1" class="form-label">Processor</label>
-                        <div class="input-group">
-                            <select class="form-select" aria-label="Category" id="detail1">
-                                <option selected>...</option>
-                                <option value="1">Intel i3</option>
-                                <option value="2">Intel i5</option>
-                                <option value="3">Intel i7</option>
-                                <option value="4">Intel i9</option>
-                            </select>
-                            <input type="text" class="form-control w-50" id="detail1Full">
-                        </div>
-                    </div>
-                    <div id="detailForm2">
-                        <label for="detail2" class="form-label">RAM</label>
-                        <div class="input-group">
-                            <select class="form-select" aria-label="Category" id="detail2">
-                                <option selected>...</option>
-                                <option value="1">4 GB DDR4</option>
-                                <option value="2">8 GB DDR4</option>
-                                <option value="3">16 GB DDR4</option>
-                                <option value="4">32 GB DDR4</option>
-                            </select>
-                            <input type="text" class="form-control w-50" id="detail2Full">
-                        </div>
-                    </div>
-                    <div id="detailForm3">
-                        <label for="detail2" class="form-label">Storage</label>
-                        <div class="input-group">
-                            <select class="form-select" aria-label="Category" id="detail3">
-                                <option selected>...</option>
-                                <option value="1">250GB SSD</option>
-                                <option value="2">500GB SSD</option>
-                                <option value="3">1TB SSD</option>
-                                <option value="4">500GB SSD</option>
-                                <option value="5">1TB HDD</option>
-                            </select>
-                            <input type="text" class="form-control w-50" id="detail3Full">
-                        </div>
-                    </div> --}}
-
                 </div>
             </div>
 
             <div class="py-4 d-flex justify-content-center" id="itemFormSubmit" class="mt-5">
-                <button type="submit" class="btn btn-primary col-lg-5 col-md-8 col-sm-12 ">Submit New Product</button>
+                <button type="submit" id="addItemButton" class="btn btn-primary col-lg-5 col-md-8 col-sm-12 ">Submit New Product</button>
             </div>
         </form>
     </div>
