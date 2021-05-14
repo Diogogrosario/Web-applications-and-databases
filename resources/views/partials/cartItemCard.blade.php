@@ -2,7 +2,7 @@
     
     <div class="row px-0 mx-0">
         <div class="col-lg-2 col-9 d-flex justify-content-center">
-            <a class="link-dark" href={{"/item/" . $item["item_id"]}}><img src={{$item->photos->sortBy('photo_id')[0]["path"]}} class="img-fluid" alt="..."></a>
+            <a class="link-dark" href={{"/item/" . $item["item_id"]}}><img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[0]["path"]) }}" class="img-fluid" alt="..."></a>
         </div>
         <div class="col-lg-6 col-12 border-left border-dark">
             <div class="row mt-lg-0 mt-3">

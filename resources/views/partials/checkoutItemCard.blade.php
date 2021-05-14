@@ -5,7 +5,7 @@
                 {{$item->pivot["quantity"]}} x
             </div>
             <div class="col-lg-2 col-9">
-                <a class="link-dark" href={{"/item/" . $item["item_id"]}}><img src={{$item->photos->sortBy('photo_id')[0]["path"]}} class="img-fluid" alt={{ $item["name"] }}></a>
+                <a class="link-dark" href={{"/item/" . $item["item_id"]}}><img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[0]["path"]) }}" class="img-fluid" alt={{ $item["name"] }}></a>
             </div>
             <div class="col-lg-7 col-12 border-left border-dark">
                 <div class="row mt-lg-0 mt-3">
