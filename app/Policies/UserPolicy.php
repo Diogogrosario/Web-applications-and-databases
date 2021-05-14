@@ -21,4 +21,9 @@ class UserPolicy
     {
         return Auth::user()["user_id"] == $user["user_id"];
     }
+
+    public function checkout(User $user, User $user1)
+    {
+        return Auth::check();
+    }
 }

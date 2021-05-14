@@ -1,4 +1,9 @@
 <div class="tab-pane fade show active p-lg-4 p-1" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">
+    @if (session('error'))
+        <div class="alert alert-danger" role="alert">
+        {{session('error')}}
+        </div>
+    @endif
     <form method="get" action="{{action('CheckoutController@toAddresses')}}" id="checkoutOverviewForm">
         <div class="list-group list-group-flush">
             @foreach (Auth::user()->cart() as $item)

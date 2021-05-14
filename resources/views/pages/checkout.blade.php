@@ -40,7 +40,7 @@
             @endif
 
             @if ($step == 1)
-                @include('partials.checkoutAddresses')        
+                @include('partials.checkoutAddresses', array($countries))        
             @endif
 
             @if ($step == 2)

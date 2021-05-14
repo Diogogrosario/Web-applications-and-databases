@@ -23,7 +23,7 @@ Route::get('userProfile/{id}', 'UserProfileController@show')->middleware('canSee
 Route::get('userProfile/{id}/wishlist', 'WishlistController@show')->middleware('canSeeProfile');
 Route::get('userProfile/{id}/cart', 'CartController@show')->middleware('canSeeProfile');
 Route::get('userProfile/{id}/purchaseHistory', 'PurchaseHistoryController@show')->middleware('canSeeProfile');
-Route::get('checkout', 'CheckoutController@show');
+Route::get('checkout', 'CheckoutController@show')->name('checkout');
 
 //Management
 Route::get('management', 'ManagementController@show')->middleware('admin');
