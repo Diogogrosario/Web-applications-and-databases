@@ -44,12 +44,16 @@ Route::post('userProfile/edit', 'UserController@edit');
 Route::get("userProfile/edit/getShippingInfo", 'UserController@getShippingInfo');
 Route::get('userProfile/edit/getShippingForm', 'UserController@getShippingForm');
 
+Route::post('userProfile/balance', 'UserController@addBalance');
+
 
 // API
 Route::get("api/item", 'ItemController@getItems');
 Route::get("api/item/{id}", 'ItemController@get');
 Route::get("api/users/{id}", 'UserController@get');
 Route::get("api/users/{id}/purchaseHistory", 'UserController@getPurchaseHistory');
+
+Route::get("api/paypal", 'UserController@capture');
 
 
 // Reviews

@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-
 class UserController extends Controller
 {
     public function get($id)
@@ -161,5 +160,37 @@ class UserController extends Controller
     public function getShippingInfo()
     {
         return view("partials.userShippingInfo")->with("user",Auth::user());
+    }
+
+    public function addBalance()
+    {
+        $provider = \PayPal::setProvider();
+        $provider->setApiCredentials(config('paypal'));
+        $provider->setAccessToken($provider->getAccessToken());
+
+        $order = $provider->createOrder([
+            "intent"=> "CAPTURE",
+            "purchase_units"=> [
+                0 => [
+                    "amount"=> [
+                        "currency_code"=> "USD",
+                        "value"=> "100.00"
+                    ]
+                ]
+            ]
+          ]);
+
+        session(['order_id' => $order['id']]);
+        // var_dump($provider);
+        return redirect($order['links'][1]['href']);
+        
+    }
+
+    public function capture()
+    {
+        $provider = \PayPal::setProvider();
+        $provider->setApiCredentials(config('paypal'));
+        $provider->setAccessToken($provider->getAccessToken());
+        $provider->capturePaymentOrder(session('order_id'));
     }
 }
