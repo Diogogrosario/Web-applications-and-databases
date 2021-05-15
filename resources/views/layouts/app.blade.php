@@ -30,11 +30,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
-    <script type="text/javascript" src="{{asset('js/ajax.js')}}" defer></script>
+    <script src="{{asset('js/ajax.js')}}" defer></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <script type="text/javascript">
+    <script>
         // Fix for Firefox autofocus CSS bug
         // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
     </script>
@@ -58,13 +58,13 @@
 
   <?php if (!$pos) { ?>
 
-      <main role="main" class="d-flex" id="page">
+      <main class="d-flex" id="page">
           <div class="row align-self-stretch no-gutters w-100" style="margin-left: 0px;">
 
 
           <?php } else { ?>
 
-          <main role="main" id="page">
+          <main id="page">
               <div class="row no-gutters w-100">
 
           <?php } ?>

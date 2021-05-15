@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Purchase;
 use App\Models\Category;
+use App\Models\Advertisement;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -60,6 +62,10 @@ class HomepageController extends Controller
         }
         $categories = Category::all()->sortBy("category_id");
 
-        return view('pages.homepage')->with('itemsArray', $itemsArray)->with('categories', $categories);
+        $time = Carbon::now()->format('Y-m-d');
+
+        $adds = Advertisement::where("begin_date","<=",$time)->where("end_date",">=",$time)->get();
+
+        return view('pages.homepage')->with('itemsArray', $itemsArray)->with('categories', $categories)->with("adds",$adds);
     }
 }

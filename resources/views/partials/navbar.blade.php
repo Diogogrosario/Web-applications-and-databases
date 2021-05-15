@@ -27,22 +27,22 @@
           }
           ?>
 
-          <a class="navbar-brand ms-lg-4" href="/"><img class="img-fluid" width="150" height="30" src="{{ asset('img/logo_light.png') }}"></a>
+          <a class="navbar-brand ms-lg-4" href="/"><img class="img-fluid" width="150" height="30" src="{{ asset('img/logo_light.png') }}" alt="logo"></a>
           <button class="navbar-toggler btn btn-lg border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <i class="bi bi-lg bi-person-circle"></i>
           </button>
 
           <div class="collapse navbar-collapse d-lg-flex justify-content-between text-center" id="navbarSupportedContent">
                     
-                <form action="/searchResults"class="d-lg-inline d-none w-50 ms-5" method="get">
+                <form action="/searchResults" class="d-lg-inline d-none w-50 ms-5" method="get">
                     <div class="input-group">
                         @if (isset($categories))
 
-                        <select class="form-select fs-lg-3" aria-placeholder="Category" aria-label="Default select example" id="category" name="category">
+                        <select class="form-select fs-lg-3" id="categories" name="categories">
                             <option selected value="-1">All</option>
 
-                            @foreach ($categories as $key => $cat)
-                                    <option value={{$key+1}}>{{$cat["name"]}}</option>
+                            @foreach ($categories as $cat)
+                                    <option value={{$cat["category_id"]}}>{{$cat["name"]}}</option>
                             @endforeach
                         @endif
                         
@@ -62,19 +62,19 @@
                   <li class="nav-item">
                       <?php if (!$logged_in) { ?>
                           <a class="nav-link" href="/login" style="color:white !important">Login</a>
-                      <?php } else { ?>
-                          <a href={{ "/userProfile/" . Auth::id() }}>
-                              <img src="{{ asset('img/userIcon.png') }}" class="card-img-top px-1" style="max-height: 3em; max-width: 3em;" alt="User Icon">
-                          </a>
-                      <?php } ?>
+                      <?php }  ?>
                   </li>
                   <li class="nav-item">
                       <?php if (!$logged_in) { ?>
                           <a class="nav-link" href="/register" style="color:white !important">Register</a>
 
                       <?php } else { ?>
-                            <div class="d-flex justify-content-center ">
-                                <a id="navbarUsername" class="nav-link" href={{"/userProfile/" . Auth::id()}} style="color:white !important">{{ Auth::user()["username"] }}&nbsp; |</a>
+                            <div class="d-flex justify-content-center pt-1">
+                                <a href={{ "/userProfile/" . Auth::id() }} class="d-block" style="width: 3vw;">
+                                    <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(\"" . asset("/img/users/" . Auth::user()->image()->first()["path"]) . "\");background-position:center;background-size:cover;"}}>
+                                    </div>
+                                  </a>
+                                <a id="navbarUsername" class="nav-link ms-2" href={{"/userProfile/" . Auth::id()}} style="color:white !important">{{ Auth::user()["username"] }}&nbsp; |</a>
                                 @if (Auth::user()["is_admin"])
                                 <a class="nav-link ps-0" href={{"/management"}} style="color:white !important">&nbsp;Manage&nbsp; |</a>
                                 @endif
@@ -90,11 +90,11 @@
         @if(isset($categories))
             <form action="/searchResults" class="col-11 offset-1" method="get">
                 <div class="input-group">
-                    <select class="form-select fs-lg-3" aria-placeholder="Category" id="search_category" aria-label="Default select example" name="category">
+                    <select class="form-select fs-lg-3" id="search_category" name="categories">
                         <option selected value="-1">All</option>
 
-                        @foreach ($categories as $key => $cat)
-                            <option value={{$key}}>{{$cat["name"]}}</option>
+                        @foreach ($categories as $cat)
+                            <option value={{$cat["category_id"]}}>{{$cat["name"]}}</option>
                         @endforeach
 
                     </select>

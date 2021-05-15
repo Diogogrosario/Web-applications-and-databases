@@ -12,8 +12,8 @@
 @section("content")
 @include('partials.sidebarItem',["categories" => $categories])
 
-<script type="text/javascript" src="{{asset('js/cart.js')}}" defer></script>
-<script type="text/javascript" src="{{asset('js/wishlist.js')}}" defer></script>
+<script src="{{asset('js/cart.js')}}" defer></script>
+<script src="{{asset('js/wishlist.js')}}" defer></script>
 
 <div class="col">
     <div class="content">
@@ -25,7 +25,7 @@
                         <div class="card border-0 similarProductCard">
                             <div class="card-body ps-4 pe-3">
                                 {{-- TODO: Change when we have images--}}
-                                <img src="{{ $randomItem->photos->sortBy('photo_id')[0]["path"] }}" class="card-img-top" alt="Alarco Gaming Pc">
+                                <img src="{{ asset('img/items/' . $randomItem->photos->sortBy('photo_id')[0]["path"]) }}" class="card-img-top" alt="{{ $randomItem["name"] }}">
                                 <section class="itemInfo">
                                     <h5 class="card-title">{{$randomItem["name"]}}</h5>
                                     <p class="card-text">{{$randomItem["price"]}}€</p>
@@ -55,19 +55,18 @@
                                     @endif
                                 @endforeach
                             </div>
-                            <div class="carousel-inner" style="width:100%; height:40vh">
+                            <div class="carousel-inner d-flex" style="width:100%; height:40vh">
                                 
                                 @foreach ($item->photos->sortBy('photo_id') as $key => $item_photo)
                                     @if ($key==0)
-                                        <div class="carousel-item active">
-                                            {{-- when we have actuall images
-                                            <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[0]) }}" class="card-img-top" alt="iPhone4">  --}}
-                                            <img src="{{ $item_photo["path"] }}" class="d-block img-fluid mx-auto" alt="Cyberpunk1" style="max-height:40vh;">
+                                        <div class="carousel-item active text-center">
+                                            <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[0]["path"]) }}" class="card-img-top mx-auto" alt="{{ $item["name"] . "image"}}" style="max-height:40vh;height:auto;width:auto;max-width:80%;display:block;">  
+                                            {{-- <img src="{{ $item_photo["path"] }}" class="d-block img-fluid mx-auto" alt="Cyberpunk1" style="max-height:40vh;"> --}}
                                         </div>
                                     @endif
                                     @if ($key > 0)
-                                        <div class="carousel-item">
-                                            <img src="{{ $item_photo["path"] }}" class="d-block img-fluid mx-auto" alt="Cyberpunk2" style="max-height:40vh;">
+                                        <div class="carousel-item text-center">
+                                            <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[$key]["path"]) }}" class="card-img-top  mx-auto" alt="{{ $item["name"] . "image"}}" style="max-height:40vh;height:auto;width:auto;max-width:80%;display:block;">  
                                         </div>
                                     @endif
                                 @endforeach
@@ -162,12 +161,12 @@
                             <section class="px-md-5 px-2 col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1" id="reviewSection">
                                 <h3 class="text-start mt-4">Reviews <span class="fs-5" id="n_reviews">({{ $item->reviews()->count() }})</span></h3>
                                 
-                                <script type="text/javascript" src="{{asset('js/item_page.js')}}" defer></script>
+                                <script src="{{asset('js/item_page.js')}}" defer></script>
 
 
                                 @if (Auth::check())
                                     <form class="mt-4 mb-5" id="newReviewForm">
-                                        <meta name="csrf-token" content="{{ csrf_token() }}">
+                                        {{csrf_field()}}
                                         <meta name="item_id" content="{{ $item['item_id'] }}">
                                         <textarea required class="form-control" id="new_review_text" name="review_text" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
                                         

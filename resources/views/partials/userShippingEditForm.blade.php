@@ -15,7 +15,7 @@
 
 <section id="userShipping">
     <div class="d-flex mb-2">
-        <h2>Shipping Information</h2><button type="class" class="btn btn-lg ms-3 p-0" onclick="getShippingInfo()"><i class="bi bi-x-circle-fill"></i></button>
+        <h2>Shipping Information</h2><button type="button" class="btn btn-lg ms-3 p-0" onclick="getShippingInfo()"><i class="bi bi-x-circle-fill"></i></button>
     </div>
     <form action="/userProfile/edit" method="post">
         {{ csrf_field() }}

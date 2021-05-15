@@ -1,6 +1,6 @@
 <section id="userShipping">
     <div class="d-flex mb-2">
-        <h2>Shipping Information</h2><button type="class" class="btn btn-lg ms-3 p-0" onclick="getShippingEditForm()"><i class="bi bi-pencil-square"></i></button>
+        <h2>Shipping Information</h2><button type="button" class="btn btn-lg ms-3 p-0" onclick="getShippingEditForm()"><i class="bi bi-pencil-square"></i></button>
     </div>
     <table id="shippingInfo" class="table">
         @if ($user->shippingAddress() == null)

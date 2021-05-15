@@ -8,7 +8,7 @@
 
 @include('partials.sidebarItem',["categories" => $categories])
 
-<script type="text/javascript" src="{{asset('js/cart.js')}}" defer></script>
+<script src="{{asset('js/cart.js')}}" defer></script>
 
 <div class="d-none d-sm-block" style="font-size: 2.5rem; grid-row: 1; padding-left: 4%;">
     <a>Your cart: </a>

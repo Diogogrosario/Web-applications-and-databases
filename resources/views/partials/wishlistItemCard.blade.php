@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-3 zoom">
             <a class="item-card z" href={{"/item/" . $item["item_id"]}}>
-                <img src={{$item->photos->sortBy('photo_id')[0]["path"]}} class="card-img-top mx-auto d-flex" id="searchResultItemImage" alt="Asus Computer">
+                <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[0]["path"]) }}" class="card-img-top mx-auto d-flex searchResultItemImage" alt="Asus Computer">
             </a>
         </div>
         <div class="col-lg-9 col-12">
@@ -35,10 +35,7 @@
                     <div class="d-flex flex-column justify-content-center h-50 align-items-center mt-lg-0 mt-2">
                         <span>
                             <span class="title fs-3 itemPrice" style="color:#e3203e">{{ $item["price"] }}</span>
-                            {{-- <small class="align-top itemPreviousPriceDiscount">      TODO: add discounts
-                                <span class="title text-decoration-line-through">360€</span>
-                                <!-- <span class="title">20% off!</span> -->
-                            </small> --}}
+                        
                         </span>
                     </div>
 

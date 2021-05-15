@@ -89,5 +89,9 @@ class User extends Authenticatable
             return $ban->reason;
         }
         return "No reason was given";
-      }
+    }
+
+    public function image() {
+        return $this->hasOne(Photo::class,"photo_id","img");
+    }
 }

@@ -4,7 +4,7 @@
     </div>
     <div class="col-lg-2 col-md-2">
         <a class="item-card z" href={{"/item/" . $item["item_id"]}}>
-            <img src={{$item->photos->sortBy('photo_id')[0]["path"]}} class="card-img-top img-fluid" alt={{$item["name"]}}>
+            <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[0]["path"]) }}" class="card-img-top img-fluid" alt="{{$item["name"]}}">
         </a>
         
     </div>

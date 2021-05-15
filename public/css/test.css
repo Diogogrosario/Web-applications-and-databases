@@ -60,12 +60,12 @@ a.item-card{
     color: black;
 }
 
-a#username-anchor{
+a.username-anchor{
     color:black;
     text-decoration: none;
 }
 
-a#username-anchor:hover{
+a.username-anchor:hover{
     text-decoration: underline;
 }
 

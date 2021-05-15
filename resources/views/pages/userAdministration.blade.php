@@ -11,7 +11,7 @@
 
 @section("content")
 
-<script type="text/javascript" src="{{asset('js/manageUsers.js')}}" defer></script>
+<script  src="{{asset('js/manageUsers.js')}}" defer></script>
 
 
 @include('partials.sidebarItem',["categories" => $categories])

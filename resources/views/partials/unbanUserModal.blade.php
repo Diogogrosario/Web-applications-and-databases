@@ -1,8 +1,7 @@
 
 <section id={{ "actionButtons" . $user["user_id"]}}>
-    <button data-id={{ $user["user_id"] }} type="button" class="unbanButton btn btn-danger" data-bs-toggle="modal" data-bs-target={{"#unbanModal" . $user["user_id"]}}><i class="bi bi-person-check-fill"></i>
-        <div class="d-none d-lg-inline">Unban
-        </div>
+    <button data-id={{ $user["user_id"] }} type="button" class="d-none d-lg-inline unbanButton btn btn-danger" data-bs-toggle="modal" data-bs-target={{"#unbanModal" . $user["user_id"]}}><i class="bi bi-person-check-fill"></i>
+        Unban
     </button>
     
     <!-- Modal -->

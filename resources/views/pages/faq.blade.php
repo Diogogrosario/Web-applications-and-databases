@@ -11,7 +11,7 @@
         <div style="text-align: center; font-size: 2.5rem; grid-row: 1; margin-bottom: 2rem;">
             <b>FAQ</b>
         </div>
-        <div class="accordion mb-4" class="QnA">
+        <div class="accordion mb-4 QnA">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-        <div class="accordion mb-4" class="QnA">
+        <div class="accordion mb-4 QnA">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingTwo">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div class="accordion mb-4" class="QnA">
+        <div class="accordion mb-4 QnA">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingTheww">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">

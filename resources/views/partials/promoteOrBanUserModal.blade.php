@@ -1,7 +1,6 @@
 <section id={{ "actionButtons" . $user["user_id"]}}>
-    <button data-id={{ $user["user_id"] }} type="button" class="banButton btn btn-danger" data-bs-toggle="modal" data-bs-target={{"#banModal" . $user["user_id"]}}><i class="bi bi-person-x-fill"></i>
-        <div class="d-none d-lg-inline">Ban &nbsp;&nbsp;&nbsp;&nbsp;
-        </div>
+    <button data-id={{ $user["user_id"] }} type="button" class="d-none d-lg-inline banButton btn btn-danger" data-bs-toggle="modal" data-bs-target={{"#banModal" . $user["user_id"]}}><i class="bi bi-person-x-fill"></i>
+        Ban &nbsp;&nbsp;&nbsp;&nbsp;
     </button>
 
     <!-- Modal -->
@@ -16,7 +15,7 @@
                     {{"Are you sure you want to ban " . $user["username"] . "?"}}
                     <form>
                         <div class="mb-3">
-                          <label for="message-text" class="col-form-label">Reason:</label>
+                          <label class="col-form-label">Reason:</label>
                           <textarea class="form-control" id={{ "banReason" . $user["user_id"]}} style="resize: none" required></textarea>
                         </div>
                     </form>
@@ -32,9 +31,8 @@
 
 
     
-    <button data-id={{ $user["user_id"] }} type="button" class="promoteButton btn btn-success" data-bs-toggle="modal" data-bs-target={{"#promoteModal" . $user["user_id"]}}><i class="bi bi-person-plus-fill"></i></i>
-        <div class="d-none d-lg-inline"> Promote to Admin
-        </div>
+    <button data-id={{ $user["user_id"] }} type="button" class="d-none d-lg-inline promoteButton btn btn-success" data-bs-toggle="modal" data-bs-target={{"#promoteModal" . $user["user_id"]}}><i class="bi bi-person-plus-fill"></i>
+        Promote to Admin
     </button>
     
     <!-- Modal -->
