@@ -45,6 +45,8 @@ Route::get("userProfile/edit/getShippingInfo", 'UserController@getShippingInfo')
 Route::get('userProfile/edit/getShippingForm', 'UserController@getShippingForm');
 
 Route::post('userProfile/balance', 'UserController@addBalance');
+Route::get("userProfile/balance/capture", 'UserController@captureBalance');
+
 
 
 // API
@@ -52,8 +54,6 @@ Route::get("api/item", 'ItemController@getItems');
 Route::get("api/item/{id}", 'ItemController@get');
 Route::get("api/users/{id}", 'UserController@get');
 Route::get("api/users/{id}/purchaseHistory", 'UserController@getPurchaseHistory');
-
-Route::get("api/paypal", 'UserController@capture');
 
 
 // Reviews

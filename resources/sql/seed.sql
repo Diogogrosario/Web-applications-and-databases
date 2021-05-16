@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS country CASCADE;
 DROP TYPE IF EXISTS notificationType;
 DROP TYPE IF EXISTS purchaseState;
 
+
 CREATE TYPE notificationType AS ENUM ('Stock','Discount');
 CREATE TYPE purchaseState AS ENUM ('Sent','Processing','Arrived');
 

@@ -49,6 +49,12 @@
         
         </div>
 
+        @if (session('balance_success'))
+            <div class="alert alert-success" role="alert">
+            {{session('balance_success')}}
+            </div>
+        @endif
+
         <section id="profileInfo" class="row mt-5">
             <div class="col-lg-8 col-12">
                 <h2 class="mb-3">Account Info</h2>

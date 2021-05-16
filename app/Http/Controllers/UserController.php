@@ -7,6 +7,8 @@ use App\Models\Address;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use NumberFormatter;
 
 class UserController extends Controller
 {
@@ -162,8 +164,17 @@ class UserController extends Controller
         return view("partials.userShippingInfo")->with("user",Auth::user());
     }
 
-    public function addBalance()
+    public function addBalance(Request $request)
     {
+
+        $user = Auth::user();
+        $this->authorize('checkout', $user);
+
+        $amount = $request->post()['balance_amount'];
+        if(!is_numeric($amount)) {
+            return back()->with('error', 'Invalid amount to add balance.');
+        }
+
         $provider = \PayPal::setProvider();
         $provider->setApiCredentials(config('paypal'));
         $provider->setAccessToken($provider->getAccessToken());
@@ -174,23 +185,65 @@ class UserController extends Controller
                 0 => [
                     "amount"=> [
                         "currency_code"=> "USD",
-                        "value"=> "100.00"
+                        "value"=> $amount
                     ]
                 ]
-            ]
+                    ],
+            "application_context" => [
+                'shipping_preference'=> 'NO_SHIPPING',
+                'brand_name' => 'Fneuc Shop',
+                'return_url' => 'http://localhost:8000/userProfile/balance/capture'
+                ]
           ]);
 
         session(['order_id' => $order['id']]);
-        // var_dump($provider);
-        return redirect($order['links'][1]['href']);
+        // var_dump($order['links'][1]['href']);
+        // return $provider->showOrderDetails($order['id']);
+        return redirect($order['links'][1]['href']); // approve order url
         
     }
 
-    public function capture()
+    public function captureBalance(Request $request)
     {
+        $user = Auth::user();
+        $this->authorize('checkout', $user);
+        $user_id = $user['user_id'];
+
+        $order_id = $request->query('token');
+
+        if($order_id == null || session('order_id') == null || $order_id != session('order_id')) {
+            abort(403, 'Expired order.');
+        }
+
         $provider = \PayPal::setProvider();
         $provider->setApiCredentials(config('paypal'));
         $provider->setAccessToken($provider->getAccessToken());
-        $provider->capturePaymentOrder(session('order_id'));
+        $capture = $provider->capturePaymentOrder(session('order_id'));
+        
+        if(array_key_exists("type",$capture)) {
+            if($capture['type'] === 'error') {
+                // payment failed
+            }
+        } else if($capture['status'] === 'COMPLETED') {
+            $value = $capture['purchase_units'][0]['payments']['captures'][0]['amount']['value'];
+            DB::transaction(function () use ($user_id, $value) {
+                $this->addBalanceValue($user_id, $value);
+            });
+            return redirect('/userProfile/' . strval($user['user_id']))->with('balance_success', 'Balance added successfully.');
+        } 
+
+        // if($capture)
+        // return $provider->showOrderDetails(session('order_id'));
+    }
+
+    public function addBalanceValue($id, $value) {
+        $user = User::findOrFail($id);
+        
+        $currentBalance = floatval(preg_replace('/[^\d\.]/', '', $user['balance'])); // parse money
+        $newBalance = $currentBalance + floatval($value);
+
+        DB::table('users')
+                ->where('user_id', $user['user_id'])
+                ->update(['balance' => ($currentBalance + $value)]);
     }
 }
