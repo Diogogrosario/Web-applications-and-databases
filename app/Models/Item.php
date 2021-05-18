@@ -12,6 +12,15 @@ class Item extends Model
   protected $table = 'item';
   protected $primaryKey = 'item_id';
 
+  /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+      'name','price', 'stock', 'brief_description','description','category_id','score',
+  ];
+
   
   public function photos() {
     return $this->belongsToMany(Photo::class,"item_photo", "item_id", "photo_id");

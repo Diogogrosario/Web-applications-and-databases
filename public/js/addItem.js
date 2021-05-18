@@ -60,12 +60,14 @@ function addNewItem(event){
     console.log("description " + description);
     console.log(details);
 
-    let data = {"name":name, "price":price,"category":category, "image":image, "shortDescription":shortDescription, "description":description, "details":details};
+
+    let data = {"name":name, "price":price,"category":category, "image":image, "shortDescription":shortDescription, "description":description, "details":JSON.stringify(details)};
 
     sendAjaxRequest('POST', url, data, function () {
         console.log(this.response);
         if (this.status === 200) {
-            
+            // window.location.replace('/item/'+this.response);
+            console.log(this.response);
 
         }});
 }
