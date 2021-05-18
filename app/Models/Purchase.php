@@ -24,4 +24,11 @@ class Purchase extends Model
         return date('Y-m-d', strtotime($this["date"]));
     }
 
+    public function billingAddress() {
+        return Address::find($this["billing_address"]);
+    }
+
+    public function shippingAddress() {
+        return Address::find($this["shipping_address"]);
+    }
 }

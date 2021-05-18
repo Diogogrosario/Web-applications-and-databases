@@ -24,6 +24,10 @@
     </h2>
     <div id={{"collapse" . $purchase["purchase_id"]}} class="accordion-collapse collapse border-1" aria-labelledby="headingOne">
         <div class="accordion-body p-5 pt-4">
+            <div class="row purchase_addresses">
+                @include('partials.purchaseHistoryAddress', array("addressType" => "Billing", "address" => $purchase->billingAddress()))
+                @include('partials.purchaseHistoryAddress', array("addressType" => "Shipping", "address" => $purchase->shippingAddress()))
+            </div>
             
             @foreach ($purchase->purchasedItems()->get() as $item)
                 @include("partials.purchaseItemCard",array("item" => $item))
