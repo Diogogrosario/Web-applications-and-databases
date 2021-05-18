@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Item extends Model
 {
@@ -10,6 +11,15 @@ class Item extends Model
   public $timestamps  = false;
   protected $table = 'item';
   protected $primaryKey = 'item_id';
+
+  /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+      'name','price', 'stock', 'brief_description','description','category_id','score',
+  ];
 
   
   public function photos() {
@@ -28,8 +38,13 @@ class Item extends Model
     return $this->hasMany(Review::class,"item_id")->orderBy("date", "desc");
   }
 
-  public function getRandomItemsSameCategory($amout)
+  public function getRandomItemsSameCategory($amount)
   {
-    return Item::where("category_id",$this["category_id"])->where("item_id",'!=',$this["item_id"])->inRandomOrder()->limit($amout)->get();
+    return Item::where("category_id",$this["category_id"])->where("item_id",'!=',$this["item_id"])->inRandomOrder()->limit($amount)->get();
   }
+
+  public function getPriceInt(){
+    return explode('$',$this->price)[1];
+  }
+
 }

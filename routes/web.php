@@ -40,7 +40,6 @@ Route::delete('/userProfile/{id}', 'UserController@deleteAccount');
 Route::patch('userProfile/editUsername', 'UserController@editUsername');
 Route::patch('userProfile/editShippingAddress', 'UserController@editShipAddr');
 Route::post('userProfile/edit', 'UserController@edit');
-
 Route::get("userProfile/edit/getShippingInfo", 'UserController@getShippingInfo');
 Route::get('userProfile/edit/getShippingForm', 'UserController@getShippingForm');
 
@@ -48,12 +47,18 @@ Route::post('userProfile/balance', 'UserController@addBalance');
 Route::get("userProfile/balance/capture", 'UserController@captureBalance');
 
 
+Route::post('management/addItem', 'AddItemController@addItem')->middleware('admin');
+Route::post('management/item/{id}', 'ItemController@updateItem')->middleware('admin');
+Route::patch('management/item/{id}', 'ItemController@putAvailable')->middleware('admin');
+Route::delete('management/item/{id}', 'ItemController@deleteItem')->middleware('admin');
 
 // API
 Route::get("api/item", 'ItemController@getItems');
 Route::get("api/item/{id}", 'ItemController@get');
 Route::get("api/users/{id}", 'UserController@get');
 Route::get("api/users/{id}/purchaseHistory", 'UserController@getPurchaseHistory');
+Route::get("category/{id}/details", 'CategoryController@getDetails');
+
 
 
 // Reviews

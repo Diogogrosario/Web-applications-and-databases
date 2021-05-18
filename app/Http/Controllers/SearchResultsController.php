@@ -81,19 +81,6 @@ class SearchResultsController extends Controller
                     }
                 }
             }
-            /*
-            for($i = 0; $i < count($priceRanges) - 1; $i+=2){
-                
-                if(mb_strlen($priceRanges[$i+1]) == 0){
-                    $priceQuerryString .= "(price > " . $priceRanges[$i] . "::money)";
-                }
-                else{
-                    $priceQuerryString .= "((price > " . $priceRanges[$i] . "::money) AND (price <= " . $priceRanges[$i+1] . "::money))";
-                    if(($i < count($priceRanges) - 1 - 2)){
-                        $priceQuerryString .= "OR";
-                    }
-                }
-            }*/
             $priceQuerryString .= ")";
             //->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->
            
@@ -140,7 +127,8 @@ class SearchResultsController extends Controller
             
             for($i = 1; $i < count($cat); $i++){
                 
-                if(!is_numeric($priceMax)){
+                $catI = $cat[$i];
+                if(!is_numeric($catI)){
                     $catString = "()";
                     $cat = null;
                     $cate = -1;
