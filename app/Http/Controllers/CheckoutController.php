@@ -9,6 +9,7 @@ use App\Models\Country;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Input\Input;
 use Illuminate\Support\Facades\DB;
+use App\Models\Address;
 
 class CheckoutController extends Controller
 {
@@ -86,7 +87,7 @@ class CheckoutController extends Controller
                 return back()->with('error', 'User does not have any billing address defined')->withInput();
 
             } else {
-                $billing = ['created' => 'no',
+                $billing = ['created' => false,
                             'address_id' => $user->billingAddress()['address_id']
                             ];
             } 
@@ -100,7 +101,7 @@ class CheckoutController extends Controller
                 return back()->with('error', 'Invalid billing address! Fields missing')->withInput();
             }
 
-            $billing = ['created' => 'yes',
+            $billing = ['created' => true,
                         'street' => $street,
                         'city' => $city,
                         'country_id' => $country_id,
@@ -114,7 +115,7 @@ class CheckoutController extends Controller
                 return back()->with('error', 'User does not have any shipping address defined')->withInput();
 
             } else {
-                $shipping = ['created' => 'no',
+                $shipping = ['created' => false,
                             'address_id' => $user->shippingAddress()['address_id']
                             ];
             }
@@ -132,7 +133,7 @@ class CheckoutController extends Controller
                 return back()->with('error', 'Invalid shipping address! Fields missing')->withInput($request->input());
             }
 
-            $shipping = ['created' => 'yes',
+            $shipping = ['created' => true,
                         'street' => $street,
                         'city' => $city,
                         'country_id' => $country_id,
@@ -176,7 +177,27 @@ class CheckoutController extends Controller
     }
 
     private function processCheckout($user, $shipping, $billing) {
-        DB::select('call discounts(?)', [$user["user_id"]]);
+        $billing_id = $this->getAddressId($billing);
+        $shipping_id = $this->getAddressId($shipping);
+
+        DB::select('call checkout(?, ?, ?)', [$user["user_id"], $billing_id, $shipping_id]);
+    }
+
+    private function getAddressId($address_session) {
+        if($address_session['created']) {
+            DB::table('address')
+            ->insert(array('city' => $address_session['city'], 'street' => $address_session['street'],
+            'zip_code' => $address_session['zip_code'], 'country_id' => $address_session['country_id']));
+
+            return DB::getPdo()->lastInsertId();
+        } else {
+            $current_address = DB::select("SELECT * FROM address WHERE address_id = ?", array($address_session['address_id']))[0];
+            DB::table('address')
+            ->insert(array('city' => $current_address->city, 'street' => $current_address->street,
+            'zip_code' => $current_address->zip_code, 'country_id' => $current_address->country_id));
+
+            return DB::getPdo()->lastInsertId();
+        }
     }
 
     private function payBalance($user, $shipping, $billing) {

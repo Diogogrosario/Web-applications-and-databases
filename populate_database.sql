@@ -213,55 +213,56 @@ INSERT INTO item_detail (item_id, detail_id, detail_info) VALUES (20, 23, 'Blu-r
 
 
 
-INSERT INTO photo (photo_id, path) VALUES (1, 'http://dummyimage.com/219x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (2, 'http://dummyimage.com/162x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (3, 'http://dummyimage.com/235x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (4, 'http://dummyimage.com/164x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (5, 'http://dummyimage.com/214x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (6, 'http://dummyimage.com/186x100.png/ff4444/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (7, 'http://dummyimage.com/131x100.png/dddddd/000000');
-INSERT INTO photo (photo_id, path) VALUES (8, 'http://dummyimage.com/195x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (9, 'http://dummyimage.com/163x100.png/ff4444/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (10, 'http://dummyimage.com/231x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (11, 'http://dummyimage.com/195x100.png/dddddd/000000');
-INSERT INTO photo (photo_id, path) VALUES (12, 'http://dummyimage.com/122x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (13, 'http://dummyimage.com/143x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (14, 'http://dummyimage.com/139x100.png/dddddd/000000');
-INSERT INTO photo (photo_id, path) VALUES (15, 'http://dummyimage.com/104x100.png/ff4444/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (16, 'http://dummyimage.com/232x100.png/dddddd/000000');
-INSERT INTO photo (photo_id, path) VALUES (17, 'http://dummyimage.com/127x100.png/ff4444/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (18, 'http://dummyimage.com/204x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (19, 'http://dummyimage.com/151x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (20, 'http://dummyimage.com/182x100.png/dddddd/000000');
-INSERT INTO photo (photo_id, path) VALUES (21, 'http://dummyimage.com/207x100.png/dddddd/000000');
-INSERT INTO photo (photo_id, path) VALUES (22, 'http://dummyimage.com/158x100.png/ff4444/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (23, 'http://dummyimage.com/207x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (24, 'http://dummyimage.com/222x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (25, 'http://dummyimage.com/174x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (26, 'http://dummyimage.com/217x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (27, 'http://dummyimage.com/224x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (28, 'http://dummyimage.com/189x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (29, 'http://dummyimage.com/116x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (30, 'http://dummyimage.com/180x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (31, 'http://dummyimage.com/129x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (32, 'http://dummyimage.com/107x100.png/ff4444/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (33, 'http://dummyimage.com/156x100.png/ff4444/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (34, 'http://dummyimage.com/186x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (35, 'http://dummyimage.com/242x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (36, 'http://dummyimage.com/156x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (37, 'http://dummyimage.com/161x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (38, 'http://dummyimage.com/175x100.png/dddddd/000000');
-INSERT INTO photo (photo_id, path) VALUES (39, 'http://dummyimage.com/212x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (40, 'http://dummyimage.com/118x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (41, 'http://dummyimage.com/227x100.png/ff4444/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (42, 'http://dummyimage.com/181x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (43, 'http://dummyimage.com/182x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (44, 'http://dummyimage.com/219x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (45, 'http://dummyimage.com/185x100.png/5fa2dd/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (46, 'http://dummyimage.com/153x100.png/cc0000/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (47, 'http://dummyimage.com/184x100.png/ff4444/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (48, 'http://dummyimage.com/183x100.png/ff4444/ffffff');
-INSERT INTO photo (photo_id, path) VALUES (49, 'http://dummyimage.com/108x100.png/ff4444/ffffff');
+INSERT INTO photo (photo_id, path) VALUES (1, 'image1.png');
+INSERT INTO photo (photo_id, path) VALUES (2, 'image2.png');
+INSERT INTO photo (photo_id, path) VALUES (3, 'image3.png');
+INSERT INTO photo (photo_id, path) VALUES (4, 'image4.png');
+INSERT INTO photo (photo_id, path) VALUES (5, 'image5.png');
+INSERT INTO photo (photo_id, path) VALUES (6, 'image6.png');
+INSERT INTO photo (photo_id, path) VALUES (7, 'image7.png');
+INSERT INTO photo (photo_id, path) VALUES (8, 'image8.png');
+INSERT INTO photo (photo_id, path) VALUES (9, 'image9.png');
+INSERT INTO photo (photo_id, path) VALUES (10, 'image10.png');
+INSERT INTO photo (photo_id, path) VALUES (11, 'image11.png');
+INSERT INTO photo (photo_id, path) VALUES (12, 'image12.png');
+INSERT INTO photo (photo_id, path) VALUES (13, 'image13.png');
+INSERT INTO photo (photo_id, path) VALUES (14, 'image14.png');
+INSERT INTO photo (photo_id, path) VALUES (15, 'image15.png');
+INSERT INTO photo (photo_id, path) VALUES (16, 'image16.png');
+INSERT INTO photo (photo_id, path) VALUES (17, 'image17.png');
+INSERT INTO photo (photo_id, path) VALUES (18, 'image18.png');
+INSERT INTO photo (photo_id, path) VALUES (19, 'image19.png');
+INSERT INTO photo (photo_id, path) VALUES (20, 'image20.png');
+INSERT INTO photo (photo_id, path) VALUES (21, 'image21.png');
+INSERT INTO photo (photo_id, path) VALUES (22, 'image22.png');
+INSERT INTO photo (photo_id, path) VALUES (23, 'image23.png');
+INSERT INTO photo (photo_id, path) VALUES (24, 'image24.png');
+INSERT INTO photo (photo_id, path) VALUES (25, 'image25.png');
+INSERT INTO photo (photo_id, path) VALUES (26, 'image26.png');
+INSERT INTO photo (photo_id, path) VALUES (27, 'image27.png');
+INSERT INTO photo (photo_id, path) VALUES (28, 'image28.png');
+INSERT INTO photo (photo_id, path) VALUES (29, 'image29.png');
+INSERT INTO photo (photo_id, path) VALUES (30, 'image30.png');
+INSERT INTO photo (photo_id, path) VALUES (31, 'image31.png');
+INSERT INTO photo (photo_id, path) VALUES (32, 'image32.png');
+INSERT INTO photo (photo_id, path) VALUES (33, 'image33.png');
+INSERT INTO photo (photo_id, path) VALUES (34, 'image34.png');
+INSERT INTO photo (photo_id, path) VALUES (35, 'image35.png');
+INSERT INTO photo (photo_id, path) VALUES (36, 'image36.png');
+INSERT INTO photo (photo_id, path) VALUES (37, 'image37.png');
+INSERT INTO photo (photo_id, path) VALUES (38, 'image38.png');
+INSERT INTO photo (photo_id, path) VALUES (39, 'image39.png');
+INSERT INTO photo (photo_id, path) VALUES (40, 'image40.png');
+INSERT INTO photo (photo_id, path) VALUES (41, 'image41.png');
+INSERT INTO photo (photo_id, path) VALUES (42, 'image42.png');
+INSERT INTO photo (photo_id, path) VALUES (43, 'image43.png');
+INSERT INTO photo (photo_id, path) VALUES (44, 'image44.png');
+INSERT INTO photo (photo_id, path) VALUES (45, 'image45.png');
+INSERT INTO photo (photo_id, path) VALUES (46, 'image46.png');
+INSERT INTO photo (photo_id, path) VALUES (47, 'image47.png');
+INSERT INTO photo (photo_id, path) VALUES (48, 'image48.png');
+INSERT INTO photo (photo_id, path) VALUES (49, 'image49.png');
+
 
 
 
@@ -295,6 +296,18 @@ INSERT INTO address (address_id, city, street, zip_code, country_id) VALUES (27,
 INSERT INTO address (address_id, city, street, zip_code, country_id) VALUES (28, 'Changsha', 'Eighth Road', '24709', 9);
 INSERT INTO address (address_id, city, street, zip_code, country_id) VALUES (29, 'SANTIAGO', 'SouthDrive', '55296', 12);
 INSERT INTO address (address_id, city, street, zip_code, country_id) VALUES (30, 'Jeddah', 'MainStreet', '90597', 12);
+insert into address (address_id, city, street, zip_code, country_id) values (31, 'Lampihung', '16213 Farmco Circle', '309379', 1);
+insert into address (address_id, city, street, zip_code, country_id) values (32, 'Quinta', '04089 Kinsman Road', '4860-077', 2);
+insert into address (address_id, city, street, zip_code, country_id) values (33, 'Sujitan', '09600 Columbus Terrace', '569 92', 3);
+insert into address (address_id, city, street, zip_code, country_id) values (34, 'Ulaan Khat', '6803 Holy Cross Lane', '253618', 4);
+insert into address (address_id, city, street, zip_code, country_id) values (35, 'Potikosin', '9 Truax Hill', '68300', 5);
+insert into address (address_id, city, street, zip_code, country_id) values (36, 'Polešovice', '94 Autumn Leaf Street', '687 37', 6);
+insert into address (address_id, city, street, zip_code, country_id) values (37, 'Sheffield', '0983 Bashford Terrace', 'S1', 7);
+insert into address (address_id, city, street, zip_code, country_id) values (38, 'Skelivka', '56 Burning Wood Crossing', '309379', 8);
+insert into address (address_id, city, street, zip_code, country_id) values (39, 'Maracás', '90762 Norway Maple Pass', '45360-000', 9);
+insert into address (address_id, city, street, zip_code, country_id) values (40, 'Brasília', '556 Troy Hill', '70000-000', 10);
+insert into address (address_id, city, street, zip_code, country_id) values (41, 'Kalá Déndra', '744 Marcy Avenue', '70000-120', 1);
+insert into address (address_id, city, street, zip_code, country_id) values (42, 'Doubravice nad Svitavou', '8418 Tennyson Alley', '679 11', 2);
 
 
 
@@ -538,16 +551,16 @@ INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, 
 
 
 
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (1, 3, '12/27/2003 09:09:00','Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (2, 3, '07/29/2012 02:09:00','Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (3, 4, '05/30/2017 01:17:00','Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (4, 5, '09/12/2000 07:13:00','Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (5, 6, '08/12/2006 00:14:00','Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (6, 6, '02/10/2011 04:52:00','Processing');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (7, 6, '07/01/2000 04:25:00','Processing');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (8, 8, '05/28/2017 01:44:00','Processing');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (9, 9, '08/25/2003 04:53:00','Sent');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (10, 10, '10/10/2015 05:38:00','Sent');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (1, 3, '12/27/2003 09:09:00', 31, 31, 'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (2, 3, '07/29/2012 02:09:00', 32, 33,'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (3, 4, '05/30/2017 01:17:00', 34, 34,'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (4, 5, '09/12/2000 07:13:00', 35, 35,'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (5, 6, '08/12/2006 00:14:00', 36, 37,'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (6, 6, '02/10/2011 04:52:00', 38, 38,'Processing');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (7, 6, '07/01/2000 04:25:00', 39, 39,'Processing');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (8, 8, '05/28/2017 01:44:00', 40, 40,'Processing');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (9, 9, '08/25/2003 04:53:00', 41, 41,'Sent');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (10, 10, '10/10/2015 05:38:00', 42, 42,'Sent');
 
 
 

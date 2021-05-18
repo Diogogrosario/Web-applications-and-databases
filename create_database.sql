@@ -103,7 +103,9 @@ CREATE TABLE purchase (
     purchase_id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(user_id) ON UPDATE CASCADE,
     "date" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
-    state purchaseState
+    billing_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE,
+    shipping_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE,
+    state purchaseState DEFAULT 'Processing'
 );
  
 CREATE TABLE purchase_item (
@@ -604,7 +606,7 @@ END;
 $$ 
 LANGUAGE plpgsql;
 
-CREATE OR REPLACE PROCEDURE discounts(userID INTEGER)
+CREATE OR REPLACE PROCEDURE checkout(userID INTEGER, billing INTEGER, shipping INTEGER)
 LANGUAGE plpgsql AS $$
 DECLARE 
 sum_prices MONEY := 0::MONEY;
@@ -629,7 +631,7 @@ SELECT sum((price - price*(get_discount(item_id, now())/100)) * quantity) INTO s
             SET balance = balance - sum_prices
             WHERE user_id = userID;
 
-            INSERT INTO purchase(user_id,date) VALUES (userID, now()) RETURNING purchase_id INTO purchase_ident;
+            INSERT INTO purchase(user_id,date,billing_address,shipping_address) VALUES (userID, now(), billing, shipping) RETURNING purchase_id INTO purchase_ident;
 
             INSERT INTO purchase_item (purchase_id, item_id, price, quantity)
                 SELECT purchase_ident, item_id, price-price*(get_discount(item_id, now())/100), quantity

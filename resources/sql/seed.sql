@@ -103,7 +103,9 @@ CREATE TABLE purchase (
     purchase_id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(user_id) ON UPDATE CASCADE,
     "date" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
-    state purchaseState
+    billing_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE,
+    shipping_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE,
+    state purchaseState DEFAULT 'Processing'
 );
  
 CREATE TABLE purchase_item (
@@ -604,7 +606,7 @@ END;
 $$ 
 LANGUAGE plpgsql;
 
-CREATE OR REPLACE PROCEDURE discounts(userID INTEGER)
+CREATE OR REPLACE PROCEDURE checkout(userID INTEGER, billing INTEGER, shipping INTEGER)
 LANGUAGE plpgsql AS $$
 DECLARE 
 sum_prices MONEY := 0::MONEY;
@@ -629,7 +631,7 @@ SELECT sum((price - price*(get_discount(item_id, now())/100)) * quantity) INTO s
             SET balance = balance - sum_prices
             WHERE user_id = userID;
 
-            INSERT INTO purchase(user_id,date) VALUES (userID, now()) RETURNING purchase_id INTO purchase_ident;
+            INSERT INTO purchase(user_id,date,billing_address,shipping_address) VALUES (userID, now(), billing, shipping) RETURNING purchase_id INTO purchase_ident;
 
             INSERT INTO purchase_item (purchase_id, item_id, price, quantity)
                 SELECT purchase_ident, item_id, price-price*(get_discount(item_id, now())/100), quantity
@@ -639,9 +641,6 @@ SELECT sum((price - price*(get_discount(item_id, now())/100)) * quantity) INTO s
     END IF;
 END
 $$;
-
-
-
 
 
 
@@ -860,7 +859,6 @@ INSERT INTO item_detail (item_id, detail_id, detail_info) VALUES (20, 6, '12+');
 INSERT INTO item_detail (item_id, detail_id, detail_info) VALUES (20, 23, 'Blu-ray');
 
 
-
 INSERT INTO photo (photo_id, path) VALUES (1, 'image1.png');
 INSERT INTO photo (photo_id, path) VALUES (2, 'image2.png');
 INSERT INTO photo (photo_id, path) VALUES (3, 'image3.png');
@@ -913,6 +911,7 @@ INSERT INTO photo (photo_id, path) VALUES (49, 'image49.png');
 
 
 
+
 INSERT INTO address (address_id, city, street, zip_code, country_id) VALUES (1, 'Davao', 'Seventh Ave', '31596', 10);
 INSERT INTO address (address_id, city, street, zip_code, country_id) VALUES (2, 'Odessa', 'Sixth Ave', '35704', 10);
 INSERT INTO address (address_id, city, street, zip_code, country_id) VALUES (3, 'Weifang', 'Richmond Road', '62326', 10);
@@ -943,6 +942,18 @@ INSERT INTO address (address_id, city, street, zip_code, country_id) VALUES (27,
 INSERT INTO address (address_id, city, street, zip_code, country_id) VALUES (28, 'Changsha', 'Eighth Road', '24709', 9);
 INSERT INTO address (address_id, city, street, zip_code, country_id) VALUES (29, 'SANTIAGO', 'SouthDrive', '55296', 12);
 INSERT INTO address (address_id, city, street, zip_code, country_id) VALUES (30, 'Jeddah', 'MainStreet', '90597', 12);
+insert into address (address_id, city, street, zip_code, country_id) values (31, 'Lampihung', '16213 Farmco Circle', '309379', 1);
+insert into address (address_id, city, street, zip_code, country_id) values (32, 'Quinta', '04089 Kinsman Road', '4860-077', 2);
+insert into address (address_id, city, street, zip_code, country_id) values (33, 'Sujitan', '09600 Columbus Terrace', '569 92', 3);
+insert into address (address_id, city, street, zip_code, country_id) values (34, 'Ulaan Khat', '6803 Holy Cross Lane', '253618', 4);
+insert into address (address_id, city, street, zip_code, country_id) values (35, 'Potikosin', '9 Truax Hill', '68300', 5);
+insert into address (address_id, city, street, zip_code, country_id) values (36, 'Polešovice', '94 Autumn Leaf Street', '687 37', 6);
+insert into address (address_id, city, street, zip_code, country_id) values (37, 'Sheffield', '0983 Bashford Terrace', 'S1', 7);
+insert into address (address_id, city, street, zip_code, country_id) values (38, 'Skelivka', '56 Burning Wood Crossing', '309379', 8);
+insert into address (address_id, city, street, zip_code, country_id) values (39, 'Maracás', '90762 Norway Maple Pass', '45360-000', 9);
+insert into address (address_id, city, street, zip_code, country_id) values (40, 'Brasília', '556 Troy Hill', '70000-000', 10);
+insert into address (address_id, city, street, zip_code, country_id) values (41, 'Kalá Déndra', '744 Marcy Avenue', '70000-120', 1);
+insert into address (address_id, city, street, zip_code, country_id) values (42, 'Doubravice nad Svitavou', '8418 Tennyson Alley', '679 11', 2);
 
 
 
@@ -1080,6 +1091,7 @@ INSERT INTO item_photo (photo_id, item_id) VALUES (29, 20);
 INSERT INTO item_photo (photo_id, item_id) VALUES (30, 20);
 
 
+
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (1, 'Lbaw2021NormalUser', 'normallogin@gmail.com', 'Rachel', 'Hummel', '$2y$10$eSVHRjoF5AzoLLqMhfW2meNE1s4O0OwPqWSuLmJl/OzIkvQ95Y/Hi', False, False, '8128488.8', 41, 7, 7);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (6, 'LbawAdmin2021', 'lbawAdmin@gmail.com', 'Lia', 'Polti', '$2y$10$W5RgDZEJVmBepJEVMQ702eKIhGm0MD44A6x9BP/OsGyEv60heQaAS', False, True, '5223662.0', 42, 7, 7);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (3, 'Carlos83', 'gamingwithapotato@gmail.com', 'Herbert', 'Anderson', 'btWp5iKDSHBYQyZZ7sHIa0zDaATKZbeeSeCycslTiaXyeOemaY1vWYGWXHWijO2pKpmJex08LsomZ7ySNzaMZbKIELfkYhIwoEuDJ2QhSQXY24EwJhcJ5ZQYYBQ7VVfTEXio2GcVABEQgeEoJJHfBb8gBpDtCT0gmUhei1dmunu', False, False, '2938243.84', 43, 16, 16);
@@ -1090,7 +1102,6 @@ INSERT INTO users (user_id, username, email, first_name, last_name, password, de
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (8, 'Piotr', 'Mandy.Fernandez5@freeweb.co.uk', 'Shermie', 'Helfrich', 'Y81DcKmovDAcVMYS47A6bsb1mSNqNlLvHXXrqNzvtxy4aK3uPZRwI5yVjstKp27NrRFZwdY50TMKDh1I0iwKCoEyvN81GjCvKVUtjYpeJUBLs1fgypQUSCj8ZiTvZ2zeCJngQUoWaZvkpO5WHl2Vn67gwP7ba033QApowfwnExc3dqdIoQIIk5XimAdcq1yt8lFRbFyHlvtQzRnNwVRSzoYnJQR8DcDSVqJLHwxOwNg6B7pHqqXS', False, False, '2299613.26', 48, 22, 22);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (9, 'Herb246', 'Trees.Gaskins5@gawab.es', 'Pieter', 'Orcutt', 'rNlwgEByc12R715pWnUlKzqtUI3kC3gvsFV2HPgRdUSi5dce64hZXZYXJ2zlWYjMLzPQFna6hEZ7QdOCtPGUauUufDDOjrfIg8joPvALzxEaMjgyvnChJOXgJwpwKbx3KtNsy3UbgOL4jgDAV', False, False, '2950352.32', 49, NULL, 22);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (10, NULL, NULL, NULL, NULL, 'xFUYINBeq4oPvnONs18WJZ0RqwjYYFPA4MuwQalgNjPODG2FEBcYjYN6azaYebnt6dfpg3AnBgfY4sq4Erv8', True, False, NULL, NULL, NULL, NULL);
-
 
 
 
@@ -1186,16 +1197,16 @@ INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, 
 
 
 
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (1, 3, '12/27/2003 09:09:00','Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (2, 3, '07/29/2012 02:09:00','Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (3, 4, '05/30/2017 01:17:00','Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (4, 5, '09/12/2000 07:13:00','Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (5, 6, '08/12/2006 00:14:00','Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (6, 6, '02/10/2011 04:52:00','Processing');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (7, 6, '07/01/2000 04:25:00','Processing');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (8, 8, '05/28/2017 01:44:00','Processing');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (9, 9, '08/25/2003 04:53:00','Sent');
-INSERT INTO purchase (purchase_id, user_id, date, state) VALUES (10, 10, '10/10/2015 05:38:00','Sent');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (1, 3, '12/27/2003 09:09:00', 31, 31, 'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (2, 3, '07/29/2012 02:09:00', 32, 33,'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (3, 4, '05/30/2017 01:17:00', 34, 34,'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (4, 5, '09/12/2000 07:13:00', 35, 35,'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (5, 6, '08/12/2006 00:14:00', 36, 37,'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (6, 6, '02/10/2011 04:52:00', 38, 38,'Processing');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (7, 6, '07/01/2000 04:25:00', 39, 39,'Processing');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (8, 8, '05/28/2017 01:44:00', 40, 40,'Processing');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (9, 9, '08/25/2003 04:53:00', 41, 41,'Sent');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (10, 10, '10/10/2015 05:38:00', 42, 42,'Sent');
 
 
 
