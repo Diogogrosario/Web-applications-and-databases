@@ -69,14 +69,14 @@
                           <a class="nav-link" href="/register" style="color:white !important">Register</a>
 
                       <?php } else { ?>
-                            <div class="d-flex justify-content-center pt-1">
+                            <div class="d-flex align-items-center justify-content-center pt-1">
                                 <a href={{ "/userProfile/" . Auth::id() }} class="d-block" style="width: 3vw;">
                                     <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(\"" . asset("/img/users/" . Auth::user()->image()->first()["path"]) . "\");background-position:center;background-size:cover;"}}>
                                     </div>
-                                  </a>
-                                <a id="navbarUsername" class="nav-link ms-2" href={{"/userProfile/" . Auth::id()}} style="color:white !important">{{ Auth::user()["username"] }}</a>
+                                </a>
+                                <a id="navbarUsername" class="nav-link p-1 align-middle" href={{"/userProfile/" . Auth::id()}} style="color:white !important; border-right: 1px solid;">{{ Auth::user()["username"] }}</a>
                                 @if (Auth::user()["is_admin"])
-                                <a class="nav-link p-1" href={{"/management"}} style="color:white !important; border-right: 1px solid; border-left:" >Manage</a>
+                                <a class="nav-link p-1 align-middle" href={{"/management"}} style="color:white !important; border-right: 1px solid;" >Manage</a>
                                 @endif
                                 <a class="nav-link p-1" href="/logout" style="color:white !important;">Logout</a>
                             </div>
