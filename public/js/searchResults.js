@@ -41,13 +41,29 @@ function checkSelectedCategory(){
 function checkSelectedCategories(){
     let categoryString = findGetParameter("categories");
     
+
     if(categoryString != null && categoryString != ""){
         let categories = categoryString.split("+");
+
+        let invalidCat = false;
         for(let category of categories){
             if(category != "-1" && category != null && category != ""){
                 let tmp = document.getElementById(category);
                 if(tmp != null){
-                    tmp.checked = true;
+                    
+                }
+                else{
+                    invalidCat = true;
+                }
+            }
+        }
+        if(!invalidCat){
+            for(let category of categories){
+                if(category != "-1" && category != null && category != ""){
+                    let tmp = document.getElementById(category);
+                    if(tmp != null){
+                        tmp.checked = true;
+                    }
                 }
             }
         }
@@ -59,11 +75,27 @@ function checkSelectedPrices(){
     
     if(categoryString != null && categoryString != ""){
         let categories = categoryString.split("+");
+
+        let invalidPrice = false;
         for(let category of categories){
             if(category != "" && category != null){
                 let tmp = document.getElementById(category);
                 if(tmp != null){
-                    tmp.checked = true;
+                    
+                }
+                else{
+                    invalidPrice = true;
+                }
+            }
+        }
+
+        if(!invalidPrice){
+            for(let category of categories){
+                if(category != "" && category != null){
+                    let tmp = document.getElementById(category);
+                    if(tmp != null){
+                        tmp.checked = true;
+                    }
                 }
             }
         }
@@ -75,11 +107,27 @@ function checkSelectedRatings(){
     
     if(categoryString != null && categoryString != ""){
         let categories = categoryString.split("+");
+
+        let invalidRating = false;
         for(let category of categories){
             if(category != "" && category != null){
                 let tmp = document.getElementById(category + "starFilter");
                 if(tmp != null){
-                    tmp.checked = true;
+                    
+                }
+                else{
+                    invalidRating = true;
+                }
+            }
+        }
+
+        if(!invalidRating){
+            for(let category of categories){
+                if(category != "" && category != null){
+                    let tmp = document.getElementById(category + "starFilter");
+                    if(tmp != null){
+                        tmp.checked = true;
+                    }
                 }
             }
         }
