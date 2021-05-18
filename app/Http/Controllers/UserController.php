@@ -222,7 +222,7 @@ class UserController extends Controller
         
         if(array_key_exists("type",$capture)) {
             if($capture['type'] === 'error') {
-                // payment failed
+                return redirect('/userProfile/' . strval($user['user_id']))->with('balance_error', 'It appears that there has been a problem with the payment. Please try again.');
             }
         } else if($capture['status'] === 'COMPLETED') {
             $value = $capture['purchase_units'][0]['payments']['captures'][0]['amount']['value'];
@@ -231,9 +231,6 @@ class UserController extends Controller
             });
             return redirect('/userProfile/' . strval($user['user_id']))->with('balance_success', 'Balance added successfully.');
         } 
-
-        // if($capture)
-        // return $provider->showOrderDetails(session('order_id'));
     }
 
     public function addBalanceValue($id, $value) {
@@ -244,6 +241,6 @@ class UserController extends Controller
 
         DB::table('users')
                 ->where('user_id', $user['user_id'])
-                ->update(['balance' => ($currentBalance + $value)]);
+                ->update(['balance' => $newBalance]);
     }
 }

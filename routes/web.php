@@ -89,3 +89,4 @@ Route::get("checkout/toAddresses", 'CheckoutController@toAddresses');
 Route::post("checkout/toShipping", 'CheckoutController@toShipping');
 Route::post("checkout/toPayment", 'CheckoutController@toPayment');
 Route::post("checkout", 'CheckoutController@finishCheckout');
+Route::get("checkout/capture", 'CheckoutController@finishPaypal');

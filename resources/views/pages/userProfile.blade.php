@@ -51,7 +51,13 @@
 
         @if (session('balance_success'))
             <div class="alert alert-success" role="alert">
-            {{session('balance_success')}}
+            {{session()->pull('balance_success')}}
+            </div>
+        @endif
+
+        @if (session('balance_error'))
+            <div class="alert alert-danger" role="alert">
+            {{session()->pull('balance_error')}}
             </div>
         @endif
 

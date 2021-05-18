@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Country;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Input\Input;
+use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller
 {
@@ -146,6 +147,7 @@ class CheckoutController extends Controller
     }
 
     public function finishCheckout(Request $request) {
+        $user = Auth::user();
         $this->authorize('checkout', Auth::user());
 
         if(!$request->session()->has('shipping') || !$request->session()->has('shipping')) {
@@ -155,12 +157,116 @@ class CheckoutController extends Controller
         $post = $request->post();
         if($post['finish'] == "Balance") {
             // TODO: pay with balance
+            return $this->payBalance($user, session('shipping'), session('billing'));
             
         } else if($post['finish'] == "Paypal") {
             // TODO: pay with paypal
+            return $this->payPaypal($user);
         } else {
             return redirect()->route('checkout')->with('error', 'Invalid payment option.');
         }
-        return redirect('/');
+    }
+
+    private function processCheckout($user, $shipping, $billing) {
+        DB::select('call discounts(?)', [$user["user_id"]]);
+    }
+
+    private function payBalance($user, $shipping, $billing) {
+        $result = DB::transaction(function () use($user, $shipping, $billing) {
+            $sum_prices = DB::select('SELECT sum((price - price * (get_discount(item_id, now()) / 100)) * quantity)
+                        FROM item JOIN cart USING (item_id)
+                        WHERE cart.user_id = ?;
+            ', [$user['user_id']])[0]->sum;
+
+            $sum_prices = floatval(preg_replace('/[^\d\.]/', '', $sum_prices)); // parse money
+            // foreach(DB::table('cart')->where('user_id', $user["user_id"]) as $cart_item) {
+            //     $item_discount = DB::select('select get_discount(?,?)', [$cart_item['item_id'], NULL]);
+            //     $sum_prices = $sum_prices + $cart_item['price'] - ($cart_item['price'] * $item_discount);
+            // }
+
+            $currentBalance = floatval(preg_replace('/[^\d\.]/', '', $user['balance'])); // parse money
+
+            if($currentBalance >= $sum_prices) {
+                $this->processCheckout($user, $shipping, $billing);
+                return 0;
+            }
+            return -1;
+        });
+
+        if($result == 0) {
+            return redirect('/userProfile/'.$user['user_id'].'/purchaseHistory')->with('checkout_success', 'Checkout successful.');
+        } else {
+            return redirect('/checkout')->with('checkout_error', 'You do not have enough balance.');
+        }
+    }
+
+    private function payPaypal($user) {
+        $sum_prices = DB::transaction(function () use($user) {
+            $sum_prices = DB::select('SELECT sum((price - price * (get_discount(item_id, now()) / 100)) * quantity)
+                        FROM item JOIN cart USING (item_id)
+                        WHERE cart.user_id = ?;
+            ', [$user['user_id']])[0]->sum;
+
+            $sum_prices = floatval(preg_replace('/[^\d\.]/', '', $sum_prices)); // parse money
+            return $sum_prices;
+        });
+
+        $provider = \PayPal::setProvider();
+        $provider->setApiCredentials(config('paypal'));
+        $provider->setAccessToken($provider->getAccessToken());
+
+        $order = $provider->createOrder([
+            "intent"=> "CAPTURE",
+            "purchase_units"=> [
+                0 => [
+                    "amount"=> [
+                        "currency_code"=> "USD",
+                        "value"=> $sum_prices
+                    ]
+                ]
+                    ],
+            "application_context" => [
+                'shipping_preference'=> 'NO_SHIPPING',
+                'brand_name' => 'Fneuc Shop',
+                'return_url' => 'http://localhost:8000/checkout/capture'
+                ]
+          ]);
+
+        session(['checkout_id' => $order['id']]);
+        return redirect($order['links'][1]['href']);
+    }
+
+    public function finishPaypal(Request $request) {
+        $user = Auth::user();
+        $this->authorize('checkout', $user);
+        $user_id = $user['user_id'];
+
+        $order_id = $request->query('token');
+
+        if($order_id == null || session('checkout_id') == null || $order_id != session('checkout_id')) {
+            abort(403, 'Expired order.');
+        }
+
+        if(!$request->session()->has('shipping') || !$request->session()->has('shipping')) {
+            abort(403, 'Expired order.');
+        }
+
+        $provider = \PayPal::setProvider();
+        $provider->setApiCredentials(config('paypal'));
+        $provider->setAccessToken($provider->getAccessToken());
+        $capture = $provider->capturePaymentOrder(session('checkout_id'));
+
+        if(array_key_exists("type",$capture)) {
+            if($capture['type'] === 'error') {
+                return redirect('/checkout')->with('checkout_error', 'It appears that there has been a problem with the payment. Please try again.');
+            }
+        } else if($capture['status'] === 'COMPLETED') {
+
+            DB::transaction(function () use($user) {
+                $this->processCheckout($user, session('shipping'), session('billing'));
+            });
+            return redirect('/userProfile/'.$user['user_id'].'/purchaseHistory')->with('checkout_success', 'Checkout successful.');
+        } 
+
     }
 }

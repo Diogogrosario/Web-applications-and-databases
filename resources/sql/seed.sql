@@ -22,7 +22,6 @@ DROP TABLE IF EXISTS country CASCADE;
 DROP TYPE IF EXISTS notificationType;
 DROP TYPE IF EXISTS purchaseState;
 
-
 CREATE TYPE notificationType AS ENUM ('Stock','Discount');
 CREATE TYPE purchaseState AS ENUM ('Sent','Processing','Arrived');
 
@@ -588,9 +587,13 @@ RETURNS INTEGER AS
 $$
 DECLARE item_discount INTEGER := 0;
 BEGIN
+    if(d = NULL) then
+        d := now();
+    end if;
+    
     SELECT max(discount.percentage) INTO item_discount
     FROM apply_discount JOIN discount USING (discount_id)
-    WHERE item_id = $1 AND begin_date <= $2 AND end_date >= $2;
+    WHERE item_id = i AND begin_date <= d AND end_date >= d;
     
     if(item_discount IS NULL) then
         RETURN 0;
@@ -607,7 +610,7 @@ DECLARE
 sum_prices MONEY := 0::MONEY;
 purchase_ident INTEGER := 0;
 BEGIN
-SELECT sum((price - price*get_discount(item_id, now())) * quantity) INTO sum_prices
+SELECT sum((price - price*(get_discount(item_id, now())/100)) * quantity) INTO sum_prices
         FROM item JOIN cart USING (item_id)
         WHERE cart.user_id = userID;
          
@@ -629,13 +632,14 @@ SELECT sum((price - price*get_discount(item_id, now())) * quantity) INTO sum_pri
             INSERT INTO purchase(user_id,date) VALUES (userID, now()) RETURNING purchase_id INTO purchase_ident;
 
             INSERT INTO purchase_item (purchase_id, item_id, price, quantity)
-                SELECT purchase_ident, item_id, (price-price*get_discount(item_id, now())) * quantity, quantity
+                SELECT purchase_ident, item_id, price-price*(get_discount(item_id, now())/100), quantity
                 FROM item JOIN cart USING (item_id)
                 WHERE user_id = userID;
         
     END IF;
 END
 $$;
+
 
 
 

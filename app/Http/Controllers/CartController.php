@@ -34,7 +34,7 @@ class CartController extends Controller
             $item = Item::find($id);
             
 
-            if($item["stock"] > 0) {
+            if($item["stock"] >= $quantity) {
                 DB::select('call add_to_cart(?,?,?)', array(Auth::user()["user_id"], $id, $quantity));
                 return response()->json("Item added to cart successfuly.", 200);
             } else {

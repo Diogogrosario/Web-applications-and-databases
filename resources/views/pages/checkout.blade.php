@@ -5,9 +5,14 @@
     <title>Checkout</title>
 @endsection
 
-
 @section("content")
 @include('partials.sidebarItem',["categories" => $categories])
+
+@if (session('checkout_error'))
+    <div class="alert alert-danger" role="alert">
+    {{session()->pull('checkout_error')}}
+    </div>
+@endif
 
 <div class="p-0" style="background-color:#f2f2f2;">
     <div id="checkoutPage" class="container col-lg-7 col-md-11 p-lg-4 p-3 shadow-sm h-100" style="background-color:white">
