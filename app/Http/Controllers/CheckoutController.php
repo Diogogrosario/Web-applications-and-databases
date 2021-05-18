@@ -56,6 +56,14 @@ class CheckoutController extends Controller
         return view("partials.checkoutAddressForm")->with("addressType", $type)->with("countries", Country::all());
     }
 
+    public function getAddressInfo($type)
+    {
+        if($type != "shipping" && $type != "billing") {
+            return response()->json("Invalid address type", 400);
+        }
+        return view("partials.checkoutAddressInfo")->with("addressType", $type);
+    }
+
     public function toAddresses() {
 
         $this->authorize('checkout', Auth::user());
@@ -239,7 +247,6 @@ class CheckoutController extends Controller
     public function finishPaypal(Request $request) {
         $user = Auth::user();
         $this->authorize('checkout', $user);
-        $user_id = $user['user_id'];
 
         $order_id = $request->query('token');
 

@@ -4,6 +4,9 @@
         {{session('error')}}
       </div>
     @endif
+
+    <script src="{{asset('js/checkout.js')}}" defer></script>
+
     <form method="post" action="{{action('CheckoutController@toShipping')}}" class="row p-4" id="addresses_checkout_form">
         @csrf
         <div id="billingAddressDiv_checkout" class="col-lg-6 col-12">
@@ -18,47 +21,11 @@
                     Use previously defined billing address
                 </label>
             </div>
-            <table id="billingAddress_checkout" class="mt-4 mb-5 table">
-                @if (Auth::user()->shippingAddress() == null)
-                <tbody>
-                    <tr>
-                        <th scope="row">Address</th>
-                        <td>Not Set</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">City</th>
-                        <td>Not Set</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Country</th>
-                        <td>Not Set</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Zip Code</th>
-                        <td>Not Set</td>
-                    </tr>
-                </tbody>
-                @else
-                    <tbody>
-                        <tr>
-                            <th scope="row">Address</th>
-                            <td>{{ Auth::user()->shippingAddress()["street"] }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">City</th>
-                            <td>{{ Auth::user()->shippingAddress()["city"] }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Country</th>
-                            <td>{{ Auth::user()->shippingAddress()->country()["name"] }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Zip Code</th>
-                            <td>{{ Auth::user()->shippingAddress()["zip_code"] }}</td>
-                        </tr>
-                    </tbody>
-                @endif
-            </table>
+            @if (Auth::user()->shippingAddress() == null)
+                @include('partials.checkoutAddressForm', ["addressType" => "billing", "countries" => $countries])
+            @else 
+                @include('partials.checkoutAddressInfo', ["addressType" => "billing"])
+            @endif
         </div>
 
         <div class="col-lg-6 addressForm">
@@ -83,7 +50,7 @@
                     </label>
                 </div>
             </div>
-            @include('partials.checkoutAddressForm', ['addressType' => 'shipping', 'countries', $countries])
+            @include('partials.checkoutAddressInfo', ['addressType' => 'shipping'])
         </div>
         
         <footer class="ps-4 mt-3 row">

@@ -84,7 +84,8 @@ Route::post('notification/{notificationId}', 'NotificationController@putIsSeen')
 Route::patch('notification/{notificationId}', 'NotificationController@putIsSeenAjax');
 
 // Checkout
-Route::get("checkout/address/{type}", 'CheckoutController@getAddressForm');
+Route::get("checkout/addressForm/{type}", 'CheckoutController@getAddressForm');
+Route::get("checkout/addressInfo/{type}", 'CheckoutController@getAddressInfo');
 Route::get("checkout/toAddresses", 'CheckoutController@toAddresses');
 Route::post("checkout/toShipping", 'CheckoutController@toShipping');
 Route::post("checkout/toPayment", 'CheckoutController@toPayment');
