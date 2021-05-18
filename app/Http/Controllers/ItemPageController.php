@@ -23,7 +23,6 @@ class ItemPageController extends Controller
             abort(404);
         }
         $categories = Category::all()->sortBy("category_id");
-        
         return view('pages.itemPage')->with('item', $item)->with("categories", $categories);
     }
 }

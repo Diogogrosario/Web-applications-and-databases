@@ -46,19 +46,20 @@ class AddItemController extends Controller
         $this->authorize('create',$photo);
 
         $photo = Photo::create([
-            'path' => $image
+            'path' => 'boda'
         ]);
 
         DB::insert('INSERT INTO item_photo(photo_id, item_id) VALUES (?,?)',array($photo['photo_id'],$item['item_id']));
+        $item->photos()->sync(array($photo['photo_id']),false);
+
+        $ids = array();
 
         foreach ($details_parsed as $detail_id => $detail_value){
             DB::insert('INSERT INTO item_detail(item_id, detail_id, detail_info) VALUES (?,?,?)',array($item['item_id'],$detail_id,$detail_value));
+            array_push($ids,$detail_id);
         }
+        $item->details()->sync($ids,false);
 
-        var_dump(DB::select('SELECT * from item WHERE item_id = ?',array($item['item_id'])));
-        var_dump(DB::select('SELECT * from item_photo WHERE item_id = ?',array($item['item_id'])));
-        var_dump(DB::select('SELECT * from item_detail WHERE item_id = ?',array($item['item_id'])));
-        var_dump(DB::select('SELECT * from photo WHERE photo_id = 61'));
 
         return $item['item_id'];
     }

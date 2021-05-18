@@ -66,9 +66,7 @@ function addNewItem(event){
     sendAjaxRequest('POST', url, data, function () {
         console.log(this.response);
         if (this.status === 200) {
-            // window.location.replace('/item/'+this.response);
-            console.log(this.response);
-
+            window.location.replace('/item/'+this.response);
         }});
 }
 
