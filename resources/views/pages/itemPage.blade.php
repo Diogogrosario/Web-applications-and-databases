@@ -15,6 +15,7 @@
 <script src="{{asset('js/cart.js')}}" defer></script>
 <script src="{{asset('js/wishlist.js')}}" defer></script>
 
+
 <div class="col">
     <div class="content">
         <div class="row">
@@ -107,7 +108,7 @@
                                 <div class="ps-lg-4 ps-md-0 text-lg-start text-center mb-3" id="productPrice" style="color:red; font-size:3em;">
                                      {{ $item["price"] }} {{-- TODO: DISCOUNTS --}}
                                 </div>
-                                <div class="text-center fs-5 mb-1"><span style="color:green">{{ $item["stock"] }}</span> in stock</div>
+                                <div class="text-center fs-5 mb-1"><span id="stockDisplay" style="color:green">{{ $item["stock"] }}</span> in stock</div>
 
 
                                 <button type="button" class="btn btn-success w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#addCartModal_{{$item['item_id']}}">
@@ -124,6 +125,17 @@
                                     @else
                                         <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0 wishlist add-wishlist" data-id="{{$item['item_id']}}"><i class="bi bi-heart"></i> Add to Wishlist</button>
                                         
+                                    @endif
+                                @endif
+                                @if ($user["is_admin"])
+                                    @include('partials.editItemModal',array($item))
+                                    <button type="button" class="btn btn-secondary mt-2 w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#editItemModal_{{$item['item_id']}}">
+                                        <i class="bi bi-pencil-square"></i> Edit item
+                                    </button>
+                                    @if (!$item["is_archived"])
+                                        @include('partials.deleteItemModal',array($item))
+                                    @else
+                                        @include('partials.addItemModal',array($item))
                                     @endif
                                 @endif
                             </div>

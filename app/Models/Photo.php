@@ -11,4 +11,8 @@ class Photo extends Model
     public $timestamps  = false;
     protected $table = 'photo';
     protected $primaryKey = 'photo_id';
+
+    protected $fillable = [
+        'path',
+    ];
 }

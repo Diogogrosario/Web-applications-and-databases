@@ -20,7 +20,6 @@ class ItemPageController extends Controller
         $item = Item::findOrFail($id);
        
         $categories = Category::all()->sortBy("category_id");
-        
         return view('pages.itemPage')->with('item', $item)->with("categories", $categories);
     }
 }

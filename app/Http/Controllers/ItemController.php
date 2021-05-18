@@ -109,4 +109,43 @@ class ItemController extends Controller
 
         return $item;
     }
+
+    public function putAvailable($id){
+        $item = Item::findOrFail($id);
+
+
+        $this->authorize('update', $item);
+        $item["is_archived"] = false;
+
+        $item->save();
+
+        return view("partials.deleteItemModal")->with("item",$item);
+    }
+ 
+    public function deleteItem($id){
+        $item = Item::findOrFail($id);
+
+        $this->authorize('update', $item);
+        $item["is_archived"] = true;
+        
+        $item->save();
+
+        return view("partials.addItemModal")->with("item",$item);
+    }
+
+    public function updateItem(Request $request,$id){
+
+
+        $stock = $request->input("stock");
+        $price = $request->input("price");
+        
+        
+        $item = Item::find($id);
+        $item["stock"] = $stock;
+        $item["price"] = $price;
+
+        $item->save();
+
+        return back();
+    }
 }
