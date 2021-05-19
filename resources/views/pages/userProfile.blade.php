@@ -86,7 +86,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">Password</th>
-                                <td><button type="button" class="btn btn-dark">Change password</button></td>
+                                <td><a href="/change-password" type="button" class="btn btn-dark">Change password</a></td>
                             </tr>
                             <tr>
                                 <th scope="row">E-mail</th>

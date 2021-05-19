@@ -91,6 +91,9 @@ Route::post('forgot-password', 'Auth\ForgotPasswordController@forgotPassword')->
 Route::get('reset-password/{token}', 'Auth\ForgotPasswordController@showResetPassword')->middleware('guest')->name('password.reset');
 Route::post('reset-password','Auth\ForgotPasswordController@changePassword')->middleware('guest')->name('password.update');
 
+Route::get('change-password', 'Auth\ChangePasswordController@show')->name('password.change');
+Route::post('change-password','Auth\ChangePasswordController@changePassword')->name('password.change');
+
 // Notifications
 Route::post('notification/{notificationId}', 'NotificationController@putIsSeen');
 Route::patch('notification/{notificationId}', 'NotificationController@putIsSeenAjax');
