@@ -38,10 +38,10 @@ Route::delete('/userProfile/{id}', 'UserController@deleteAccount');
 
 // Edit user profile
 Route::patch('userProfile/editUsername', 'UserController@editUsername');
-Route::patch('userProfile/editShippingAddress', 'UserController@editShipAddr');
+Route::patch('userProfile/editAddress/{type}', 'UserController@editAddress');
 Route::post('userProfile/edit', 'UserController@edit');
-Route::get("userProfile/edit/getShippingInfo", 'UserController@getShippingInfo');
-Route::get('userProfile/edit/getShippingForm', 'UserController@getShippingForm');
+Route::get("userProfile/edit/getAddressInfo/{type}", 'UserController@getAddressInfo');
+Route::get('userProfile/edit/getAddressForm/{type}', 'UserController@getAddressForm');
 
 Route::post('userProfile/balance', 'UserController@addBalance');
 Route::get("userProfile/balance/capture", 'UserController@captureBalance');

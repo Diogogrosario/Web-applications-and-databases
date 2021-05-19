@@ -119,30 +119,48 @@ function deleteAccount(id) {
         }});
 }
 
-function getShippingEditForm()
+function getAddressEditForm(type)
 {
-    let url = "/userProfile/edit/getShippingForm";
+    if(type != "shipping" && type != "billing") 
+        return;
+
+    let url = "/userProfile/edit/getAddressForm/" + type;
+     
 
     sendAjaxRequest('GET', url, null, function () {
         if (this.status === 200) {
-            let doc = document.getElementById("userShipping");
+
+            let doc;
+            if(type == "shipping")
+                doc = document.getElementById("userShipping");
+            else 
+                doc = document.getElementById("userBilling");
             let parser = new DOMParser();
             let add = parser.parseFromString(this.response, 'text/html').body.firstChild;
 
             doc.replaceWith(add);
 
-            document.getElementById("submitNewAddress").addEventListener("click",submitNewShippingInfo);
+            if(type == "shipping")
+                document.querySelector("button#submitNewShippingAddress").addEventListener("click",submitNewShippingInfo);
+            else 
+                document.querySelector("button#submitNewBillingAddress").addEventListener("click",submitNewBillingInfo);
 
         }});
 }
 
-function getShippingInfo()
+function getAddressInfo(type)
 {
-    let url = "/userProfile/edit/getShippingInfo";
+    let url = "/userProfile/edit/getAddressInfo/" + type;
 
     sendAjaxRequest('GET', url, null, function () {
         if (this.status === 200) {
-            let doc = document.getElementById("userShipping");
+
+            let doc;
+            if(type == "shipping") {
+                doc = document.getElementById("userShipping");
+            } else {
+                doc = document.getElementById("userBilling");
+            }
             let parser = new DOMParser();
             let add = parser.parseFromString(this.response, 'text/html').body.firstChild;
 
@@ -153,7 +171,7 @@ function getShippingInfo()
 function submitNewShippingInfo(event)
 {
     event.preventDefault();
-    let url = "/userProfile/editShippingAddress";
+    let url = "/userProfile/editAddress/shipping";
 
     let newCountryDropdown = document.getElementById("newCountry");
     let newCountry = newCountryDropdown.value;
@@ -173,6 +191,36 @@ function submitNewShippingInfo(event)
 
         if (this.status === 200) {
             let doc = document.getElementById("userShipping");
+            let parser = new DOMParser();
+            let add = parser.parseFromString(this.response, 'text/html').body.firstChild;
+
+            doc.replaceWith(add);
+        }});    
+}
+
+function submitNewBillingInfo(event)
+{
+    event.preventDefault();
+    let url = "/userProfile/editAddress/billing";
+
+    let newCountryDropdown = document.getElementById("newCountry");
+    let newCountry = newCountryDropdown.value;
+
+    let newCity = document.getElementById("newCity").value;
+
+    let newStreet = document.getElementById("newStreet").value;
+
+    let zip = document.getElementById("newZip").value;
+
+    console.log(zip);
+
+    let data = {'newStreet': newStreet, "newCountry": newCountry, "newCity": newCity, "newZip": zip};
+
+    sendAjaxRequest('PATCH', url, data, function () {
+        console.log(this.response);
+
+        if (this.status === 200) {
+            let doc = document.getElementById("userBilling");
             let parser = new DOMParser();
             let add = parser.parseFromString(this.response, 'text/html').body.firstChild;
 
