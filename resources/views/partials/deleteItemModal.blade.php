@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-lg-3 zoom">
                         <a class="item-card z" href={{"/item/" . $item["item_id"]}}>
-                            <img src={{$item->photos->sortBy('photo_id')[0]["path"]}} class="card-img-top mx-auto d-flex" id="searchResultItemImage" alt={{$item["name"]}}>
+                            <img src={{asset('img/items/'. $item->photos->sortBy('photo_id')[0]["path"])}} class="card-img-top mx-auto d-flex" id="searchResultItemImage" alt={{$item["name"]}}>
                         </a>
                     </div>
                     <div class="col-lg-9 col-12">

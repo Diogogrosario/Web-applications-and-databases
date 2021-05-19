@@ -37,6 +37,10 @@ class Item extends Model
   public function reviews() {
     return $this->hasMany(Review::class,"item_id")->orderBy("date", "desc");
   }
+  
+  public function discounts() {
+    return $this->belongsToMany(Discount::class,"apply_discount", "item_id", "discount_id");
+  }
 
   public function getRandomItemsSameCategory($amount)
   {

@@ -61,15 +61,11 @@
                                 @foreach ($item->photos->sortBy('photo_id') as $key => $item_photo)
                                     @if ($key==0)
                                         <div class="carousel-item active text-center">
-                                            <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[0]["path"]) }}" class="card-img-top mx-auto" alt="{{ $item["name"] . "image"}}" style="max-height:40vh;height:auto;width:auto;max-width:80%;display:block;">  
-                                            {{-- <img src="{{ $item_photo["path"] }}" class="d-block img-fluid mx-auto" alt="Cyberpunk1" style="max-height:40vh;"> --}}
-                                        </div>
+                                    @else
+                                        <div class="carousel-item text-center">    
                                     @endif
-                                    @if ($key > 0)
-                                        <div class="carousel-item text-center">
-                                            <img src="{{ asset('img/items/' . $item->photos->sortBy('photo_id')[$key]["path"]) }}" class="card-img-top  mx-auto" alt="{{ $item["name"] . "image"}}" style="max-height:40vh;height:auto;width:auto;max-width:80%;display:block;">  
-                                        </div>
-                                    @endif
+                                        <img src="{{ asset('img/items/' . $item_photo["path"]) }}" class="card-img-top  mx-auto" alt="{{ $item["name"] . "image"}}" style="max-height:40vh;height:auto;width:auto;max-width:80%;display:block;">  
+                                    </div>
                                 @endforeach
                                 
                             </div>
@@ -139,6 +135,12 @@
                                     <button type="button" class="btn btn-secondary mt-2 w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#editItemModal_{{$item['item_id']}}">
                                         <i class="bi bi-pencil-square"></i> Edit item
                                     </button>
+
+                                    @include('partials.editDiscountsModal',array($item))
+                                    <button type="button" class="btn btn-secondary w-100 btn-lg rounded-0" style="background-color: #4f4f4f" data-bs-toggle="modal" data-bs-target="#editDiscountsModal_{{$item['item_id']}}">
+                                        <i class="bi bi-pencil-square"></i> Edit Discounts
+                                    </button>
+
                                     @if (!$item["is_archived"])
                                         @include('partials.deleteItemModal',array($item))
                                     @else
