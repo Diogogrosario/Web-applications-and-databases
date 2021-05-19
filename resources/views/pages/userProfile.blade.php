@@ -96,23 +96,11 @@
                     </table>
                 </div>
                 
-                @include('partials.userShippingInfo', array($user))
+                @include('partials.userAddressInfo', ["user" => $user, "addressType" => "Shipping"])
+
+                @include('partials.userAddressInfo', ["user" => $user, "addressType" => "Billing"])
                 
-                <div class="d-flex mb-2">
-                    <h2>Payment Information</h2><button type="button" class="btn btn-lg ms-3 p-0"><i class="bi bi-pencil-square"></i></button>
-                </div>
-                <table id="paymentInfo" class="table">
-                    <tbody>
-                        <tr>
-                            <th scope="row">Method</th>
-                            <td>Paypal</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Username</th>
-                            <td>wafflepay</td>
-                        </tr>
-                    </tbody>
-                </table>
+                
             </div>
 
             <div class="col-lg-4 border-start" id="notifications">

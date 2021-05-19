@@ -29,7 +29,7 @@
                                 <img src="{{ asset('img/items/' . $randomItem->photos->sortBy('photo_id')[0]["path"]) }}" class="card-img-top" alt="{{ $randomItem["name"] }}">
                                 <section class="itemInfo">
                                     <h5 class="card-title">{{$randomItem["name"]}}</h5>
-                                    <p class="card-text">{{$randomItem["price"]}}€</p>
+                                    <p class="card-text item-price">{{$randomItem["price"]}}€</p>
                                 </section>
                             </div>
                         </div>

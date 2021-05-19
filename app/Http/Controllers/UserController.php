@@ -107,61 +107,94 @@ class UserController extends Controller
         return $username;
     }
 
-    public function editShipAddr(Request $request)
+    public function editAddress(Request $request)
     {
         $user = Auth::user();
         $this->authorize('edit', $user);
+
+        $type = $request->route("type");
+        if($type != "shipping" && $type != "billing") {
+            return response()->json("Invalid address type", 406);
+        }
 
         $street = $request->input("newStreet");
         $country = $request->input("newCountry");
         $city = $request->input("newCity");
         $zip = $request->input("newZip");
 
-        
+        if($type == "shipping") {
+            $userAddress = Auth::user()->shippingAddress();
+            $addressName = "shipping_address";
+        } else {
+            $userAddress = Auth::user()->billingAddress();
+            $addressName = "billing_address";
+        }
 
-        $userShipAddress = Auth::user()->shippingAddress();
-        if($userShipAddress == null){
-            $userShipAddress = Address::create([
+        if($userAddress == null){
+            $userAddress = Address::create([
                 'country_id' => $country,
                 'street' => $street,
                 'city' => $city,
                 'zip_code' => $zip
             ]);
-            $user["shipping_address"] = $userShipAddress["address_id"];
+            $user[$addressName] = $userAddress["address_id"];
         }
         else{
             if($street != null && $street != "")
             {
-                $userShipAddress["street"] = $street;
+                $userAddress["street"] = $street;
             }
             if($country != null && $country != "")
             {
-                $userShipAddress["country_id"] = $country;
+                $userAddress["country_id"] = $country;
             }
             if($city != null && $city != "")
             {
-                $userShipAddress["city"] = $city;
+                $userAddress["city"] = $city;
             }
             if($zip != null && $zip != "")
             {
-                $userShipAddress["zip_code"] = $zip;
+                $userAddress["zip_code"] = $zip;
             }
         }
         
-        $userShipAddress->save();
+        $userAddress->save();
         $user->save();
 
-        return view("partials.userShippingInfo")->with("user", $user);
+        if($type == "shipping")
+            $typeName = "Shipping";
+        else 
+            $typeName = "Billing";
+
+        return view("partials.userAddressInfo")->with("user", $user)->with('addressType', $typeName);
     }
 
-    public function getShippingForm()
+    public function getAddressForm(Request $request)
     {
-        return view("partials.userShippingEditForm")->with("user",Auth::user())->with("countries", Country::all());
+        $type = $request->route("type");
+        if($type != "shipping" && $type != "billing") {
+            return response()->json("Invalid address type", 406);
+        }
+        if($type == "shipping")
+            $typeName = "Shipping";
+        else 
+            $typeName = "Billing";
+
+        return view("partials.userAddressEditForm")->with("user",Auth::user())->with("countries", Country::all())->with('addressType', $typeName);
     }
 
-    public function getShippingInfo()
+    public function getAddressInfo(Request $request)
     {
-        return view("partials.userShippingInfo")->with("user",Auth::user());
+        $type = $request->route("type");
+        if($type != "shipping" && $type != "billing") {
+            return response()->json("Invalid address type", 406);
+        }
+        if($type == "shipping")
+            $typeName = "Shipping";
+        else 
+            $typeName = "Billing";
+
+        return view("partials.userAddressInfo")->with("user",Auth::user())->with("addressType", $typeName);
     }
 
     public function addBalance(Request $request)
