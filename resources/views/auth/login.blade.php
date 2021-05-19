@@ -50,6 +50,9 @@
                             </span>
                         @endif
                     </div>
+
+                    <a href="/forgot-password" id="forgot-password" style="font-size: 13px;">Forgot Password</a>
+
                     <div class="col-md-12 text-center pt-3">
                         <button type="submit" class="btn btn-block btn-dark">Login</button>
                     </div>

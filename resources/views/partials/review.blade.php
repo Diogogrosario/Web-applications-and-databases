@@ -1,8 +1,13 @@
 <div class="user_review border-bottom mt-4" id={{"review_" . $review["review_id"]}}>
     <div class="row">
         <div class="col-lg-1 col-md-1 col-2">
-            <div id={{"reviewProfilePic" . $review->user()[0]["username"]}} class="d-flex rounded-circle" style=" {{ "height:0;width:100%;padding-bottom:100%;background-image:url(" . asset("/img/users/" . $review->user()[0]->image()->first()["path"]) . ");background-position:center;background-size:cover;" }}">
-            </div>
+            <@if (Auth::user()->image()->first())
+                <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(\"" . asset("/img/users/" . Auth::user()->image()->first()["path"]) . "\");background-position:center;background-size:cover;"}}>
+                </div>
+            @else
+                <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(\"" . asset("/img/users/default.png") . "\");background-position:center;background-size:cover;"}}>
+                </div>
+            @endif
         </div>
         <b class="col-lg-5 col-4 review_usermame">{{  $review->user()[0]["username"] }}</b>
         <div class="col-lg d-flex review_starRating">

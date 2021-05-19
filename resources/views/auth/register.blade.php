@@ -72,7 +72,7 @@
                   </span>
                 @endif
               </div>
-              </div>
+            </div>
 
               <div class="d-flex mt-3 flex-column justify-content-center h-50 align-items-center">
                   <button type="submit" class="btn btn-success w-50" >

@@ -84,6 +84,13 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
+//Password Recovery
+Route::get('forgot-password', 'Auth\ForgotPasswordController@show')->middleware('guest')->name('password.request');
+Route::post('forgot-password', 'Auth\ForgotPasswordController@forgotPassword')->middleware('guest')->name('password.email');
+
+Route::get('reset-password/{token}', 'Auth\ForgotPasswordController@showResetPassword')->middleware('guest')->name('password.reset');
+Route::post('reset-password','Auth\ForgotPasswordController@changePassword')->middleware('guest')->name('password.update');
+
 // Notifications
 Route::post('notification/{notificationId}', 'NotificationController@putIsSeen');
 Route::patch('notification/{notificationId}', 'NotificationController@putIsSeenAjax');

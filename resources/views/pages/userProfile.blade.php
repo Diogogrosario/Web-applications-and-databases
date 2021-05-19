@@ -18,8 +18,13 @@
     <div id="userProfile" class="container col-md-7 p-lg-5 p-3 shadow-sm h-100" style="background-color:white">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-3 mb-1">
-                <div id="bigProfilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(\"" . asset("/img/users/" . $user->image()->first()["path"]) . "\");background-position:center;background-size:cover;"}}>
-                </div>
+                @if (Auth::user()->image()->first())
+                    <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(\"" . asset("/img/users/" . Auth::user()->image()->first()["path"]) . "\");background-position:center;background-size:cover;"}}>
+                    </div>
+                @else
+                    <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-color:red;background-image:url(\"" . asset("/img/users/default.png") . "\");background-position:center;background-size:cover;"}}>
+                    </div>
+                @endif
             </div>
             <div id="profileMainInfo" class="col-lg-5 col-md-9 col-9">
                 <h2 class="px-2 pt-2">{{ $user["first_name"] }} {{ $user["last_name"]}} </h2>

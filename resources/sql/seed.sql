@@ -18,6 +18,7 @@ DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS address CASCADE;
 DROP TABLE IF EXISTS photo CASCADE;
 DROP TABLE IF EXISTS country CASCADE;
+DROP TABLE IF EXISTS password_resets CASCADE;
 
 DROP TYPE IF EXISTS notificationType;
 DROP TYPE IF EXISTS purchaseState;
@@ -56,7 +57,8 @@ CREATE TABLE users (
     balance MONEY DEFAULT 0,
     img INTEGER REFERENCES photo(photo_id) ON UPDATE CASCADE ON DELETE SET NULL,
     billing_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE ON DELETE SET NULL,
-    shipping_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE ON DELETE SET NULL
+    shipping_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE ON DELETE SET NULL,
+    remember_token TEXT
 );
 
 CREATE TABLE category (
@@ -185,6 +187,11 @@ CREATE TABLE category_detail (
     PRIMARY KEY (category_id, detail_id)
 );
 
+CREATE TABLE password_resets(
+    email TEXT PRIMARY KEY,
+    token TEXT,
+    created_at TIMESTAMP
+);
 
 -- Indexes
 
