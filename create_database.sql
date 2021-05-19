@@ -612,9 +612,9 @@ DECLARE
 sum_prices MONEY := 0::MONEY;
 purchase_ident INTEGER := 0;
 BEGIN
-SELECT sum((price - price*(get_discount(item_id, now())/100)) * quantity) INTO sum_prices
-        FROM item JOIN cart USING (item_id)
-        WHERE cart.user_id = userID;
+    SELECT sum((price - (price*get_discount(item_id, now())/100)) * quantity) INTO sum_prices
+    FROM item JOIN cart USING (item_id)
+    WHERE cart.user_id = userID;
          
     IF (
         
@@ -634,7 +634,7 @@ SELECT sum((price - price*(get_discount(item_id, now())/100)) * quantity) INTO s
             INSERT INTO purchase(user_id,date,billing_address,shipping_address) VALUES (userID, now(), billing, shipping) RETURNING purchase_id INTO purchase_ident;
 
             INSERT INTO purchase_item (purchase_id, item_id, price, quantity)
-                SELECT purchase_ident, item_id, price-price*(get_discount(item_id, now())/100), quantity
+                SELECT purchase_ident, item_id, price-((price*get_discount(item_id, now()))/100), quantity
                 FROM item JOIN cart USING (item_id)
                 WHERE user_id = userID;
         

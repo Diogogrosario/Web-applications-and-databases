@@ -47,4 +47,20 @@ class Item extends Model
     return explode('$',$this->price)[1];
   }
 
+  public function getDiscount(){
+    return DB::select("select get_discount(".$this["item_id"].",now())")[0]->get_discount;
+  }
+
+  public function priceGivenDiscount($discount) {
+    $discount = floatval($discount/100);
+    $price = floatval(preg_replace('/[^\d\.]/', '', $this["price"])); 
+    $discounted = number_format($price - ($price * $discount), 2, '.', ',');
+
+    return '$' . $discounted;  
+  }
+
+  public function priceDiscounted() {
+    $discount = $this->getDiscount();
+    return $this->priceGivenDiscount($discount);
+  }
 }

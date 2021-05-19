@@ -233,7 +233,6 @@ class UserController extends Controller
         // var_dump($order['links'][1]['href']);
         // return $provider->showOrderDetails($order['id']);
         return redirect($order['links'][1]['href']); // approve order url
-        
     }
 
     public function captureBalance(Request $request)

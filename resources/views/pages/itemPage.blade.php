@@ -106,7 +106,14 @@
                         <div class="row mb-3">
                             <div class="col-lg-8 col-12 ps-md-3 pe-md-5" id="buySection">
                                 <div class="ps-lg-4 ps-md-0 text-lg-start text-center mb-3" id="productPrice" style="color:red; font-size:3em;">
-                                     {{ $item["price"] }} {{-- TODO: DISCOUNTS --}}
+                                    @php
+                                        $discount = $item->getDiscount();
+                                    @endphp
+                                    {{ $item->priceGivenDiscount($discount) }}
+
+                                    @if ($discount > 0)
+                                        <span class="text-decoration-line-through" style="color:black; font-size:0.5em;">{{$item['price']}}</span>
+                                    @endif
                                 </div>
                                 <div class="text-center fs-5 mb-1"><span id="stockDisplay" style="color:green">{{ $item["stock"] }}</span> in stock</div>
 

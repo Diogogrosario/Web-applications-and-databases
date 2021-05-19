@@ -202,10 +202,11 @@ class CheckoutController extends Controller
 
     private function payBalance($user, $shipping, $billing) {
         $result = DB::transaction(function () use($user, $shipping, $billing) {
-            $sum_prices = DB::select('SELECT sum((price - price * (get_discount(item_id, now()) / 100)) * quantity)
-                        FROM item JOIN cart USING (item_id)
-                        WHERE cart.user_id = ?;
-            ', [$user['user_id']])[0]->sum;
+            // $sum_prices = DB::select('SELECT sum((price - ((price * (get_discount(item_id, now()) / 100)))) * quantity)
+            //             FROM item JOIN cart USING (item_id)
+            //             WHERE cart.user_id = ?;
+            // ', [$user['user_id']])[0]->sum;
+            $sum_prices = $user->cartTotal();
 
             $sum_prices = floatval(preg_replace('/[^\d\.]/', '', $sum_prices)); // parse money
             // foreach(DB::table('cart')->where('user_id', $user["user_id"]) as $cart_item) {
@@ -231,10 +232,11 @@ class CheckoutController extends Controller
 
     private function payPaypal($user) {
         $sum_prices = DB::transaction(function () use($user) {
-            $sum_prices = DB::select('SELECT sum((price - price * (get_discount(item_id, now()) / 100)) * quantity)
-                        FROM item JOIN cart USING (item_id)
-                        WHERE cart.user_id = ?;
-            ', [$user['user_id']])[0]->sum;
+            // $sum_prices = DB::select('SELECT sum((price - ((price * (get_discount(item_id, now()) / 100)))) * quantity)
+            //             FROM item JOIN cart USING (item_id)
+            //             WHERE cart.user_id = ?;
+            // ', [$user['user_id']])[0]->sum;
+            $sum_prices = $user->cartTotal();
 
             $sum_prices = floatval(preg_replace('/[^\d\.]/', '', $sum_prices)); // parse money
             return $sum_prices;
@@ -290,11 +292,23 @@ class CheckoutController extends Controller
             }
         } else if($capture['status'] === 'COMPLETED') {
 
-            DB::transaction(function () use($user) {
+            DB::transaction(function () use($user, $capture) {
+                $this->addBalanceValue($user["user_id"], $capture['purchase_units'][0]['payments']['captures'][0]['amount']['value']);
                 $this->processCheckout($user, session('shipping'), session('billing'));
             });
             return redirect('/userProfile/'.$user['user_id'].'/purchaseHistory')->with('checkout_success', 'Checkout successful.');
         } 
 
+    }
+
+    public function addBalanceValue($id, $value) {
+        $user = User::findOrFail($id);
+        
+        $currentBalance = floatval(preg_replace('/[^\d\.]/', '', $user['balance'])); // parse money
+        $newBalance = $currentBalance + floatval($value);
+
+        DB::table('users')
+                ->where('user_id', $user['user_id'])
+                ->update(['balance' => $newBalance]);
     }
 }
