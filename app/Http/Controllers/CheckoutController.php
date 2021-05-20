@@ -202,17 +202,9 @@ class CheckoutController extends Controller
 
     private function payBalance($user, $shipping, $billing) {
         $result = DB::transaction(function () use($user, $shipping, $billing) {
-            // $sum_prices = DB::select('SELECT sum((price - ((price * (get_discount(item_id, now()) / 100)))) * quantity)
-            //             FROM item JOIN cart USING (item_id)
-            //             WHERE cart.user_id = ?;
-            // ', [$user['user_id']])[0]->sum;
             $sum_prices = $user->cartTotal();
 
             $sum_prices = floatval(preg_replace('/[^\d\.]/', '', $sum_prices)); // parse money
-            // foreach(DB::table('cart')->where('user_id', $user["user_id"]) as $cart_item) {
-            //     $item_discount = DB::select('select get_discount(?,?)', [$cart_item['item_id'], NULL]);
-            //     $sum_prices = $sum_prices + $cart_item['price'] - ($cart_item['price'] * $item_discount);
-            // }
 
             $currentBalance = floatval(preg_replace('/[^\d\.]/', '', $user['balance'])); // parse money
 
@@ -232,10 +224,6 @@ class CheckoutController extends Controller
 
     private function payPaypal($user) {
         $sum_prices = DB::transaction(function () use($user) {
-            // $sum_prices = DB::select('SELECT sum((price - ((price * (get_discount(item_id, now()) / 100)))) * quantity)
-            //             FROM item JOIN cart USING (item_id)
-            //             WHERE cart.user_id = ?;
-            // ', [$user['user_id']])[0]->sum;
             $sum_prices = $user->cartTotal();
 
             $sum_prices = floatval(preg_replace('/[^\d\.]/', '', $sum_prices)); // parse money

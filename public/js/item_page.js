@@ -12,6 +12,11 @@ function addEventListeners() {
     let addDiscountForm = document.querySelector("form#addDiscountForm");
     if(addDiscountForm != null)
         addDiscountForm.addEventListener("submit", addDiscount);
+    
+    let removeDiscountButtons = document.querySelectorAll("button.delete_discount");
+    for(removeDiscountButton of removeDiscountButtons) {
+        removeDiscountButton.addEventListener("click", deleteDiscount);
+    }
 }
 
 function editItemRequest(event){
@@ -235,7 +240,7 @@ function addDiscount(event) {
                 "percentage": percentage};
 
     sendAjaxRequest('POST', url, data, function () {
-        console.log(this.response);
+        // console.log(this.response);
         if (this.status === 200) {
             //clear inputs
             begin_input.value = null; 
@@ -272,5 +277,22 @@ function addDiscount(event) {
     );
 }
 
+function deleteDiscount(event) {
+    let ids = this.getAttribute("data-id").split('_');
+    let item_id = ids[1];
+    let discount_id = ids[0];
+    let discountRow = this.parentNode.parentNode;
+    let discounts_list = discountRow.parentNode;
+
+    let url = "/admin/discountProduct/" + item_id + '/' + discount_id;
+    let data = null;
+
+    sendAjaxRequest('DELETE', url, data, function () {
+        console.log(this.response)
+        if (this.status === 200) {
+            discounts_list.removeChild(discountRow);
+        }}
+    );
+}
 
 addEventListeners();

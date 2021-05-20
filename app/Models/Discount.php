@@ -12,6 +12,10 @@ class Discount extends Model
     protected $table = 'discount';
     protected $primaryKey = 'discount_id';
 
+    protected $fillable = [
+        'begin_date','end_date', 'percentage'
+    ];
+
     public function getBeginDate() {
         return date('Y-m-d', strtotime($this["begin_date"]));
     }

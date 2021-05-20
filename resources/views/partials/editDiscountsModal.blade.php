@@ -48,7 +48,7 @@
                         <td scope="row">{{$discount->getBeginDate()}}</td>
                         <td>{{$discount->getEndDate()}}</td>
                         <td>{{$discount['percentage']}}%</td>
-                        <td class="p-0 pt-1"><button class="btn fs-4 p-0 m-0 delete_discount" data-id="{{$discount["discount_id"]}}" style="color:red;"><i class="bi bi-trash-fill"></i></button></td>
+                        <td class="p-0 pt-1"><button class="btn fs-4 p-0 m-0 delete_discount" data-id="{{$discount["discount_id"]}}_{{$item['item_id']}}" style="color:red;"><i class="bi bi-trash-fill"></i></button></td>
                     </tr> 
                 @endforeach
             </tbody>

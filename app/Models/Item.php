@@ -39,7 +39,8 @@ class Item extends Model
   }
   
   public function discounts() {
-    return $this->belongsToMany(Discount::class,"apply_discount", "item_id", "discount_id");
+    $discounts_ids = DB::table('apply_discount')->where('item_id', $this['item_id'])->select('discount_id');
+    return Discount::whereIn('discount_id', $discounts_ids);
   }
 
   public function getRandomItemsSameCategory($amount)
