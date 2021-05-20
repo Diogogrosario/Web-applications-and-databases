@@ -4,9 +4,14 @@ function addEventListeners() {
     let reviewForm = document.querySelector('#newReviewForm button');
     if(reviewForm != null)
         reviewForm.addEventListener("click", submitNewReviewRequest);
+
     let editItemButton = document.getElementById("editItemButton");
-    if(editItemButton!= null)
+    if(editItemButton != null)
         editItemButton.addEventListener("click", editItemRequest);
+
+    let addDiscountForm = document.querySelector("form#addDiscountForm");
+    if(addDiscountForm != null)
+        addDiscountForm.addEventListener("submit", addDiscount);
 }
 
 function editItemRequest(event){
@@ -193,6 +198,79 @@ function cancelEditRequest(review_id) {
         }});
 }
 
+function addDiscount(event) {
+    event.preventDefault();
+    let item_id = this.getAttribute("data-id");
+
+    let begin_input = this.querySelector("input#begin_date_" + item_id);
+    let begin_date = new Date(begin_input.value);
+    let end_input = this.querySelector("input#end_date_" + item_id);
+    let end_date = new Date(end_input.value);
+
+    let dates_div = document.querySelector("div#add_discount_dates");
+    if(end_date - begin_date < 86400000) // less than 1 day difference
+    {
+        if(document.querySelector("div#discount_date_error") == null) {
+            let date_error = document.createElement("div");
+            date_error.setAttribute("id", "discount_date_error");
+            date_error.className = "alert alert-danger";
+            date_error.innerHTML = "End date must be at least one day after the begin date."
+            dates_div.parentNode.insertBefore(date_error, dates_div);
+        }
+        return;
+    } else {
+        let date_error = dates_div.parentNode.querySelector("div#discount_date_error");
+        if(date_error != null) {
+            dates_div.parentNode.removeChild(date_error);
+        }
+    }
+
+    let percentage_input = this.querySelector("input#percentage_" + item_id);
+    let percentage = percentage_input.value;
+    if(percentage < 1 || percentage > 99) 
+        return;
+
+    let url = "/admin/discountProduct";
+    let data = {"item_id": item_id, "begin_date": begin_date.toLocaleDateString('en-US'), "end_date": end_date.toLocaleDateString('en-US'),
+                "percentage": percentage};
+
+    sendAjaxRequest('POST', url, data, function () {
+        console.log(this.response);
+        if (this.status === 200) {
+            //clear inputs
+            begin_input.value = null; 
+            end_input.value = null;
+            percentage_input.value = null;
+
+            let responseJson = JSON.parse(this.responseText);
+            let discountsList = document.querySelector("table#discounts_list tbody");
+            
+            let newDiscountEntry = document.createElement("tr");
+            newDiscountEntry.setAttribute("class", "item_discount");
+
+            let beginTd = document.createElement("td");
+            beginTd.setAttribute("scope", "row")
+            beginTd.innerHTML = responseJson['begin_date'];
+
+            let endTd = document.createElement("td");
+            endTd.innerHTML = responseJson['end_date'];
+
+            let percTd = document.createElement("td");
+            percTd.innerHTML = responseJson['percentage'] + '%';
+
+            let deleteTd = document.createElement("td");
+            deleteTd.setAttribute("class", "p-0 pt-1");
+            deleteTd.innerHTML = '<button class="btn fs-4 p-0 m-0 delete_discount" data-id="' + responseJson['discount_id']
+                                + '" style="color:red;"><i class="bi bi-trash-fill"></i></button>';
+
+            newDiscountEntry.appendChild(beginTd);
+            newDiscountEntry.appendChild(endTd);
+            newDiscountEntry.appendChild(percTd);
+            newDiscountEntry.appendChild(deleteTd);
+            discountsList.appendChild(newDiscountEntry);
+        }}
+    );
+}
 
 
 addEventListeners();

@@ -51,6 +51,7 @@ Route::post('management/addItem', 'AddItemController@addItem')->middleware('admi
 Route::post('management/item/{id}', 'ItemController@updateItem')->middleware('admin');
 Route::patch('management/item/{id}', 'ItemController@putAvailable')->middleware('admin');
 Route::delete('management/item/{id}', 'ItemController@deleteItem')->middleware('admin');
+Route::post('admin/discountProduct', 'ItemController@addDiscount')->middleware('admin');
 
 // API
 Route::get("api/item", 'ItemController@getItems');
