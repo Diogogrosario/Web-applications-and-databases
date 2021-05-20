@@ -127,15 +127,17 @@
                                         
                                     @endif
                                 @endif
-                                @if ($user["is_admin"])
-                                    @include('partials.editItemModal',array($item))
-                                    <button type="button" class="btn btn-secondary mt-2 w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#editItemModal_{{$item['item_id']}}">
-                                        <i class="bi bi-pencil-square"></i> Edit item
-                                    </button>
-                                    @if (!$item["is_archived"])
-                                        @include('partials.deleteItemModal',array($item))
-                                    @else
-                                        @include('partials.addItemModal',array($item))
+                                @if (!($user === null))
+                                    @if ($user["is_admin"])
+                                        @include('partials.editItemModal',array($item))
+                                        <button type="button" class="btn btn-secondary mt-2 w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#editItemModal_{{$item['item_id']}}">
+                                            <i class="bi bi-pencil-square"></i> Edit item
+                                        </button>
+                                        @if (!$item["is_archived"])
+                                            @include('partials.deleteItemModal',array($item))
+                                        @else
+                                            @include('partials.addItemModal',array($item))
+                                        @endif
                                     @endif
                                 @endif
                             </div>
