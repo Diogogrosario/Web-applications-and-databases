@@ -6,14 +6,16 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Auth\CanResetPassword;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 
-class User extends Authenticatable implements CanResetPassword
+class User extends Authenticatable implements CanResetPassword, MustVerifyEmail
 {
     use Notifiable;
 
     // Don't add create and update timestamps in database.
     public $timestamps  = false;
+
     protected $table = 'users';
     protected $primaryKey = 'user_id';
 

@@ -171,7 +171,6 @@
                         </div>
 
                         <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
-                            <!-- <div class="col"> -->
                             <section class="px-md-5 px-2 col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1" id="reviewSection">
                                 <h3 class="text-start mt-4">Reviews <span class="fs-5" id="n_reviews">({{ $item->reviews()->count() }})</span></h3>
                                 
@@ -179,31 +178,32 @@
 
 
                                 @if (Auth::check())
-                                    <form class="mt-4 mb-5" id="newReviewForm">
-                                        {{csrf_field()}}
-                                        <meta name="item_id" content="{{ $item['item_id'] }}">
-                                        <textarea required class="form-control" id="new_review_text" name="review_text" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
-                                        
-                                        <div id="newReviewStar" class="rate">
-                                            <input type="radio" id="star5" name="rate" value="5" />
-                                            <label for="star5" title="text">5 stars</label>
-                                            <input type="radio" id="star4" name="rate" value="4" />
-                                            <label for="star4" title="text">4 stars</label>
-                                            <input type="radio" id="star3" name="rate" value="3" />
-                                            <label for="star3" title="text">3 stars</label>
-                                            <input type="radio" id="star2" name="rate" value="2" />
-                                            <label for="star2" title="text">2 stars</label>
-                                            <input type="radio" id="star1" name="rate" value="1" />
-                                            <label for="star1" title="text">1 star</label>
-
-                                            {{-- <div style="color: red;">Please select a rating</div> --}}
+                                    @if (Auth::user()->hasVerifiedEmail())
+                                        <form class="mt-4 mb-5" id="newReviewForm">
+                                            {{csrf_field()}}
+                                            <meta name="item_id" content="{{ $item['item_id'] }}">
+                                            <textarea required class="form-control" id="new_review_text" name="review_text" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
                                             
-                                        </div>
+                                            <div id="newReviewStar" class="rate">
+                                                <input type="radio" id="star5" name="rate" value="5" />
+                                                <label for="star5" title="text">5 stars</label>
+                                                <input type="radio" id="star4" name="rate" value="4" />
+                                                <label for="star4" title="text">4 stars</label>
+                                                <input type="radio" id="star3" name="rate" value="3" />
+                                                <label for="star3" title="text">3 stars</label>
+                                                <input type="radio" id="star2" name="rate" value="2" />
+                                                <label for="star2" title="text">2 stars</label>
+                                                <input type="radio" id="star1" name="rate" value="1" />
+                                                <label for="star1" title="text">1 star</label>
 
-                                        
-                                        <button type="button" form="newReviewForm" class="btn btn-dark btn-md col-md-6 col-lg-4 offset-md-3 offset-lg-4 col-12 mt-md-2">Submit your review</button>
-                                    </form>
+                                                {{-- <div style="color: red;">Please select a rating</div> --}}
+                                                
+                                            </div>
 
+                                            
+                                            <button type="button" form="newReviewForm" class="btn btn-dark btn-md col-md-6 col-lg-4 offset-md-3 offset-lg-4 col-12 mt-md-2">Submit your review</button>
+                                        </form>
+                                    @endif
                                 @endif
                                 
                                 <section class="mt-4" id="productReviews">
@@ -212,7 +212,6 @@
                                     @endforeach
                                 </section>
                             </section>
-                            <!-- </div> -->
                         </div>
                     </div>
                 </div>

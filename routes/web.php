@@ -24,7 +24,7 @@ Route::get('userProfile/{id}', 'UserProfileController@show')->middleware('canSee
 Route::get('userProfile/{id}/wishlist', 'WishlistController@show')->middleware('canSeeProfile');
 Route::get('userProfile/{id}/cart', 'CartController@show')->middleware('canSeeProfile');
 Route::get('userProfile/{id}/purchaseHistory', 'PurchaseHistoryController@show')->middleware('canSeeProfile');
-Route::get('checkout', 'CheckoutController@show')->name('checkout');
+Route::get('checkout', 'CheckoutController@show')->middleware('verified')->name('checkout');
 
 //Management
 Route::get('management', 'ManagementController@show')->middleware('admin');
@@ -83,6 +83,13 @@ Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
+
+
+//Email verificationn
+Route::get('/email/verify', "EmailVerificationController@show")->middleware('auth')->name('verification.notice');
+Route::get('/email/verify/{id}/{hash}', "EmailVerificationController@verify")->middleware(['auth', 'signed'])->name('verification.verify');
+Route::post('/email/verification-notification', "EmailVerificationController@resend")->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
 
 //Password Recovery
 Route::get('forgot-password', 'Auth\ForgotPasswordController@show')->middleware('guest')->name('password.request');

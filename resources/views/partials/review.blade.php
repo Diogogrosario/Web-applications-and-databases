@@ -1,7 +1,7 @@
 <div class="user_review border-bottom mt-4" id={{"review_" . $review["review_id"]}}>
     <div class="row">
         <div class="col-lg-1 col-md-1 col-2">
-            <@if ( $review->user()[0]->image()->first())
+            @if ( $review->user()[0]->image()->first())
                 <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-image:url(\"" . asset("/img/users/" .$review->user()[0]->image()->first()["path"]) . "\");background-position:center;background-size:cover;"}}>
                 </div>
             @else

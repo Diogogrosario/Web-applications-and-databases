@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Models\Category;
 use Illuminate\Http\Request;  
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -89,12 +90,14 @@ class RegisterController extends Controller
             return redirect()->back()->withErrors($validation);
         }
         else{
-            $this->create($request->all());
+            $user = $this->create($request->all());
 
             if(Auth::attempt($request->only('email', 'password')))
                 $request->session()->regenerate();
 
-            return redirect('/login')->with(['message'=>'Account Successfully Created.']);
+            event(new Registered($user));
+
+            return redirect('/email/verify')->with(['message'=>'Account Successfully Created.']);
         }
     }
 }
