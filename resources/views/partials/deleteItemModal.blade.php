@@ -19,20 +19,18 @@
                             </h4>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-12 d-flex flex-column justify-content-center">
-                        <div class="h-50 align-items-center mt-lg-0 mt-2 text-center">
-                            @php
+                    <div class="col-lg-6 col-12 d-flex flex-column justify-content-center h-50 align-items-center mt-lg-0 mt-2 text-center fs-3 item-price-modal" style="color:#e3203e">
+                        @php
                             $item_discount = $item->getDiscount();
-                            @endphp
-                            @if ($item_discount > 0)
-                                <span class="title fs-3 itemPrice" id="editCartModalPrice" style="color:#e3203e">{{ $item->priceGivenDiscount($item_discount) }}</span>
-                                <small class="align-top itemPreviousPriceDiscount text-decoration-line-through">
-                                    {{$item['price']}}
-                                </small>
-                            @else
-                                <span class="title fs-3 itemPrice" id="editCartModalPrice" style="color:#e3203e">{{ $item['price'] }}</span>
-                            @endif
-                        </div>
+                        @endphp
+                        @if ($item_discount > 0)
+                            {{ $item->priceGivenDiscount($item_discount) }}
+                            <small class="align-top itemPreviousPriceDiscount text-decoration-line-through fs-6" style="color:black">
+                                {{$item['price']}}
+                            </small>
+                        @else
+                            {{ $item['price'] }}
+                        @endif
                     </div>
                 </div>
             </div>

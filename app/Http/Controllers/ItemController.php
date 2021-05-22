@@ -176,8 +176,25 @@ class ItemController extends Controller
         $discount->percentage = $percentage;
         $discount->save();
 
-        $item->discounts()->sync([$discount->discount_id],false);
+        DB::table('apply_discount')->insert(["discount_id" => $discount->discount_id, "item_id" => $id]);
+
+        // $item->discounts()->sync([$discount->discount_id],false);
         return response()->json(["discount_id" => $discount->discount_id, 'begin_date' => date("Y-m-d", $begin), 
                                 'end_date' => date("Y-m-d", $end), 'percentage' => $percentage], 200);
+    }
+
+    public function getPriceDiscount($id) {
+        $item = Item::findOrFail($id);
+
+        $discount = $item->getDiscount();
+
+        if($discount > 0) {
+            $priceDiscounted = $item->priceGivenDiscount($discount);
+        } else {
+            $priceDiscounted = $item['price'];
+        }
+
+        return response()->json(["item_id" => $id, "discount" => $discount, "price" => $item['price'],
+                                 "price_discounted" => $priceDiscounted], 200);
     }
 }

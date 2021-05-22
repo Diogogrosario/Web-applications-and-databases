@@ -240,9 +240,11 @@ function addDiscount(event) {
                 "percentage": percentage};
 
     sendAjaxRequest('POST', url, data, function () {
-        // console.log(this.response);
+         console.log(this.response);
         if (this.status === 200) {
             //clear inputs
+            updatePrices(item_id);
+
             begin_input.value = null; 
             end_input.value = null;
             percentage_input.value = null;
@@ -291,8 +293,44 @@ function deleteDiscount(event) {
         console.log(this.response)
         if (this.status === 200) {
             discounts_list.removeChild(discountRow);
+            updatePrices(item_id);
         }}
     );
+}
+
+function updatePrices(item_id) {
+    let url = "/admin/discountProduct/" + item_id;
+    let data = null;
+    
+    sendAjaxRequest('GET', url, data, function() {
+        if(this.status === 200) {
+            console.log(this.response);
+
+            let price_details = JSON.parse(this.responseText);
+
+            let mainPriceDiv = document.querySelector("div#productPrice");
+            let mainInside = price_details['price_discounted'];
+            let modalsInside = mainInside;
+
+            if(price_details['discount'] > 0) {
+                let discount_span = document.createElement('small');
+                discount_span.setAttribute("class", "text-decoration-line-through");
+                discount_span.style = "color:black; font-size:0.5em;";
+                discount_span.innerHTML = price_details['price'];
+                mainInside += discount_span.outerHTML;
+
+                discount_span.setAttribute("class", "align-top itemPreviousPriceDiscount text-decoration-line-through fs-6");
+                discount_span.style = "color:black;";
+                modalsInside += discount_span.outerHTML;
+            }
+            mainPriceDiv.innerHTML = mainInside;
+            
+            let pricesModals = document.querySelectorAll("div.item-price-modal");
+            for(let priceInModal of pricesModals) {
+                priceInModal.innerHTML = modalsInside;
+            }
+        }
+    });
 }
 
 addEventListeners();

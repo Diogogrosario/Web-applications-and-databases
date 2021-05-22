@@ -105,10 +105,9 @@
                                     @php
                                         $discount = $item->getDiscount();
                                     @endphp
-                                    {{ $item->priceGivenDiscount($discount) }}
-
+                                    {{$item->priceGivenDiscount($discount)}}
                                     @if ($discount > 0)
-                                        <span class="text-decoration-line-through" style="color:black; font-size:0.5em;">{{$item['price']}}</span>
+                                        <small class="text-decoration-line-through" style="color:black; font-size:0.5em;">{{$item['price']}}</small>
                                     @endif
                                 </div>
                                 <div class="text-center fs-5 mb-1"><span id="stockDisplay" style="color:green">{{ $item["stock"] }}</span> in stock</div>
