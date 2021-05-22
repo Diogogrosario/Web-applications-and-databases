@@ -9,6 +9,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use NumberFormatter;
+use App\Mail\ChangeEmail;
+use Illuminate\Support\Facades\Mail;
+
 
 class UserController extends Controller
 {
@@ -49,6 +52,7 @@ class UserController extends Controller
         $country = $request->input("newCountry");
         $city = $request->input("newCity");
         $zip = $request->input("newZip");
+        $email = $request->input("email");
 
         if($username != null)
         {
@@ -80,6 +84,11 @@ class UserController extends Controller
             {
                 $userShipAddress["zip_code"] = $zip;
             }
+        }
+        if($email != null)
+        {
+            Mail::to(Auth::user()["email"])->send(new ChangeEmail($email));
+            $user["email"] = $email;
         }
         
         $userShipAddress->save();
@@ -275,5 +284,18 @@ class UserController extends Controller
         DB::table('users')
                 ->where('user_id', $user['user_id'])
                 ->update(['balance' => $newBalance]);
+    }
+
+    public function changeEmail(Request $request)
+    {
+        $email = $request->input("email");
+        $user = Auth::user();
+
+        $this->authorize('edit', $user);
+
+        Mail::to(Auth::user()["email"])->send(new ChangeEmail($email));
+        $user["email"] = $email;
+
+        $user->save();
     }
 }

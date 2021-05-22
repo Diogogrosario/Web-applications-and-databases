@@ -46,6 +46,8 @@ Route::get('userProfile/edit/getAddressForm/{type}', 'UserController@getAddressF
 Route::post('userProfile/balance', 'UserController@addBalance');
 Route::get("userProfile/balance/capture", 'UserController@captureBalance');
 
+Route::patch('userProfile/editEmail', 'UserController@changeEmail');
+
 
 Route::post('management/addItem', 'AddItemController@addItem')->middleware('admin');
 Route::post('management/item/{id}', 'ItemController@updateItem')->middleware('admin');

@@ -97,4 +97,6 @@ class User extends Authenticatable implements CanResetPassword, MustVerifyEmail
     public function image() {
         return $this->hasOne(Photo::class,"photo_id","img");
     }
+
+    
 }
