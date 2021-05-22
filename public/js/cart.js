@@ -1,5 +1,7 @@
 let quantities = [];
 
+let cartNumbers = document.querySelectorAll("span.cart-number");
+
 function addEventListeners() {
     let addButtons = document.querySelectorAll('button.add_cart');
     for(let addButton of addButtons) {
@@ -45,8 +47,12 @@ function addProductToCartCheckout(event) {
 }
 
 function checkAddCart() {
-    console.log(this);
-    console.log(this.responseText);
+    console.log(this.response);
+    if(this.status === 200) {
+        alert("Item added to cart successfully.");
+        let responseJson = JSON.parse(this.responseText);
+        updateCartNumbers(responseJson['cart_total_quantity']);
+    }
 }
 
 function checkAddCartCheckout() {
@@ -72,7 +78,10 @@ function removeFromCart(event) {
             let cartItem = document.querySelector('div.cart-item[data-id="'+product_id+'"]');
             if(cartItem != null)
                 cartItem.remove();
-            checkEmpty(JSON.parse(this.responseText)['total'])
+
+            let responseJson = JSON.parse(this.responseText);
+            checkEmpty(responseJson['total']);
+            updateCartNumbers(responseJson['cart_total_quantity']);
         }
     });
 }
@@ -99,8 +108,10 @@ function updateQuantity(event) {
             input.value = quantities[product_index];
         } else {
             quantities[product_index] = quantity;
+            let responseJson = JSON.parse(this.responseText);
             // input.value = quantity;
-            checkEmptyAndValue(JSON.parse(this.responseText)['total'])
+            checkEmptyAndValue(responseJson['total']);
+            updateCartNumbers(responseJson['cart_total_quantity']);
         }
     });
 }
@@ -116,6 +127,12 @@ function checkEmptyAndValue(total) {
         emptyCartP.classList.add("fs-3");
         emptyCartP.innerHTML = "Your cart is empty";
         list.appendChild(emptyCartP);
+    }
+}
+
+function updateCartNumbers(cart_total_number) {
+    for(let cartNumber of cartNumbers) {
+        cartNumber.innerHTML = cart_total_number;
     }
 }
 
