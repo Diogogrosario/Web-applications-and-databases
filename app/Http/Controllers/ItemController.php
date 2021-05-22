@@ -148,4 +148,13 @@ class ItemController extends Controller
 
         return back();
     }
+
+    public function editDetail(Request $request,$id,$id2){
+
+        $new_detail_value = $request->input("detail_value");
+
+        DB::table('item_detail')->where('item_id',$id)->where('detail_id',$id2)->update(['detail_info' => $new_detail_value]);
+
+        return ;
+    }
 }

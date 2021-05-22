@@ -34,6 +34,7 @@ Route::get('unban/{id}', 'ManagementController@unbanUser')->middleware('admin');
 Route::get('promote/{id}', 'ManagementController@promoteUser')->middleware('admin');
 Route::get('ban/{id}', 'ManagementController@banUser')->middleware('admin');
 Route::delete('/userProfile/{id}', 'UserController@deleteAccount');
+Route::patch('item/{id}/editDetail/{id2}', 'ItemController@editDetail')->middleware('admin');
 
 
 // Edit user profile

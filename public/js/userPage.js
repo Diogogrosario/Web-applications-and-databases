@@ -34,7 +34,7 @@ function editUsernameForm(username, id){
     cancelButton.addEventListener("click",cancelNewUsername);
 }
 
-function submitNewUsername(){
+function submitNewUsername(event){
     event.preventDefault();
     let doc = document.getElementById("userNameContent");
     let userId = this.getAttribute('data-id');
