@@ -90,7 +90,11 @@
                             </tr>
                             <tr>
                                 <th scope="row">E-mail</th>
-                                <td>{{ $user["email"] }}<button type="button" class="btn"><i class="bi bi-pencil-square"></i></button></td>
+                                <td>
+                                    <section id="emailContent">
+                                        {{ $user["email"] }}<button type="button" class="btn" onclick="{{"editEmailForm('" . $user["email"] . "'," . $user["user_id"] . ")" }}"><i class="bi bi-pencil-square"></i></button>
+                                    </section>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
