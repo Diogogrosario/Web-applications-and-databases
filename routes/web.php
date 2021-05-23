@@ -21,14 +21,15 @@ Route::get('about', 'AboutPageController@show');
 Route::get('faq', 'FaqPageController@show');
 Route::get('contacts', 'ContactsPageController@show');
 
-Route::get('userProfile', 'UserProfileController@showSelf');
-Route::get('userProfile/wishlist', 'WishlistController@showSelf');
-Route::get('userProfile/cart', 'CartController@showSelf');
+Route::get('userProfile', 'UserProfileController@showSelf')->name("userProfile");
+Route::get('userProfile/wishlist', 'WishlistController@showSelf')->name("wishlist");
+Route::get('userProfile/cart', 'CartController@showSelf')->name("cart");
+Route::get('userProfile/purchaseHistory', 'PurchaseHistoryController@showSelf')->name("history");
 
-Route::get('userProfile/{id}', 'UserProfileController@show')->middleware('canSeeProfile')->middleware('admin');
-Route::get('userProfile/{id}/wishlist', 'WishlistController@show')->middleware('canSeeProfile')->middleware('admin');
-Route::get('userProfile/{id}/cart', 'CartController@show')->middleware('canSeeProfile')->middleware('admin');
-Route::get('userProfile/{id}/purchaseHistory', 'PurchaseHistoryController@show')->middleware('canSeeProfile')->middleware('admin');
+Route::get('userProfile/{id}', 'UserProfileController@show')->middleware('canSeeProfile')->name("userProfileWithId");
+Route::get('userProfile/{id}/wishlist', 'WishlistController@show')->middleware('canSeeProfile')->name("wishlistWithId");
+Route::get('userProfile/{id}/cart', 'CartController@show')->middleware('canSeeProfile')->name("cartWithId");
+Route::get('userProfile/{id}/purchaseHistory', 'PurchaseHistoryController@show')->middleware('canSeeProfile')->name("historyWithId");
 Route::get('checkout', 'CheckoutController@show')->middleware('verified')->name('checkout');
 
 //Management

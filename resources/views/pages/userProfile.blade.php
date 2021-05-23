@@ -35,7 +35,7 @@
             @if ($user["user_id"] == Auth::user()["user_id"])
                 
                 <div id="profileOptions" class="col-lg-4 col-md-12 col-sm-12">
-                    <a href={{$user["user_id"] . "/wishlist"}} class="btn btn-danger w-100 p-3 shadow rounded-0 rounded-top">
+                    <a href={{route("wishlist")}} class="btn btn-danger w-100 p-3 shadow rounded-0 rounded-top">
                         <i class="bi bi-heart-fill me-2"></i>Wishlist
                     </a>
                     <br>
@@ -49,10 +49,22 @@
                     @include('partials.addBalanceModal', array($user))
 
                     <br>
-                    <a href={{$user["user_id"] . "/purchaseHistory"}} class="btn btn-light w-100 p-3 shadow-sm rounded-0 rounded-bottom">
+                    <a href={{route("history")}} class="btn btn-light w-100 p-3 shadow-sm rounded-0 rounded-bottom">
                         Purchase History
                     </a>
                 </div>
+            @else
+                    
+                <div id="profileOptions" class="col-lg-4 col-md-12 col-sm-12">
+                    <a href={{route("wishlistWithId", ['id'=>$user["user_id"]])}} class="btn btn-danger w-100 p-3 shadow rounded-0 rounded-top">
+                        <i class="bi bi-heart-fill me-2"></i>Wishlist
+                    </a>
+                    
+                    <a href={{route("historyWithId", ['id'=>$user["user_id"]])}} class="btn btn-light w-100 p-3 shadow-sm rounded-0 rounded-bottom">
+                        Purchase History
+                    </a>
+                </div>
+
             @endif
         
         </div>
