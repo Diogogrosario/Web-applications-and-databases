@@ -15,3 +15,13 @@ function sendAjaxRequest(method, url, data, handler) {
 
     request.send(encodeForAjax(data));
 }
+
+function sendFileAjaxRequest(method, url, data, handler) {
+  let request = new XMLHttpRequest();
+
+  request.open(method, url, true);
+  request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
+  request.addEventListener('load', handler);
+
+  request.send(data);
+}

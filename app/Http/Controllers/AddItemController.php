@@ -18,14 +18,15 @@ class AddItemController extends Controller
     }
 
     public function addItem(Request $request){
+
         $name = $request->input("name");
         $price = $request->input("price");
         $category = $request->input("category");
-        $image = $request->input("image");
         $shortDescription = $request->input("shortDescription");
         $description = $request->input("description");
         $details = $request->input("details");
-        
+
+
         $details_parsed = json_decode($details);
 
         $item = new Item();
@@ -41,16 +42,22 @@ class AddItemController extends Controller
             'score' => 0
         ]);
 
+        $images = $request->file("images");
+        foreach($images as $image){
+            $file = $image->getClientOriginalName();
+            $image->move('img/items',$file);
+            $photo = new Photo();
+            $this->authorize('create',$photo);
 
-        $photo = new Photo();
-        $this->authorize('create',$photo);
+            $photo = Photo::create([
+                'path' => $file
+            ]);
 
-        $photo = Photo::create([
-            'path' => 'boda'
-        ]);
+            DB::insert('INSERT INTO item_photo(photo_id, item_id) VALUES (?,?)',array($photo['photo_id'],$item['item_id']));
+            $item->photos()->sync(array($photo['photo_id']),false);
+        }
 
-        DB::insert('INSERT INTO item_photo(photo_id, item_id) VALUES (?,?)',array($photo['photo_id'],$item['item_id']));
-        $item->photos()->sync(array($photo['photo_id']),false);
+        
 
         $ids = array();
 
