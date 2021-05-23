@@ -54,7 +54,7 @@
               <ul class="navbar-nav mb-2 mb-lg-0">
                   <?php if($logged_in){ ?>
                       <li class="nav-item d-lg-flex align-items-lg-center py-2 py-lg-0 px-lg-2">
-                          <a class="nav-link" href={{"/userProfile/" . Auth::id() . "/cart"}}>
+                          <a class="nav-link" href={{"/userProfile/cart"}}>
                             <i class="bi bi-cart" style="font-size: 1.5em;"></i>
                           </a>
                       </li>
@@ -70,7 +70,7 @@
 
                       <?php } else { ?>
                             <div class="d-flex align-items-center justify-content-center pt-1">
-                                <a href={{ "/userProfile/" . Auth::id() }} class="d-block" style="width: 3vw;">
+                                <a href={{ "/userProfile/"}} class="d-block" style="width: 3vw;">
                                     @if (Auth::user()->image()->first())
                                         <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-image:url(\"" . asset("/img/users/" . Auth::user()->image()->first()["path"]) . "\");background-position:center;background-size:cover;"}}>
                                         </div>
@@ -80,7 +80,7 @@
                                     @endif
                                     
                                 </a>
-                                <a id="navbarUsername" class="nav-link p-1 align-middle" href={{"/userProfile/" . Auth::id()}} style="color:white !important; border-right: 1px solid;">{{ Auth::user()["username"] }}</a>
+                                <a id="navbarUsername" class="nav-link p-1 align-middle" href={{"/userProfile/"}} style="color:white !important; border-right: 1px solid;">{{ Auth::user()["username"] }}</a>
                                 @if (Auth::user()["is_admin"])
                                 <a class="nav-link p-1 align-middle" href={{"/management"}} style="color:white !important; border-right: 1px solid;" >Manage</a>
                                 @endif

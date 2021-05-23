@@ -24,7 +24,10 @@
 
 <section id="user{{$addressType}}">
     <div class="d-flex mb-2">
-        <h2>{{$addressType}} Information</h2><button type="button" class="btn btn-lg ms-3 p-0" onclick="{{"getAddressInfo('". $typeId ."')"}}"><i class="bi bi-x-circle-fill"></i></button>
+        <h2>{{$addressType}} Information</h2>
+        @if ($user["user_id"] == Auth::user()["user_id"])
+            <button type="button" class="btn btn-lg ms-3 p-0" onclick="{{"getAddressInfo('". $typeId ."')"}}"><i class="bi bi-x-circle-fill"></i></button>
+        @endif
     </div>
     <form action="/userProfile/edit" method="post">
         {{ csrf_field() }}
@@ -61,7 +64,7 @@
                             @endforeach
                         </select>        
                         {{-- <textarea name="newCountry" class="w-100 h-50" id="newCountry" rows=1 style="resize: none;"></textarea> --}}
-                        <button type="submit" id="{{"submitNew".$addressType."Address"}}" data-id="{{Auth::user()["user_id"]}}" class="mt-2 btn btn-success"><i class="bi bi-check-circle-fill"></i> Submit</button>
+                        <button type="submit" id="{{"submitNew".$addressType."Address"}}" data-id="{{$user["user_id"]}}" class="mt-2 btn btn-success"><i class="bi bi-check-circle-fill"></i> Submit</button>
                     </td>
                 </tr>
             </section>

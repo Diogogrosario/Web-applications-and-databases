@@ -31,12 +31,14 @@
             <div class="text-center mx-auto fs-5">Total (w/ IVA):</div>
             <p class="fs-4 text-center mx-auto" id="cart_total">{{$user->cartTotal()}}</p>
         </section>
-        <div class="text-center ">
-            <form action="/checkout">
-                <button  type="submit" class="btn btn-success btn-lg w-50 mx-auto">Checkout</button>
+        @if ($user["user_id"] == Auth::user()["user_id"])  
+            <div class="text-center ">
+                <form action="/checkout">
+                    <button  type="submit" class="btn btn-success btn-lg w-50 mx-auto">Checkout</button>
 
-            </form>
-        </div>
+                </form>
+            </div>
+        @endif
     </section>
 </div>
 @endsection

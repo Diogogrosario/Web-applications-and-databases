@@ -10,7 +10,10 @@
 ?>
 <section id="user{{$addressType}}">
     <div class="d-flex mb-2">
-        <h2>{{$addressType}} Information</h2><button type="button" class="btn btn-lg ms-3 p-0" onclick="{{"getAddressEditForm('".$typeId."')"}}"><i class="bi bi-pencil-square"></i></button>
+        <h2>{{$addressType}} Information</h2>
+        @if ($user["user_id"] == Auth::user()["user_id"])
+            <button type="button" class="btn btn-lg ms-3 p-0" onclick="{{"getAddressEditForm('".$typeId."')"}}"><i class="bi bi-pencil-square"></i></button>
+        @endif
     </div>
     <table id="{{$typeId}}Info" class="table">
         @if ($address== null)

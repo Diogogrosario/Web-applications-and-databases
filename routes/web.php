@@ -20,10 +20,15 @@ Route::post('searchResultsAjax', 'SearchResultsController@showAjax');
 Route::get('about', 'AboutPageController@show');
 Route::get('faq', 'FaqPageController@show');
 Route::get('contacts', 'ContactsPageController@show');
-Route::get('userProfile/{id}', 'UserProfileController@show')->middleware('canSeeProfile');
-Route::get('userProfile/{id}/wishlist', 'WishlistController@show')->middleware('canSeeProfile');
-Route::get('userProfile/{id}/cart', 'CartController@show')->middleware('canSeeProfile');
-Route::get('userProfile/{id}/purchaseHistory', 'PurchaseHistoryController@show')->middleware('canSeeProfile');
+
+Route::get('userProfile', 'UserProfileController@showSelf');
+Route::get('userProfile/wishlist', 'WishlistController@showSelf');
+Route::get('userProfile/cart', 'CartController@showSelf');
+
+Route::get('userProfile/{id}', 'UserProfileController@show')->middleware('canSeeProfile')->middleware('admin');
+Route::get('userProfile/{id}/wishlist', 'WishlistController@show')->middleware('canSeeProfile')->middleware('admin');
+Route::get('userProfile/{id}/cart', 'CartController@show')->middleware('canSeeProfile')->middleware('admin');
+Route::get('userProfile/{id}/purchaseHistory', 'PurchaseHistoryController@show')->middleware('canSeeProfile')->middleware('admin');
 Route::get('checkout', 'CheckoutController@show')->middleware('verified')->name('checkout');
 
 //Management

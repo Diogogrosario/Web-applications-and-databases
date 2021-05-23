@@ -20,6 +20,15 @@ class CartController extends Controller
         return view('pages.cart')->with("user", $user)->with("categories", $categories);
     }
 
+    public function showSelf()
+    {
+        $user = Auth::user();
+
+        $categories = Category::all()->sortBy("category_id");
+        
+        return view('pages.wishlist')->with("user", $user)->with("categories", $categories);
+    }
+
     public function addToCart(Request $request) {
         $data = $request->all();
         $id = $data["product_id"];
