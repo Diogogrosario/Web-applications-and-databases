@@ -80,7 +80,7 @@ function removeFromCart(event) {
                 cartItem.remove();
 
             let responseJson = JSON.parse(this.responseText);
-            checkEmpty(responseJson['total']);
+            checkEmptyAndValue(responseJson['total']);
             updateCartNumbers(responseJson['cart_total_quantity']);
         }
     });
@@ -101,7 +101,7 @@ function updateQuantity(event) {
     }
 
     sendAjaxRequest("PATCH", url, {'quantity': quantity}, function() {
-        console.log(this.responseText);
+        // console.log(this.responseText);
 
         if(this.status != 200) {
             console.log("error");

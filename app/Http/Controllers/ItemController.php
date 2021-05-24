@@ -150,7 +150,6 @@ class ItemController extends Controller
         return back();
     }
 
-<<<<<<< HEAD
     public function editDetail(Request $request,$id,$id2){
 
         $new_detail_value = $request->input("detail_value");
@@ -158,7 +157,8 @@ class ItemController extends Controller
         DB::table('item_detail')->where('item_id',$id)->where('detail_id',$id2)->update(['detail_info' => $new_detail_value]);
 
         return ;
-=======
+    }
+    
     public function addDiscount(Request $request) {
         $post = $request->post();
 
@@ -205,6 +205,5 @@ class ItemController extends Controller
 
         return response()->json(["item_id" => $id, "discount" => $discount, "price" => $item['price'],
                                  "price_discounted" => $priceDiscounted], 200);
->>>>>>> sale
     }
 }

@@ -180,7 +180,13 @@ class CheckoutController extends Controller
         $billing_id = $this->getAddressId($billing);
         $shipping_id = $this->getAddressId($shipping);
 
+        session()->forget('checkout_id');
+        session()->forget('shipping');
+        session()->forget('billing');
+
         DB::select('call checkout(?, ?, ?)', [$user["user_id"], $billing_id, $shipping_id]);
+
+        DB::table('cart')->where('user_id', $user["user_id"])->delete();
     }
 
     private function getAddressId($address_session) {
@@ -265,7 +271,7 @@ class CheckoutController extends Controller
             abort(403, 'Expired order.');
         }
 
-        if(!$request->session()->has('shipping') || !$request->session()->has('shipping')) {
+        if(!$request->session()->has('shipping') || !$request->session()->has('billing')) {
             abort(403, 'Expired order.');
         }
 

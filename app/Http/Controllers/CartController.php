@@ -59,15 +59,20 @@ class CartController extends Controller
             return response()->json("Unauthenticated", 401);
         }
         
-        // $deleted = DB::delete('delete cart where user_id=? AND item_id=?', array($user["user_id"], $id));
-        $deleted = DB::table('cart')->where('user_id', $user["user_id"])->where('item_id', $id)->delete();
+        return DB::transaction(function () use($user, $id) {
+            $quantity = DB::table('cart')->where('user_id', $user["user_id"])->where('item_id', $id)->select('quantity')->get()[0]->quantity;
 
-        if($deleted <= 0) {
-            return response()->json("Product not in the user's cart", 406);
-        } else {
-            return response()->json(["message" => "Item added to cart successfuly.",
-             "cart_total_quantity" => Auth::user()->cartTotalNumber(), 'total'=> $user->cartTotal()], 200);
-        }
+            DB::update('update item set stock = stock + ? where item_id = ?', [$quantity, $id]);
+            $deleted = DB::table('cart')->where('user_id', $user["user_id"])->where('item_id', $id)->delete();
+
+            if($deleted <= 0) {
+                return response()->json("Product not in the user's cart", 406);
+            } else {
+                return response()->json(["message" => "Item added to cart successfuly.",
+                     "cart_total_quantity" => Auth::user()->cartTotalNumber(), 'total'=> $user->cartTotal()], 200);
+            }
+            
+        }); 
     }
 
     public function updateQuantity(Request $request, $id) {
@@ -86,7 +91,13 @@ class CartController extends Controller
             $item = Item::find($id);
             $user_id = $user['user_id'];
 
-            if($item["stock"] >= $quantity) {
+            $old_quantity = DB::table('cart')->where('user_id', $user["user_id"])->where('item_id', $id)->select('quantity')->get()[0]->quantity;
+            
+            $quantity_diff = $quantity - $old_quantity;
+
+            if($item["stock"] >= $quantity_diff) {
+                DB::update('update item set stock = stock - ? where item_id = ?', [$quantity_diff, $id]);
+
                 DB::update('update cart set quantity = ? where user_id = ? and item_id = ?', [$quantity, $user_id, $id]);
                 return response()->json(['total'=> $user->cartTotal(), 
                     "message" => "Item added to cart successfuly.", "cart_total_quantity" => Auth::user()->cartTotalNumber()], 200);

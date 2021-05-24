@@ -52,7 +52,7 @@ class User extends Authenticatable implements CanResetPassword, MustVerifyEmail
     }
 
     public function cartItem($item_id) {
-        return $this->belongsToMany(Item::class,"cart", "user_id", "item_id")->withPivot('quantity')->where('item_id', $item_id)->get();
+        return $this->belongsToMany(Item::class,"cart", "user_id", "item_id")->withPivot('quantity')->where('cart.item_id', $item_id)->get();
     }
 
     public function cartTotal() {
