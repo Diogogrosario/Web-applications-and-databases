@@ -37,4 +37,8 @@ class ItemPolicy
     {
       return Auth::check();
     }
+
+    public function discount(User $user, Item $item) {
+      return $user['is_admin'];
+    }
 }

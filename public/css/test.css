@@ -155,3 +155,15 @@ a.username-anchor:hover{
 .rate > label:hover ~ input:checked ~ label {
     color: #1b1b1b;
 }
+
+span.cart-number-badge {
+  font-size: 0.9em;
+  position: relative;
+  top: -10px;
+  left: -5px;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  background-color: #418deb;
+  border-radius: 50%;
+}

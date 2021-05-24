@@ -9,7 +9,7 @@
                             @if ($key >3)
                                 @break
                             @endif
-                            <p id={{"purchaseHistoryText" . $purchase["purchase_id"]}} class="border-0 pt-0 pb-0 mb-1">{{$item["name"]}}</p>
+                            <p id={{"purchaseHistoryText" . $purchase["purchase_id"]}} class="border-0 pt-0 pb-0 mb-1">{{$item->getItem()["name"]}}</p>
                         @endforeach
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-3 pb-1 pt-1 d-flex flex-column justify-content-center">

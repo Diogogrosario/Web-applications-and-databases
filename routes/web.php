@@ -60,6 +60,9 @@ Route::post('management/addItem', 'AddItemController@addItem')->middleware('admi
 Route::post('management/item/{id}', 'ItemController@updateItem')->middleware('admin');
 Route::patch('management/item/{id}', 'ItemController@putAvailable')->middleware('admin');
 Route::delete('management/item/{id}', 'ItemController@deleteItem')->middleware('admin');
+Route::post('admin/discountProduct', 'ItemController@addDiscount')->middleware('admin');
+Route::delete('admin/discountProduct/{item_id}/{discount_id}', 'DiscountController@delete')->middleware('admin');
+Route::get('admin/discountProduct/{id}', 'ItemController@getPriceDiscount')->middleware('admin');
 
 // API
 Route::get("api/item", 'ItemController@getItems');
@@ -67,7 +70,6 @@ Route::get("api/item/{id}", 'ItemController@get');
 Route::get("api/users/{id}", 'UserController@get');
 Route::get("api/users/{id}/purchaseHistory", 'UserController@getPurchaseHistory');
 Route::get("category/{id}/details", 'CategoryController@getDetails');
-
 
 
 // Reviews

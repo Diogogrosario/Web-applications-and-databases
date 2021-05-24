@@ -13,7 +13,7 @@ class Purchase extends Model
     protected $primaryKey = 'purchase_id';
 
     public function purchasedItems() {
-        return $this->belongsToMany(Item::class,"purchase_item", "purchase_id", "item_id")->withPivot('quantity')->withPivot("price");
+        return $this->hasMany(PurchaseItem::class,"purchase_id");
     }
 
     public function purchaseTotal() {

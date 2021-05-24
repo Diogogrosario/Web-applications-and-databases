@@ -4,9 +4,19 @@ function addEventListeners() {
     let reviewForm = document.querySelector('#newReviewForm button');
     if (reviewForm != null)
         reviewForm.addEventListener("click", submitNewReviewRequest);
+
     let editItemButton = document.getElementById("editItemButton");
     if (editItemButton != null)
         editItemButton.addEventListener("click", editItemRequest);
+
+    let addDiscountForm = document.querySelector("form#addDiscountForm");
+    if(addDiscountForm != null)
+        addDiscountForm.addEventListener("submit", addDiscount);
+    
+    let removeDiscountButtons = document.querySelectorAll("button.delete_discount");
+    for(removeDiscountButton of removeDiscountButtons) {
+        removeDiscountButton.addEventListener("click", deleteDiscount);
+    }
 }
 
 function editItemRequest(event) {
@@ -294,6 +304,134 @@ function cancelEditRequest(review_id) {
     });
 }
 
+function addDiscount(event) {
+    event.preventDefault();
+    let item_id = this.getAttribute("data-id");
 
+    let begin_input = this.querySelector("input#begin_date_" + item_id);
+    let begin_date = new Date(begin_input.value);
+    let end_input = this.querySelector("input#end_date_" + item_id);
+    let end_date = new Date(end_input.value);
+
+    let dates_div = document.querySelector("div#add_discount_dates");
+    if(end_date - begin_date < 86400000) // less than 1 day difference
+    {
+        if(document.querySelector("div#discount_date_error") == null) {
+            let date_error = document.createElement("div");
+            date_error.setAttribute("id", "discount_date_error");
+            date_error.className = "alert alert-danger";
+            date_error.innerHTML = "End date must be at least one day after the begin date."
+            dates_div.parentNode.insertBefore(date_error, dates_div);
+        }
+        return;
+    } else {
+        let date_error = dates_div.parentNode.querySelector("div#discount_date_error");
+        if(date_error != null) {
+            dates_div.parentNode.removeChild(date_error);
+        }
+    }
+
+    let percentage_input = this.querySelector("input#percentage_" + item_id);
+    let percentage = percentage_input.value;
+    if(percentage < 1 || percentage > 99) 
+        return;
+
+    let url = "/admin/discountProduct";
+    let data = {"item_id": item_id, "begin_date": begin_date.toLocaleDateString('en-US'), "end_date": end_date.toLocaleDateString('en-US'),
+                "percentage": percentage};
+
+    sendAjaxRequest('POST', url, data, function () {
+         console.log(this.response);
+        if (this.status === 200) {
+            //clear inputs
+            updatePrices(item_id);
+
+            begin_input.value = null; 
+            end_input.value = null;
+            percentage_input.value = null;
+
+            let responseJson = JSON.parse(this.responseText);
+            let discountsList = document.querySelector("table#discounts_list tbody");
+            
+            let newDiscountEntry = document.createElement("tr");
+            newDiscountEntry.setAttribute("class", "item_discount");
+
+            let beginTd = document.createElement("td");
+            beginTd.setAttribute("scope", "row")
+            beginTd.innerHTML = responseJson['begin_date'];
+
+            let endTd = document.createElement("td");
+            endTd.innerHTML = responseJson['end_date'];
+
+            let percTd = document.createElement("td");
+            percTd.innerHTML = responseJson['percentage'] + '%';
+
+            let deleteTd = document.createElement("td");
+            deleteTd.setAttribute("class", "p-0 pt-1");
+            deleteTd.innerHTML = '<button class="btn fs-4 p-0 m-0 delete_discount" data-id="' + responseJson['discount_id']
+                                + '" style="color:red;"><i class="bi bi-trash-fill"></i></button>';
+
+            newDiscountEntry.appendChild(beginTd);
+            newDiscountEntry.appendChild(endTd);
+            newDiscountEntry.appendChild(percTd);
+            newDiscountEntry.appendChild(deleteTd);
+            discountsList.appendChild(newDiscountEntry);
+        }}
+    );
+}
+
+function deleteDiscount(event) {
+    let ids = this.getAttribute("data-id").split('_');
+    let item_id = ids[1];
+    let discount_id = ids[0];
+    let discountRow = this.parentNode.parentNode;
+    let discounts_list = discountRow.parentNode;
+
+    let url = "/admin/discountProduct/" + item_id + '/' + discount_id;
+    let data = null;
+
+    sendAjaxRequest('DELETE', url, data, function () {
+        console.log(this.response)
+        if (this.status === 200) {
+            discounts_list.removeChild(discountRow);
+            updatePrices(item_id);
+        }}
+    );
+}
+
+function updatePrices(item_id) {
+    let url = "/admin/discountProduct/" + item_id;
+    let data = null;
+    
+    sendAjaxRequest('GET', url, data, function() {
+        if(this.status === 200) {
+            console.log(this.response);
+
+            let price_details = JSON.parse(this.responseText);
+
+            let mainPriceDiv = document.querySelector("div#productPrice");
+            let mainInside = price_details['price_discounted'];
+            let modalsInside = mainInside;
+
+            if(price_details['discount'] > 0) {
+                let discount_span = document.createElement('small');
+                discount_span.setAttribute("class", "text-decoration-line-through");
+                discount_span.style = "color:black; font-size:0.5em;";
+                discount_span.innerHTML = price_details['price'];
+                mainInside += discount_span.outerHTML;
+
+                discount_span.setAttribute("class", "align-top itemPreviousPriceDiscount text-decoration-line-through fs-6");
+                discount_span.style = "color:black;";
+                modalsInside += discount_span.outerHTML;
+            }
+            mainPriceDiv.innerHTML = mainInside;
+            
+            let pricesModals = document.querySelectorAll("div.item-price-modal");
+            for(let priceInModal of pricesModals) {
+                priceInModal.innerHTML = modalsInside;
+            }
+        }
+    });
+}
 
 addEventListeners();

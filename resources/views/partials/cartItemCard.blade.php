@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="col d-flex flex-column justify-content-center text-center">
-            <span class="title fs-5 mb-3">{{ $item["price"] }}</span>
+            <span class="title fs-5 mb-3">{{ $item->priceDiscounted() }}</span>
         </div>
         <div class="col ps-3 mb-3 d-flex flex-row text-center fs-5 py-4">
             <input type="number" class="form-control product-quantity" data-id="{{$index}}" value="{{$item->pivot["quantity"]}}">

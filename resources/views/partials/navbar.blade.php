@@ -52,11 +52,15 @@
                     </div>
                 </form>
               <ul class="navbar-nav mb-2 mb-lg-0">
-                  <?php if($logged_in){ ?>
+                  <?php if($logged_in){ $numberInCart = Auth::user()->cartTotalNumber();?>
                       <li class="nav-item d-lg-flex align-items-lg-center py-2 py-lg-0 px-lg-2">
-                          <a class="nav-link" href={{"/userProfile/cart"}}>
+                            <a class="nav-link pe-0" href={{"/userProfile/cart"}}>
                             <i class="bi bi-cart" style="font-size: 1.5em;"></i>
+                            <span class="cart-number-small d-lg-none" style="color:white !important">
+                                <span class="cart-number">{{$numberInCart}}</span> items
+                            </span>                            
                           </a>
+                          <span class="cart-number cart-number-badge d-lg-block d-none d-flex">{{$numberInCart}}</span>
                       </li>
                   <?php } ?>
                   <li class="nav-item">

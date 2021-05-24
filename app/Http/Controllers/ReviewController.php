@@ -80,7 +80,6 @@ class ReviewController extends Controller
         }
         
         $reviewToDelete = Review::find($reviewId);
-        $currentUser = Auth::user();
 
         if(is_null($reviewToDelete)) {
             return response()->json("Review does not exist", 406);

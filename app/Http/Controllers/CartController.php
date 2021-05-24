@@ -45,7 +45,7 @@ class CartController extends Controller
 
             if($item["stock"] >= $quantity) {
                 DB::select('call add_to_cart(?,?,?)', array(Auth::user()["user_id"], $id, $quantity));
-                return response()->json("Item added to cart successfuly.", 200);
+                return response()->json(["message" => "Item added to cart successfuly.", "cart_total_quantity" => Auth::user()->cartTotalNumber()], 200);
             } else {
                 return response()->json("Item does not have enough stock", 406);
             }
@@ -65,7 +65,8 @@ class CartController extends Controller
         if($deleted <= 0) {
             return response()->json("Product not in the user's cart", 406);
         } else {
-            return response()->json(['total'=> $user->cartTotal()], 200);
+            return response()->json(["message" => "Item added to cart successfuly.",
+             "cart_total_quantity" => Auth::user()->cartTotalNumber(), 'total'=> $user->cartTotal()], 200);
         }
     }
 
@@ -87,7 +88,8 @@ class CartController extends Controller
 
             if($item["stock"] >= $quantity) {
                 DB::update('update cart set quantity = ? where user_id = ? and item_id = ?', [$quantity, $user_id, $id]);
-                return response()->json(['total'=> $user->cartTotal()], 200);
+                return response()->json(['total'=> $user->cartTotal(), 
+                    "message" => "Item added to cart successfuly.", "cart_total_quantity" => Auth::user()->cartTotalNumber()], 200);
             } else {
                 return response()->json("Item does not have enough stock", 406);
             }
