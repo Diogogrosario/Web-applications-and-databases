@@ -26,7 +26,7 @@ class CartController extends Controller
 
         $categories = Category::all()->sortBy("category_id");
         
-        return view('pages.wishlist')->with("user", $user)->with("categories", $categories);
+        return view('pages.cart')->with("user", $user)->with("categories", $categories);
     }
 
     public function addToCart(Request $request) {

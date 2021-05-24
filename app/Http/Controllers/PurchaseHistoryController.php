@@ -24,6 +24,6 @@ class PurchaseHistoryController extends Controller
 
         $categories = Category::all()->sortBy("category_id");
         
-        return view('pages.wishlist')->with("user", $user)->with("categories", $categories);
+        return view('pages.purchaseHistory')->with("user", $user)->with("categories", $categories);
     }
 }
