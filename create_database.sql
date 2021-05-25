@@ -19,6 +19,7 @@ DROP TABLE IF EXISTS address CASCADE;
 DROP TABLE IF EXISTS photo CASCADE;
 DROP TABLE IF EXISTS country CASCADE;
 DROP TABLE IF EXISTS password_resets CASCADE;
+DROP TABLE IF EXISTS shipping_option CASCADE;
 
 DROP TYPE IF EXISTS notificationType;
 DROP TYPE IF EXISTS purchaseState;
@@ -191,6 +192,14 @@ CREATE TABLE password_resets(
     email TEXT PRIMARY KEY,
     token TEXT,
     created_at TIMESTAMP
+);
+
+CREATE TABLE shipping_option (
+    shipping_id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL CONSTRAINT shipping_uk UNIQUE,
+    description TEXT,
+    price MONEY NOT NULL CONSTRAINT pos_price CHECK (price >= 0::MONEY),
+    img INTEGER REFERENCES photo(photo_id) ON UPDATE CASCADE ON DELETE SET NULL
 );
 
 

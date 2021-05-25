@@ -31,7 +31,7 @@
             </div>
         </div>
         <footer class="text-end mt-5 row">
-            <button type="button" class="btn btn-dark col-lg-3 col-12"><i class="bi bi-arrow-left-circle"></i> Go Back</button>
+            <button type="button" class="btn btn-dark col-lg-3 col-12 go_back_checkout" id="go_back_payment"><i class="bi bi-arrow-left-circle"></i> Go Back</button>
             {{-- <button type="button" class="btn btn-success offset-lg-6 col-lg-3 col-12">Finish and Pay</button> --}}
         </footer>
     </form>
