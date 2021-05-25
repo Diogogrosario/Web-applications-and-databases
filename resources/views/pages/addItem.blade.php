@@ -19,7 +19,7 @@
             </ol>
         </nav>
         <h1 class="mt-4 text-center">Add Product</h1>
-        <form class="ps-4 pe-4">
+        <form class="ps-4 pe-4" enctype="multipart/form-data">
             <div class="row mt-4">
                 <div class="col-8" id="nameForm">
                     <label for="productName" class="form-label">Name</label>

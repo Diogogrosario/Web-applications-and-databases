@@ -33,12 +33,19 @@ function addNewItem(event){
     let name = document.getElementById("productName").value;
     let price = document.getElementById("inputPrice").value;
     let category = document.getElementById("categoryDropdown").value;
-    let image = document.getElementById("formFileMultiple").value;
+    let images = document.getElementById("formFileMultiple").files;
     let shortDescription = document.getElementById("productShortDescription").value;
     let description = document.getElementById("productDescription").value;
     let details = {};
     let finished = false;
     let counter = 0;
+
+    let formData = new FormData();
+    for(var i = 0;i< images.length;i++){
+        var file = images[i];
+        formData.append("images[]",file,file.name);
+    }
+
     while(!finished){
         let element = document.getElementById("detailForm"+counter);
         if(element == null){
@@ -52,18 +59,19 @@ function addNewItem(event){
         counter++;
     }
 
-    console.log("name " + name);
-    console.log("price " + price);
-    console.log("category " + category);
-    console.log("image " + image);
-    console.log("shortDescription " + shortDescription);
-    console.log("description " + description);
-    console.log(details);
 
+    // let data = {"name":name, "price":price,"category":category, "images":images, "shortDescription":shortDescription, "description":description, "details":JSON.stringify(details)};
+    formData.append("name",name);
+    formData.append("price",price);
+    formData.append("category",category);
+    formData.append("shortDescription",shortDescription);
+    formData.append("description",description);
+    formData.append("details",JSON.stringify(details));
 
-    let data = {"name":name, "price":price,"category":category, "image":image, "shortDescription":shortDescription, "description":description, "details":JSON.stringify(details)};
+    for(var pair of formData.entries())
+        console.log(pair[0] + ', '+ pair[1]);
 
-    sendAjaxRequest('POST', url, data, function () {
+    sendFileAjaxRequest('POST', url, formData, function () {
         console.log(this.response);
         if (this.status === 200) {
             window.location.replace('/item/'+this.response);
