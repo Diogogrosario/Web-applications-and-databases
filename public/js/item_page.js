@@ -191,7 +191,7 @@ function submitNewReviewRequest(event) {
 
     let review_text = document.getElementById("new_review_text").value;
     let star_selected = document.querySelector("input[name=rate]:checked");
-    c
+    
     if (star_selected == null) {
         let starForm = document.getElementById("newReviewStar");
 
