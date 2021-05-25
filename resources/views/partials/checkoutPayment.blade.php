@@ -13,8 +13,11 @@
                 @endforeach
             </div>
             <div class="text-center mt-5 fs-4">
+                <p class="mb-1"><span>Shipping: </span></p>
+                <p><span id="shippingPayment" class="fs-5">{{$shipping_option['name'] . ' - ' . $shipping_option['price']}}</span></p>
+
                 <p class="mb-1"><span>Total Payment: </span></p>
-                <p><span id="totalPayment" class="fs-2" style="color:red">{{Auth::user()->cartTotal()}}</span></p>
+                <p><span id="totalPayment" class="fs-2" style="color:red">{{Auth::user()->cartTotalShipping($shipping_option['shipping_id'])}}</span></p>
             </div>
 
             <div id="paymentMethods" class="mt-4">
@@ -31,7 +34,7 @@
             </div>
         </div>
         <footer class="text-end mt-5 row">
-            <button type="button" class="btn btn-dark col-lg-3 col-12"><i class="bi bi-arrow-left-circle"></i> Go Back</button>
+            <button type="button" class="btn btn-dark col-lg-3 col-12 go_back_checkout" id="go_back_payment"><i class="bi bi-arrow-left-circle"></i> Go Back</button>
             {{-- <button type="button" class="btn btn-success offset-lg-6 col-lg-3 col-12">Finish and Pay</button> --}}
         </footer>
     </form>

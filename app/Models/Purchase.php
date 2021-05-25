@@ -16,8 +16,16 @@ class Purchase extends Model
         return $this->hasMany(PurchaseItem::class,"purchase_id");
     }
 
-    public function purchaseTotal() {
+    public function purchaseTotalItems() {
         return $this->hasMany(PurchaseItem::class,"purchase_id")->sum(\DB::raw('quantity * price'));
+    }
+
+    public function purchaseTotal() {
+        $shipping_price = $this->shippingOption()->price;
+        $shipping_price = floatval(preg_replace('/[^\d\.]/', '', $shipping_price));
+        $itemsPrice = floatval(preg_replace('/[^\d\.]/', '', $this->purchaseTotalItems()));
+
+        return '$' . number_format($itemsPrice + $shipping_price, 2, '.', ',');
     }
 
     public function getDate() {
@@ -30,5 +38,9 @@ class Purchase extends Model
 
     public function shippingAddress() {
         return Address::find($this["shipping_address"]);
+    }
+
+    public function shippingOption() {
+        return $this->hasOne(Shipping::class, 'shipping_id', 'shipping_method')->get()[0];
     }
 }

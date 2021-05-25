@@ -59,6 +59,16 @@ class User extends Authenticatable implements CanResetPassword, MustVerifyEmail
         return $this->belongsToMany(Item::class,"cart", "user_id", "item_id")->withPivot('quantity')->sum(\DB::raw('quantity * (price - (price * get_discount(item.item_id, now())/100))'));
     }
 
+    public function cartTotalShipping($shipping_option) {
+        $shipping_option = Shipping::find($shipping_option);
+        $cartTotal = $this->cartTotal();
+        $cartTotal = floatval(preg_replace('/[^\d\.]/', '', $cartTotal));
+        $shipping_price = floatval(preg_replace('/[^\d\.]/', '', $shipping_option['price']));
+
+        $total = number_format($cartTotal + $shipping_price, 2, '.', ',');
+        return '$' . $total;
+    }
+
     public function cartTotalNumber() {
         return $this->belongsToMany(Item::class,"cart", "user_id", "item_id")->withPivot('quantity')->sum(\DB::raw('quantity')); 
     }

@@ -262,6 +262,9 @@ INSERT INTO photo (photo_id, path) VALUES (46, 'image46.png');
 INSERT INTO photo (photo_id, path) VALUES (47, 'image47.png');
 INSERT INTO photo (photo_id, path) VALUES (48, 'image48.png');
 INSERT INTO photo (photo_id, path) VALUES (49, 'image49.png');
+INSERT INTO photo (photo_id, path) VALUES (50, 'ctt.jpg');
+INSERT INTO photo (photo_id, path) VALUES (51, 'dhl.jpg');
+INSERT INTO photo (photo_id, path) VALUES (52, 'fedex.jpg');
 
 
 
@@ -445,9 +448,8 @@ INSERT INTO item_photo (photo_id, item_id) VALUES (29, 20);
 INSERT INTO item_photo (photo_id, item_id) VALUES (30, 20);
 
 
-
-INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (1, 'Lbaw2021NormalUser', 'normallogin@gmail.com', 'Rachel', 'Hummel', '$2y$10$eSVHRjoF5AzoLLqMhfW2meNE1s4O0OwPqWSuLmJl/OzIkvQ95Y/Hi', False, False, '8128488.8', 41, 7, 7);
-INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (6, 'LbawAdmin2021', 'lbawAdmin@gmail.com', 'Lia', 'Polti', '$2y$10$W5RgDZEJVmBepJEVMQ702eKIhGm0MD44A6x9BP/OsGyEv60heQaAS', False, True, '5223662.0', 42, 7, 7);
+INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address, email_verified_at) VALUES (1, 'Lbaw2021NormalUser', 'normallogin@gmail.com', 'Rachel', 'Hummel', '$2y$10$eSVHRjoF5AzoLLqMhfW2meNE1s4O0OwPqWSuLmJl/OzIkvQ95Y/Hi', False, False, '8128488.8', 41, 7, 7, '2021-05-20 18:09:42');
+INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address, email_verified_at) VALUES (6, 'LbawAdmin2021', 'lbawAdmin@gmail.com', 'Lia', 'Polti', '$2y$10$W5RgDZEJVmBepJEVMQ702eKIhGm0MD44A6x9BP/OsGyEv60heQaAS', False, True, '5223662.0', 42, 7, 7, '2021-05-20 18:09:42');
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (3, 'Carlos83', 'gamingwithapotato@gmail.com', 'Herbert', 'Anderson', 'btWp5iKDSHBYQyZZ7sHIa0zDaATKZbeeSeCycslTiaXyeOemaY1vWYGWXHWijO2pKpmJex08LsomZ7ySNzaMZbKIELfkYhIwoEuDJ2QhSQXY24EwJhcJ5ZQYYBQ7VVfTEXio2GcVABEQgeEoJJHfBb8gBpDtCT0gmUhei1dmunu', False, False, '2938243.84', 43, 16, 16);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (4, 'Helma', 'FreddyWarner@gawab.ca', 'Fons', 'Lawton', 'LgMjfTOWQBTFcsYhiBNdXFIlPTHcC5As82bBHDLyKQedYTadPbM2bkUULpSdxr66wWfMMERFtypXB2hLZNsfiftmhBqkBAXs268TL5ZIdpe7MhD8NanLtHMaVTDnSPcOT4Sf6aEbs3PlvaHL63jk6oUovkrdxHSnHlkBMWAXTDTyh7kko50yuj0Lmp', False, False, '9568377.54', 44, 21, 21);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (5, 'Bess0', 'BiancaDulisse2@lycos.co.uk', 'Isaac', 'Cohen', 'FI5UQZrxYEDkEEQCz3E368V6jc3cwswNM3flBO0uWJveppbkE1MyQtYKQrsoZIdFMEb4YWmI3YypgPig0eOSJlVfUtOfb37ipo3phmOeFp8y2w2u637UCiD8781eoZISDTRC', False, False, '7089429.27', 45, NULL, 21);
@@ -456,7 +458,6 @@ INSERT INTO users (user_id, username, email, first_name, last_name, password, de
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (8, 'Piotr', 'Mandy.Fernandez5@freeweb.co.uk', 'Shermie', 'Helfrich', 'Y81DcKmovDAcVMYS47A6bsb1mSNqNlLvHXXrqNzvtxy4aK3uPZRwI5yVjstKp27NrRFZwdY50TMKDh1I0iwKCoEyvN81GjCvKVUtjYpeJUBLs1fgypQUSCj8ZiTvZ2zeCJngQUoWaZvkpO5WHl2Vn67gwP7ba033QApowfwnExc3dqdIoQIIk5XimAdcq1yt8lFRbFyHlvtQzRnNwVRSzoYnJQR8DcDSVqJLHwxOwNg6B7pHqqXS', False, False, '2299613.26', 48, 22, 22);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (9, 'Herb246', 'Trees.Gaskins5@gawab.es', 'Pieter', 'Orcutt', 'rNlwgEByc12R715pWnUlKzqtUI3kC3gvsFV2HPgRdUSi5dce64hZXZYXJ2zlWYjMLzPQFna6hEZ7QdOCtPGUauUufDDOjrfIg8joPvALzxEaMjgyvnChJOXgJwpwKbx3KtNsy3UbgOL4jgDAV', False, False, '2950352.32', 49, NULL, 22);
 INSERT INTO users (user_id, username, email, first_name, last_name, password, deleted, is_admin, balance, img, billing_address, shipping_address) VALUES (10, NULL, NULL, NULL, NULL, 'xFUYINBeq4oPvnONs18WJZ0RqwjYYFPA4MuwQalgNjPODG2FEBcYjYN6azaYebnt6dfpg3AnBgfY4sq4Erv8', True, False, NULL, NULL, NULL, NULL);
-
 
 
 INSERT INTO wishlist (user_id, item_id, add_date) VALUES (7, 7, '04/20/2003 06:27:00');
@@ -550,18 +551,21 @@ INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, 
 INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (8, 1, 10, 19, 'Discount',False);
 
 
+INSERT INTO shipping_option (shipping_id, name, description, price, img) VALUES (1, 'CTT', '', 1.5, 50);
+INSERT INTO shipping_option (shipping_id, name, description, price, img) VALUES (2, 'DHL', '', 2, 51);
+INSERT INTO shipping_option (shipping_id, name, description, price, img) VALUES (3, 'FedEx', '', 2.4, 52);
 
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (1, 3, '12/27/2003 09:09:00', 31, 31, 'Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (2, 3, '07/29/2012 02:09:00', 32, 33,'Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (3, 4, '05/30/2017 01:17:00', 34, 34,'Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (4, 5, '09/12/2000 07:13:00', 35, 35,'Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (5, 6, '08/12/2006 00:14:00', 36, 37,'Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (6, 6, '02/10/2011 04:52:00', 38, 38,'Processing');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (7, 6, '07/01/2000 04:25:00', 39, 39,'Processing');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (8, 8, '05/28/2017 01:44:00', 40, 40,'Processing');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (9, 9, '08/25/2003 04:53:00', 41, 41,'Sent');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (10, 10, '10/10/2015 05:38:00', 42, 42,'Sent');
 
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (1, 3, '12/27/2003 09:09:00', 31, 31, 1, 'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (2, 3, '07/29/2012 02:09:00', 32, 33, 2, 'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (3, 4, '05/30/2017 01:17:00', 34, 34, 1, 'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (4, 5, '09/12/2000 07:13:00', 35, 35, 3, 'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (5, 6, '08/12/2006 00:14:00', 36, 37, 1, 'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (6, 6, '02/10/2011 04:52:00', 38, 38, 2, 'Processing');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (7, 6, '07/01/2000 04:25:00', 39, 39, 3, 'Processing');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (8, 8, '05/28/2017 01:44:00', 40, 40, 1, 'Processing');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (9, 9, '08/25/2003 04:53:00', 41, 41, 2, 'Sent');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (10, 10, '10/10/2015 05:38:00', 42, 42, 1, 'Sent');
 
 
 INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (8, 11, 05.37, 1);
@@ -622,3 +626,4 @@ SELECT pg_catalog.setval(pg_get_serial_sequence('category', 'category_id'), (SEL
 SELECT pg_catalog.setval(pg_get_serial_sequence('address', 'address_id'), (SELECT MAX(address_id) FROM address));
 SELECT pg_catalog.setval(pg_get_serial_sequence('photo', 'photo_id'), (SELECT MAX(photo_id) FROM photo));
 SELECT pg_catalog.setval(pg_get_serial_sequence('country', 'country_id'), (SELECT MAX(country_id) FROM country));
+SELECT pg_catalog.setval(pg_get_serial_sequence('shipping_option', 'shipping_id'), (SELECT MAX(shipping_id) FROM shipping_option));

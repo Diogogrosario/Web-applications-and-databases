@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Input\Input;
 use Illuminate\Support\Facades\DB;
 use App\Models\Address;
+use App\Models\Shipping;
 
 class CheckoutController extends Controller
 {
@@ -29,19 +30,38 @@ class CheckoutController extends Controller
             $request->session()->pull('billing');
             $request->session()->pull('shipping');
 
+            $request->session()->forget('shipping_option');
+
             $categories = Category::all()->sortBy("category_id");
             $countries = Country::all();
             return view('pages.checkout')->with("categories", $categories)->with("step", $step)->with("countries", $countries);
         }
         else if($step == 2) { // shipping
-            //TODO: if addresses arent set go back
-            if(!$request->session()->has('billing') || !$request->session()->has('shipping'))
-                return redirect()->route('checkout')->with('error', 'Billing and shipping addresses must be correctly set before choosing shipping.');
 
+            if(!$request->session()->has('billing') || !$request->session()->has('shipping'))
+                return redirect()->route('checkout')->with('error', 'Billing and shipping addresses must be correctly set before choosing a shipping option.');
+            
+            $categories = Category::all()->sortBy("category_id");
+            $shipping_options = Shipping::all();
+            return view('pages.checkout')->with("categories", $categories)->with("step", $step)->with("shipping_options", $shipping_options);
+  
         } else if($step == 3) { // payment
-            //TODO: if addresses and shipping arent set go back
+
             if(!$request->session()->has('billing') || !$request->session()->has('shipping'))
                 return redirect()->route('checkout')->with('error', 'Billing and shipping addresses must be correctly set before payment.');
+            
+            if(!$request->session()->has('shipping_option')) {
+                return redirect()->route('checkout')->with('error', 'Shipping option must be correctly set before payment.');
+            }
+
+            $shipping_option = Shipping::find(session('shipping_option'));
+
+            if($shipping_option == NULL) {
+                return redirect()->route('checkout')->with('error', 'Shipping option must be correctly set before payment.');
+            }
+
+            $categories = Category::all()->sortBy("category_id");
+            return view('pages.checkout')->with("categories", $categories)->with("step", $step)->with("shipping_option", $shipping_option);
         }
 
         $categories = Category::all()->sortBy("category_id");
@@ -77,7 +97,6 @@ class CheckoutController extends Controller
 
         $post = $request->post();
         $user = Auth::user();
-        var_dump($post);
 
         $billing = [];
         $shipping = [];
@@ -143,15 +162,28 @@ class CheckoutController extends Controller
 
         $request->session()->put('billing', $billing);
         $request->session()->put('shipping', $shipping);
-        //TODO: check and add inputs to session
-        return CheckoutController::toPayment();
+
+        return redirect('/checkout?step=2');
     }
 
-    public function toPayment() {
-        $this->authorize('checkout', Auth::user());
+    public function toPayment(Request $request) {
 
+        $user = Auth::user();
+        $this->authorize('checkout', $user);
+
+        $post = $request->post();
         
-        //TODO: check and add inputs to session
+        if($post['shippingMethod'] == null)
+            return back()->with('error', 'Shipping method not selected.');
+
+        $shipping_id = $post['shippingMethod'];
+
+        if( !is_numeric($shipping_id) || (Shipping::find($shipping_id) == NULL)) {
+             return back()->with('error', 'Invalid shipping option.');
+        }
+
+        session()->put('shipping_option', $shipping_id);
+
         return redirect('/checkout?step=3');
     }
 
@@ -159,32 +191,33 @@ class CheckoutController extends Controller
         $user = Auth::user();
         $this->authorize('checkout', Auth::user());
 
-        if(!$request->session()->has('shipping') || !$request->session()->has('shipping')) {
+        if(!$request->session()->has('shipping') || !$request->session()->has('shipping') || !$request->session()->has('shipping_option')) {
             return redirect()->route('checkout')->with('error', 'Invalid checkout information. Could not proceed to payment.');
         }
 
         $post = $request->post();
         if($post['finish'] == "Balance") {
             // TODO: pay with balance
-            return $this->payBalance($user, session('shipping'), session('billing'));
+            return $this->payBalance($user, session('shipping'), session('billing'), session('shipping_option'));
             
         } else if($post['finish'] == "Paypal") {
             // TODO: pay with paypal
-            return $this->payPaypal($user);
+            return $this->payPaypal($user, session('shipping_option'));
         } else {
             return redirect()->route('checkout')->with('error', 'Invalid payment option.');
         }
     }
 
-    private function processCheckout($user, $shipping, $billing) {
+    private function processCheckout($user, $shipping, $billing, $shipping_option) {
         $billing_id = $this->getAddressId($billing);
         $shipping_id = $this->getAddressId($shipping);
 
         session()->forget('checkout_id');
         session()->forget('shipping');
         session()->forget('billing');
+        session()->forget('shipping_option');
 
-        DB::select('call checkout(?, ?, ?)', [$user["user_id"], $billing_id, $shipping_id]);
+        DB::select('call checkout(?, ?, ?, ?)', [$user["user_id"], $billing_id, $shipping_id, $shipping_option]);
 
         DB::table('cart')->where('user_id', $user["user_id"])->delete();
     }
@@ -206,16 +239,16 @@ class CheckoutController extends Controller
         }
     }
 
-    private function payBalance($user, $shipping, $billing) {
-        $result = DB::transaction(function () use($user, $shipping, $billing) {
-            $sum_prices = $user->cartTotal();
+    private function payBalance($user, $shipping, $billing, $shipping_option) {
+        $result = DB::transaction(function () use($user, $shipping, $billing, $shipping_option) {
+            $sum_prices = $user->cartTotalShipping($shipping_option);
 
             $sum_prices = floatval(preg_replace('/[^\d\.]/', '', $sum_prices)); // parse money
 
             $currentBalance = floatval(preg_replace('/[^\d\.]/', '', $user['balance'])); // parse money
 
             if($currentBalance >= $sum_prices) {
-                $this->processCheckout($user, $shipping, $billing);
+                $this->processCheckout($user, $shipping, $billing, $shipping_option);
                 return 0;
             }
             return -1;
@@ -228,9 +261,9 @@ class CheckoutController extends Controller
         }
     }
 
-    private function payPaypal($user) {
-        $sum_prices = DB::transaction(function () use($user) {
-            $sum_prices = $user->cartTotal();
+    private function payPaypal($user, $shipping_option) {
+        $sum_prices = DB::transaction(function () use($user, $shipping_option) {
+            $sum_prices = $user->cartTotalShipping($shipping_option);
 
             $sum_prices = floatval(preg_replace('/[^\d\.]/', '', $sum_prices)); // parse money
             return $sum_prices;
@@ -271,7 +304,7 @@ class CheckoutController extends Controller
             abort(403, 'Expired order.');
         }
 
-        if(!$request->session()->has('shipping') || !$request->session()->has('billing')) {
+        if(!$request->session()->has('shipping') || !$request->session()->has('billing') || !$request->session()->has('shipping_option')) {
             abort(403, 'Expired order.');
         }
 
@@ -288,7 +321,7 @@ class CheckoutController extends Controller
 
             DB::transaction(function () use($user, $capture) {
                 $this->addBalanceValue($user["user_id"], $capture['purchase_units'][0]['payments']['captures'][0]['amount']['value']);
-                $this->processCheckout($user, session('shipping'), session('billing'));
+                $this->processCheckout($user, session('shipping'), session('billing'), session('shipping_option'));
             });
             return redirect('/userProfile/'.$user['user_id'].'/purchaseHistory')->with('checkout_success', 'Checkout successful.');
         } 

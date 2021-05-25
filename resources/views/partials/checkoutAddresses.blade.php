@@ -5,8 +5,6 @@
       </div>
     @endif
 
-    <script src="{{asset('js/checkout.js')}}" defer></script>
-
     <form method="post" action="{{action('CheckoutController@toShipping')}}" class="row p-4" id="addresses_checkout_form">
         @csrf
         <div id="billingAddressDiv_checkout" class="col-lg-6 col-12">
@@ -54,7 +52,7 @@
         </div>
         
         <footer class="ps-4 mt-3 row">
-            <button type="button" class="btn btn-dark col-lg-3 col-12"><i class="bi bi-arrow-left-circle"></i> Go Back</button>
+            <button type="button" class="btn btn-dark col-lg-3 col-12 go_back_checkout" id="go_back_addresses"><i class="bi bi-arrow-left-circle"></i> Go Back</button>
             <button type="submit" class="btn btn-success offset-lg-6 col-lg-3 col-12">Proceed to Shipping <i class="bi bi-arrow-right-circle"></i></button>
         </footer>
     </form>

@@ -14,6 +14,8 @@
     </div>
 @endif
 
+<script src="{{asset('js/checkout.js')}}" defer></script>
+
 <div class="p-0" style="background-color:#f2f2f2;">
     <div id="checkoutPage" class="container col-lg-7 col-md-11 p-lg-4 p-3 shadow-sm h-100" style="background-color:white">
         <h2 class="ps-lg-5 mb-4">Checkout</h2>

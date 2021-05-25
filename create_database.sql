@@ -19,6 +19,7 @@ DROP TABLE IF EXISTS address CASCADE;
 DROP TABLE IF EXISTS photo CASCADE;
 DROP TABLE IF EXISTS country CASCADE;
 DROP TABLE IF EXISTS password_resets CASCADE;
+DROP TABLE IF EXISTS shipping_option CASCADE;
 
 DROP TYPE IF EXISTS notificationType;
 DROP TYPE IF EXISTS purchaseState;
@@ -101,12 +102,21 @@ CREATE TABLE ban (
     PRIMARY KEY (admin_id, user_id)
 );
 
+CREATE TABLE shipping_option (
+    shipping_id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL CONSTRAINT shipping_uk UNIQUE,
+    description TEXT,
+    price MONEY NOT NULL CONSTRAINT pos_price CHECK (price >= 0::MONEY),
+    img INTEGER REFERENCES photo(photo_id) ON UPDATE CASCADE ON DELETE SET NULL
+);
+
 CREATE TABLE purchase (
     purchase_id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(user_id) ON UPDATE CASCADE,
     "date" TIMESTAMP WITH TIME zone DEFAULT now() NOT NULL,
     billing_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE,
     shipping_address INTEGER REFERENCES address(address_id) ON UPDATE CASCADE,
+    shipping_method INTEGER REFERENCES shipping_option(shipping_id) ON UPDATE CASCADE,
     state purchaseState DEFAULT 'Processing'
 );
  
@@ -577,15 +587,20 @@ END;
 $$ 
 LANGUAGE plpgsql;
 
-CREATE OR REPLACE PROCEDURE checkout(userID INTEGER, billing INTEGER, shipping INTEGER)
+CREATE OR REPLACE PROCEDURE checkout(userID INTEGER, billing INTEGER, shipping INTEGER, shipping_option_id INTEGER)
 LANGUAGE plpgsql AS $$
 DECLARE 
 sum_prices MONEY := 0::MONEY;
+shipping_price MONEY := 0::MONEY;
 purchase_ident INTEGER := 0;
 BEGIN
     SELECT sum((price - (price*get_discount(item_id, now())/100)) * quantity) INTO sum_prices
     FROM item JOIN cart USING (item_id)
     WHERE cart.user_id = userID;
+
+    SELECT price INTO shipping_price
+    FROM shipping_option
+    WHERE shipping_id = shipping_option_id;
          
     IF (
         
@@ -593,16 +608,16 @@ BEGIN
         FROM users
         WHERE user_id = userID)
         -
-        (sum_prices)
+        (sum_prices + shipping_price)
         >= 0::MONEY
         )
         THEN 
         
             UPDATE users
-            SET balance = balance - sum_prices
+            SET balance = balance - (sum_prices + shipping_price)
             WHERE user_id = userID;
 
-            INSERT INTO purchase(user_id,date,billing_address,shipping_address) VALUES (userID, now(), billing, shipping) RETURNING purchase_id INTO purchase_ident;
+            INSERT INTO purchase(user_id,date,billing_address,shipping_address,shipping_method) VALUES (userID, now(), billing, shipping, shipping_option_id) RETURNING purchase_id INTO purchase_ident;
 
             INSERT INTO purchase_item (purchase_id, item_id, price, quantity)
                 SELECT purchase_ident, item_id, price-((price*get_discount(item_id, now()))/100), quantity

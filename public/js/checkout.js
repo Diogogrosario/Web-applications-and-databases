@@ -6,14 +6,18 @@ let billingState;
 let shippingState = DEFINED;
 
 let useBilling = document.querySelector('input#useDefinedBilling');
-if(useBilling.checked)
-    billingState = DEFINED;
-else 
-    billingState = OTHER;
+if(useBilling != null) {
+    if(useBilling.checked)
+        billingState = DEFINED;
+    else 
+        billingState = OTHER;
+}
 
 let useShipping = document.querySelector('input#useDefinedShipping');
 let billingShipping = document.querySelector('input#shippingEqualBilling');
 let shippingOther = document.querySelector('input#otherShipping');
+
+let goBackButtons = document.querySelectorAll('button.go_back_checkout');
 
 
 function addEventListeners() {
@@ -28,6 +32,10 @@ function addEventListeners() {
 
     if(shippingOther != null)
         shippingOther.addEventListener('change', updateShipping);
+
+    for(goBackButton of goBackButtons) {
+        goBackButton.addEventListener('click', goBackCheckout);
+    }
 }
 
 
@@ -129,6 +137,17 @@ function equalAddress()
     toReplace.replaceWith(replacement);
 
     shippingState = EQUAL;
+}
+
+function goBackCheckout() {
+    console.log(this.id)
+    if(this.id == 'go_back_addresses') {
+        window.location.href = "/checkout";
+    } else if(this.id == 'go_back_shipping') {
+        window.location.href = "/checkout?step=1";
+    } else if(this.id == 'go_back_payment') {
+        window.location.href = "/checkout?step=2";
+    }
 }
 
 addEventListeners();

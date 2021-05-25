@@ -28,12 +28,21 @@
                 @include('partials.purchaseHistoryAddress', array("addressType" => "Billing", "address" => $purchase->billingAddress()))
                 @include('partials.purchaseHistoryAddress', array("addressType" => "Shipping", "address" => $purchase->shippingAddress()))
             </div>
+
+            @php
+                $shipping_option = $purchase->shippingOption();
+            @endphp
             
             @foreach ($purchase->purchasedItems()->get() as $item)
                 @include("partials.purchaseItemCard",array("item" => $item))
             @endforeach
 
-            <div class="row pt-3">
+            <div class="purchase-shipping-method row pt-3">
+                <div class="col-lg-10 col-3 d-flex flex-column justify-content-center text-lg-end text-center pe-lg-5 fs-5">Shipping:</div>
+                <div class="col-lg-2 col-9 fs-4 text-center">{{$shipping_option['name'] . ' - ' . $shipping_option['price']}}</div>
+            </div>
+            
+            <div class="row pt-3 purchase-total">
                 <div class="col-lg-10 col-3 d-flex flex-column justify-content-center text-lg-end text-center pe-lg-5 fs-5">Total:</div>
                 <div class="col-lg-2 col-9 fs-4 text-center">{{ $purchase->purchaseTotal() }}</div>
             </div>
