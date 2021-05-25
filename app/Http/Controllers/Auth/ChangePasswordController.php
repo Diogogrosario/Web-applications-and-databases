@@ -39,7 +39,7 @@ class ChangePasswordController extends Controller
                 return back()->with(['error'=>'New Passwords Do Not Match!']);;
             }
     
-            User::find(Auth::user()["user_id"])->update(['password'=> Hash::make($request->new_password)]);
+            User::find(Auth::user()["user_id"])->update(['password'=> Hash::make($request->password)]);
     
             return redirect('/userProfile/' . Auth::user()["user_id"]);
         }

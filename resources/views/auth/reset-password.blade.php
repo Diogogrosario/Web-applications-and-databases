@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    <title>Forgot Password</title>
+    <title>Change    Password</title>
 @endsection
 
 @section('content')
