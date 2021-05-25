@@ -14,10 +14,10 @@ class Shipping extends Model
     protected $primaryKey = 'shipping_id';
 
     protected $fillable = [
-        'name','description', 'price', 'img'
+        'name', 'description', 'price', 'img'
     ];
 
     public function image() {
-        return $this->hasOne(Photo::class,"photo_id","img");
+        return $this->hasOne(Photo::class, "photo_id", "img");
     }
 }

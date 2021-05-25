@@ -13,8 +13,11 @@
                 @endforeach
             </div>
             <div class="text-center mt-5 fs-4">
+                <p class="mb-1"><span>Shipping: </span></p>
+                <p><span id="shippingPayment" class="fs-5">{{$shipping_option['name'] . ' - ' . $shipping_option['price']}}</span></p>
+
                 <p class="mb-1"><span>Total Payment: </span></p>
-                <p><span id="totalPayment" class="fs-2" style="color:red">{{Auth::user()->cartTotal()}}</span></p>
+                <p><span id="totalPayment" class="fs-2" style="color:red">{{Auth::user()->cartTotalShipping($shipping_option['shipping_id'])}}</span></p>
             </div>
 
             <div id="paymentMethods" class="mt-4">

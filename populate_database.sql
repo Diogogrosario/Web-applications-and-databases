@@ -551,18 +551,21 @@ INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, 
 INSERT INTO notification (user_id, discount_id, notification_id, item_id, type, is_seen) VALUES (8, 1, 10, 19, 'Discount',False);
 
 
+INSERT INTO shipping_option (shipping_id, name, description, price, img) VALUES (1, 'CTT', '', 1.5, 50);
+INSERT INTO shipping_option (shipping_id, name, description, price, img) VALUES (2, 'DHL', '', 2, 51);
+INSERT INTO shipping_option (shipping_id, name, description, price, img) VALUES (3, 'FedEx', '', 2.4, 52);
 
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (1, 3, '12/27/2003 09:09:00', 31, 31, 'Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (2, 3, '07/29/2012 02:09:00', 32, 33,'Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (3, 4, '05/30/2017 01:17:00', 34, 34,'Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (4, 5, '09/12/2000 07:13:00', 35, 35,'Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (5, 6, '08/12/2006 00:14:00', 36, 37,'Arrived');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (6, 6, '02/10/2011 04:52:00', 38, 38,'Processing');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (7, 6, '07/01/2000 04:25:00', 39, 39,'Processing');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (8, 8, '05/28/2017 01:44:00', 40, 40,'Processing');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (9, 9, '08/25/2003 04:53:00', 41, 41,'Sent');
-INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, state) VALUES (10, 10, '10/10/2015 05:38:00', 42, 42,'Sent');
 
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (1, 3, '12/27/2003 09:09:00', 31, 31, 1, 'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (2, 3, '07/29/2012 02:09:00', 32, 33, 2, 'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (3, 4, '05/30/2017 01:17:00', 34, 34, 1, 'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (4, 5, '09/12/2000 07:13:00', 35, 35, 3, 'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (5, 6, '08/12/2006 00:14:00', 36, 37, 1, 'Arrived');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (6, 6, '02/10/2011 04:52:00', 38, 38, 2, 'Processing');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (7, 6, '07/01/2000 04:25:00', 39, 39, 3, 'Processing');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (8, 8, '05/28/2017 01:44:00', 40, 40, 1, 'Processing');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (9, 9, '08/25/2003 04:53:00', 41, 41, 2, 'Sent');
+INSERT INTO purchase (purchase_id, user_id, date, billing_address, shipping_address, shipping_method, state) VALUES (10, 10, '10/10/2015 05:38:00', 42, 42, 1, 'Sent');
 
 
 INSERT INTO purchase_item (purchase_id, item_id, price, quantity) VALUES (8, 11, 05.37, 1);
@@ -608,10 +611,6 @@ INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VAL
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (18, 6, 18, 'Not as good as the other ones, but still a fun ride', '05/11/2002 01:41:00', 3);
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (19, 6, 19, 'EPIIIICCCCC!! MUST WATCH', '05/11/2006 04:41:00', 5);
 INSERT INTO review (review_id, user_id, item_id, comment_text, date, rating) VALUES (20, 7, 20, 'Average movie, not much to say', '09/06/2013 06:28:00', 3);
-
-INSERT INTO shipping_option (shipping_id, name, description, price, img) VALUES (1, 'CTT', '', 1.5, 50);
-INSERT INTO shipping_option (shipping_id, name, description, price, img) VALUES (2, 'DHL', '', 2, 51);
-INSERT INTO shipping_option (shipping_id, name, description, price, img) VALUES (3, 'FedEx', '', 2.4, 52);
 
 
 -- Sync the auto increment ids
