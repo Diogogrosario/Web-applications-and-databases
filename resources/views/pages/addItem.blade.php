@@ -32,6 +32,12 @@
                         <span class="input-group-text">€</span>
                     </div>
                 </div>
+                <div class="col" id="stockForm">
+                    <label for="inputStock" class="form-label">Stock</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="inputStock" aria-label="Integer amount with initial stock" required>
+                    </div>
+                </div>
             </div>
 
             <div class="row">

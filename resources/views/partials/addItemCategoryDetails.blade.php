@@ -3,7 +3,7 @@
 <div id="detailForm{{$key}}">
     <label for="detail{{$key}}" class="form-label" id="{{$detail->detail_id}}">{{$detail->name}}</label>
     <div class="input-group">
-        <select class="form-select" aria-label="Category" id="detail{{$key}}">
+        <select class="form-select" aria-label="Category" id="detail-{{$key}}">
             <option selected>...</option>
             {{-- <option value="1">Intel i3</option>
             <option value="2">Intel i5</option>
