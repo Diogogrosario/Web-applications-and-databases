@@ -18,8 +18,8 @@
     <div id="userProfile" class="container col-md-7 p-lg-5 p-3 shadow-sm h-100" style="background-color:white">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-3 mb-1">
-                @if (Auth::user()->image()->first())
-                    <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-image:url(\"" . asset("/img/users/" . Auth::user()->image()->first()["path"]) . "\");background-position:center;background-size:cover;"}}>
+                @if ($user->image()->first())
+                    <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-image:url(\"" . asset("/img/users/" . $user->image()->first()["path"]) . "\");background-position:center;background-size:cover;"}}>
                     </div>
                 @else
                     <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-image:url(\"" . asset("/img/users/default.png") . "\");background-position:center;background-size:cover;"}}>
@@ -32,25 +32,40 @@
             </div>
             <p class="text-center d-block d-md-none px-2 fw-bold mt-lg-3 col-12">Balance:<span class="fs-4 ms-2" style="color:green;">{{ $user["balance"] }}</span></p>
 
-            <div id="profileOptions" class="col-lg-4 col-md-12 col-sm-12">
-                <a href={{$user["user_id"] . "/wishlist"}} class="btn btn-danger w-100 p-3 shadow rounded-0 rounded-top">
-                    <i class="bi bi-heart-fill me-2"></i>Wishlist
-                </a>
-                <br>
+            @if ($user["user_id"] == Auth::user()["user_id"])
+                
+                <div id="profileOptions" class="col-lg-4 col-md-12 col-sm-12">
+                    <a href={{route("wishlist")}} class="btn btn-danger w-100 p-3 shadow rounded-0 rounded-top">
+                        <i class="bi bi-heart-fill me-2"></i>Wishlist
+                    </a>
+                    <br>
 
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-dark w-100 p-3 shadow rounded-0" data-bs-toggle="modal" data-bs-target="#balanceModal">
-                    Add balance
-                </button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-dark w-100 p-3 shadow rounded-0" data-bs-toggle="modal" data-bs-target="#balanceModal">
+                        Add balance
+                    </button>
 
-                <!-- Modal -->
-                @include('partials.addBalanceModal', array($user))
+                    <!-- Modal -->
+                    @include('partials.addBalanceModal', array($user))
 
-                <br>
-                <a href={{$user["user_id"] . "/purchaseHistory"}} class="btn btn-light w-100 p-3 shadow-sm rounded-0 rounded-bottom">
-                    Purchase History
-                </a>
-            </div>
+                    <br>
+                    <a href={{route("history")}} class="btn btn-light w-100 p-3 shadow-sm rounded-0 rounded-bottom">
+                        Purchase History
+                    </a>
+                </div>
+            @else
+                    
+                <div id="profileOptions" class="col-lg-4 col-md-12 col-sm-12">
+                    <a href={{route("wishlistWithId", ['id'=>$user["user_id"]])}} class="btn btn-danger w-100 p-3 shadow rounded-0 rounded-top">
+                        <i class="bi bi-heart-fill me-2"></i>Wishlist
+                    </a>
+                    
+                    <a href={{route("historyWithId", ['id'=>$user["user_id"]])}} class="btn btn-light w-100 p-3 shadow-sm rounded-0 rounded-bottom">
+                        Purchase History
+                    </a>
+                </div>
+
+            @endif
         
         </div>
 
@@ -77,20 +92,33 @@
                                 <td>
                                     <section id="userNameContent">
                                         {{ $user["username"] }}
-                                        <button type="button" class="btn" onclick="{{"editUsernameForm('" . $user["username"] . "'," . $user["user_id"] . ")" }}">
-                                            <i class="bi bi-pencil-square" ></i>
-                                        </button>
+                                        @if ($user["user_id"] == Auth::user()["user_id"])
+                                            <button type="button" class="btn" onclick="{{"editUsernameForm('" . $user["username"] . "'," . $user["user_id"] . ")" }}">
+                                                <i class="bi bi-pencil-square" ></i>
+                                            </button>
+                                        @endif
+
                                     </section>
                                 </td>
                                 
                             </tr>
-                            <tr>
-                                <th scope="row">Password</th>
-                                <td><a href="/change-password" type="button" class="btn btn-dark">Change password</a></td>
-                            </tr>
+                            @if ($user["user_id"] == Auth::user()["user_id"])
+                                <tr>
+                                    <th scope="row">Password</th>
+                                    <td><a href="/change-password" type="button" class="btn btn-dark">Change password</a></td>
+                                </tr>
+                            @endif
                             <tr>
                                 <th scope="row">E-mail</th>
-                                <td>{{ $user["email"] }}<button type="button" class="btn"><i class="bi bi-pencil-square"></i></button></td>
+                                <td>
+                                    <section id="emailContent">
+                                    {{ $user["email"] }}
+                                        @if ($user["user_id"] == Auth::user()["user_id"])
+                                            <button type="button" class="btn" onclick="{{"editEmailForm('" . $user["email"] . "'," . $user["user_id"] . ")" }}">
+                                            <i class="bi bi-pencil-square"></i></button>
+                                        @endif
+                                    </section>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -112,16 +140,17 @@
                             <section class="col-10">
                                 <a href={{"/item/" . $notification["item_id"]}}>{{ $notification["name"] }}</a> from your wish list is on sale! 
                             </section>
-                            <section class="col d-flex align-items-center justify-content-center">
-
-                                <form method="POST" action={{ "/notification/" . $notification->pivot["notification_id"] }}>
-                                    {{ csrf_field() }}
-                                    <button type="submit" data-id={{ $notification->pivot["notification_id"] }} class="deleteNotificationButton" style="background-color: white; border: none;">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </button>
-                                </form>
-
-                            </section>
+                            @if ($user["user_id"] == Auth::user()["user_id"])
+                                <section class="col d-flex align-items-center justify-content-center">
+                                    
+                                    <form method="POST" action={{ "/notification/" . $notification->pivot["notification_id"] }}>
+                                        {{ csrf_field() }}
+                                        <button type="submit" data-id={{ $notification->pivot["notification_id"] }} class="deleteNotificationButton" style="background-color: white; border: none;">
+                                            <i class="bi bi-trash-fill"></i>
+                                        </button>
+                                    </form>
+                                </section>
+                            @endif
                         </li>   
                     @else
                         <li class="list-group-item d-flex">
@@ -134,17 +163,18 @@
                                     <a href={{"/item/" . $notification["item_id"]}}>{{ $notification["name"] }}</a> has stock again!
                                 </section>
                             @endif
-                            
-                            <section class="col d-flex align-items-center justify-content-center">
+                            @if ($user["user_id"] == Auth::user()["user_id"])
+                                <section class="col d-flex align-items-center justify-content-center">
 
-                                <form method="POST" action={{ "/notification/" . $notification->pivot["notification_id"] }}>
-                                    {{ csrf_field() }}
-                                    <button type="submit" data-id={{ $notification->pivot["notification_id"] }} class="deleteNotificationButton" style="background-color: white; border: none;">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </button>
-                                </form>
+                                    <form method="POST" action={{ "/notification/" . $notification->pivot["notification_id"] }}>
+                                        {{ csrf_field() }}
+                                        <button type="submit" data-id={{ $notification->pivot["notification_id"] }} class="deleteNotificationButton" style="background-color: white; border: none;">
+                                            <i class="bi bi-trash-fill"></i>
+                                        </button>
+                                    </form>
 
-                            </section>
+                                </section>
+                            @endif
                         </li> 
                     @endif
                     @endforeach 

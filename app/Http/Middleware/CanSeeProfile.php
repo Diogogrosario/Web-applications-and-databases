@@ -24,7 +24,7 @@ class CanSeeProfile
         }
 
         if ($request->user()["user_id"] != $profileID && $request->user()["is_admin"] == false) {
-            return redirect('/userProfile/' . Auth::user()["user_id"]);
+            return redirect('/userProfile/');
         }
 
         return $next($request);

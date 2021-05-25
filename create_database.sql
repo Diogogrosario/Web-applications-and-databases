@@ -478,43 +478,6 @@ AFTER UPDATE ON item
 FOR EACH ROW
 EXECUTE PROCEDURE notify_admin_if_out_of_stock();
 
---Trigger 11
-DROP FUNCTION if exists update_stock_remove_from_cart CASCADE;
-DROP TRIGGER if exists update_stock_remove_from_cart ON cart CASCADE;
-CREATE FUNCTION update_stock_remove_from_cart() RETURNS TRIGGER AS
-$BODY$
-BEGIN
-    UPDATE item
-    SET stock = stock + OLD.quantity
-    WHERE item.item_id = OLD.item_id;
-    RETURN OLD;
-END
-$BODY$
-
-LANGUAGE plpgsql;
-CREATE TRIGGER update_stock_remove_from_cart
-AFTER DELETE ON cart
-FOR EACH ROW
-EXECUTE PROCEDURE update_stock_remove_from_cart();
-
---Trigger 12
-DROP FUNCTION if exists update_stock_update_quantity_cart CASCADE;
-DROP TRIGGER if exists update_stock_update_quantity_cart ON cart CASCADE;
-CREATE FUNCTION update_stock_update_quantity_cart() RETURNS TRIGGER AS
-$BODY$
-BEGIN
-    UPDATE item
-    SET stock = stock - (NEW.quantity - OLD.quantity)
-    WHERE item.item_id = OLD.item_id;
-    RETURN NEW;
-END
-$BODY$
-
-LANGUAGE plpgsql;
-CREATE TRIGGER update_stock_update_quantity_cart
-BEFORE UPDATE ON cart
-FOR EACH ROW
-EXECUTE PROCEDURE update_stock_update_quantity_cart();
 
 --Rule 1
 DROP rule IF EXISTS users_delete_rule ON users CASCADE;
@@ -620,9 +583,9 @@ DECLARE
 sum_prices MONEY := 0::MONEY;
 purchase_ident INTEGER := 0;
 BEGIN
-SELECT sum((price - price*(get_discount(item_id, now())/100)) * quantity) INTO sum_prices
-        FROM item JOIN cart USING (item_id)
-        WHERE cart.user_id = userID;
+    SELECT sum((price - (price*get_discount(item_id, now())/100)) * quantity) INTO sum_prices
+    FROM item JOIN cart USING (item_id)
+    WHERE cart.user_id = userID;
          
     IF (
         
@@ -642,7 +605,7 @@ SELECT sum((price - price*(get_discount(item_id, now())/100)) * quantity) INTO s
             INSERT INTO purchase(user_id,date,billing_address,shipping_address) VALUES (userID, now(), billing, shipping) RETURNING purchase_id INTO purchase_ident;
 
             INSERT INTO purchase_item (purchase_id, item_id, price, quantity)
-                SELECT purchase_ident, item_id, price-price*(get_discount(item_id, now())/100), quantity
+                SELECT purchase_ident, item_id, price-((price*get_discount(item_id, now()))/100), quantity
                 FROM item JOIN cart USING (item_id)
                 WHERE user_id = userID;
         

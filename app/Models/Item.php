@@ -37,6 +37,11 @@ class Item extends Model
   public function reviews() {
     return $this->hasMany(Review::class,"item_id")->orderBy("date", "desc");
   }
+  
+  public function discounts() {
+    $discounts_ids = DB::table('apply_discount')->where('item_id', $this['item_id'])->select('discount_id');
+    return Discount::whereIn('discount_id', $discounts_ids);
+  }
 
   public function getRandomItemsSameCategory($amount)
   {
@@ -47,4 +52,20 @@ class Item extends Model
     return explode('$',$this->price)[1];
   }
 
+  public function getDiscount(){
+    return DB::select("select get_discount(".$this["item_id"].",now())")[0]->get_discount;
+  }
+
+  public function priceGivenDiscount($discount) {
+    $discount = floatval($discount/100);
+    $price = floatval(preg_replace('/[^\d\.]/', '', $this["price"])); 
+    $discounted = number_format($price - ($price * $discount), 2, '.', ',');
+
+    return '$' . $discounted;  
+  }
+
+  public function priceDiscounted() {
+    $discount = $this->getDiscount();
+    return $this->priceGivenDiscount($discount);
+  }
 }

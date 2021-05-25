@@ -20,10 +20,16 @@ Route::post('searchResultsAjax', 'SearchResultsController@showAjax');
 Route::get('about', 'AboutPageController@show');
 Route::get('faq', 'FaqPageController@show');
 Route::get('contacts', 'ContactsPageController@show');
-Route::get('userProfile/{id}', 'UserProfileController@show')->middleware('canSeeProfile');
-Route::get('userProfile/{id}/wishlist', 'WishlistController@show')->middleware('canSeeProfile');
-Route::get('userProfile/{id}/cart', 'CartController@show')->middleware('canSeeProfile');
-Route::get('userProfile/{id}/purchaseHistory', 'PurchaseHistoryController@show')->middleware('canSeeProfile');
+
+Route::get('userProfile', 'UserProfileController@showSelf')->name("userProfile");
+Route::get('userProfile/wishlist', 'WishlistController@showSelf')->name("wishlist");
+Route::get('userProfile/cart', 'CartController@showSelf')->name("cart");
+Route::get('userProfile/purchaseHistory', 'PurchaseHistoryController@showSelf')->name("history");
+
+Route::get('userProfile/{id}', 'UserProfileController@show')->middleware('canSeeProfile')->name("userProfileWithId");
+Route::get('userProfile/{id}/wishlist', 'WishlistController@show')->middleware('canSeeProfile')->name("wishlistWithId");
+Route::get('userProfile/{id}/cart', 'CartController@show')->middleware('canSeeProfile')->name("cartWithId");
+Route::get('userProfile/{id}/purchaseHistory', 'PurchaseHistoryController@show')->middleware('canSeeProfile')->name("historyWithId");
 Route::get('checkout', 'CheckoutController@show')->middleware('verified')->name('checkout');
 
 //Management
@@ -47,11 +53,16 @@ Route::get('userProfile/edit/getAddressForm/{type}', 'UserController@getAddressF
 Route::post('userProfile/balance', 'UserController@addBalance');
 Route::get("userProfile/balance/capture", 'UserController@captureBalance');
 
+Route::patch('userProfile/editEmail', 'UserController@changeEmail');
+
 
 Route::post('management/addItem', 'AddItemController@addItem')->middleware('admin');
 Route::post('management/item/{id}', 'ItemController@updateItem')->middleware('admin');
 Route::patch('management/item/{id}', 'ItemController@putAvailable')->middleware('admin');
 Route::delete('management/item/{id}', 'ItemController@deleteItem')->middleware('admin');
+Route::post('admin/discountProduct', 'ItemController@addDiscount')->middleware('admin');
+Route::delete('admin/discountProduct/{item_id}/{discount_id}', 'DiscountController@delete')->middleware('admin');
+Route::get('admin/discountProduct/{id}', 'ItemController@getPriceDiscount')->middleware('admin');
 
 // API
 Route::get("api/item", 'ItemController@getItems');
@@ -59,7 +70,6 @@ Route::get("api/item/{id}", 'ItemController@get');
 Route::get("api/users/{id}", 'UserController@get');
 Route::get("api/users/{id}/purchaseHistory", 'UserController@getPurchaseHistory');
 Route::get("category/{id}/details", 'CategoryController@getDetails');
-
 
 
 // Reviews

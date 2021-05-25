@@ -14,6 +14,7 @@ function editUsernameForm(username, id){
                     <form action="/userProfile/edit" method="post">
 
                         <textarea name="newUsername" class="w-100 h-50" required id="newUsername" rows=1 style="resize: none;" placeholder=` + username + `></textarea>
+                        <div id="errorUsername" class="pb-2" style="color:red;font-size:15px;"></div>
                         
                         <button id="submitNewUsername" data-id='` + id + `' type="button" class="btn btn-success"><i class="bi bi-check-circle-fill"></i> Submit</button>
                         <button id="cancelNewUsername" data-id='` + id + `'  type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancel</button></td>
@@ -61,12 +62,13 @@ function submitNewUsername(event){
             let parser = new DOMParser();
             let add = parser.parseFromString(str, 'text/html').body.firstChild;
 
-            let navbarUsername = document.getElementById("navbarUsername");
-            
-            navbarUsername.innerHTML = newUsername + "&nbsp; |";
-
             doc.replaceWith(add);
-        }});
+        }
+        if(this.status === 500){
+            let err = document.getElementById("errorUsername");
+            err.innerHTML = "Username already in use!"
+        }
+    });
 }
 
 function cancelNewUsername(event){
@@ -227,5 +229,112 @@ function submitNewBillingInfo(event)
             doc.replaceWith(add);
         }});    
 }
+
+
+
+//
+// Change email
+//
+
+function editEmailForm(email, id){
+
+    let doc = document.getElementById("emailContent");
+
+    let str = `<section id="emailContent">
+                    <form action="/userProfile/edit" method="post">
+
+                        <textarea name="newEmail" class="w-100 h-50" required id="newEmail" rows=1 style="resize: none;" placeholder=` + email + `></textarea>
+                        <div id="errorEmail" class="pb-2" style="color:red;font-size:15px;"></div>
+                        <button id="submitNewEmail" data-id='` + id + `' type="button" class="btn btn-success"><i class="bi bi-check-circle-fill"></i> Submit</button>
+                        <button id="cancelNewEmail" data-id='` + id + `'  type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Cancel</button></td>
+
+                    </form>
+                </section>`
+
+    let parser = new DOMParser();
+    let add = parser.parseFromString(str, 'text/html').body.firstChild;
+
+    doc.replaceWith(add);
+
+    //can't add in the beggining since these buttons do not exist
+    let submitButton = document.getElementById("submitNewEmail");
+    submitButton.addEventListener("click",submitNewEmail);
+
+    let cancelButton = document.getElementById("cancelNewEmail");
+    cancelButton.addEventListener("click",cancelNewEmail);
+}
+
+function cancelNewEmail(event){
+    event.preventDefault();
+
+    let doc = document.getElementById("emailContent");
+    let userId = this.getAttribute('data-id');
+
+    let email = document.getElementById("newEmail").getAttribute("placeholder");
+
+    let str = `<section id="emailContent">
+                    ` + email + `
+                    <button type="button" class="btn" onclick=editEmailForm('` + email + `',` + userId + `)>
+                        <i class="bi bi-pencil-square" ></i>
+                    </button>
+                </section>`
+
+    let parser = new DOMParser();
+    let add = parser.parseFromString(str, 'text/html').body.firstChild;
+
+    doc.replaceWith(add);
+        
+}
+
+function validateEmail(email) {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(String(email).toLowerCase());
+}
+
+function submitNewEmail(event){
+    event.preventDefault();
+    let doc = document.getElementById("emailContent");
+    let userId = this.getAttribute('data-id');
+
+    console.log(doc);
+
+    let newEmail = document.getElementById("newEmail").value;
+
+    if(newEmail == null || !validateEmail(newEmail)){
+        let err = document.getElementById("errorEmail");
+        err.innerHTML = "Invalid Email Selected"
+        return;
+    }
+    else{
+        let err = document.getElementById("errorEmail");
+        err.innerHTML = ""
+    }
+
+    let data = {'email': newEmail};
+
+    let url = "/userProfile/editEmail";
+
+    sendAjaxRequest('PATCH', url, data, function () {
+        if (this.status === 200) {
+
+            let str = `<section id="emailContent">
+                    ` + newEmail + `
+                    <button type="button" class="btn" onclick=editUsernameForm('` + newEmail + `',` + userId + `)>
+                        <i class="bi bi-pencil-square" ></i>
+                    </button>
+                </section>`
+
+            let parser = new DOMParser();
+            let add = parser.parseFromString(str, 'text/html').body.firstChild;
+
+            doc.replaceWith(add);
+        }
+        if(this.status === 500){
+            let err = document.getElementById("errorEmail");
+            err.innerHTML = "Email already in use!"
+        }
+    });
+}
+
 
 addEventListeners();

@@ -10,4 +10,8 @@ class PurchaseItem extends Model
     use HasFactory;
     public $timestamps  = false;
     protected $table = 'purchase_item';
+
+    public function getItem() {  
+        return Item::find($this->item_id);
+    }
 }

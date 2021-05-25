@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Card;
 use App\Models\Category;
+use App\Models\Discount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -156,5 +157,53 @@ class ItemController extends Controller
         DB::table('item_detail')->where('item_id',$id)->where('detail_id',$id2)->update(['detail_info' => $new_detail_value]);
 
         return ;
+    }
+    
+    public function addDiscount(Request $request) {
+        $post = $request->post();
+
+        $id = $post['item_id'];
+        $begin_date = $post['begin_date'];
+        $end_date = $post['end_date'];
+        $percentage = $post['percentage'];
+
+        $item = Item::findOrFail($id);
+        $this->authorize('update', $item);
+
+        $begin = strtotime($begin_date);
+        $end = strtotime($end_date);
+
+        if($percentage < 1 || $percentage > 99) {
+            return response()->json('Discount percentage must be between 1% and 99%.', 406);
+        } else if($begin > $end) {
+            return response()->json('End date must be after begin date.', 406);
+        }
+        
+        $discount = new Discount();
+        $discount->begin_date = $begin_date;
+        $discount->end_date = $end_date;
+        $discount->percentage = $percentage;
+        $discount->save();
+
+        DB::table('apply_discount')->insert(["discount_id" => $discount->discount_id, "item_id" => $id]);
+
+        // $item->discounts()->sync([$discount->discount_id],false);
+        return response()->json(["discount_id" => $discount->discount_id, 'begin_date' => date("Y-m-d", $begin), 
+                                'end_date' => date("Y-m-d", $end), 'percentage' => $percentage], 200);
+    }
+
+    public function getPriceDiscount($id) {
+        $item = Item::findOrFail($id);
+
+        $discount = $item->getDiscount();
+
+        if($discount > 0) {
+            $priceDiscounted = $item->priceGivenDiscount($discount);
+        } else {
+            $priceDiscounted = $item['price'];
+        }
+
+        return response()->json(["item_id" => $id, "discount" => $discount, "price" => $item['price'],
+                                 "price_discounted" => $priceDiscounted], 200);
     }
 }

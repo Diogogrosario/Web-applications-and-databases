@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col d-flex flex-column justify-content-center text-center">
-                <p><span class="title fs-5">{{ $item["price"] }}</span></p>
+                <p><span class="title fs-5">{{ $item->priceDiscounted()}}</span></p>
             </div>
         </div>
     </div>

@@ -20,6 +20,15 @@ class WishlistController extends Controller
         return view('pages.wishlist')->with("user", $user)->with("categories", $categories);
     }
 
+    public function showSelf()
+    {
+        $user = Auth::user();
+
+        $categories = Category::all()->sortBy("category_id");
+        
+        return view('pages.wishlist')->with("user", $user)->with("categories", $categories);
+    }
+
     public function addToWishlist(Request $request)
     {
         $item_id = $request->all()['item_id'];
