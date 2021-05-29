@@ -25,6 +25,13 @@
                     <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-image:url(\"" . asset("/img/users/default.png") . "\");background-position:center;background-size:cover;"}}>
                     </div>
                 @endif
+                @if ($user["user_id"] == Auth::user()["user_id"])
+                    <section id="editUserImage">
+                        <button id="imageButton" type="button" class="btn" value="{{$user["user_id"]}}">
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
+                    </section>
+                @endif
             </div>
             <div id="profileMainInfo" class="col-lg-5 col-md-9 col-9">
                 <h2 class="px-2 pt-2">{{ $user["first_name"] }} {{ $user["last_name"]}} </h2>

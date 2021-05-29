@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use NumberFormatter;
 use App\Mail\ChangeEmail;
+use App\Models\Photo;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -96,6 +97,32 @@ class UserController extends Controller
 
 
         return back();
+    }
+
+    public function editImage(Request $request){
+        $user = Auth::user();
+        $this->authorize('edit', $user);
+
+        $extension = $request->input("extension");
+        
+        if($extension == null){
+            return;
+        }
+
+        $userImage = Auth::user()->img();
+        if($userImage != null){
+            return 'image' + $userImage;
+        }
+        else{
+            $newPath = 'image' + $userImage;
+            $uimg = Photo::create([
+                'photo_id' => $userImage,
+                'path' => $newPath
+            ]);
+            $user[$userImage] = $uimg["address_id"];
+            return $newPath;
+        }
+
     }
 
     public function editUsername(Request $request)
