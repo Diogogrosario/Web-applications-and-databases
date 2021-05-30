@@ -42,7 +42,7 @@ Route::get('promote/{id}', 'ManagementController@promoteUser')->middleware('admi
 Route::get('ban/{id}', 'ManagementController@banUser')->middleware('admin');
 Route::delete('/userProfile/{id}', 'UserController@deleteAccount');
 Route::patch('item/{id}/editDetail/{id2}', 'ItemController@editDetail')->middleware('admin');
-
+Route::patch('management/managePurchases/{id}/status', 'ManagementController@changePurchaseStatus')->middleware('admin');
 
 // Edit user profile
 Route::post('userProfile/editImage', 'UserController@editImage');

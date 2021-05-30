@@ -27,7 +27,7 @@
                 </div>
             @endif
 
-            <div class="row mt-3 ms-lg-3 ms-md-1 me-lg-5 me-md-2 border-bottom">
+            <div class="row mt-3 mb-2 border-bottom">
                 <div class="col-md-4 col-5">
                     Showing <span id="nResultsCurrentTop">1-{{$user->purchases()->count()}}</span> of <span id="totalResultsTop">{{$user->purchases()->count()}}</span> purchases
                 </div>

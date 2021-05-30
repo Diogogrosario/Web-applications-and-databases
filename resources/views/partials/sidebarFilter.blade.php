@@ -95,7 +95,6 @@
                             <li class="list-group-item">
                                 <input class="form-check-input me-1" type="checkbox" id="1starFilter" value="1">
                                 <label for="1starFilter"> 1 star</label><br>
-                                
                             </li>
                         </ul>
                     </div>

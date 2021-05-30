@@ -60,7 +60,22 @@ class ManagementController extends Controller
     {
         $categories = Category::all()->sortBy("category_id");
         $purchases = Purchase::all();
-        
+
         return view('pages.managePurchases')->with("categories", $categories)->with("purchases", $purchases);
+    }
+
+    public function changePurchaseStatus(Request $request) {
+        $purchase_id = $request->route("id");
+        $new_status = $request->post()['status'];
+        $purchase = Purchase::findOrFail($purchase_id);
+
+        if($new_status != "Processing" && $new_status != "Sent" && $new_status != "Arrived") {
+            return response()->json("Invalid purchase status", 406);
+        }
+
+        $purchase->state = $new_status;
+        $purchase->save();
+        
+        return response()->json(['status' => $purchase->state], 200);
     }
 }

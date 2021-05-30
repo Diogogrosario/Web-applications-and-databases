@@ -1,16 +1,11 @@
-<div class="accordion-item purchaseFromHistory">
-    <h2 class="accordion-header" id={{"heading" . $purchase["purchase_id"]}}>
+<li class="accordion-item purchaseFromHistory" id="purchaseEntry_{{$purchase["purchase_id"]}}">
+    <header class="accordion-header" id={{"heading" . $purchase["purchase_id"]}}>
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={{"#collapse" . $purchase["purchase_id"]}} aria-expanded="false" aria-controls={{"collapse" . $purchase["purchase_id"]}}>
             <div class="container-fluid">
-                <div class="row ps-2">
-                    <div class="col-lg-4 col-md-6 col-sm-12 p text-md-start text-center b-1 pt-1">
-                        <!-- TODO: MUDAR DE LISTA PARA OUTRA COISA POR CAUSA DE BACKGROUND QUANDO SELECIONADO-->
-                        @foreach ($purchase->purchasedItems()->get() as $key => $item)
-                            @if ($key >3)
-                                @break
-                            @endif
-                            <p id={{"purchaseHistoryText" . $purchase["purchase_id"]}} class="border-0 pt-0 pb-0 mb-1">{{$item->getItem()["name"]}}</p>
-                        @endforeach
+                <div class="row">
+                    <div class="col-lg-2 col-6 d-flex flex-column justify-content-center text-center px-0">
+                        <span class="d-md-none d-block">ID: {{$purchase['purchase_id']}}</span>
+                        <span class="d-md-block d-none">{{$purchase['purchase_id']}}</span>
                     </div>
                     @php
                         $purchase_status = $purchase['state'];
@@ -22,23 +17,24 @@
                             $status = "primary";
                         }
                     @endphp 
-                    <div class="col-lg-2 col-12 pb-1 pt-1 text-center fs-5 d-flex flex-column justify-content-center">
-                        <div>
+                    <div class="col-lg-2 col-6 pb-1 pt-1 text-center fs-5">
                         <span class="badge bg-{{$status}} purchase-status-badge" id="status-purchase-{{$purchase['purchase_id']}}">
                         {{$purchase['state']}}
                         </span>
-                        </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 pb-1 pt-1 d-flex flex-column justify-content-center">
-                        <b class="text-center fs-5" style="color: red"><span class="historyPrice">{{ $purchase->purchaseTotal() }}</span> €</b>
+                    <div class="col-lg-3 col-md-6 col-sm-6 pb-1 pt-1 d-flex flex-column justify-content-center">
+                        <b class="text-center" style="color: red"><span class="historyPrice">{{ $purchase->purchaseTotal() }}</span> €</b>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 pb-1 pt-1 d-flex flex-column justify-content-center historyDate text-center fs-5">
+                    <div class="col-lg-3 col-md-6 col-sm-6 pb-1 pt-1 d-flex flex-column justify-content-center historyDate text-center">
                          {{$purchase->getDate()}}
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-12 text-center">
+                        <input class="btn btn-secondary changeStatus" type="button" value="Change Status" data-id="{{$purchase['purchase_id']}}" data-bs-toggle="modal" data-bs-target="#changeStatusModal_{{$purchase['purchase_id']}}">
                     </div>
                 </div>
             </div>
         </button>
-    </h2>
+    </header>
     <div id={{"collapse" . $purchase["purchase_id"]}} class="accordion-collapse collapse border-1" aria-labelledby="headingOne">
         <div class="accordion-body p-5 pt-4">
             <div class="row purchase_addresses">
@@ -65,4 +61,5 @@
             </div>
         </div>
     </div>
-</div>
+    @include('partials.changePurchaseStatusModal', array($purchase))
+</li>
