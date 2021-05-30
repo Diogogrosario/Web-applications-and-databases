@@ -167,3 +167,14 @@ span.cart-number-badge {
   background-color: #418deb;
   border-radius: 50%;
 }
+
+span#hasNotifications {
+    top: -20px;
+    left: -10px;
+
+    width: 12px;
+    height: 12px;
+    background-color:orange;
+    position:relative;
+    float:right;
+  }
