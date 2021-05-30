@@ -35,6 +35,7 @@ Route::get('checkout', 'CheckoutController@show')->middleware('verified')->name(
 //Management
 Route::get('management', 'ManagementController@show')->middleware('admin');
 Route::get('management/manageUsers', 'UserAdministrationController@show')->middleware('admin');
+Route::post('management/manageUsers/filter', 'UserAdministrationController@filter')->middleware('admin');
 Route::get('management/addItem', 'AddItemController@show')->middleware('admin');
 Route::get('unban/{id}', 'ManagementController@unbanUser')->middleware('admin');
 Route::get('promote/{id}', 'ManagementController@promoteUser')->middleware('admin');

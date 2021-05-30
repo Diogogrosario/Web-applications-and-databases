@@ -1,3 +1,11 @@
+function addEventListeners(){
+    let filterType = document.getElementById("filterType");
+    filterType.addEventListener("change",filterUser);
+
+    let filterText = document.getElementById("filterText");
+    filterText.addEventListener("input",filterUser);
+}
+
 function unbanUser(id) {    
     let url = "/unban/" + id;
 
@@ -53,3 +61,35 @@ function banUser(id) {
             buttons.replaceWith(add);
         }});
 }
+
+function filterUser(event) {
+    
+
+    let text = document.getElementById("filterText").value;
+    let type = document.getElementById("filterType").value;
+    let filterBy = "";
+
+    if(type == 1)
+    {
+        filterBy = "username";
+    }
+    else if(type == 2){
+        filterBy = "first_name";
+    }
+
+    let url = "/management/manageUsers/filter";
+
+    let data = { "text": text, "filterBy": filterBy };
+
+    sendAjaxRequest('POST', url, data, function () {
+        if (this.status === 200) {            
+            let table = document.getElementById("table");
+            let parser = new DOMParser();
+            let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
+            table.innerHTML = "";
+            table.appendChild(add);
+        }});
+
+}
+
+addEventListeners();
