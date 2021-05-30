@@ -57,10 +57,10 @@ class AddItemController extends Controller
 
         $counter = 0;
         foreach ($images as $image) {
-            $path = $item["item_id"]."_".$counter;
-            $image->move('img/items', $path);
             $photo = new Photo();
             $this->authorize('create', $photo);
+            $path = $item["item_id"]."_".$counter;
+            $image->move('img/items', $path);
 
             $photo = Photo::create([
                 'path' => $path

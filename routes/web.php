@@ -44,7 +44,7 @@ Route::patch('item/{id}/editDetail/{id2}', 'ItemController@editDetail')->middlew
 
 
 // Edit user profile
-Route::patch('userProfile/editImage', 'UserController@editImage');
+Route::post('userProfile/editImage', 'UserController@editImage');
 Route::patch('userProfile/editUsername', 'UserController@editUsername');
 Route::patch('userProfile/editAddress/{type}', 'UserController@editAddress');
 Route::post('userProfile/edit', 'UserController@edit');

@@ -13,6 +13,7 @@ use App\Mail\ChangeEmail;
 use App\Models\Photo;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 
 
 class UserController extends Controller
@@ -92,7 +93,7 @@ class UserController extends Controller
             Mail::to(Auth::user()["email"])->send(new ChangeEmail($email));
             $user["email"] = $email;
         }
-        
+
         $userShipAddress->save();
         $user->save();
 
@@ -104,32 +105,41 @@ class UserController extends Controller
         $user = Auth::user();
         $this->authorize('edit', $user);
 
-        $extension = $request->input("extension");
-        
-        if($extension == null){
-            return;
+
+        $image =  $request->file('images')[0];
+
+
+        $fileArray = array('image' => $image);
+        $rules = array('image' => 'mimes:jpeg,jpg,png|required|max:10000');
+        $validator = Validator::make($fileArray, $rules);
+        if ($validator->fails()) {
+            return response()->json("Invalid file", 400);
         }
 
-        $image =  $request->file('image');
-        /*
-        $validator = Validator::make($request->all(), [
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
-        ]);*/
-        
+        if($validator->fails())
+            abort(403);
+
         $userImageId = Auth::user()['img'];
         $userImage = Auth::user()->image()->first();
         if($userImage != null){
-            $path = 'image' . $userImageId;
+            File::delete("img/users/" . $user["user_id"]);
+            $path = $user["user_id"] . ".png";
             $image->move('img/users', $path);
-            return 'image' + $userImageId;
+            return 'image' . $userImageId;
         }
         else{
-            $newPath = 'image' . $userImageId;
-            $uimg = Photo::create([
-                'photo_id' => $userImageId,
+            $photo = new Photo();
+            
+            $newPath = $user["user_id"] . ".png";
+            $photo = Photo::create([
                 'path' => $newPath
             ]);
-            $user[$userImageId] = $uimg["photo_id"];
+            
+            $image->move('img/users', $newPath);
+
+            $user["img"] = $photo["photo_id"];
+
+            $user->save();
             return $newPath;
         }
 
@@ -146,7 +156,7 @@ class UserController extends Controller
         {
             $user["username"] = $username;
         }
-        
+
         $user->save();
 
 
@@ -203,13 +213,13 @@ class UserController extends Controller
                 $userAddress["zip_code"] = $zip;
             }
         }
-        
+
         $userAddress->save();
         $user->save();
 
         if($type == "shipping")
             $typeName = "Shipping";
-        else 
+        else
             $typeName = "Billing";
 
         return view("partials.userAddressInfo")->with("user", $user)->with('addressType', $typeName);
@@ -223,7 +233,7 @@ class UserController extends Controller
         }
         if($type == "shipping")
             $typeName = "Shipping";
-        else 
+        else
             $typeName = "Billing";
 
         return view("partials.userAddressEditForm")->with("user",Auth::user())->with("countries", Country::all())->with('addressType', $typeName);
@@ -237,7 +247,7 @@ class UserController extends Controller
         }
         if($type == "shipping")
             $typeName = "Shipping";
-        else 
+        else
             $typeName = "Billing";
 
         return view("partials.userAddressInfo")->with("user",Auth::user())->with("addressType", $typeName);
@@ -297,7 +307,7 @@ class UserController extends Controller
         $provider->setApiCredentials(config('paypal'));
         $provider->setAccessToken($provider->getAccessToken());
         $capture = $provider->capturePaymentOrder(session('order_id'));
-        
+
         if(array_key_exists("type",$capture)) {
             if($capture['type'] === 'error') {
                 return redirect('/userProfile/' . strval($user['user_id']))->with('balance_error', 'It appears that there has been a problem with the payment. Please try again.');
@@ -308,12 +318,12 @@ class UserController extends Controller
                 $this->addBalanceValue($user_id, $value);
             });
             return redirect('/userProfile/' . strval($user['user_id']))->with('balance_success', 'Balance added successfully.');
-        } 
+        }
     }
 
     public function addBalanceValue($id, $value) {
         $user = User::findOrFail($id);
-        
+
         $currentBalance = floatval(preg_replace('/[^\d\.]/', '', $user['balance'])); // parse money
         $newBalance = $currentBalance + floatval($value);
 

@@ -85,9 +85,10 @@ function submitImage(){
     if(ext.length != 2){
         return;
     }
-    let extension = ext[1];
 
     let image = img.files[0];
+
+    console.log(image);
 
     let url = "/userProfile/editImage";
 
@@ -95,9 +96,7 @@ function submitImage(){
     var file = image;
     formData.append("images[]", file, file.name);
 
-    formData.append("extension", extension);
-
-    sendFileAjaxRequest('PATCH', url, formData, function () {
+    sendFileAjaxRequest('POST', url, formData, function () {
         if (this.status === 200) {
             console.log(this.response);
         }
