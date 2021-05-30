@@ -12,6 +12,7 @@ use NumberFormatter;
 use App\Mail\ChangeEmail;
 use App\Models\Photo;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 
 class UserController extends Controller
@@ -109,17 +110,26 @@ class UserController extends Controller
             return;
         }
 
-        $userImage = Auth::user()->img();
+        $image =  $request->file('image');
+        /*
+        $validator = Validator::make($request->all(), [
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
+        ]);*/
+        
+        $userImageId = Auth::user()['img'];
+        $userImage = Auth::user()->image()->first();
         if($userImage != null){
-            return 'image' + $userImage;
+            $path = 'image' . $userImageId;
+            $image->move('img/users', $path);
+            return 'image' + $userImageId;
         }
         else{
-            $newPath = 'image' + $userImage;
+            $newPath = 'image' . $userImageId;
             $uimg = Photo::create([
-                'photo_id' => $userImage,
+                'photo_id' => $userImageId,
                 'path' => $newPath
             ]);
-            $user[$userImage] = $uimg["address_id"];
+            $user[$userImageId] = $uimg["photo_id"];
             return $newPath;
         }
 

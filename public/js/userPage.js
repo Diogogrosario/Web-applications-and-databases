@@ -87,12 +87,93 @@ function submitImage(){
     }
     let extension = ext[1];
 
-    let data = {'extension': extension};
+    let image = img.files[0];
 
     let url = "/userProfile/editImage";
 
-    sendAjaxRequest('PATCH', url, data, function () {
+    let formData = new FormData();
+    var file = image;
+    formData.append("images[]", file, file.name);
+
+    formData.append("extension", extension);
+
+    sendFileAjaxRequest('PATCH', url, formData, function () {
         if (this.status === 200) {
+            console.log(this.response);
+        }
+        else if(this.status === 500){
+            console.log("Internal server error.");
+            console.log(this.response);
+        }
+    });
+    
+
+    //Swap back to old menu
+    let str = 
+    '<section id="editUserImage">'
+        + '<button id="imageButton" type="button" class="btn" value="' + userId + '">'
+        + '<i class="bi bi-pencil-square"></i>'
+        + '</button>'
+    + '</section>'
+    let parser = new DOMParser();
+    let add = parser.parseFromString(str, 'text/html').body.firstChild;
+    editImageSection.replaceWith(add);
+    //Add image edit button event listener
+    let submitButton = document.getElementById("imageButton");
+    submitButton.addEventListener("click",editUserImage);
+    return;
+}
+
+/*function submitImage(){
+    event.preventDefault();
+    let img = document.getElementById("imageButton");
+
+
+    //Verify if image exists
+    if(img.files.length <= 0){
+        return;
+    }
+    //Verify image extension
+    if(!isAcceptedImageType(img.files[0].type)){
+        return;
+    }
+    //Verify user id
+    let editImageSection = document.querySelector('#editImage');
+    if(editImageSection == null){
+        return;
+    }
+    let cancelImageButton = editImageSection.querySelector('#cancelImage');
+    let userId = cancelImageButton.value;
+    if(userId == null || userId == ""){
+        return;
+    }
+
+    
+    let ext = ((img.files[0].type).split("/"));
+    if(ext.length != 2){
+        return;
+    }
+    let extension = ext[1];
+
+    let image = img.files[0];
+
+    let data = {'extension': extension, 'image': image};
+    let url = "/userProfile/editImage";
+
+    
+    let formData = new FormData();
+    formData.append("image", image, 'image.png');
+    //formData.append("extension", extension);
+
+    for (var pair of formData.entries())
+        console.log(pair[0] + ', ' + pair[1]);
+
+    sendFileAjaxRequestNew('PATCH', url, formData, function () {
+        if (this.status === 200) {
+            console.log(this.response);
+        }
+        else if(this.status === 500){
+            console.log("Internal server error.");
             console.log(this.response);
         }
     });
@@ -112,7 +193,7 @@ function submitImage(){
     let submitButton = document.getElementById("imageButton");
     submitButton.addEventListener("click",editUserImage);
     return;
-}
+}*/
 
 function cancelImage(){
     //inputtype.file ver como o ferno fez no branch
@@ -166,10 +247,12 @@ function editUserImage(){
     }
 
     let str = '<section id="editImage">'
-        + '<input id="imageButton" accept="image/png, image/gif, image/jpeg" type="file" class="btn" value="' + userId + '" + onchange="previewImage(event)">'
+        + '<form id="imgForm" enctype="multipart/form-data">'
+        + '<input id="imageButton" enctype="multipart/form-data" accept="image/png, image/gif, image/jpeg" type="file" class="btn" value="' + userId + '" + onchange="previewImage(event)" >'
         + '<img id="preview" width="0" height="0"/>'
         + '<button id="submitImage" type="Submit" class="btn btn-success" value="' + userId + '"> <i class="bi bi-check-circle-fill"></i>Submit</button>'
         + '<button id="cancelImage" type="Cancel" class="btn btn-danger" value="' + userId + '"> <i class="bi bi-check-circle-fill"></i>Cancel</button>'
+        + '</form>'
     + '</section>'
 
     let parser = new DOMParser();
