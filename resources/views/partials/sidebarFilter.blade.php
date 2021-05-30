@@ -1,15 +1,14 @@
 <script src="{{ asset('js/searchResults.js') }}" defer></script>
 <div class="col-lg-2 col-md-3 col-12 collapse p-0 show" id="searchFiltersBar" style="background-color: #f2f2f2;">
     <div class="accordion" id="filterSideBar" style="background-color: white;">
-        <div class="accordion-item" >
+        <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                     Price Range
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                data-bs-parent="#filterSideBar">
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
                 <div class="accordion-body">
                     <ul id="priceButtons" class="list-group">
                         <li class="list-group-item">
@@ -51,8 +50,7 @@
                     Categories
                 </button>
             </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                data-bs-parent="#filterSideBar">
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
                 <div class="accordion-body">
                     <div class="list-group h-100">
                         <ul id="categoryButtons" class="list-group">
@@ -74,8 +72,7 @@
                     Reviews
                 </button>
             </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                data-bs-parent="#filterSideBar">
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
                 <div class="accordion-body">
                     <div class="list-group h-100">
                         <ul id="starButtons" class="list-group">

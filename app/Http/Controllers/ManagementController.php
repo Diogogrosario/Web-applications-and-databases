@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Purchase;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -53,5 +54,13 @@ class ManagementController extends Controller
         $categories = Category::all()->sortBy("category_id");
         
         return view('pages.management')->with("categories", $categories);
+    }
+
+    public function showPurchases()
+    {
+        $categories = Category::all()->sortBy("category_id");
+        $purchases = Purchase::all();
+        
+        return view('pages.managePurchases')->with("categories", $categories)->with("purchases", $purchases);
     }
 }

@@ -27,6 +27,9 @@
         <a href="/management/manageUsers">Manage users</a>
     </div>
     <div class="text-center fs-4">
+        <a href="/management/managePurchases">Manage purchases</a>
+    </div>
+    <div class="text-center fs-4">
         <a href="management/addItem">Add an item</a>
     </div>
 </div>
