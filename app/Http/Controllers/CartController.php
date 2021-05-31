@@ -29,13 +29,56 @@ class CartController extends Controller
         return view('pages.cart')->with("user", $user)->with("categories", $categories);
     }
 
+    public static function anonCartQuantity() {
+        $cart_entries = session('cart');
+
+        if($cart_entries == NULL)
+            return 0;
+
+        $quantity_total = 0;
+
+        foreach($cart_entries as $product_id => $quantity) {
+            $quantity_total += $quantity;
+        }
+        return $quantity_total;
+    }
+
+    public function anonCartTotal() {
+
+    }
+
     public function addToCart(Request $request) {
         $data = $request->all();
         $id = $data["product_id"];
         $quantity = $data["quantity"];
 
         if(Auth::user() == null) {
-            return response()->json("Unauthenticated", 406);
+            $item = Item::find($id);
+            $cart_entries = session('cart');
+
+            if($cart_entries != NULL) {
+                if(array_key_exists($id, $cart_entries)) {
+                    $new_quantity = $cart_entries[$id] + $quantity;
+
+                    if($new_quantity > $item['stock'])
+                        $new_quantity = $item['stock'];
+
+                    $cart_entries[$id] = $new_quantity;
+                    session()->put('cart', $cart_entries);
+                } else {
+                    if($quantity > $item['stock'])
+                        $quantity = $item['stock'];
+
+                    $new_entry = [$id => $quantity];
+                    session()->put('cart', $cart_entries + $new_entry);
+                }
+            } else {
+                if($quantity > $item['stock'])
+                    $quantity = $item['stock'];
+                session()->put('cart', [$id => $quantity]);
+            }
+            // return response()->json("Unauthenticated", 406);
+            return response()->json(["message" => "Item added to cart successfuly.", "cart_total_quantity" => $this->anonCartQuantity()], 200);
         }
 
         return DB::transaction(function() use ($id, $quantity) {

@@ -51,28 +51,47 @@
                         <button type="submit" class="btn btn-secondary" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
                     </div>
                 </form>
-              <ul class="navbar-nav mb-2 mb-lg-0">
-                  <?php if($logged_in){ $numberInCart = Auth::user()->cartTotalNumber();?>
-                      <li class="nav-item d-lg-flex align-items-lg-center py-2 py-lg-0 px-lg-2">
-                          <a class="nav-link pe-0" href={{"/userProfile/cart"}}>
-                            <i class="bi bi-cart" style="font-size: 1.5em;"></i>
-                            <span class="cart-number-small d-lg-none" style="color:white !important">
-                                <span class="cart-number">{{$numberInCart}}</span> items
-                            </span>                            
-                          </a>
-                          <span class="cart-number cart-number-badge d-lg-block d-none d-flex">{{$numberInCart}}</span>
-                      </li>
-                  <?php } ?>
-                  <li class="nav-item">
-                      <?php if (!$logged_in) { ?>
-                          <a class="nav-link" href="/login" style="color:white !important">Login</a>
-                      <?php }  ?>
-                  </li>
-                  <li class="nav-item">
-                      <?php if (!$logged_in) { ?>
-                          <a class="nav-link" href="/register" style="color:white !important">Register</a>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <?php 
+                        if($logged_in) { 
+                            $numberInCart = Auth::user()->cartTotalNumber();
+                        } else {
+                            $cart_entries = session('cart');
+                            if($cart_entries == NULL) {
+                                $numberInCart = 0;
+                            } else {
+                                $numberInCart = 0;
+                                foreach($cart_entries as $product_id => $quantity) {
+                                    $numberInCart += $quantity;
+                                }
+                            }
+                        }
+                    ?>
+                    <li class="nav-item d-lg-flex align-items-lg-center py-2 py-lg-0 px-lg-2">
+                        <a class="nav-link pe-0" href={{"/userProfile/cart"}}>
+                        <i class="bi bi-cart" style="font-size: 1.5em;"></i>
+                        <span class="cart-number-small d-lg-none" style="color:white !important">
+                            <span class="cart-number">{{$numberInCart}}</span> items
+                        </span>                            
+                        </a>
+                        <span class="cart-number cart-number-badge d-lg-block d-none d-flex">{{$numberInCart}}</span>
+                    </li>
 
-                      <?php } else { ?>
+                    <li class="nav-item">
+                        <?php if (!$logged_in) { ?>
+                            <div class="d-flex align-items-center justify-content-center pt-1">
+                                <a class="nav-link" href="/login" style="color:white !important">Login</a>
+                            </div>
+                        <?php }  ?>
+                    </li>
+
+                    <li class="nav-item">
+                        <?php if (!$logged_in) { ?>
+                            <div class="d-flex align-items-center justify-content-center pt-1">
+                                <a class="nav-link" href="/register" style="color:white !important">Register</a>
+                            </div>
+
+                        <?php } else { ?>
                             <div class="d-flex align-items-center justify-content-center pt-1">
                                 <a href={{ "/userProfile/"}} class="d-block" style="width: 3vw;">
                                     @if (Auth::user()->image()->first())
@@ -95,10 +114,9 @@
                                 @endif
                                 <a class="nav-link p-1 ps-2" href="/logout" style="color:white !important;">Logout</a>
                             </div>
-                      <?php } ?>
-                  </li>
-
-              </ul>
+                        <?php } ?>
+                    </li>
+                </ul>
           </div>
       </div>
       <div class="d-lg-none row w-100 h-100">
