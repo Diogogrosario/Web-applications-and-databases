@@ -11,8 +11,7 @@
 @include('partials.sidebarItem',["categories" => $categories])
 
 <div class="p-0" style="background-color:#f2f2f2;">
-
-    <div id="userProfile" class="col-lg-10 col-12 p-lg-5 pt-lg-2 p-3 m-lg-auto shadow-lg-sm h-100" style="background-color:white; margin:0">
+    <div id="purchaseHistory" class=" d-flex flex-column col-lg-10 col-12 p-lg-5 pt-lg-2 p-3 m-lg-auto shadow-lg-sm h-100" style="background-color:white; margin:0">
         <header>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb ms-4">
@@ -20,7 +19,7 @@
                     <li class="breadcrumb-item active">Purchase History</li>
                 </ol>
             </nav>
-            <h1 class="text-lg-start text-center ms-lg-5 mb-4">Purchase History</h1>
+            <h1 class="text-lg-start text-center ms-lg-4 mb-4">Purchase History</h1>
 
             @if (session('checkout_success'))
                 <div class="alert alert-success" role="alert">
@@ -28,7 +27,7 @@
                 </div>
             @endif
 
-            <div class="row mt-3 ms-lg-3 ms-md-1 me-lg-5 me-md-2 border-bottom">
+            <div class="row mt-3 mb-2 border-bottom">
                 <div class="col-md-4 col-5">
                     Showing <span id="nResultsCurrentTop">1-{{$user->purchases()->count()}}</span> of <span id="totalResultsTop">{{$user->purchases()->count()}}</span> purchases
                 </div>
@@ -54,7 +53,7 @@
         </header>
 
 
-        <div class="accordion accordion-flush" id="purchaseHistory" style="background-color: white">
+        <div class="accordion accordion-flush flex-grow-1" id="purchaseHistory" style="background-color: white">
 
             
             @foreach ($user->purchases()->get() as $purchase)

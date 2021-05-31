@@ -36,13 +36,14 @@ Route::get('checkout', 'CheckoutController@show')->middleware('verified')->name(
 Route::get('management', 'ManagementController@show')->middleware('admin');
 Route::get('management/manageUsers', 'UserAdministrationController@show')->middleware('admin');
 Route::post('management/manageUsers/filter', 'UserAdministrationController@filter')->middleware('admin');
+Route::get('management/managePurchases', 'ManagementController@showPurchases')->middleware('admin');
 Route::get('management/addItem', 'AddItemController@show')->middleware('admin');
 Route::get('unban/{id}', 'ManagementController@unbanUser')->middleware('admin');
 Route::get('promote/{id}', 'ManagementController@promoteUser')->middleware('admin');
 Route::get('ban/{id}', 'ManagementController@banUser')->middleware('admin');
 Route::delete('/userProfile/{id}', 'UserController@deleteAccount');
 Route::patch('item/{id}/editDetail/{id2}', 'ItemController@editDetail')->middleware('admin');
-
+Route::patch('management/managePurchases/{id}/status', 'ManagementController@changePurchaseStatus')->middleware('admin');
 
 // Edit user profile
 Route::post('userProfile/editImage', 'UserController@editImage');

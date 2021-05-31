@@ -1,7 +1,7 @@
 @php
     $originalItem = $item->getItem();
 @endphp
-<div class="row border-bottom pb-3 vh-50">
+<div class="row border-bottom pb-3 vh-50 pt-3">
     <div class="col-lg-1 ps-5 align-self-center fs-4">
         {{$item['quantity']}}x
     </div>
