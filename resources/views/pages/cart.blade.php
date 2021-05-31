@@ -12,7 +12,7 @@
 
 @php
     if(Auth::user() == NULL) {
-        $cart_quantity = CartController::anonCartQuantity();
+        $cart_items = CartController::anonCartEntries();
     }
 @endphp
 
@@ -25,16 +25,21 @@
         <div class="list-group list-group-flush" id="cartList">      
             @if (Auth::user())
                 @if ($user->cart()->count() == 0)
-                    <p> Your cart is currently empty</p>
+                    <p class="text-center fs-3 mt-5" style="background-color: #e8d0b0;"> Your cart is currently empty</p>
                 @else
                     @foreach ($user->cart() as $item)
                         @include('partials.cartItemCard', array("item" => $item, "index" => $loop->index))
                     @endforeach
                 @endif     
             @else
-                
-            @endif
-                            
+                @if (count($cart_items) == 0)
+                    <p class="text-center fs-3 mt-5" style="background-color: #e8d0b0;"> Your cart is currently empty</p>
+                @else
+                    @foreach ($cart_items as $cart_item)
+                        @include('partials.cartItemCard', array("item" => $cart_item, "index" => $loop->index))
+                    @endforeach
+                @endif 
+            @endif           
         </div>
     </section>
 
@@ -55,7 +60,7 @@
         @else
             <section class="pb-4">
                 <div class="text-center mx-auto fs-5">Total (w/ IVA):</div>
-                {{-- <p class="fs-4 text-center mx-auto" id="cart_total">{{$user->cartTotal()}}</p> --}}
+                <p class="fs-4 text-center mx-auto" id="cart_total">{{CartController::anonCartTotal($cart_items)}}</p>
             </section>
         @endif
         </div>
