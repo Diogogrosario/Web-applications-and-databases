@@ -286,7 +286,7 @@ class CheckoutController extends Controller
             "application_context" => [
                 'shipping_preference'=> 'NO_SHIPPING',
                 'brand_name' => 'Fneuc Shop',
-                'return_url' => 'http://localhost:8000/checkout/capture'
+                'return_url' => 'http://lbaw2111.lbaw-prod.fe.up.pt/checkout/capture'
                 ]
           ]);
 
