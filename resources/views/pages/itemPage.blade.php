@@ -42,8 +42,8 @@
                     <h1 id="productName" class="text-lg-start text-center">{{$item["name"]}}</h1>
                     <!-- <h4 class="ps-5" id="productCategory">Videogame</h4> -->
                 </div>
-                <div class="row">
-                    <div class="col-lg-7 col-md-6">
+                <div class="row" id="itemPhotosAndGenericInfo">
+                    <div class="col-lg-7 col-md-6" id="itemPhotosCarrosel">
                         <div id="carouselProductImages" class="carousel carousel-dark slide" data-bs-interval="false" data-bs-touch="true">
                             <div class="carousel-indicators">
                                 @foreach ($item->photos as $key => $photo)
@@ -112,42 +112,43 @@
                                 </div>
                                 <div class="text-center fs-5 mb-1"><span id="stockDisplay" style="color:green">{{ $item["stock"] }}</span> in stock</div>
 
-
-                                <button type="button" class="btn btn-success w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#addCartModal_{{$item['item_id']}}">
-                                    <i class="bi bi-cart-plus"></i> Add to cart
-                                </button>
-                                <!-- Modal -->
-                                @if ($item["stock"]>0)
-                                    @include('partials.addCartModal',array($item))
-                                @endif
-                                <?php $user = Auth::user()?>
-                                @if (!($user === null))
-                                    @if ($user->wishlistItem($item["item_id"])->count() > 0)
-                                        <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0 wishlist remove-wishlist" data-id="{{$item['item_id']}}"><i class="bi bi-heart-fill"></i> Remove from Wishlist</button>   
-                                    @else
-                                        <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0 wishlist add-wishlist" data-id="{{$item['item_id']}}"><i class="bi bi-heart"></i> Add to Wishlist</button>
-                                        
+                                <section id="itemActionButtons">
+                                    <button type="button" class="btn btn-success w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#addCartModal_{{$item['item_id']}}">
+                                        <i class="bi bi-cart-plus"></i> Add to cart
+                                    </button>
+                                    <!-- Modal -->
+                                    @if ($item["stock"]>0)
+                                        @include('partials.addCartModal',array($item))
                                     @endif
-                                @endif
-                                @if (!($user === null))
-                                    @if ($user["is_admin"])
-                                        @include('partials.editItemModal',array($item))
-                                        <button type="button" class="btn btn-secondary mt-2 w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#editItemModal_{{$item['item_id']}}">
-                                            <i class="bi bi-pencil-square"></i> Edit item
-                                        </button>
-
-                                        @include('partials.editDiscountsModal',array($item))
-                                        <button type="button" class="btn btn-secondary w-100 btn-lg rounded-0" style="background-color: #4f4f4f" data-bs-toggle="modal" data-bs-target="#editDiscountsModal_{{$item['item_id']}}">
-                                            <i class="bi bi-pencil-square"></i> Edit Discounts
-                                        </button>
-
-                                        @if (!$item["is_archived"])
-                                            @include('partials.deleteItemModal',array($item))
+                                    <?php $user = Auth::user()?>
+                                    @if (!($user === null))
+                                        @if ($user->wishlistItem($item["item_id"])->count() > 0)
+                                            <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0 wishlist remove-wishlist" data-id="{{$item['item_id']}}"><i class="bi bi-heart-fill"></i> Remove from Wishlist</button>   
                                         @else
-                                            @include('partials.addItemModal',array($item))
+                                            <button class="btn btn-danger w-100 btn-lg rounded-bottom rounded-0 wishlist add-wishlist" data-id="{{$item['item_id']}}"><i class="bi bi-heart"></i> Add to Wishlist</button>
+                                            
                                         @endif
                                     @endif
-                                @endif
+                                    @if (!($user === null))
+                                        @if ($user["is_admin"])
+                                            @include('partials.editItemModal',array($item))
+                                            <button type="button" class="btn btn-secondary mt-2 w-100 btn-lg rounded-top rounded-0" data-bs-toggle="modal" data-bs-target="#editItemModal_{{$item['item_id']}}">
+                                                <i class="bi bi-pencil-square"></i> Edit item
+                                            </button>
+
+                                            @include('partials.editDiscountsModal',array($item))
+                                            <button type="button" class="btn btn-secondary w-100 btn-lg rounded-0" style="background-color: #4f4f4f" data-bs-toggle="modal" data-bs-target="#editDiscountsModal_{{$item['item_id']}}">
+                                                <i class="bi bi-pencil-square"></i> Edit Discounts
+                                            </button>
+
+                                            @if (!$item["is_archived"])
+                                                @include('partials.deleteItemModal',array($item))
+                                            @else
+                                                @include('partials.addItemModal',array($item))
+                                            @endif
+                                        @endif
+                                    @endif
+                                </section>
                             </div>
                         </div>
                     </div>

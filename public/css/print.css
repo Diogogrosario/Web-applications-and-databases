@@ -1,0 +1,38 @@
+@media print{
+    #itemActionButtons{
+        display: none;
+    }
+
+    footer{
+        display: none;
+    }
+
+    #newReviewForm, .carousel-indicators, .carousel-control-prev, .carousel-control-next, #nav-tab, #navbarCategoryDropDown, #personButton, #categorySideBarButton
+    {
+        display:none;
+    }
+
+    #itemPhotosAndGenericInfo
+    {
+        display: flex;
+        height:25%;
+    }
+
+    #itemPhotosCarrosel
+    {
+        padding-top: 20px;
+        width: 65% !important;
+        
+        float: left;
+
+
+    }
+
+    #ratingAndButtons
+    {
+        padding-top: 20px;
+        width: 35%;
+        float: left;
+        height:50%;
+    }
+}
