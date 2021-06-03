@@ -19,10 +19,10 @@
         <div class="row">
             <div class="col-lg-3 col-md-3 col-3 mb-1">
                 @if ($user->image()->first())
-                    <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-image:url(\"" . asset("/img/users/" . $user->image()->first()["path"]) . "\");background-position:center;background-size:cover;"}}>
+                    <div id="userPageProfilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-image:url(\"" . asset("/img/users/" . $user->image()->first()["path"]) . "\");background-position:center;background-size:cover;"}}>
                     </div>
                 @else
-                    <div id="profilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-image:url(\"" . asset("/img/users/default.png") . "\");background-position:center;background-size:cover;"}}>
+                    <div id="userPageProfilePic" class="d-flex rounded-circle" style={{"height:0;width:100%;padding-bottom:100%;background-image:url(\"" . asset("/img/users/default.png") . "\");background-position:center;background-size:cover;"}}>
                     </div>
                 @endif
                 @if ($user["user_id"] == Auth::user()["user_id"])

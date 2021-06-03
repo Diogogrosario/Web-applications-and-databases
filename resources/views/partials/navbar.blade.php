@@ -13,7 +13,7 @@
           ?>
               @if (isset($categories))
                     
-              <button class="btn btn-lg ms-3 me-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapsableColumn" aria-controls="collapsableColumn" style="margin-right:2%;">
+              <button class="btn btn-lg ms-3 me-0" id="categorySideBarButton" type="button" data-bs-toggle="collapse" data-bs-target="#collapsableColumn" aria-controls="collapsableColumn" style="margin-right:2%;">
                   <i class="bi bi-list-task"  style="color:white !important"></i>
               </button>
               @endif
@@ -22,7 +22,7 @@
           <?php
           } else {
           ?>
-              <button class="btn btn-lg ms-1 me-0 d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCategories" aria-controls="navbarCategories" style="margin-right:2%;">
+              <button class="btn btn-lg ms-1 me-0 d-lg-none" id="categorySideBarButton" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCategories" aria-controls="navbarCategories" style="margin-right:2%;">
                   <i class="bi bi-list-task" style="color:white !important"></i>
               </button>
           <?php
@@ -30,7 +30,7 @@
           ?>
 
           <a class="navbar-brand ms-lg-4" href="/"><img class="img-fluid" width="150" height="30" src="{{ asset('img/logo_light.png') }}" alt="logo"></a>
-          <button class="navbar-toggler btn btn-lg border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler btn btn-lg border-0" id="personButton" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <i class="bi bi-lg bi-person-circle"></i>
           </button>
 
@@ -49,6 +49,7 @@
                         @endif
                         
                         </select>
+                        <input type="" id="step" name="step" value="1" style="display: none;">
                         <input type="text" id="search" name="search" class="form-control w-50" placeholder="Search For An Item" aria-label="Text input with dropdown button">
                         <button type="submit" class="btn btn-secondary" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
                     </div>
@@ -121,7 +122,7 @@
                 </ul>
           </div>
       </div>
-      <div class="d-lg-none row w-100 h-100">
+      <div class="d-lg-none row w-100 h-100" id="navbarCategoryDropDown">
         @if(isset($categories))
             <form action="/searchResults" class="col-11 offset-1" method="get">
                 <div class="input-group">
@@ -133,6 +134,7 @@
                         @endforeach
 
                     </select>
+                    <input type="" id="step" name="step" value="1" style="display: none;">
                     <input type="text" id="searchSmall" name="search" class="form-control w-25" placeholder="Search For An Item" aria-label="Text input with dropdown button">
                     <button type="submit" class="btn btn-dark w-25" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
                 </div>

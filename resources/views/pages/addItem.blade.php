@@ -35,7 +35,7 @@
                     <label for="inputPrice" class="form-label">Price</label>
                     <div class="input-group">
                         <input type="number" class="form-control" id="inputPrice" aria-label="Euro amount (with dot and two decimal places)" required>
-                        <span class="input-group-text">€</span>
+                        <span class="input-group-text">$</span>
                     </div>
                 </div>
             </div>

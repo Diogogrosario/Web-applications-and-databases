@@ -26,9 +26,6 @@
                                     <span>
                                         {{-- TODO: check for discounts --}}
                                         <span class="title fs-3 itemPrice" id="readdCartModalPrice" style="color:#e3203e">{{ $item["price"] }}</span>
-                                        {{-- <small class="align-top itemPreviousPriceDiscount">    <--- original price
-                                            <span class="title text-decoration-line-through">360€</span>
-                                        </small> --}}
                                     </span>
                                 </div>
                             </div>
