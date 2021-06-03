@@ -178,3 +178,31 @@ span#hasNotifications {
     position:relative;
     float:right;
   }
+
+a#link_skipper{
+    position: absolute;
+    top: -999999px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    margin: -30px 0 0 -100px;
+    line-height: 60px;
+    background-color: #69a618;
+    text-align: center;
+    z-index: 10;
+    color: #fff;
+}
+
+a#link_skipper:focus{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    margin: -30px 0 0 -100px;
+    line-height: 60px;
+    background-color: #69a618;
+    text-align: center;
+    z-index: 10;
+    color: #fff;
+}
