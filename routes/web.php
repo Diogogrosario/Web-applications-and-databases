@@ -41,6 +41,7 @@ Route::get('management/addItem', 'AddItemController@show')->middleware('admin');
 Route::get('unban/{id}', 'ManagementController@unbanUser')->middleware('admin');
 Route::get('promote/{id}', 'ManagementController@promoteUser')->middleware('admin');
 Route::get('ban/{id}', 'ManagementController@banUser')->middleware('admin');
+Route::get('management/purchases', 'ManagementController@getPurchasesList')->middleware('admin');
 Route::delete('/userProfile/{id}', 'UserController@deleteAccount');
 Route::patch('item/{id}/editDetail/{id2}', 'ItemController@editDetail')->middleware('admin');
 Route::patch('management/managePurchases/{id}/status', 'ManagementController@changePurchaseStatus')->middleware('admin');

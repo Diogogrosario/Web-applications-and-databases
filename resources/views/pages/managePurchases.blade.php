@@ -3,8 +3,7 @@
 
 @section('title')
     <title>
-        {{-- Change to user's name --}}
-        User Administration
+        Manage Purchases - Fneuc
     </title>
 @endsection
 
@@ -25,20 +24,24 @@
             </ol>
         </nav>
 
-        <h2 class="text-lg-start text-center">Manage Purchases</h2>
+        <div class="d-flex">
+            <h2 class="text-lg-start text-center">Manage Purchases</h2>
+            <div class="spinner-border ms-2 d-none" role="status" id="manage_purchases_spinner">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
 
         <div class="mb-3 text-md-end text-center">
+
             <input class="form-check-input" type="checkbox" value="" id="showArrived">
             <label class="form-check-label" for="showArrived">
                 Show completed purchases (Arrived)
             </label>
         </div>
 
-        <ul id="managePurchasesList" class="list-group list-unstyled">
-            @foreach ($purchases as $purchase)
-                @include('partials.purchaseManageEntry', array($purchase))
-            @endforeach
-        </ul>
+        @include('partials.purchaseManageList', array($purchases))
+
     </div>
 </div>
 
