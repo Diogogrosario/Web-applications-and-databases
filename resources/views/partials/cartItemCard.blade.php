@@ -17,7 +17,11 @@
             <span class="title fs-5 mb-3">{{ $item->priceDiscounted() }}</span>
         </div>
         <div class="col ps-3 mb-3 d-flex flex-row text-center fs-5 py-4">
-            <input type="number" class="form-control product-quantity" data-id="{{$index}}" value="{{$item->pivot["quantity"]}}">
+            @if (Auth::user())
+                <input type="number" class="form-control product-quantity" data-id="{{$index}}" value="{{$item->pivot["quantity"]}}">  
+            @else
+                <input type="number" class="form-control product-quantity" data-id="{{$index}}" value="{{session('cart')[$item['item_id']]}}">  
+            @endif
             <button class="btn btn-danger ms-3 remove_cart"><i class="bi bi-trash-fill"></i></button>
         </div>
     </div>

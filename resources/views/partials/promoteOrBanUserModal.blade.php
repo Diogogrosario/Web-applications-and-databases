@@ -1,6 +1,6 @@
 <section id={{ "actionButtons" . $user["user_id"]}}>
-    <button data-id={{ $user["user_id"] }} type="button" class="d-none d-lg-inline banButton btn btn-danger" data-bs-toggle="modal" data-bs-target={{"#banModal" . $user["user_id"]}}><i class="bi bi-person-x-fill"></i>
-        Ban &nbsp;&nbsp;&nbsp;&nbsp;
+    <button data-id={{ $user["user_id"] }} type="button" class="banButton btn btn-danger" data-bs-toggle="modal" data-bs-target={{"#banModal" . $user["user_id"]}}><i class="bi bi-person-x-fill"></i>
+        <span class="d-none d-lg-inline">Ban &nbsp;&nbsp;&nbsp;&nbsp;</span>
     </button>
 
     <!-- Modal -->
@@ -31,8 +31,8 @@
 
 
     
-    <button data-id={{ $user["user_id"] }} type="button" class="d-none d-lg-inline promoteButton btn btn-success" data-bs-toggle="modal" data-bs-target={{"#promoteModal" . $user["user_id"]}}><i class="bi bi-person-plus-fill"></i>
-        Promote to Admin
+    <button data-id={{ $user["user_id"] }} type="button" class="promoteButton btn btn-success" data-bs-toggle="modal" data-bs-target={{"#promoteModal" . $user["user_id"]}}><i class="bi bi-person-plus-fill"></i>
+        <span class="d-none d-lg-inline">Promote to Admin</span> 
     </button>
     
     <!-- Modal -->

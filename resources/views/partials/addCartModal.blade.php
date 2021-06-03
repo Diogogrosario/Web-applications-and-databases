@@ -39,8 +39,8 @@
                     <label for="quantity_{{$item['item_id']}}" class="col form-label"> Quantity of items?</label>
                     <input required type="number" class="form-control" id="quantity_{{$item['item_id']}}" value="1" placeholder="Amount, I.e: 20">
                     
-                    <button type="button" class="btn btn-primary add_cart_checkout w-100">Add to cart and checkout</button>
-                    <button type="button" class="btn btn-primary add_cart w-100">Add to cart</button>
+                    <button type="button" class="btn btn-primary add_cart_checkout close_modals w-100" data-bs-dismiss="modal">Add to cart and checkout</button>
+                    <button type="button" class="btn btn-primary add_cart close_modals w-100" data-bs-dismiss="modal">Add to cart</button>
                     <button type="button" class="btn btn-secondary close_modals w-100" data-bs-dismiss="modal">Cancel</button>
                 </form>
             </div> 

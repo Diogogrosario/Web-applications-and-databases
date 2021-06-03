@@ -529,35 +529,20 @@ BEGIN
     FROM cart
     WHERE user_id = userID AND item_id = itemID;
 
-    IF NOT found THEN
-        IF (
-        SELECT stock 
-        FROM item 
-        WHERE item_id = itemID) >= quantityBought 
-        THEN
-    	    UPDATE item 
-            SET stock = stock - quantityBought 
-            WHERE item_id = itemID; 
-    
-            INSERT INTO cart
-            VALUES(userID, itemID, now()::DATE, quantityBought);
-            
-        END IF;
-    ELSE 
-        IF (
-            SELECT stock 
-            FROM item 
-            WHERE item_id = itemID) >= quantityBought 
-        THEN
-    	    UPDATE item 
-            SET stock = stock - quantityBought 
-            WHERE item_id = itemID; 
-    
-            UPDATE cart
-            SET quantity = quantity + quantityBought;
-            
-        END IF;
+    IF (
+    SELECT stock 
+    FROM item 
+    WHERE item_id = itemID) >= quantityBought 
+    THEN
+        UPDATE item 
+        SET stock = stock - quantityBought 
+        WHERE item_id = itemID; 
+
+        INSERT INTO cart
+        VALUES(userID, itemID, now()::DATE, quantityBought);
+        
     END IF;
+
 END
 $$;
 

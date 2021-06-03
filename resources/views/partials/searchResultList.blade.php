@@ -22,7 +22,7 @@
             </select>
         </div>
     </header>
-    <ul class="list-group list-group-flush px-md-5 px-1" id="searchItemsList">
+    <ul class="list-group list-group-flush px-md-5 px-1 flex-grow-1" id="searchItemsList">
         <?php $user = Auth::user(); ?>
         @foreach ($searchResults as $item)
             @include('partials.searchResultItemCard',array($item))
@@ -32,7 +32,7 @@
         <div class="col-md-4 col-5">
             Showing <span id="nResultsCurrentBot">1-{{$searchResults->count()}}</span> of <span id="totalResultsBot">{{$searchResults->count()}}</span> items
         </div>
-        <nav class="col-md-4 col-7 d-flex text-center justify-content-md-center justify-content-end" aria-label="Search Results Pages">
+        <nav class="col-md-4 col-7 d-flex text-center justify-content-md-center justify-content-end mb-1" aria-label="Search Results Pages">
             <ul class="pagination pagination-sm mb-0">
                 <li class="page-item"><a class="page-link link-secondary">Previous</a></li>
                 <li class="page-item"><a class="page-link link-dark" href="#">1</a></li>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\Category;
 use Illuminate\Http\Request;  
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -57,6 +58,14 @@ class LoginController extends Controller
                 Auth::logout();
                 return redirect('/login')->with(['banned'=>'Account Is Banned.']);
             }
+
+            $unauth_cart = session('cart');
+            if($unauth_cart != NULL && count($unauth_cart) != 0) {
+                foreach($unauth_cart as $item_id => $quantity) {
+                    DB::select('call add_to_cart(?,?,?)', array(Auth::user()["user_id"], $item_id, $quantity));
+                }
+            }
+
             $request->session()->regenerate();
         }
         else
