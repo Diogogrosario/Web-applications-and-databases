@@ -21,10 +21,10 @@ Route::get('about', 'AboutPageController@show');
 Route::get('faq', 'FaqPageController@show');
 Route::get('contacts', 'ContactsPageController@show');
 
-Route::get('userProfile', 'UserProfileController@showSelf')->name("userProfile");
-Route::get('userProfile/wishlist', 'WishlistController@showSelf')->name("wishlist");
-Route::get('userProfile/cart', 'CartController@showSelf')->name("cart");
-Route::get('userProfile/purchaseHistory', 'PurchaseHistoryController@showSelf')->name("history");
+Route::get('userProfile', 'UserProfileController@showSelf')->middleware('canSeeProfile')->name("userProfile");
+Route::get('userProfile/wishlist', 'WishlistController@showSelf')->middleware('canSeeProfile')->name("wishlist");
+Route::get('userProfile/cart', 'CartController@showSelf')->middleware('canSeeProfile')->name("cart");
+Route::get('userProfile/purchaseHistory', 'PurchaseHistoryController@showSelf')->middleware('canSeeProfile')->name("history");
 
 Route::get('userProfile/{id}', 'UserProfileController@show')->middleware('canSeeProfile')->name("userProfileWithId");
 Route::get('userProfile/{id}/wishlist', 'WishlistController@show')->middleware('canSeeProfile')->name("wishlistWithId");
@@ -42,7 +42,7 @@ Route::get('unban/{id}', 'ManagementController@unbanUser')->middleware('admin');
 Route::get('promote/{id}', 'ManagementController@promoteUser')->middleware('admin');
 Route::get('ban/{id}', 'ManagementController@banUser')->middleware('admin');
 Route::get('management/purchases', 'ManagementController@getPurchasesList')->middleware('admin');
-Route::delete('/userProfile/{id}', 'UserController@deleteAccount');
+Route::delete('/userProfile/{id}', 'UserController@deleteAccount')->middleware('canSeeProfile');
 Route::patch('item/{id}/editDetail/{id2}', 'ItemController@editDetail')->middleware('admin');
 Route::patch('management/managePurchases/{id}/status', 'ManagementController@changePurchaseStatus')->middleware('admin');
 
