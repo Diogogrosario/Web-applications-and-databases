@@ -15,7 +15,7 @@
                                 <td> 
                                     <section id = "detailInfoContent_{{$detail->pivot["item_id"]}}_{{$detail->pivot["detail_id"]}}">
                                         {{$detail->pivot["detail_info"]}} 
-                                    @if (Auth::user()["is_admin"])
+                                    @if (Auth::check() and Auth::user()["is_admin"])
                                         <button type="button" class="btn" onclick="{{"editDetailForm('" . $detail->pivot["detail_info"] . "'," . $detail->pivot["item_id"] . "," . $detail->pivot["detail_id"] . ")" }}">
                                             <i class="bi bi-pencil-square" ></i>
                                         </button>
@@ -37,7 +37,7 @@
                                     <td> 
                                         <section id = "detailInfoContent_{{$detail->pivot["item_id"]}}_{{$detail->pivot["detail_id"]}}">
                                             {{$detail->pivot["detail_info"]}} 
-                                        @if (Auth::user()["is_admin"])
+                                        @if (Auth::check() and Auth::user()["is_admin"])
                                             <button type="button" class="btn" onclick="{{"editDetailForm('" . $detail->pivot["detail_info"] . "'," . $detail->pivot["item_id"] . "," . $detail->pivot["detail_id"] . ")" }}">
                                                 <i class="bi bi-pencil-square" ></i>
                                             </button>   
