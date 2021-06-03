@@ -264,10 +264,22 @@ class UserController extends Controller
             return back()->with('error', 'Invalid amount to add balance.');
         }
 
+        // $curlConnection = curl_init();
+        // curl_setopt($curlConnection, CURLOPT_URL, 'http://bible-api.com/john%203:16');
+        // curl_setopt($curlConnection, CURLOPT_RETURNTRANSFER, true);
+
+        // $bibleShit = curl_exec($curlConnection);
+        // curl_close($curlConnection);
+
+        // var_dump($bibleShit);
+
         $provider = \PayPal::setProvider();
         $provider->setApiCredentials(config('paypal'));
         $provider->setAccessToken($provider->getAccessToken());
-
+        // var_dump($provider->getAccessToken());
+        // var_dump("                                                                               \n");
+        // var_dump($provider);
+        // // phpinfo();
         $order = $provider->createOrder([
             "intent"=> "CAPTURE",
             "purchase_units"=> [
@@ -281,11 +293,14 @@ class UserController extends Controller
             "application_context" => [
                 'shipping_preference'=> 'NO_SHIPPING',
                 'brand_name' => 'Fneuc Shop',
-                'return_url' => 'http://localhost:8000/userProfile/balance/capture'
+                'return_url' => 'http://lbaw2111.lbaw-prod.fe.up.pt/userProfile/balance/capture'
                 ]
           ]);
 
-        session(['order_id' => $order['id']]);
+        // var_dump($order);
+
+        session(['order_id' => $order['id']]); //uncomment
+
         // var_dump($order['links'][1]['href']);
         // return $provider->showOrderDetails($order['id']);
         return redirect($order['links'][1]['href']); // approve order url

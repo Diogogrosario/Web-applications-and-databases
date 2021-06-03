@@ -29,10 +29,15 @@ function addCategoryFilterEventListeners() {
 }
 
 function addStepEventListeners(){
-    prevbutton = document.getElementById("prevButton");
-    nextbutton = document.getElementById("nextButton");
-    prevbutton.addEventListener("click", decreaseStep);
-    nextbutton.addEventListener("click", increaseStep);
+    prevbuttons = document.getElementsByClassName("prevButton");
+    nextbuttons = document.getElementsByClassName("nextButton");
+    console.log(prevbuttons);
+    for(let i = 0; i < prevbuttons.length; i++){
+        prevbuttons[i].addEventListener("click", decreaseStep);
+    }
+    for(let i = 0; i < nextbuttons.length; i++){
+        nextbuttons[i].addEventListener("click", increaseStep);
+    }
 }
 
 function increaseStep(event){
