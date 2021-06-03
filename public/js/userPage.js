@@ -303,8 +303,11 @@ function submitNewUsername(event){
 
     let newUsername = document.getElementById("newUsername").value;
 
-    if(newUsername == null || newUsername.length < 4)
+    if(newUsername == null || newUsername.length < 4){
+        let err = document.getElementById("errorUsername");
+        err.innerHTML = "Username should have at least 4 characters!"
         return;
+    }
 
     let data = {'username': newUsername};
 
