@@ -15,7 +15,7 @@ class PurchaseHistoryController extends Controller
 
         $categories = Category::all()->sortBy("category_id");
         
-        return view('pages.purchaseHistory')->with("user", $user)->with("categories", $categories);
+        return view('pages.purchaseHistory')->with("user", $user)->with("categories", $categories)->with("id",$id);
     }
 
     public function showSelf()
@@ -24,6 +24,19 @@ class PurchaseHistoryController extends Controller
 
         $categories = Category::all()->sortBy("category_id");
         
-        return view('pages.purchaseHistory')->with("user", $user)->with("categories", $categories);
+        return view('pages.purchaseHistory')->with("user", $user)->with("categories", $categories)->with("id",Auth::user()["user_id"]);
+    }
+
+    public function reorder(Request $request)
+    {
+        $filterBy = $request->input('filterBy');
+        $order = $request->input('order');
+        $id = $request->input('id');
+
+        $user = User::findOrFail($id);
+
+        $purchases = $user->purchases()->orderBy($filterBy, $order)->get();
+
+        return view("partials.purchaseHistoryEntry")->with("purchases", $purchases);
     }
 }

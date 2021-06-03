@@ -75,7 +75,7 @@ class User extends Authenticatable implements CanResetPassword, MustVerifyEmail
 
     public function purchases()
     {
-        return $this->hasMany(Purchase::class, "user_id")->orderBy("date", "DESC");
+        return $this->hasMany(Purchase::class, "user_id");
     }
 
     public function notifications() {

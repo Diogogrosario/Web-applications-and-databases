@@ -25,6 +25,7 @@ Route::get('userProfile', 'UserProfileController@showSelf')->middleware('canSeeP
 Route::get('userProfile/wishlist', 'WishlistController@showSelf')->middleware('canSeeProfile')->name("wishlist");
 Route::get('userProfile/cart', 'CartController@showSelf')->middleware('canSeeProfile')->name("cart");
 Route::get('userProfile/purchaseHistory', 'PurchaseHistoryController@showSelf')->middleware('canSeeProfile')->name("history");
+Route::post('userProfile/purchaseHistory/reorder', 'PurchaseHistoryController@reorder')->middleware('canSeeProfile')->name("reorder");
 
 Route::get('userProfile/{id}', 'UserProfileController@show')->middleware('canSeeProfile')->name("userProfileWithId");
 Route::get('userProfile/{id}/wishlist', 'WishlistController@show')->middleware('canSeeProfile')->name("wishlistWithId");
