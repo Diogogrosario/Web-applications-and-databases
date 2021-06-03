@@ -43,11 +43,7 @@
                 <div class="col-lg-6 col-12">
                     <div class="d-flex flex-column justify-content-center h-50 align-items-center mt-lg-0 mt-2">
                         <span>
-                            {{-- TODO: check for discounts --}}
                             <span class="title fs-3 itemPrice" style="color:#e3203e">{{ $item["price"] }}</span>
-                            {{-- <small class="align-top itemPreviousPriceDiscount">    <--- original price
-                                <span class="title text-decoration-line-through">360€</span>
-                            </small> --}}
                         </span>
                     </div>
 

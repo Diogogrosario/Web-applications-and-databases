@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-3 pb-1 pt-1 d-flex flex-column justify-content-center">
-                        <b class="text-center fs-5" style="color: red"><span class="historyPrice">{{ $purchase->purchaseTotal() }}</span> €</b>
+                        <b class="text-center fs-5" style="color: red"><span class="historyPrice">{{ $purchase->purchaseTotal() }}</span> $</b>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-3 pb-1 pt-1 d-flex flex-column justify-content-center historyDate text-center fs-5">
                          {{$purchase->getDate()}}
