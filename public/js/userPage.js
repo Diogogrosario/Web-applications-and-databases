@@ -177,7 +177,7 @@ function editUserImage(){
 
     let str = '<section id="editImage">'
         + '<form id="imgForm" enctype="multipart/form-data">'
-        + '<input id="imageButton" enctype="multipart/form-data" accept="image/png, image/gif, image/jpeg" type="file" class="btn" value="' + userId + '" + onchange="previewImage(event)" >'
+        + '<input id="imageButton" enctype="multipart/form-data" accept="image/png, image/gif, image/jpeg" type="file" class="btn p-0 pb-1 pt-1" value="' + userId + '" + onchange="previewImage(event)" >'
         + '<img id="preview" width="0" height="0"/>'
         + '<button id="submitImage" type="Submit" class="btn btn-success mb-1" value="' + userId + '"> <i class="bi bi-check-circle-fill"></i>Submit</button>'
         + '<button id="cancelImage" type="Cancel" class="btn btn-danger" value="' + userId + '"> <i class="bi bi-check-circle-fill"></i>Cancel</button>'
