@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top pb-lg-2 pb-0" style="background-color:#36312b">
       <div class="container-fluid">
+
+        <a id="link_skipper" href="#sideMenuHomePage">Skip To Side Bar</a>
           <?php
             $logged_in = false;
 
@@ -47,6 +49,7 @@
                         @endif
                         
                         </select>
+                        <input type="" id="step" name="step" value="1" style="display: none;">
                         <input type="text" id="search" name="search" class="form-control w-50" placeholder="Search For An Item" aria-label="Text input with dropdown button">
                         <button type="submit" class="btn btn-secondary" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
                     </div>
@@ -131,6 +134,7 @@
                         @endforeach
 
                     </select>
+                    <input type="" id="step" name="step" value="1" style="display: none;">
                     <input type="text" id="searchSmall" name="search" class="form-control w-25" placeholder="Search For An Item" aria-label="Text input with dropdown button">
                     <button type="submit" class="btn btn-dark w-25" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
                 </div>

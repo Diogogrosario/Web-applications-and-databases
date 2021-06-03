@@ -5,42 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Item;
+use Mockery\Undefined;
 
 class SearchResultsController extends Controller
 {
-    /*
-    public function show()
-    {
-        //->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->
-        $q = request()->query('search');
-        $cat = request()->query('categories');
-
-        $filteredByCat;
-        if($cat!=null && $cat!=-1){
-            $searchResults =  Item::where("category_id",$cat);
-            if($q!=null)
-                $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
-                ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
-            $searchResults = $searchResults->where("is_archived",false)->get();
-        }
-        else
-            $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
-            ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)
-            ->get();
-
-        
-
-        $categories = Category::all()->sortBy("category_id");
-
-        return view("pages.searchResults")->with("searchResults",$searchResults)->with("categories",$categories);
-    }*/
 
     public function showNotAjax(Request $request)
     {
 
 
-
-
+        $step = request()->query('step');
+        if(!is_numeric($step)){
+            $step = 1;
+        }
         $q = request()->query('search');
         $cate = request()->query('categories');
         $priceRngs = request()->query('priceRanges');
@@ -223,13 +200,26 @@ class SearchResultsController extends Controller
 
         $categories = Category::all()->sortBy("category_id");
 
+        if($step == null){
+            $step = 1;
+        }
+        if($step <= 0){
+            $step = 1;
+        }
+
         //    return $items;
-        return view("pages.searchResults")->with("searchResults",$searchResults)->with("categories",$categories);
+        return view("pages.searchResults")->with("searchResults",$searchResults)->with("categories",$categories)->with("step", $step);
     }
 
     public function showAjax(Request $request)
     {
         $data = $request->all();
+        if(isset($data['step'])){
+            $step = $data['step'];
+        }
+        else{
+            $step = 1;
+        }
         if(isset($data['priceRanges'])){
             $priceRanges = preg_split('/[,]/', $data['priceRanges']);
             
@@ -383,7 +373,7 @@ class SearchResultsController extends Controller
         $categories = Category::all()->sortBy("category_id");
 
         //    return $items;
-        return view("partials.searchResultList")->with("searchResults", $searchResults)->with("categories",$categories);
+        return view("partials.searchResultList")->with("searchResults", $searchResults)->with("categories",$categories)->with("step", $step);
     }
 
 }
