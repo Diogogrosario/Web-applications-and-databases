@@ -1,4 +1,4 @@
-const acceptedTypes = ['image/png', 'image/jpg', 'image/gif'];
+const acceptedTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'];
 
 function addEventListeners() {
     let notificationButtons = document.querySelectorAll('.deleteNotificationButton');
@@ -59,9 +59,6 @@ function previewImage(event){
 function submitImage(){
     event.preventDefault();
     let img = document.getElementById("imageButton");
-    //pfp = document.getElementById("profilePic");
-    //console.log("old pfp:");
-    //console.log(pfp);
     //Verify if image exists
     if(img.files.length <= 0){
         return;
@@ -100,44 +97,15 @@ function submitImage(){
 
     sendFileAjaxRequest('POST', url, formData, function () {
         if (this.status === 200) {
-            console.log(this.response);
-            
-            //let replace = "\\\/";
-            //let resp = this.response.replaceAll("/", replace);
-            let resp = this.response;
-            console.log("resp:");
-            console.log(resp);
-            /*let imgHTML = '<div id="profilePic" class="d-flex rounded-circle" style="height:0;width:100%;padding-bottom:100%;background-position:center;background-size:cover;">'
-            +'</div>';
-            */
-            let imgHTML = '<div id="profilePic" class="d-flex rounded-circle" style="height:0;width:100%;padding-bottom:100%;">'
-            +'</div>';
-
-
-
-
-
-
-
-
-            
-            let parser = new DOMParser();
-            let add = parser.parseFromString(imgHTML, 'text/html').body.firstChild;
-            console.log("file: ");
-            console.log(image);
-            let pfpHtml = document.getElementById("profilePic");
-            //pfpHtml.replaceWith(add);
-            pfpHtml.style.backgroundImage = 'url("' + URL.createObjectURL(image) + '")';//'url("' + resp + '")';
-            
-            //pfpHtml.background_image = 'url("' + resp + '")';
-            console.log("new pfp:");
-            console.log(document);
-            console.log(document.getElementById("profilePic"));
+            let pfpHtml = document.getElementById("userPageProfilePic");
+            let pfpHtmlSmall = document.getElementById("profilePic");
+            //Change current URL
+            url = URL.createObjectURL(image);
+            pfpHtml.style.backgroundImage = 'url("' + url + '")';
+            pfpHtmlSmall.style.backgroundImage = 'url("' + url + '")';
 
         }
         else if(this.status === 500){
-            console.log("Internal server error.");
-            console.log(this.response);
         }
     });
     
@@ -203,8 +171,6 @@ function editUserImage(){
     }
     let imageButton = editImageSection.querySelector('#imageButton');
     let userId = imageButton.value;
-    console.log(imageButton);
-    console.log(userId);
     if(userId == null || userId == ""){
         return;
     }
@@ -409,12 +375,9 @@ function submitNewShippingInfo(event)
 
     let zip = document.getElementById("newZip").value;
 
-    console.log(zip);
-
     let data = {'newStreet': newStreet, "newCountry": newCountry, "newCity": newCity, "newZip": zip};
 
     sendAjaxRequest('PATCH', url, data, function () {
-        console.log(this.response);
 
         if (this.status === 200) {
             let doc = document.getElementById("userShipping");
@@ -439,12 +402,10 @@ function submitNewBillingInfo(event)
 
     let zip = document.getElementById("newZip").value;
 
-    console.log(zip);
 
     let data = {'newStreet': newStreet, "newCountry": newCountry, "newCity": newCity, "newZip": zip};
 
     sendAjaxRequest('PATCH', url, data, function () {
-        console.log(this.response);
 
         if (this.status === 200) {
             let doc = document.getElementById("userBilling");
@@ -520,8 +481,6 @@ function submitNewEmail(event){
     event.preventDefault();
     let doc = document.getElementById("emailContent");
     let userId = this.getAttribute('data-id');
-
-    console.log(doc);
 
     let newEmail = document.getElementById("newEmail").value;
 
