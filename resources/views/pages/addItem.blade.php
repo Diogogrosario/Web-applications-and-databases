@@ -25,17 +25,17 @@
                     <label for="productName" class="form-label">Name</label>
                     <input type="text" class="form-control" id="productName" required>
                 </div>
+                <div class="col" id="stockForm">
+                    <label for="inputStock" class="form-label">Stock</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="inputStock" aria-label="Integer amount with initial stock" required>
+                    </div>
+                </div>
                 <div class="col" id="priceForm">
                     <label for="inputPrice" class="form-label">Price</label>
                     <div class="input-group">
                         <input type="number" class="form-control" id="inputPrice" aria-label="Euro amount (with dot and two decimal places)" required>
                         <span class="input-group-text">€</span>
-                    </div>
-                </div>
-                <div class="col" id="stockForm">
-                    <label for="inputStock" class="form-label">Stock</label>
-                    <div class="input-group">
-                        <input type="number" class="form-control" id="inputStock" aria-label="Integer amount with initial stock" required>
                     </div>
                 </div>
             </div>
@@ -51,15 +51,16 @@
                             @endforeach
                         </select>
                     </div>
-                    <div id="imagesForm" class="mt-3">
-                        <label for="formFileMultiple" class="form-label-sm">Images</label>
-                        <input class="form-control form-control-sm mt-2" type="file" id="formFileMultiple" multiple required>
-                    </div>
+                    
+                </div>
+                <div id="imagesForm" class="mt-3 col-lg-5 col-md-7 col-sm-12 col-12 d-flex flex-column justify-content-between">
+                    <label for="formFileMultiple" class="form-label-sm">Images</label>
+                    <input class="form-control form-control-sm mt-2" type="file" id="formFileMultiple" multiple required>
                 </div>
 
-                <div class="col pt-4">
-                    <img class="img-fluid" src="images/imagesForm.PNG">
-                </div>
+                
+            </div>
+            <div id="carouselAddItemImages" class="mt-3 carousel carousel-dark slide justify-content-center" data-bs-interval="false" data-bs-touch="true">
             </div>
 
             <div class="mt-3" id="breifDescriptionForm">
