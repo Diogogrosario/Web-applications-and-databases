@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 
-
 class UserController extends Controller
 {
     public function get($id)
@@ -125,7 +124,8 @@ class UserController extends Controller
             File::delete("img/users/" . $user["user_id"]);
             $path = $user["user_id"] . ".png";
             $image->move('img/users', $path);
-            return 'image' . $userImageId;
+            $returnURL = asset("/img/users/" . $path);
+            return $returnURL;
         }
         else{
             $photo = new Photo();
