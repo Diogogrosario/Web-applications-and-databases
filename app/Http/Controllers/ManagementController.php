@@ -59,7 +59,8 @@ class ManagementController extends Controller
     public function showPurchases()
     {
         $categories = Category::all()->sortBy("category_id");
-        $purchases = Purchase::all();
+        $purchases = Purchase::orderByRaw("state = 'Arrived' DESC")->orderByRaw("state = 'Sent' DESC")
+            ->orderByRaw("state = 'Processing' DESC")->orderBy("date")->where("state", "!=", "Arrived")->get();
 
         return view('pages.managePurchases')->with("categories", $categories)->with("purchases", $purchases);
     }
@@ -77,5 +78,18 @@ class ManagementController extends Controller
         $purchase->save();
         
         return response()->json(['status' => $purchase->state], 200);
+    }
+
+    public function getPurchasesList(Request $request) {
+        $purchases = Purchase::orderByRaw("state = 'Arrived' DESC")->orderByRaw("state = 'Sent' DESC")
+            ->orderByRaw("state = 'Processing' DESC")->orderBy("date");
+
+        if($request->query("arrived") == "true") {
+            $purchases = $purchases->get();
+        } else {
+            $purchases = $purchases->where("state", "!=", "Arrived")->get();
+        }
+        
+        return view('partials.purchaseManageList', array("purchases" => $purchases));
     }
 }
