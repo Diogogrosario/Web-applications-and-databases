@@ -19,7 +19,6 @@ function changeStatus(event) {
         purchase_status = document.querySelector("select#status_" + purchase_id).value; 
 
     if(purchase_status != "Processing" && purchase_status != "Sent" && purchase_status != "Arrived") {
-        console.log("Invalid status " + purchase_status);
         return;
     }
 

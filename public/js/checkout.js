@@ -140,7 +140,6 @@ function equalAddress()
 }
 
 function goBackCheckout() {
-    console.log(this.id)
     if(this.id == 'go_back_addresses') {
         window.location.href = "/checkout";
     } else if(this.id == 'go_back_shipping') {

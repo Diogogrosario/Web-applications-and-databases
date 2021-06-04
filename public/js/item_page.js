@@ -207,7 +207,6 @@ function submitNewReviewRequest(event) {
             errorStars.remove();
 
         sendAjaxRequest('post', url, data, function () {
-            console.log(this.response)
             if (this.status === 200) {
                 document.getElementById("new_review_text").value = "";
                 let parser = new DOMParser();

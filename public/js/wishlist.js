@@ -33,7 +33,6 @@ function reorder(){
     let filterBy;
     let order;
 
-    console.log(val);
     
     if(val == 1)
     {
@@ -70,7 +69,6 @@ function reorder(){
             let doc = document.getElementById("wishItemsList");     
             let parser = new DOMParser();
             let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
-            console.log(add);
             doc.replaceWith(add);
         }});
 }
@@ -93,7 +91,6 @@ function wishlistRequest(e) {
     if(!isWishlist) {
         switchWishlistButton(this, type);
         sendAjaxRequest(method, url, data, function() {
-            console.log(this.response);
             if(this.status !== 200) {
                 switchWishlistButton(this, type == "add" ? "remove" : "add");
             } 
@@ -104,7 +101,6 @@ function wishlistRequest(e) {
         oldItem.remove();
     
         sendAjaxRequest(method, url, data, function() {
-            console.log(this.response);
             if(this.status !== 200) {
                 document.querySelector('#wishItemsList').prepend(oldItem);
             } 

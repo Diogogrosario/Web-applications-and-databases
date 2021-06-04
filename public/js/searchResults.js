@@ -52,7 +52,6 @@ function reorderList(){
     let url = "searchResultsAjax";
 
     sendAjaxRequest('POST', url, data, function () {
-        console.log(this.response);
         if (this.status === 200) {
             let searchPage = document.querySelector("#searchPage");
             
@@ -73,7 +72,6 @@ function increaseStep(event){
     let data = filterItemsPageCall(1, true);
 
     sendAjaxRequest('POST', url, data, function () {
-        //console.log(this.response);
         if (this.status === 200) {
             let searchPage = document.querySelector("#searchPage");
             
@@ -94,7 +92,6 @@ function decreaseStep(event){
     let data = filterItemsPageCall(-1, true);
 
     sendAjaxRequest('POST', url, data, function () {
-        //console.log(this.response);
         if (this.status === 200) {
             let searchPage = document.querySelector("#searchPage");
             
@@ -454,7 +451,6 @@ function filterItems(event) {
     window.history.pushState(state , "Search Results", urlString);
 
     sendAjaxRequest('POST', url, data, function () {
-        //console.log(this.response);
         if (this.status === 200) {
             let searchPage = document.querySelector("#searchPage");
             
