@@ -37,13 +37,13 @@
                 </div>
                 <div class="form-check text-md-start col-12">
                     <input class="form-check-input" type="radio" name="shippingUse" value="equal" id="shippingEqualBilling">
-                    <label class="form-check-label" for="flexCheckDefault">
+                    <label class="form-check-label" for="shippingEqualBilling">
                         Use my billing address as my shipping address
                     </label>
                 </div>
                 <div class="form-check text-md-start col-12">
                     <input class="form-check-input" type="radio" name="shippingUse" value="other" id="otherShipping">
-                    <label class="form-check-label" for="flexCheckDefault">
+                    <label class="form-check-label" for="otherShipping">
                         Insert a different shipping address
                     </label>
                 </div>
