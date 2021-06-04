@@ -8,11 +8,10 @@ function addEventListeners() {
     }
 }
 
+
 function addImageEventListener(){
-    let imageButton = document.querySelector('#imageButton');
-    if(imageButton != null){
-        imageButton.addEventListener("click", editUserImage);
-    }
+    let submitButton = document.getElementById("submitImage");
+    submitButton.addEventListener("click",submitImage);
 }
 
 function isAcceptedImageType(imageType){
@@ -35,22 +34,7 @@ function previewImage(event){
                 const preview = document.getElementById('preview');
                 preview.src = reader.result;
             };
-            
 
-            //Get image from 
-            let editImageSection = document.querySelector('#editImage');
-            if(editImageSection == null)
-                return;
-            let cancelImageButton = editImageSection.querySelector('#cancelImage');
-            let userId = cancelImageButton.value;
-            if(userId == null || userId == "")
-                return;
-
-            let imagePreview = document.getElementById("preview");
-            let str = '<img id="preview" max-width="200" height="200"/>'
-            let parser = new DOMParser();
-            let add = parser.parseFromString(str, 'text/html').body.firstChild;
-            imagePreview.replaceWith(add);
         }
     }
     return;
@@ -58,29 +42,25 @@ function previewImage(event){
 
 function submitImage(){
     event.preventDefault();
-    let img = document.getElementById("imageButton");
+    let img = document.getElementById("imageInput");
     //Verify if image exists
     if(img.files.length <= 0){
+        console.log("erty");
+    
         return;
     }
     //Verify image extension
     if(!isAcceptedImageType(img.files[0].type)){
-        return;
-    }
-    //Verify user id
-    let editImageSection = document.querySelector('#editImage');
-    if(editImageSection == null){
-        return;
-    }
-    let cancelImageButton = editImageSection.querySelector('#cancelImage');
-    let userId = cancelImageButton.value;
-    if(userId == null || userId == ""){
+        console.log("zxc");
+    
         return;
     }
 
     
     let ext = ((img.files[0].type).split("/"));
     if(ext.length != 2){
+        console.log("edf");
+    
         return;
     }
 
@@ -92,6 +72,7 @@ function submitImage(){
     let formData = new FormData();
     var file = image;
     formData.append("images[]", file, file.name);
+    console.log("abc");
 
 
 
@@ -109,92 +90,7 @@ function submitImage(){
         }
     });
     
-
-    //Swap back to old menu
-    let str = 
-    '<section id="editUserImage" class="d-flex justify-content-end">'
-        + '<button id="imageButton" type="button" class="btn" value="' + userId + '">'
-        + '<i class="bi bi-pencil-square"></i>'
-        + '</button>'
-    + '</section>'
-    let parser = new DOMParser();
-    let add = parser.parseFromString(str, 'text/html').body.firstChild;
-    editImageSection.replaceWith(add);
-    //Add image edit button event listener
-    let submitButton = document.getElementById("imageButton");
-    submitButton.addEventListener("click",editUserImage);
     return;
-}
-
-function cancelImage(){
-    //inputtype.file ver como o ferno fez no branch
-    //Por o encoding type como multitype form data (ver no additem.blade)
-    
-    let editImageSection = document.querySelector('#editImage');
-
-    if(editImageSection == null){
-        return;
-    }
-    let cancelImageButton = editImageSection.querySelector('#cancelImage');
-    let userId = cancelImageButton.value;
-    if(userId == null || userId == ""){
-        return;
-    }
-
-    let str = 
-    '<section id="editUserImage" class="d-flex justify-content-end">'
-        + '<button id="imageButton" type="button" class="btn" value="' + userId + '">'
-        + '<i class="bi bi-pencil-square"></i>'
-        + '</button>'
-    + '</section>'
-
-    let parser = new DOMParser();
-    let add = parser.parseFromString(str, 'text/html').body.firstChild;
-
-    editImageSection.replaceWith(add);
-
-    
-    //can't add in the beggining since these buttons do not exist
-    let submitButton = document.getElementById("imageButton");
-    submitButton.addEventListener("click",editUserImage);
-}
-
-function editUserImage(){
-
-    //inputtype.file ver como o ferno fez no branch
-    //Por o encoding type como multitype form data (ver no additem.blade)
-    
-    let editImageSection = document.querySelector('#editUserImage');
-
-    if(editImageSection == null){
-        return;
-    }
-    let imageButton = editImageSection.querySelector('#imageButton');
-    let userId = imageButton.value;
-    if(userId == null || userId == ""){
-        return;
-    }
-
-    let str = '<section id="editImage">'
-        + '<form id="imgForm" enctype="multipart/form-data">'
-        + '<input id="imageButton" enctype="multipart/form-data" accept="image/png, image/gif, image/jpeg" type="file" class="btn p-0 pb-1 pt-1" value="' + userId + '" + onchange="previewImage(event)" >'
-        + '<img id="preview" width="0" height="0"/>'
-        + '<button id="submitImage" type="Submit" class="btn btn-success mb-1" value="' + userId + '"> <i class="bi bi-check-circle-fill"></i>Submit</button>'
-        + '<button id="cancelImage" type="Cancel" class="btn btn-danger" value="' + userId + '"> <i class="bi bi-check-circle-fill"></i>Cancel</button>'
-        + '</form>'
-    + '</section>'
-
-    let parser = new DOMParser();
-    let add = parser.parseFromString(str, 'text/html').body.firstChild;
-
-    editImageSection.replaceWith(add);
-
-    //can't add in the beggining since these buttons do not exist
-    let submitButton = document.getElementById("submitImage");
-    submitButton.addEventListener("click",submitImage);
-
-    let cancelButton = document.getElementById("cancelImage");
-    cancelButton.addEventListener("click",cancelImage);
 }
 
 function editUsernameForm(username, id){
