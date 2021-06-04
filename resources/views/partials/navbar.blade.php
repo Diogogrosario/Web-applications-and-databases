@@ -1,7 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top pb-lg-2 pb-0" style="background-color:#36312b">
       <div class="container-fluid">
 
-        <a id="link_skipper" href="#sideMenuHomePage">Skip To Side Bar</a>
+        @if (Request::is('/')) 
+            <a id="link_skipper" href="#sideMenuHomePage">Skip To Side Bar</a>    
+        @endif
+
           <?php
             $logged_in = false;
 
