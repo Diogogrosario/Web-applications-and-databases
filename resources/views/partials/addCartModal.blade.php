@@ -1,4 +1,4 @@
-<div class="modal fade" id="addCartModal_{{$item['item_id']}}" data-id="{{$item['item_id']}}" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
+<div class="modal fade" id="addCartModal_{{$item['item_id']}}" data-id="{{$item['item_id']}}" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
@@ -19,7 +19,7 @@
                                     </h4>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-12 d-flex flex-column justify-content-center h-50 align-items-center mt-lg-0 mt-2 text-center fs-3 item-price-modal" style="color:#e3203e">
+                            <div class="col-lg-6 col-12 d-flex flex-column justify-content-center h-50 align-items-center mt-lg-0 mt-2 text-center fs-3 item-price-modal" id="addCartModalPrice" style="color:#e3203e">
                                 @php
                                     $item_discount = $item->getDiscount();
                                 @endphp

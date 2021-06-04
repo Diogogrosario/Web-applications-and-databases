@@ -44,12 +44,12 @@
                             <option selected value="-1">All</option>
 
                             @foreach ($categories as $cat)
-                                    <option value={{$cat["category_id"]}}>{{$cat["name"]}}</option>
+                                    <option value="{{$cat["category_id"]}}">{{$cat["name"]}}</option>
                             @endforeach
                         @endif
                         
                         </select>
-                        <input type="" name="step" value="1" style="display: none;">
+                        <input name="step" value="1" style="display: none;">
                         <input type="text" id="search" name="search" class="form-control w-50" placeholder="Search For An Item" aria-label="Text input with dropdown button">
                         <button type="submit" class="btn btn-secondary" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
                     </div>
@@ -130,11 +130,11 @@
                         <option selected value="-1">All</option>
 
                         @foreach ($categories as $cat)
-                            <option value={{$cat["category_id"]}}>{{$cat["name"]}}</option>
+                            <option value="{{$cat["category_id"]}}">{{$cat["name"]}}</option>
                         @endforeach
 
                     </select>
-                    <input type="" name="step" value="1" style="display: none;">
+                    <input name="step" value="1" style="display: none;">
                     <input type="text" id="searchSmall" name="search" class="form-control w-25" placeholder="Search For An Item" aria-label="Text input with dropdown button">
                     <button type="submit" class="btn btn-dark w-25" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
                 </div>

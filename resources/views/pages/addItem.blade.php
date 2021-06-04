@@ -47,7 +47,7 @@
                         <select class="form-select" aria-label="Category" id="categoryDropdown" required>
                             <option>...</option>
                             @foreach ($categories as $category)
-                                <option value={{$category["category_id"]}}>{{$category["name"]}}</option>
+                                <option value="{{$category["category_id"]}}">{{$category["name"]}}</option>
                             @endforeach
                         </select>
                     </div>

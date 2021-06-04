@@ -22,7 +22,7 @@
 <div class="col d-flex flex-column">
     <header class="row mt-3 ms-lg-3 ms-md-1 me-lg-5 me-md-2 pe-lg-5 pe-md-1 border-bottom" id="searchControlsTop">
 
-        <meta id="user_id" value={{$id}}>
+        <meta id="user_id" value="{{$id}}">
 
         
         <div class="row mt-3 mb-2 border-bottom d-flex flex-row-reverse">

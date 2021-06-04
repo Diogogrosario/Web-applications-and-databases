@@ -27,10 +27,8 @@ class ItemPageController extends Controller
         $item = Item::findOrFail($id);
 
         $url =  str_replace(" ","-",$item["name"]) . "-" . $id;
-
-        echo("<script>history.replaceState({},'','$url');</script>");
        
         $categories = Category::all()->sortBy("category_id");
-        return view('pages.itemPage')->with('item', $item)->with("categories", $categories);
+        return view('pages.itemPage')->with('item', $item)->with("categories", $categories)->with("url",$url);
     }
 }

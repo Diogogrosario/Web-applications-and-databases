@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-lg-3 zoom">
                 <a class="item-card z" href={{"/item/" . $item["item_id"]}}>
-                    <img src={{asset('img/items/'. $item->photos->sortBy('photo_id')[0]["path"])}} class="card-img-top mx-auto d-flex" id="searchResultItemImage" alt={{$item["name"]}}>
+                    <img src={{asset('img/items/'. $item->photos->sortBy('photo_id')[0]["path"])}} class="card-img-top mx-auto d-flex" alt="{{$item["name"]}}">
                 </a>
             </div>
             <div class="col-lg-9 col-12">
@@ -19,7 +19,7 @@
                             </h4>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-12 d-flex flex-column justify-content-center h-50 align-items-center mt-lg-0 mt-2 text-center fs-3 item-price-modal" style="color:#e3203e">
+                    <div class="col-lg-6 col-12 d-flex flex-column justify-content-center h-50 align-items-center mt-lg-0 mt-2 text-center fs-3 item-price-modal" id="deleteItemModalPrice" style="color:#e3203e">
                         @php
                             $item_discount = $item->getDiscount();
                         @endphp

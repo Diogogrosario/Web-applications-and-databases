@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-3 zoom">
                 <a class="item-card z" href={{"/item/" . $item["item_id"]}}>
-                    <img src={{asset('img/items/' . $item->photos->sortBy('photo_id')[0]["path"])}} class="card-img-top mx-auto d-flex" id="searchResultItemImage" alt={{$item["name"]}}>
+                    <img src={{asset('img/items/' . $item->photos->sortBy('photo_id')[0]["path"])}} class="card-img-top mx-auto d-flex" alt="{{$item["name"]}}">
                 </a>
             </div>
             <div class="col-lg-9 col-12">
@@ -15,7 +15,7 @@
                             </a>
                         </h4>
                     </div>
-                    <div class="col-lg-6 col-12 d-flex flex-column justify-content-center h-50 align-items-center mt-lg-0 mt-2 text-center fs-3 item-price-modal" style="color:#e3203e">
+                    <div class="col-lg-6 col-12 d-flex flex-column justify-content-center h-50 align-items-center mt-lg-0 mt-2 text-center fs-3 item-price-modal" id="editDiscountModalPrice" style="color:#e3203e">
                         @php
                             $item_discount = $item->getDiscount();
                         @endphp
@@ -45,7 +45,7 @@
             <tbody>
                 @foreach ($item->discounts()->get() as $discount)
                     <tr class="item_discount">
-                        <td scope="row">{{$discount->getBeginDate()}}</td>
+                        <td>{{$discount->getBeginDate()}}</td>
                         <td>{{$discount->getEndDate()}}</td>
                         <td>{{$discount['percentage']}}%</td>
                         <td class="p-0 pt-1"><button class="btn fs-4 p-0 m-0 delete_discount" data-id="{{$discount["discount_id"]}}_{{$item['item_id']}}" style="color:red;"><i class="bi bi-trash-fill"></i></button></td>
@@ -61,12 +61,12 @@
                 <div class="row" id="add_discount_dates">
                     <div class="col-md-6 col-12">
                         <label for="new_discount_{{$item['item_id']}}" class="col form-label ps-2">Begin date</label>
-                        <input required type="date" class="form-control" name="begin_date" id="begin_date_{{$item['item_id']}}" value={{now()}}>
+                        <input required type="date" class="form-control" name="begin_date" id="begin_date_{{$item['item_id']}}" value="{{explode(" ",now())[0]}}">
                     </div>
 
                     <div class="col-md-6 col-12">
                         <label for="new_discount_{{$item['item_id']}}" class="col form-label ps-2">End date</label>
-                        <input required type="date" class="form-control" name="end_date" id="end_date_{{$item['item_id']}}" value={{now()}}>
+                        <input required type="date" class="form-control" name="end_date" id="end_date_{{$item['item_id']}}" value="{{explode(" ",now())[0]}}">
                     </div>
                 </div>
 

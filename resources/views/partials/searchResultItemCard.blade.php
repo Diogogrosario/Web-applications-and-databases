@@ -63,25 +63,6 @@
                     @if ($item["stock"]>0)
                         @include('partials.addCartModal',array($item))
                     @endif
-
-                    {{-- <!-- Modal -->
-                    <div class="modal fade" id="balanceModal" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <form>
-                                        <label for="recipient-name" class="col-form-label"> Quantity of items?</label>
-                                        <input type="number" class="form-control" id="recipient-name" placeholder="Amount, I.e: 20">
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Add to cart</button>
-                                    <button type="button" class="btn btn-primary">Add to cart and checkout</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>

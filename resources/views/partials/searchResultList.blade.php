@@ -25,10 +25,10 @@
         <div class="col-md-4 col-12 d-flex justify-md-content-end justify-content-center">
             <label for="orderSelectSearch" class="align-middle me-2">Order by </label>
             <select id="orderSelectSearch" class="form-select form-select-sm w-50 border-bottom-0 rounded-0 rounded-top">
-                <option <?php if($filterNum == 1) echo 'selected="true"'?> value="1">Name A-Z</option>
-                <option <?php if($filterNum == 2) echo 'selected="true"'?> value="2">Name Z-A</option>
-                <option <?php if($filterNum == 3) echo 'selected="true"'?> value="3">Price: Most expensive first</option>
-                <option <?php if($filterNum == 4) echo 'selected="true"'?> value="4">Price: Least expensive first</option>
+                <option <?php if($filterNum == 1) echo 'selected'?> value="1">Name A-Z</option>
+                <option <?php if($filterNum == 2) echo 'selected'?> value="2">Name Z-A</option>
+                <option <?php if($filterNum == 3) echo 'selected'?> value="3">Price: Most expensive first</option>
+                <option <?php if($filterNum == 4) echo 'selected'?> value="4">Price: Least expensive first</option>
             </select>
         </div>
     </header>

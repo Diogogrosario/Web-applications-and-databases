@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-
-
 @section('title')
     <title>
         {{$item["name"]}}
@@ -10,6 +8,9 @@
 
 
 @section("content")
+
+@php echo("<script>history.replaceState({},'','$url');</script>"); @endphp
+
 @include('partials.sidebarItem',["categories" => $categories])
 
 <script src="{{asset('js/cart.js')}}" defer></script>

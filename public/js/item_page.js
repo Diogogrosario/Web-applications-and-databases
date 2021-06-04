@@ -29,7 +29,6 @@ function editItemRequest(event) {
     let data = { "stock": stock, "price": price };
 
     sendAjaxRequest('POST', url, data, function () {
-        console.log(this.response);
         if (this.status === 200) {
             let stockDisplay = document.getElementById("stockDisplay");
             stockDisplay.innerHTML = stock;
@@ -39,6 +38,13 @@ function editItemRequest(event) {
             addCartModalPriceDisplay.innerHTML = "$" + price;
             let editCartModalPriceDisplay = document.getElementById("editCartModalPrice");
             editCartModalPriceDisplay.innerHTML = "$" + price;
+
+            let editDiscountModalPriceDisplay = document.getElementById("editDiscountModalPrice");
+            editDiscountModalPriceDisplay.innerHTML = "$" + price;
+
+            let deleteItemModalPrice = document.getElementById("deleteItemModalPrice");
+            deleteItemModalPrice.innerHTML = "$" + price;
+
             let readdCartModalPriceDisplay = document.getElementById("readdCartModalPrice");
             if (readdCartModalPriceDisplay != null)
                 readdCartModalPriceDisplay.innerHTML = "$" + price;
@@ -87,9 +93,6 @@ function submitNewDetailValue(event){
 
     let doc = document.getElementById("detailInfoContent_"+item_id+"_"+detail_id);
 
-    console.log(item_id);
-    console.log(detail_id);
-
     let newDetailValue = document.getElementById("newDetailValue").value;
 
     if(newDetailValue == null)
@@ -100,7 +103,6 @@ function submitNewDetailValue(event){
     let url = "/item/"+item_id+"/editDetail/"+detail_id;
 
     sendAjaxRequest('PATCH', url, data, function () {
-        console.log(this.response);
         if (this.status === 200) {
 
             let str = `<section id = "detailInfoContent_`+item_id+`_`+detail_id+`">`
@@ -150,13 +152,10 @@ function addItem(item_id) {
     let data = null;
 
     sendAjaxRequest('PATCH', url, data, function () {
-        console.log(this.response);
         if (this.status === 200) {
-            // console.log(jsonData);
             let sectionToRemove = document.getElementById("addItemSection");
             let parser = new DOMParser();
             let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
-            console.log(add);
             sectionToRemove.replaceWith(add);
 
         }
@@ -169,13 +168,10 @@ function deleteItem(item_id) {
     let data = null;
 
     sendAjaxRequest('DELETE', url, data, function () {
-        console.log(this.response);
         if (this.status === 200) {
-            // console.log(jsonData);
             let sectionToRemove = document.getElementById("deleteItemSection");
             let parser = new DOMParser();
             let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
-            console.log(add);
             sectionToRemove.replaceWith(add);
         }
     });
@@ -229,9 +225,7 @@ function deleteReviewRequest(review_id) {
     let data = null;
 
     sendAjaxRequest('delete', url, data, function () {
-        console.log(this.response);
         if (this.status === 200) {
-            // console.log(jsonData);
             document.querySelector("div#review_" + review_id + ".user_review").remove();
         }
     });
@@ -244,7 +238,6 @@ function editReviewRequest(review_id) {
     let data = null;
 
     sendAjaxRequest('post', url, data, function () {
-        console.log(this.response);
         if (this.status === 200) {
             let parser = new DOMParser();
             let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
@@ -295,7 +288,6 @@ function cancelEditRequest(review_id) {
     let data = null;
 
     sendAjaxRequest('post', url, data, function () {
-        console.log(this.response);
         if (this.status === 200) {
             let parser = new DOMParser();
             let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
@@ -341,7 +333,6 @@ function addDiscount(event) {
                 "percentage": percentage};
 
     sendAjaxRequest('POST', url, data, function () {
-         console.log(this.response);
         if (this.status === 200) {
             //clear inputs
             updatePrices(item_id);
@@ -391,7 +382,6 @@ function deleteDiscount(event) {
     let data = null;
 
     sendAjaxRequest('DELETE', url, data, function () {
-        console.log(this.response)
         if (this.status === 200) {
             discounts_list.removeChild(discountRow);
             updatePrices(item_id);
@@ -405,7 +395,6 @@ function updatePrices(item_id) {
     
     sendAjaxRequest('GET', url, data, function() {
         if(this.status === 200) {
-            console.log(this.response);
 
             let price_details = JSON.parse(this.responseText);
 
