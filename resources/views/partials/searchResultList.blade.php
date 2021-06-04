@@ -13,9 +13,9 @@
         <nav class="col-md-4 col-7 d-flex text-center justify-content-md-center justify-content-end" aria-label="Search Results Pages">
             <div class="d-flex flex-column justify-content-center">
                 <ul class="pagination pagination-sm mb-0">
-                    <li id="prevButton" class="page-item"><a class="page-link link-secondary">Previous</a></li>
+                    <li id="prevButton" class="prevButton page-item"><a class="page-link link-secondary">Previous</a></li>
                     <li class="page-item"><a class="page-link link-dark"><?php echo $step; ?></a></li>
-                    <li id="nextButton" class="page-item"><a class="page-link link-secondary">Next</a></li>
+                    <li id="nextButton" class="nextButton page-item"><a class="page-link link-secondary">Next</a></li>
                 </ul>
             </div>
         </nav>
@@ -45,9 +45,9 @@
         </div>
         <nav class="col-md-4 col-7 d-flex text-center justify-content-md-center justify-content-end mb-1" aria-label="Search Results Pages">
             <ul class="pagination pagination-sm mb-0">
-                <li class="page-item"><a class="page-link link-secondary">Previous</a></li>
-                <li class="page-item"><a class="page-link link-dark" href="#">1</a></li>
-                <li class="page-item"><a class="page-link link-secondary">Next</a></li>
+                <li class="prevButton page-item"><a class="page-link link-secondary">Previous</a></li>
+                <li class="page-item"><a class="page-link link-dark"><?php echo $step; ?></a></li>
+                <li class="nextButton page-item"><a class="page-link link-secondary">Next</a></li>
             </ul>
         </nav>
     </footer>
