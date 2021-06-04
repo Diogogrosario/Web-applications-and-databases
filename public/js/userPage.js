@@ -1,4 +1,4 @@
-const acceptedTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'];
+const acceptedTypes = ['image/png', 'image/jpg', 'image/jpeg'];
 
 function addEventListeners() {
     let notificationButtons = document.querySelectorAll('.deleteNotificationButton');
