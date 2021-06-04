@@ -26,7 +26,7 @@
                     </div>
                 @endif
                 @if ($user["user_id"] == Auth::user()["user_id"])
-                    <section id="editUserImage">
+                    <section id="editUserImage" class="d-flex justify-content-end">
                         <button id="imageButton" type="button" class="btn" value="{{$user["user_id"]}}">
                             <i class="bi bi-pencil-square"></i>
                         </button>

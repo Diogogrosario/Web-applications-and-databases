@@ -50,21 +50,6 @@ function reorderList(){
     let data = filterItemsPageCall(0, true);
 
     let url = "searchResultsAjax";
-    /*
-    let value = document.getElementById("orderSelectSearch").value;
-    if(value == 1 || value == 2){
-        data['filterBy'] = "name";
-    }
-    else{
-        data['filterBy'] = "price";
-    }
-    if(value == 1 || value == 4){
-        data['order'] = "asc";
-    }
-    else{
-        data['order'] = "desc";
-    }
-    data['filterNum'] = value;*/
 
     sendAjaxRequest('POST', url, data, function () {
         console.log(this.response);
@@ -103,7 +88,6 @@ function increaseStep(event){
 
 function decreaseStep(event){
 
-    console.log("uoiafduibnasuijfbuoisenfoesbnofbnshifcvhnaoeswinfcoiwnh");
 
     let url = "searchResultsAjax";
 
@@ -247,6 +231,10 @@ function verifyStep(step, stepDelta){
     max_page = Math.floor((parseInt(totalResultsTop, 10) - 1) / 10) + 1;
     if(step > (max_page)){
         step = max_page;
+    }
+
+    if(step <= 0){
+        step = 1;
     }
     return step;
 }
