@@ -20,7 +20,14 @@
 
 
     <section class="col-lg-9 ps-md-5 d-flex flex-column flex-grow-1">
-    <h2 class="d-none d-sm-block ms-5 mt-4">Your cart</h2>
+    <h2 class="d-none d-sm-block ms-5 mt-4">
+        Your cart
+        <button class="btn ms-1"  data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" title="Shopping Cart" data-bs-placement="right" data-bs-html="true" 
+            data-bs-content="Here you can see the products you want to <b>order</b>, edit the desired <b>quantity</b> or <b>remove</b> them from the list.<br>
+                            When you are ready to complete the purchase click <b>'Checkout'</b>">
+            <i class="bi bi-question-circle-fill"></i>
+        </button>
+    </h2>
 
         <div class="list-group list-group-flush" id="cartList">      
             @if (Auth::user())

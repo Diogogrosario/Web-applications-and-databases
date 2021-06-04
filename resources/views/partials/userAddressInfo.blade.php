@@ -10,7 +10,20 @@
 ?>
 <section id="user{{$addressType}}">
     <div class="d-flex mb-2">
-        <h2>{{$addressType}} Information</h2>
+        <h2>
+            {{$addressType}} Information
+            @if ($addressType == "Shipping")
+                <button class="btn ms-2"  data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" title="Shipping Address" data-bs-placement="right" data-bs-html="true" 
+                    data-bs-content="This is where your future orders will be delivered to">
+                    <i class="bi bi-question-circle-fill"></i>
+                </button>
+            @else
+                <button class="btn ms-2"  data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" title="Billing Address" data-bs-placement="right" data-bs-html="true" 
+                    data-bs-content="This is where your future orders will be delivered to">
+                    <i class="bi bi-question-circle-fill"></i>
+                </button>
+            @endif
+        </h2>
         @if ($user["user_id"] == Auth::user()["user_id"])
             <button type="button" class="btn btn-lg ms-3 p-0" onclick="{{"getAddressEditForm('".$typeId."')"}}"><i class="bi bi-pencil-square"></i></button>
         @endif
