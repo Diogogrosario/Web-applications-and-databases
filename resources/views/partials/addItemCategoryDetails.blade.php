@@ -10,7 +10,7 @@
             <option value="3">Intel i7</option>
             <option value="4">Intel i9</option> --}}
             @foreach ($detail->getDetailInfo() as $detail_info)
-            <option value={{$detail_info->detail_info}}>{{$detail_info->detail_info}}</option>
+            <option value="{{$detail_info->detail_info}}">{{$detail_info->detail_info}}</option>
             @endforeach
         </select>
         <input type="text" class="form-control w-50" id="detailFull{{$key}}">

@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-
-
 @section('title')
     <title>
         {{$item["name"]}}
@@ -10,6 +8,9 @@
 
 
 @section("content")
+
+@php echo("<script>history.replaceState({},'','$url');</script>"); @endphp
+
 @include('partials.sidebarItem',["categories" => $categories])
 
 <script src="{{asset('js/cart.js')}}" defer></script>
@@ -189,7 +190,7 @@
                                     @if (Auth::user()->hasVerifiedEmail())
                                         <form class="mt-4 mb-5" id="newReviewForm">
                                             {{csrf_field()}}
-                                            <meta name="item_id" content="{{ $item['item_id'] }}">
+                                            <input type="hidden" id="item_id" value="{{ $item['item_id'] }}">
                                             <textarea required class="form-control" id="new_review_text" name="review_text" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
                                             
                                             <div id="newReviewStar" class="rate">
@@ -202,7 +203,7 @@
                                                 <input type="radio" id="star2" name="rate" value="2" />
                                                 <label for="star2" title="text">2 stars</label>
                                                 <input type="radio" id="star1" name="rate" value="1" />
-                                                <label for="star1" title="text" class=>1 star</label>
+                                                <label for="star1" title="text">1 star</label>
                                             </div>
 
                                             <div class="text-end m-md-0 mt-2">

@@ -12,7 +12,7 @@
                 <div class="modal-body">
                     <form method="post" action="{{action('UserController@addBalance')}}" id="addBalance">
                         @csrf
-                        <label for="recipient-name" class="col-form-label"> How much would you like to add?</label>
+                        <label class="col-form-label"> How much would you like to add?</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">$</div>

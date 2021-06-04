@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-lg-3 zoom">
                         <a class="item-card z" href={{"/item/" . $item["item_id"]}}>
-                            <img src={{$item->photos->sortBy('photo_id')[0]["path"]}} class="card-img-top mx-auto d-flex" id="searchResultItemImage" alt={{$item["name"]}}>
+                            <img src={{$item->photos->sortBy('photo_id')[0]["path"]}} class="card-img-top mx-auto d-flex" alt="{{$item["name"]}}">
                         </a>
                     </div>
                     <div class="col-lg-9 col-12">
@@ -34,7 +34,7 @@
                 </div>
                 
                 <div class="text-center my-1" > Are you sure you want to re-add this item for sale? </div>
-                <button type="button" onclick="addItem({{$item["item_id"]}})" id="addItemButton" class="btn btn-secondary close_modals w-100" data-bs-dismiss="modal">Yes</button>
+                <button type="button" onclick="addItem({{$item['item_id']}})" id="addItemButton" class="btn btn-secondary close_modals w-100" data-bs-dismiss="modal">Yes</button>
             </div> 
         </div>
     </div>

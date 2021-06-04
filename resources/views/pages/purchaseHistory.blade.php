@@ -29,7 +29,7 @@
                 </div>
             @endif
 
-            <meta id="user_id" value={{$id}}>
+            <meta id="user_id" value="{{$id}}">
 
             <div class="row mt-3 mb-2 border-bottom d-flex flex-row-reverse">
                 <div class="col-md-4 col-12 d-flex justify-md-content-end justify-content-center">

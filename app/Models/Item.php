@@ -49,7 +49,7 @@ class Item extends Model
   }
 
   public function getPriceInt(){
-    return explode('$',$this->price)[1];
+    return str_replace(",","",explode('$',$this->price)[1]);
   }
 
   public function getDiscount(){

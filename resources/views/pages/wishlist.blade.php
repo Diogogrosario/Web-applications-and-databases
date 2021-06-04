@@ -23,6 +23,7 @@
 
     <header class="row ms-lg-3 ms-md-1 me-lg-5 me-md-2 pe-lg-5 pe-md-1" id="searchControlsTop">
 
+        <meta id="user_id" value="{{$id}}">
         <h1 class="ms-5">Wishlist</h1> 
 
         <meta id="user_id" value={{$id}}>
