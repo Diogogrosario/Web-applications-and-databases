@@ -5,10 +5,10 @@
         </div>
         <div class="col-12">
             <label class="form-check-label row" for="shipping_{{$shipping_option['shipping_id']}}">
-                <img src="{{asset("/img/deliveries/" . $shipping_option->image()->first()['path'])}}" class="d-md-inline d-none col-2 img-fluid thumbnail">
-                <div class="col-7 ps-3 fs-5" class="shippingName">
+                <img src="{{asset("/img/deliveries/" . $shipping_option->image()->first()['path'])}}" alt="{{$shipping_option}}_logo" class="d-md-inline d-none col-2 img-fluid thumbnail">
+                <span class="col-7 ps-3 fs-5 shippingName">
                     {{$shipping_option['name']}}
-                </div>
+                </span>
                 <span class="shipping-price col-3 text-center">{{$shipping_option['price']}}</span>
             </label>
         </div>
