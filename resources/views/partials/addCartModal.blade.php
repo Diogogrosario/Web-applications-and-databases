@@ -37,7 +37,7 @@
                 </div>
                 <form method="POST" class="modal-footer text-start">
                     <label for="quantity_{{$item['item_id']}}" class="col form-label"> Quantity of items?</label>
-                    <input required type="number" class="form-control" id="quantity_{{$item['item_id']}}" value="1" placeholder="Amount, I.e: 20">
+                    <input required type="number" class="form-control" id="quantity_{{$item['item_id']}}" value="1" min="1" placeholder="Amount, I.e: 20">
                     
                     <button type="button" class="btn btn-primary add_cart_checkout close_modals w-100" data-bs-dismiss="modal">Add to cart and checkout</button>
                     <button type="button" class="btn btn-primary add_cart close_modals w-100" data-bs-dismiss="modal">Add to cart</button>
