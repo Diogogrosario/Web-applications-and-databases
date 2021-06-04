@@ -45,22 +45,17 @@ function submitImage(){
     let img = document.getElementById("imageInput");
     //Verify if image exists
     if(img.files.length <= 0){
-        console.log("erty");
     
         return;
     }
     //Verify image extension
     if(!isAcceptedImageType(img.files[0].type)){
-        console.log("zxc");
-    
         return;
     }
 
     
     let ext = ((img.files[0].type).split("/"));
     if(ext.length != 2){
-        console.log("edf");
-    
         return;
     }
 
@@ -72,9 +67,6 @@ function submitImage(){
     let formData = new FormData();
     var file = image;
     formData.append("images[]", file, file.name);
-    console.log("abc");
-
-
 
     sendFileAjaxRequest('POST', url, formData, function () {
         if (this.status === 200) {

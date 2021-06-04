@@ -207,7 +207,6 @@ function submitNewReviewRequest(event) {
             errorStars.remove();
 
         sendAjaxRequest('post', url, data, function () {
-            console.log(this.response)
             if (this.status === 200) {
                 document.getElementById("new_review_text").value = "";
                 let parser = new DOMParser();
@@ -366,14 +365,21 @@ function addDiscount(event) {
 
             let deleteTd = document.createElement("td");
             deleteTd.setAttribute("class", "p-0 pt-1");
-            deleteTd.innerHTML = '<button class="btn fs-4 p-0 m-0 delete_discount" data-id="' + responseJson['discount_id']
-                                + '" style="color:red;"><i class="bi bi-trash-fill"></i></button>';
+
+            deleteButton = document.createElement('button');
+            deleteButton.className = "btn fs-4 p-0 m-0 delete_discount";
+            deleteButton.setAttribute('data-id', responseJson['discount_id'] + "_" + item_id);
+            deleteButton.style = "color:red;";
+            deleteButton.innerHTML = '<i class="bi bi-trash-fill"></i>';
+            deleteTd.appendChild(deleteButton);
 
             newDiscountEntry.appendChild(beginTd);
             newDiscountEntry.appendChild(endTd);
             newDiscountEntry.appendChild(percTd);
             newDiscountEntry.appendChild(deleteTd);
             discountsList.appendChild(newDiscountEntry);
+
+            deleteButton.addEventListener('click', deleteDiscount);
         }}
     );
 }
@@ -384,6 +390,8 @@ function deleteDiscount(event) {
     let discount_id = ids[0];
     let discountRow = this.parentNode.parentNode;
     let discounts_list = discountRow.parentNode;
+    console.log(item_id);
+    console.log(discount_id);
 
     let url = "/admin/discountProduct/" + item_id + '/' + discount_id;
     let data = null;

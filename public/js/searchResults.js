@@ -52,7 +52,6 @@ function reorderList(){
     let url = "searchResultsAjax";
 
     sendAjaxRequest('POST', url, data, function () {
-        console.log(this.response);
         if (this.status === 200) {
             let searchPage = document.querySelector("#searchPage");
             
@@ -73,7 +72,6 @@ function increaseStep(event){
     let data = filterItemsPageCall(1, true);
 
     sendAjaxRequest('POST', url, data, function () {
-        //console.log(this.response);
         if (this.status === 200) {
             let searchPage = document.querySelector("#searchPage");
             
@@ -94,7 +92,6 @@ function decreaseStep(event){
     let data = filterItemsPageCall(-1, true);
 
     sendAjaxRequest('POST', url, data, function () {
-        //console.log(this.response);
         if (this.status === 200) {
             let searchPage = document.querySelector("#searchPage");
             
@@ -449,12 +446,35 @@ function filterItems(event) {
     if(search == null){
         search = "";
     }
-    
+    let value = 1;
+    let elem = document.getElementById("orderSelectSearch");
+    if(elem != null){
+        value = document.getElementById("orderSelectSearch").value;
+    }
+    else{
+        value = 1;
+    }
+    if(value == null){
+        value = 1;
+    }
+    if(value == 1 || value == 2){
+        data['filterBy'] = "name";
+    }
+    else{
+        data['filterBy'] = "price";
+    }
+    if(value == 1 || value == 4){
+        data['order'] = "asc";
+    }
+    else{
+        data['order'] = "desc";
+    }
+    data['filterNum'] = value;
+
     let urlString = createURLString(search, category, priceRangeValues, starRatingValues, step);
     window.history.pushState(state , "Search Results", urlString);
 
     sendAjaxRequest('POST', url, data, function () {
-        //console.log(this.response);
         if (this.status === 200) {
             let searchPage = document.querySelector("#searchPage");
             

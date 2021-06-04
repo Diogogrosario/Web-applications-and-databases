@@ -21,22 +21,22 @@
         <h2 class="ps-lg-5 mb-4">Checkout</h2>
         <ul class="nav nav-tabs mb-3 nav-fill text-center" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link {{$step == null ? "active" : "disabled"}} w-100" id="pills-overview-tab" data-bs-toggle="pill" data-bs-target="#pills-overview" type="button" role="tab" aria-controls="pills-overview" aria-selected="false">
+                <button class="nav-link {{$step == null ? "active" : "disabled"}} w-100" id="pills-overview-tab" data-bs-toggle="pill" data-bs-target="#pills-overview" type="button" role="tab" aria-selected="false">
                     <span class="badge bg-{{$step == null ? "success" : "secondary"}} rounded-circle me-3">1</span>Overview
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link {{$step == 1 ? "active" : "disabled"}} w-100" id="pills-addresses-tab" data-bs-toggle="pill" data-bs-target="#pills-addresses" type="button" role="tab" aria-controls="pills-addresses" aria-selected="true">
+                <button class="nav-link {{$step == 1 ? "active" : "disabled"}} w-100" id="pills-addresses-tab" data-bs-toggle="pill" data-bs-target="#pills-addresses" type="button" role="tab" aria-selected="true">
                     <span class="badge bg-{{$step == 1 ? "success" : "secondary"}} rounded-circle me-3">2</span>Addresses
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link {{$step == 2 ? "active" : "disabled"}} w-100" id="pills-shipping-tab" data-bs-toggle="pill" data-bs-target="#pills-shipping" type="button" role="tab" aria-controls="pills-shipping" aria-selected="false">
+                <button class="nav-link {{$step == 2 ? "active" : "disabled"}} w-100" id="pills-shipping-tab" data-bs-toggle="pill" data-bs-target="#pills-shipping" type="button" role="tab" aria-selected="false">
                     <span class="badge bg-{{$step == 2 ? "success" : "secondary"}} rounded-circle me-3">3</span>Shipping
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link {{$step == 3 ? "active" : "disabled"}} w-100" id="pills-payment-tab" data-bs-toggle="pill" data-bs-target="#pills-payment" type="button" role="tab" aria-controls="pills-payment" aria-selected="false">
+                <button class="nav-link {{$step == 3 ? "active" : "disabled"}} w-100" id="pills-payment-tab" data-bs-toggle="pill" data-bs-target="#pills-payment" type="button" role="tab" aria-selected="false">
                     <span class="badge bg-{{$step == 3 ? "success" : "secondary"}} rounded-circle me-3">4</span>Payment
                 </button>
             </li>

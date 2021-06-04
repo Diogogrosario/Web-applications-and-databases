@@ -74,7 +74,6 @@ function updateDetails(event) {
 
     let url = "/category/" + selectedCategory + "/details";
     sendAjaxRequest("GET", url, null, function () {
-        console.log(this.responseText);
 
         if (this.status === 200) {
             let parser = new DOMParser();
@@ -147,11 +146,8 @@ function addNewItem(event) {
     formData.append("description", description);
     formData.append("details", JSON.stringify(details));
 
-    for (var pair of formData.entries())
-        console.log(pair[0] + ', ' + pair[1]);
 
     sendFileAjaxRequest('POST', url, formData, function () {
-        console.log(this.response);
         if (this.status === 200) {
             window.location.replace('/item/' + this.response);
         }

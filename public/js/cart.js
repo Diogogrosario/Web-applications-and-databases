@@ -27,7 +27,6 @@ function addEventListeners() {
 
 function addProductToCart(event, checkout) {
     event.preventDefault();
-    console.log("Add to cart");
 
     let handler = checkAddCart;
 
@@ -47,7 +46,6 @@ function addProductToCartCheckout(event) {
 }
 
 function checkAddCart() {
-    console.log(this.response);
     if(this.status === 200) {
         alert("Item added to cart successfully.");
         let responseJson = JSON.parse(this.responseText);
@@ -56,8 +54,6 @@ function checkAddCart() {
 }
 
 function checkAddCartCheckout() {
-    console.log(this);
-    console.log(this.responseText);
 
     window.location.replace('/checkout'); // MAYBE CHANGE THIS
 }
@@ -66,13 +62,11 @@ function checkAddCartCheckout() {
 function removeFromCart(event) {
     event.preventDefault();
 
-    console.log("removing");
 
     let product_id = this.closest('div.cart-item').getAttribute("data-id");
 
     let url = "/cart/" + product_id;
     sendAjaxRequest("DELETE", url, null, function() {
-        console.log(this.responseText);
 
         if(this.status == 200) {
             let cartItem = document.querySelector('div.cart-item[data-id="'+product_id+'"]');
@@ -101,10 +95,8 @@ function updateQuantity(event) {
     }
 
     sendAjaxRequest("PATCH", url, {'quantity': quantity}, function() {
-         console.log(this.responseText);
 
         if(this.status != 200) {
-            console.log("error");
             input.value = quantities[product_index];
         } else {
             let responseJson = JSON.parse(this.responseText);
