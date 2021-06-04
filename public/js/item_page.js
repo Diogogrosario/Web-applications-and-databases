@@ -390,8 +390,6 @@ function deleteDiscount(event) {
     let discount_id = ids[0];
     let discountRow = this.parentNode.parentNode;
     let discounts_list = discountRow.parentNode;
-    console.log(item_id);
-    console.log(discount_id);
 
     let url = "/admin/discountProduct/" + item_id + '/' + discount_id;
     let data = null;
