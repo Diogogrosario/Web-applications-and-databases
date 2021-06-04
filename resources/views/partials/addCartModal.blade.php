@@ -19,7 +19,7 @@
                                     </h4>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-12 d-flex flex-column justify-content-center h-50 align-items-center mt-lg-0 mt-2 text-center fs-3 item-price-modal" id="addCartModalPrice" style="color:#e3203e">
+                            <div class="col-lg-6 col-12 d-flex flex-column justify-content-center h-50 align-items-center mt-lg-0 mt-2 text-center fs-3 item-price-modal" id="addCartModalPrice_{{$item["item_id"]}}" style="color:#e3203e">
                                 @php
                                     $item_discount = $item->getDiscount();
                                 @endphp
