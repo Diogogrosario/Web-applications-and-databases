@@ -10,6 +10,7 @@
 
 @include('partials.sidebarItem',["categories" => $categories])
 
+<script src="{{asset('js/cart.js')}}" defer></script>
 <script src="{{asset('js/wishlist.js')}}" defer></script>
 
 <div class="col d-flex flex-column">
@@ -23,10 +24,8 @@
 
     <header class="row ms-lg-3 ms-md-1 me-lg-5 me-md-2 pe-lg-5 pe-md-1" id="searchControlsTop">
 
-        <meta id="user_id" value="{{$id}}">
+        <input type="hidden" id="user_id" value="{{$id}}">
         <h1 class="ms-5">Wishlist</h1> 
-
-        <meta id="user_id" value={{$id}}>
         
         <div class="row mb-2 border-bottom d-flex flex-row-reverse">
             <div class="col-md-4 col-12 d-flex justify-md-content-end justify-content-center">

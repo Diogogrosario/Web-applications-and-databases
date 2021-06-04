@@ -12,7 +12,7 @@
                         <div class="col-lg-6 col-12 ps-lg-3 ps-3">
                             <div class="itemTitle row text-sm-start text-center">
                                 <h4 class="title col-sm-10 col-12  d-flex flex-column">
-                                    <a class="link-dark" href="./item.php">
+                                    <a class="link-dark" href={{"/item/" . $item["item_id"]}}>
                                         {{ $item["name"] }}
                                     </a>
                                 </h4>
@@ -42,29 +42,19 @@
                             </div>
 
                             <div class="addToCartItem d-flex mt-lg-0 mt-2 flex-column justify-content-center pb-2 h-50 align-items-center">
-                                <button type="button" class="btn btn-success w-50" data-bs-toggle="modal" data-bs-target="#balanceModal">
-                                    <i class="bi bi-cart-plus"></i> Add to cart
-                                </button>
+                                @if ($item["stock"]>0)
+                                    <button type="button" class="btn btn-success w-50" data-bs-toggle="modal" data-bs-target="#addCartModal_{{$item['item_id']}}">
+                                        <i class="bi bi-cart-plus"></i> Add to cart
+                                    </button>
+                                @else
+                                    <button type="button" disabled class="btn btn-secondary w-50">
+                                        <i class="bi bi-cart-plus"></i> Add to cart
+                                    </button>
+                                @endif
+                                
                             </div>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="balanceModal" tabindex="-1" aria-labelledby="balanceModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-body">
-                                            <form>
-                                                <label for={{"recipient-name-".$item["item_id"]}} class="col-form-label"> Quantity of items?</label>
-                                                <input type="number" class="form-control" id={{"recipient-name-".$item["item_id"]}} placeholder="Amount, I.e: 20">
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Add to cart</button>
-                                            <button type="button" class="btn btn-primary">Add to cart and checkout</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @include('partials.addCartModal',array($item))
 
                         </div>
                     </div>
