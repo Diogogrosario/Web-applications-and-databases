@@ -232,6 +232,10 @@ function verifyStep(step, stepDelta){
     if(step > (max_page)){
         step = max_page;
     }
+
+    if(step <= 0){
+        step = 1;
+    }
     return step;
 }
 
