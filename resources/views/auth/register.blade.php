@@ -37,7 +37,7 @@
 
                   <div class="col-md-6">
                     <label style="padding-bottom: 1%;" for="last_name" class="form-label"><b>Last Name</b></label>
-                    <input id="last_name" type="text" name="last_name" value="{{ old('lastName') }}" required autofocus class="form-control" placeholder="Last Name, I.e: John">
+                    <input id="last_name" type="text" name="last_name" value="{{ old('lastName') }}" required  class="form-control" placeholder="Last Name, I.e: John">
                     @if ($errors->has('error'))
                       <span class="error">
                           {{ $errors->first('last_name') }}
@@ -52,7 +52,6 @@
                     <i class="bi bi-question-circle-fill" data-bs-toggle="tooltip" data-bs-placement="right" title="This will be your username visible to other users. Minimum of 4 characters">
                     </i>
                   </span>
-                </button>
                 </label>
                 <input id="username" type="text" name="username" value="{{ old('username') }}" required class="form-control" placeholder="Username, I.e: JonDoe2">
                 @if ($errors->has('username'))
@@ -85,7 +84,6 @@
                   </span>
                 @endif
               </div>
-            </div>
 
               <div class="d-flex mt-3 flex-column justify-content-center h-50 align-items-center">
                   <button type="submit" class="btn btn-success w-50" >

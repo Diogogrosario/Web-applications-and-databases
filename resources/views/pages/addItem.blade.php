@@ -8,7 +8,7 @@
 @section('content')
 @include('partials.sidebarItem',["categories" => $categories])
 
-<script type="text/javascript" src="{{asset('js/addItem.js')}}" defer></script>
+<script src="{{asset('js/addItem.js')}}" defer></script>
 
 <div class="p-0" style="background-color:#f2f2f2">
     <div id="addItem" class="container col-lg-6 col-md-8  shadow-sm h-100" style="background-color:white">
@@ -43,9 +43,9 @@
             <div class="row">
                 <div class="mt-3 col-lg-5 col-md-7 col-sm-12 col-12 d-flex flex-column justify-content-between" id="categoryImagesForm">
                     <div id="categoryForm">
-                        <label for="category" class="form-label">Category</label>
+                        <label for="categoryDropdown" class="form-label">Category</label>
                         <select class="form-select" aria-label="Category" id="categoryDropdown" required>
-                            <option>...</option>
+                            <option value="">...</option>
                             @foreach ($categories as $category)
                                 <option value="{{$category["category_id"]}}">{{$category["name"]}}</option>
                             @endforeach
@@ -79,7 +79,7 @@
                 </div>
             </div>
 
-            <div class="py-4 d-flex justify-content-center" id="itemFormSubmit" class="mt-5">
+            <div class="py-4 d-flex justify-content-center mt-5" id="itemFormSubmit">
                 <button type="submit" id="addItemButton" class="btn btn-primary col-lg-5 col-md-8 col-sm-12 ">Submit New Product</button>
             </div>
         </form>

@@ -66,7 +66,10 @@ function updateTextBox(event) {
 }
 
 function updateDetails(event) {
+    
     let selectedCategory = this.value;
+    if(selectedCategory == null)
+        return;
     let detailDropdown = document.getElementById("productDetailsForms");
 
     let url = "/category/" + selectedCategory + "/details";

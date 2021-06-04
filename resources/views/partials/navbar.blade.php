@@ -43,15 +43,15 @@
                     <div class="input-group">
                         @if (isset($categories))
 
-                        <select class="form-select fs-lg-3" id="categories" name="categories">
-                            <option selected value="-1">All</option>
+                            <select class="form-select fs-lg-3" id="categories" name="categories">
+                                <option selected value="-1">All</option>
 
-                            @foreach ($categories as $cat)
-                                    <option value="{{$cat["category_id"]}}">{{$cat["name"]}}</option>
-                            @endforeach
+                                @foreach ($categories as $cat)
+                                        <option value="{{$cat["category_id"]}}">{{$cat["name"]}}</option>
+                                @endforeach
+                            </select>
                         @endif
                         
-                        </select>
                         <input name="step" value="1" style="display: none;">
                         <input type="text" id="search" name="search" class="form-control w-50" placeholder="Search For An Item" aria-label="Text input with dropdown button">
                         <button type="submit" class="btn btn-secondary" aria-label="Text input with dropdown button"><i class="bi bi-search"></i></button>
