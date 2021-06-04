@@ -47,7 +47,7 @@ function previewImage(event){
                 return;
 
             let imagePreview = document.getElementById("preview");
-            let str = '<img id="preview" width="200" height="200"/>'
+            let str = '<img id="preview" max-width="200" height="200"/>'
             let parser = new DOMParser();
             let add = parser.parseFromString(str, 'text/html').body.firstChild;
             imagePreview.replaceWith(add);
@@ -112,7 +112,7 @@ function submitImage(){
 
     //Swap back to old menu
     let str = 
-    '<section id="editUserImage">'
+    '<section id="editUserImage" class="d-flex justify-content-end">'
         + '<button id="imageButton" type="button" class="btn" value="' + userId + '">'
         + '<i class="bi bi-pencil-square"></i>'
         + '</button>'
@@ -142,7 +142,7 @@ function cancelImage(){
     }
 
     let str = 
-    '<section id="editUserImage">'
+    '<section id="editUserImage" class="d-flex justify-content-end">'
         + '<button id="imageButton" type="button" class="btn" value="' + userId + '">'
         + '<i class="bi bi-pencil-square"></i>'
         + '</button>'

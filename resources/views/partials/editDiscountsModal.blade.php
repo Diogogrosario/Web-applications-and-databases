@@ -1,4 +1,4 @@
-<div class="modal fade" id="editDiscountsModal_{{$item['item_id']}}" data-id="{{$item['item_id']}}" tabindex="-1" aria-labelledby="editDiscountsModalLabel" aria-hidden="true">
+<div class="modal fade" id="editDiscountsModal_{{$item['item_id']}}" data-id="{{$item['item_id']}}" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-content modal-body">
         <div class="row">
             <div class="col-lg-3 zoom">
@@ -60,17 +60,17 @@
                 <legend class="fs-4 ps-2">Add Discount</legend>
                 <div class="row" id="add_discount_dates">
                     <div class="col-md-6 col-12">
-                        <label for="new_discount_{{$item['item_id']}}" class="col form-label ps-2">Begin date</label>
+                        <label for="begin_date_{{$item['item_id']}}" class="col form-label ps-2">Begin date</label>
                         <input required type="date" class="form-control" name="begin_date" id="begin_date_{{$item['item_id']}}" value="{{explode(" ",now())[0]}}">
                     </div>
 
                     <div class="col-md-6 col-12">
-                        <label for="new_discount_{{$item['item_id']}}" class="col form-label ps-2">End date</label>
+                        <label for="end_date_{{$item['item_id']}}" class="col form-label ps-2">End date</label>
                         <input required type="date" class="form-control" name="end_date" id="end_date_{{$item['item_id']}}" value="{{explode(" ",now())[0]}}">
                     </div>
                 </div>
 
-                <label for="new_discount_{{$item['item_id']}}" class="col form-label mt-2 ps-2">Percentage</label>
+                <label for="percentage_{{$item['item_id']}}" class="col form-label mt-2 ps-2">Percentage</label>
                 <input required type="number" class="form-control mb-2" name="percentage" id="percentage_{{$item['item_id']}}" min="1" max="99" placeholder="Percentage between 1-99">
                 
                 <button type="submit" id="add_discount" class="btn btn-primary add_discount w-100">Add Discount</button>

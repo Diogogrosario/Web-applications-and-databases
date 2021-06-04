@@ -1,4 +1,4 @@
-<div class="modal fade" id="editItemModal_{{$item['item_id']}}" data-id="{{$item['item_id']}}" tabindex="-1" aria-labelledby="editItemModalLabel" aria-hidden="true">
+<div class="modal fade" id="editItemModal_{{$item['item_id']}}" data-id="{{$item['item_id']}}" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-content modal-body">
         <div class="row">
             <div class="col-lg-3 zoom">

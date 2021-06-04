@@ -1,6 +1,6 @@
 
 <section id="deleteItemSection">
-<div class="modal fade" id="deleteItemModal_{{$item['item_id']}}" data-id="{{$item['item_id']}}" tabindex="-1" aria-labelledby="deleteItemModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteItemModal_{{$item['item_id']}}" data-id="{{$item['item_id']}}" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-content modal-body">
         <div class="row">
             <div class="col-lg-3 zoom">

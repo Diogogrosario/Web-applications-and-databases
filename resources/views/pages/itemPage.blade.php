@@ -186,12 +186,11 @@
                                 
                                 <script src="{{asset('js/item_page.js')}}" defer></script>
 
-
-                                @if (Auth::check())
+                                @if (Auth::check() && !Auth::user()->reviewed($item['item_id']))
                                     @if (Auth::user()->hasVerifiedEmail())
                                         <form class="mt-4 mb-5" id="newReviewForm">
                                             {{csrf_field()}}
-                                            <meta name="item_id" content="{{ $item['item_id'] }}">
+                                            <input type="hidden" id="item_id" value="{{ $item['item_id'] }}">
                                             <textarea required class="form-control" id="new_review_text" name="review_text" placeholder="Leave a review here" aria-label="Review textarea" maxlength="400" style="resize:none;"></textarea>
                                             
                                             <div id="newReviewStar" class="rate">
@@ -205,13 +204,12 @@
                                                 <label for="star2" title="text">2 stars</label>
                                                 <input type="radio" id="star1" name="rate" value="1" />
                                                 <label for="star1" title="text">1 star</label>
-
-                                                {{-- <div style="color: red;">Please select a rating</div> --}}
-                                                
                                             </div>
 
-                                            
-                                            <button type="button" form="newReviewForm" class="btn btn-dark btn-md col-md-6 col-lg-4 offset-md-3 offset-lg-4 col-12 mt-md-2">Submit your review</button>
+                                            <div class="text-end m-md-0 mt-2">
+                                                <span class="btn-light" data-bs-toggle="tooltip" data-bs-placement="left" title="Your review will be visible to other users"><i class="bi bi-exclamation-circle-fill"></i></span>
+                                                <button type="button" form="newReviewForm" class="btn btn-dark btn-md col-md-6 col-lg-4 col-12 rounded-bottom rounded-0">Submit your review</button>
+                                            </div>
                                         </form>
                                     @endif
                                 @endif

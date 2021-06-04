@@ -181,7 +181,7 @@ function deleteItem(item_id) {
 function submitNewReviewRequest(event) {
     event.preventDefault();
 
-    let product_id = document.querySelector("meta[name=item_id]").content;
+    let product_id = document.querySelector("input[id=item_id]").value;
 
     let url = "/item/" + product_id + "/review";
 
@@ -192,9 +192,10 @@ function submitNewReviewRequest(event) {
         let starForm = document.getElementById("newReviewStar");
 
         let parser = new DOMParser();
-        let add = parser.parseFromString("<div style='color: red;' id='noStarSelected'>Select a rating</div>", 'text/html').body.childNodes[0];;
-
-        starForm.appendChild(add);
+        if(document.querySelector("div#noStarSelected") == null) {
+            let add = parser.parseFromString("<div style='color: red;' id='noStarSelected'>Select a rating</div>", 'text/html').body.childNodes[0];
+            starForm.appendChild(add);
+        }
     }
     else {
         let star_rating = star_selected.value
@@ -206,13 +207,18 @@ function submitNewReviewRequest(event) {
             errorStars.remove();
 
         sendAjaxRequest('post', url, data, function () {
+            console.log(this.response)
             if (this.status === 200) {
                 document.getElementById("new_review_text").value = "";
                 let parser = new DOMParser();
-                let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
+                let add = parser.parseFromString(this.responseText, 'text/html').body.childNodes[0];
                 let doc = document.getElementById("productReviews");
                 doc.insertBefore(add, doc.childNodes[0]);
 
+                let reviewForm = document.querySelector("form#newReviewForm");
+                reviewForm.remove();
+
+            } else if(this.status == 406) {
 
             }
         });
@@ -258,9 +264,10 @@ function submitEditRequest(review_id) {
         let starForm = document.getElementById("editReviewStar");
 
         let parser = new DOMParser();
-        let add = parser.parseFromString("<div style='color: red;' id='noEditStarSelected'>Select a rating</div>", 'text/html').body.childNodes[0];;
-
-        starForm.appendChild(add);
+        if(document.querySelector("div#noEditStarSelected") == null) {
+            let add = parser.parseFromString("<div style='color: red;' id='noEditStarSelected'>Select a rating</div>", 'text/html').body.childNodes[0];
+            starForm.appendChild(add);
+        }
     }
     else {
         let star_rating = star_selected.value;
