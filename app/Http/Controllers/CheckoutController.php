@@ -101,7 +101,8 @@ class CheckoutController extends Controller
         $billing = [];
         $shipping = [];
 
-        if($post['useDefinedBilling'] == "Yes") {
+        
+        if(isset($post['useDefinedBilling'])) {
             if($user->billingAddress()->count() == 0) {
                 return back()->with('error', 'User does not have any billing address defined')->withInput();
 

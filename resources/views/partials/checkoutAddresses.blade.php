@@ -11,7 +11,7 @@
             <h4 class="text-center mb-4">Billing Address</h4>
             <div class="form-check mt-4 ps-5">
                 @if (Auth::user()->shippingAddress() == null)
-                    <input class="form-check-input" type="checkbox" value="Yes" disabled name="useDefinedBilling" id="useDefinedBilling">
+                    <input class="form-check-input" type="checkbox" value="No" disabled name="useDefinedBilling" id="useDefinedBilling">
                 @else 
                     <input class="form-check-input" type="checkbox" value="Yes" checked name="useDefinedBilling" id="useDefinedBilling">
                 @endif
