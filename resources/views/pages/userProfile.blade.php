@@ -27,9 +27,29 @@
                 @endif
                 @if ($user["user_id"] == Auth::user()["user_id"])
                     <section id="editUserImage" class="d-flex justify-content-end">
-                        <button id="imageButton" type="button" class="btn" value="{{$user["user_id"]}}">
+                        <button id="imageButton" type="button" data-bs-toggle="modal" data-bs-target="#img-modal" class="btn" value="{{$user["user_id"]}}">
                             <i class="bi bi-pencil-square"></i>
                         </button>
+                        <!-- Modal -->
+                        <div id="img-modal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <form id="imgForm" enctype="multipart/form-data">
+
+                                    <div class="modal-content" id="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Change Profile Picture</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                            <input id="imageInput" enctype="multipart/form-data" accept="image/png, image/gif, image/jpeg" type="file" class="btn p-0 pb-1 pt-1" value="' + userId + '" + onchange="previewImage(event)" >
+                                            <img id="preview" style="width:200; max-height:200;"/>
+                                        <div class="modal-footer">
+                                            <button id="submitImage" type="button" data-bs-dismiss="modal" class="btn btn-success mb-1" value="' + userId + '"> <i class="bi bi-check-circle-fill"></i>Submit</button>
+                                            <button id="cancelImage" type="button" data-bs-dismiss="modal" class="btn btn-danger" value="' + userId + '"> <i class="bi bi-check-circle-fill"></i>Cancel</button>
+                                    </form> 
+                                </div>
+                            </div>
+                            </div>
+                        </div>
                     </section>
                 @endif
             </div>
