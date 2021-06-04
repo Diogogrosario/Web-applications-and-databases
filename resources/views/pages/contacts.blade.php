@@ -24,9 +24,9 @@
 						<h2>Fneuc</h2>
 						<address>
 							<strong>Fneuc</strong><br>
-							125 Cool Street<br>
-							Porto<br>
-							Porto<br>
+							15 Springfield Way<br>
+							Hythe CT21 5SH<br>
+							UK<br>
 							Phone: +0351 123 456 789
 						</address>
 					</div>
