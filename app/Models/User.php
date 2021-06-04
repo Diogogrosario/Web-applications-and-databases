@@ -112,5 +112,9 @@ class User extends Authenticatable implements CanResetPassword, MustVerifyEmail
         return $this->hasOne(Photo::class,"photo_id","img");
     }
 
+    public function reviewed($item_id) {
+        return Review::where('item_id', $item_id)->where('user_id', $this->user_id)->first();
+    }
+
     
 }

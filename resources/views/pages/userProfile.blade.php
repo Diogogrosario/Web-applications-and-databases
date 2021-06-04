@@ -110,7 +110,18 @@
 
         <section id="profileInfo" class="row mt-5">
             <div class="col-lg-8 col-12">
-                <h2 class="mb-3">Account Info</h2>
+                <h2 class="mb-3">
+                    Account Info 
+                    <button class="btn" data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" title="User Profile" data-bs-placement="right" data-bs-html="true" 
+                        data-bs-content="Here you can consult and edit user information:
+                                        <ul>
+                                            <li><b>Username</b></li>
+                                            <li><b>Password</b> (you will be redirected to change password)</li>
+                                            <li><b>E-mail</b></li>
+                                        </ul>">
+                        <i class="bi bi-question-circle-fill"></i>
+                    </button>
+                </h2>
                 <div class="table-responsive">
                     <table id="accountInfo" class="table">
                         <tbody>

@@ -62,7 +62,11 @@
                 @endif
             </div>
               <div class="pt-3">
-                <label style="padding-bottom: 1%;" for="password"  class="form-label"><b>Password</b></label>
+                <label style="padding-bottom: 1%;" for="password"  class="form-label">
+                  <b>Password</b>
+                  <i class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="right" title="Choose a password of at least 6 characters">
+                  </i>
+                </label>
                   <input id="password" type="password" name="password" value="{{ old('password') }}" required class="form-control" placeholder="Password">
                   @if ($errors->has('password'))
                     <span class="error">
@@ -73,8 +77,6 @@
               <div class="pt-3">
                 <label style="padding-bottom: 1%;" for="password_confirmation"  class="form-label">
                   <b>Confirm Password</b>
-                  <i class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="right" title="Choose a password of at least 6 characters">
-                  </i>
                 </label>
                 <input id="password_confirmation" type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" required class="form-control" placeholder="Confirm Password">
                 @if ($errors->has('password_confirmation'))

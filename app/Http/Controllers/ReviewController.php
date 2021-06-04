@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Review;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class ReviewController extends Controller
 {
@@ -14,12 +15,17 @@ class ReviewController extends Controller
     public function createReview(Request $request) {
         $data = $request->all();
         $product_id = $request->route('id');
-        $user_id = Auth::user()['user_id'];
+        $user = Auth::user();
 
         $review = new Review();
 
         $this->authorize('create', $review);
+
+        $user_id = Auth::user()['user_id'];
        
+        if($user->reviewed($product_id))
+            return null;
+
         $review = Review::create([
             'user_id' => $user_id,
             'item_id' => $product_id,
@@ -65,10 +71,9 @@ class ReviewController extends Controller
     {
         $review = $this->createReview($request);
 
-        $view = view('partials.review')->with('review', $review);
-
-
-        return $view;
+        if($review == null)
+            return response()->json("Review already submitted to this product", 406);
+        return view('partials.review')->with('review', $review);
     }
 
     public function delete(Request $request) {

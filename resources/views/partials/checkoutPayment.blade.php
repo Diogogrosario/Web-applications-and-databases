@@ -26,9 +26,10 @@
                     <li class="list-group-item">
                         <button type="submit" class="btn btn-success" name="finish" value="Balance">Pay with account balance</button>
                     </li>
-                    <li class="list-group-item d-block">
-                        <a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_SbyPP_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark"></a>
-                        <button type="submit" class="btn btn-warning" name="finish" value="Paypal">Pay with Paypal</button>
+                    <li class="list-group-item d-block text-center">
+                        <p class="mb-0"><a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_SbyPP_mc_vs_dc_ae.jpg" alt="PayPal Acceptance Mark"></a></p>
+                        <button type="submit" class="btn btn-warning" name="finish" value="Paypal">Pay with <b>PayPal</b></button>
+                        <p class="mt-1"><small>You will be redirected to the PayPal website to continue</small></p>
                     </li>
                 </ul>
             </div>
