@@ -35,7 +35,7 @@ class PurchaseHistoryController extends Controller
 
         $user = User::findOrFail($id);
 
-        $purchases = $user->wishlist()->orderBy($filterBy, $order)->get();
+        $purchases = $user->purchases()->orderBy($filterBy, $order)->get();
 
         return view("partials.purchaseHistoryEntry")->with("purchases", $purchases);
     }

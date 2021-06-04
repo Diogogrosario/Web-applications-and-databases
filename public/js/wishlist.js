@@ -21,7 +21,9 @@ function addEventListeners() {
     }
 
     let order = document.getElementById("orderSelect");
-    order.addEventListener("change",reorder);
+    if(order != null){
+        order.addEventListener("change",reorder);
+    }
 }
 
 function reorder(){
@@ -31,6 +33,8 @@ function reorder(){
     let filterBy;
     let order;
 
+    console.log(val);
+    
     if(val == 1)
     {
         filterBy = "name";

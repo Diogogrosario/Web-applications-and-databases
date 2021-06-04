@@ -128,15 +128,15 @@ class SearchResultsController extends Controller
                     if($q!=null)
                         $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))->whereRaw($priceQuerryString)
                         ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
-                    $searchResults = $searchResults->where("is_archived",false)->whereRaw($priceQuerryString)->whereRaw($starRatingsString)->get();
+                    $searchResults = $searchResults->where("is_archived",false)->whereRaw($priceQuerryString)->whereRaw($starRatingsString);
                 }
                 else if($q != null){
                     $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
                     ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)->whereRaw($priceQuerryString)->whereRaw($starRatingsString)
-                    ->get();
+                    ;
                 }
                 else{
-                    $searchResults = Item::where("is_archived",false)->whereRaw($priceQuerryString)->whereRaw($starRatingsString)->get();
+                    $searchResults = Item::where("is_archived",false)->whereRaw($priceQuerryString)->whereRaw($starRatingsString);
                 }
             }
             else{
@@ -145,15 +145,15 @@ class SearchResultsController extends Controller
                     if($q!=null)
                         $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
                         ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
-                    $searchResults = $searchResults->where("is_archived",false)->whereRaw($starRatingsString)->get();
+                    $searchResults = $searchResults->where("is_archived",false)->whereRaw($starRatingsString);
                 }
                 else if($q != null){
                     $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
                     ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)->whereRaw($starRatingsString)
-                    ->get();
+                    ;
                 }
                 else{
-                    $searchResults = Item::where("is_archived",false)->whereRaw($starRatingsString)->whereRaw($starRatingsString)->get();
+                    $searchResults = Item::where("is_archived",false)->whereRaw($starRatingsString)->whereRaw($starRatingsString);
                 }
             }
         }
@@ -164,15 +164,15 @@ class SearchResultsController extends Controller
                     if($q!=null)
                         $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
                         ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
-                    $searchResults = $searchResults->where("is_archived",false)->whereRaw($priceQuerryString)->get();
+                    $searchResults = $searchResults->where("is_archived",false)->whereRaw($priceQuerryString);
                 }
                 else if($q != null){
                     $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
                     ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)->whereRaw($priceQuerryString)
-                    ->get();
+                    ;
                 }
                 else{
-                    $searchResults = Item::where("is_archived",false)->whereRaw($priceQuerryString)->get();
+                    $searchResults = Item::where("is_archived",false)->whereRaw($priceQuerryString);
                 }
         
             }
@@ -182,15 +182,15 @@ class SearchResultsController extends Controller
                     if($q!=null)
                         $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
                         ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
-                    $searchResults = $searchResults->where("is_archived",false)->get();
+                    $searchResults = $searchResults->where("is_archived",false);
                 }
                 else if($q != null){
                     $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
                     ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)
-                    ->get();
+                    ;
                 }
                 else{
-                    $searchResults = Item::where("is_archived",false)->get();
+                    $searchResults = Item::where("is_archived",false);
                 }
             }
         }
@@ -207,13 +207,32 @@ class SearchResultsController extends Controller
             $step = 1;
         }
 
+
+        $searchResults = $searchResults->orderBy("name", "asc")->get();
         //    return $items;
         return view("pages.searchResults")->with("searchResults",$searchResults)->with("categories",$categories)->with("step", $step);
     }
 
     public function showAjax(Request $request)
     {
+
+
         $data = $request->all();
+
+        if(!isset($data['filterBy'])){
+            $filterBy = 'name';
+        }
+        else{
+            $filterBy = $data['filterBy'];
+        }
+        if(!isset($data['order'])){
+            $order = 'ASC';
+        }
+        else{
+            $order = $data['order'];
+        }
+
+
         if(isset($data['step'])){
             $step = $data['step'];
         }
@@ -300,15 +319,15 @@ class SearchResultsController extends Controller
                     if($q!=null)
                         $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))->whereRaw($priceQuerryString)
                         ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
-                    $searchResults = $searchResults->where("is_archived",false)->whereRaw($priceQuerryString)->whereRaw($starRatingsString)->get();
+                    $searchResults = $searchResults->where("is_archived",false)->whereRaw($priceQuerryString)->whereRaw($starRatingsString);
                 }
                 else if($q != null){
                     $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
                     ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)->whereRaw($priceQuerryString)->whereRaw($starRatingsString)
-                    ->get();
+                    ;
                 }
                 else{
-                    $searchResults = Item::where("is_archived",false)->whereRaw($priceQuerryString)->whereRaw($starRatingsString)->get();
+                    $searchResults = Item::where("is_archived",false)->whereRaw($priceQuerryString)->whereRaw($starRatingsString);
                 }
             }
             else{
@@ -317,15 +336,14 @@ class SearchResultsController extends Controller
                     if($q!=null)
                         $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
                         ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
-                    $searchResults = $searchResults->where("is_archived",false)->whereRaw($starRatingsString)->get();
+                    $searchResults = $searchResults->where("is_archived",false)->whereRaw($starRatingsString);
                 }
                 else if($q != null){
                     $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
-                    ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)->whereRaw($starRatingsString)
-                    ->get();
+                    ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)->whereRaw($starRatingsString);
                 }
                 else{
-                    $searchResults = Item::where("is_archived",false)->whereRaw($starRatingsString)->whereRaw($starRatingsString)->get();
+                    $searchResults = Item::where("is_archived",false)->whereRaw($starRatingsString)->whereRaw($starRatingsString);
                 }
             }
         }
@@ -336,15 +354,14 @@ class SearchResultsController extends Controller
                     if($q!=null)
                         $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
                         ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
-                    $searchResults = $searchResults->where("is_archived",false)->whereRaw($priceQuerryString)->get();
+                    $searchResults = $searchResults->where("is_archived",false)->whereRaw($priceQuerryString);
                 }
                 else if($q != null){
                     $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
-                    ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)->whereRaw($priceQuerryString)
-                    ->get();
+                    ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)->whereRaw($priceQuerryString);
                 }
                 else{
-                    $searchResults = Item::where("is_archived",false)->whereRaw($priceQuerryString)->get();
+                    $searchResults = Item::where("is_archived",false)->whereRaw($priceQuerryString);
                 }
         
             }
@@ -354,26 +371,33 @@ class SearchResultsController extends Controller
                     if($q!=null)
                         $searchResults =  $searchResults->whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
                         ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)));
-                    $searchResults = $searchResults->where("is_archived",false)->get();
+                    $searchResults = $searchResults->where("is_archived",false);
                 }
                 else if($q != null){
                     $searchResults =  Item::whereRaw('item.search @@ plainto_tsquery(?)', array(strtolower($q)))
-                    ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false)
-                    ->get();
+                    ->orderByRaw('ts_rank(item.search, plainto_tsquery(?)) DESC', array(strtolower($q)))->where("is_archived",false);
                 }
                 else{
-                    $searchResults = Item::where("is_archived",false)->get();
+                    $searchResults = Item::where("is_archived",false);
                 }
             }
         }
         
 
-        
+        if(isset($data["filterNum"])){
+            $filterNum = $data["filterNum"];
+        }
+        else{
+            $filterNum = 1;
+        }
+
 
         $categories = Category::all()->sortBy("category_id");
 
+        $searchResults = $searchResults->orderBy($filterBy, $order)->get();
+
         //    return $items;
-        return view("partials.searchResultList")->with("searchResults", $searchResults)->with("categories",$categories)->with("step", $step);
+        return view("partials.searchResultList")->with("searchResults", $searchResults)->with("categories",$categories)->with("step", $step)->with("filterNum", $filterNum);
     }
 
 }

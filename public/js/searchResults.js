@@ -31,7 +31,6 @@ function addCategoryFilterEventListeners() {
 function addStepEventListeners(){
     prevbuttons = document.getElementsByClassName("prevButton");
     nextbuttons = document.getElementsByClassName("nextButton");
-    console.log(prevbuttons);
     for(let i = 0; i < prevbuttons.length; i++){
         prevbuttons[i].addEventListener("click", decreaseStep);
     }
@@ -40,12 +39,53 @@ function addStepEventListeners(){
     }
 }
 
+function addSortingEventListeners(){
+    orderSelect = document.getElementById("orderSelectSearch");
+    if(orderSelect != null){
+        orderSelect.addEventListener("change", reorderList);
+    }
+}
+
+function reorderList(){
+    let data = filterItemsPageCall(0, true);
+
+    let url = "searchResultsAjax";
+    /*
+    let value = document.getElementById("orderSelectSearch").value;
+    if(value == 1 || value == 2){
+        data['filterBy'] = "name";
+    }
+    else{
+        data['filterBy'] = "price";
+    }
+    if(value == 1 || value == 4){
+        data['order'] = "asc";
+    }
+    else{
+        data['order'] = "desc";
+    }
+    data['filterNum'] = value;*/
+
+    sendAjaxRequest('POST', url, data, function () {
+        console.log(this.response);
+        if (this.status === 200) {
+            let searchPage = document.querySelector("#searchPage");
+            
+            let parser = new DOMParser();
+	        let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
+            searchPage.replaceWith(add);
+            addStepEventListeners();
+            addSortingEventListeners();
+            
+    }});
+
+}
+
 function increaseStep(event){
-    console.log("uoiafduibnasuijfbuoisenfoesbnofbnshifcvhnaoeswinfcoiwnh");
 
     let url = "searchResultsAjax";
 
-    let data = filterItemsPageCall(1);
+    let data = filterItemsPageCall(1, true);
 
     sendAjaxRequest('POST', url, data, function () {
         //console.log(this.response);
@@ -56,6 +96,7 @@ function increaseStep(event){
 	        let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
             searchPage.replaceWith(add);
             addStepEventListeners();
+            addSortingEventListeners();
             
     }});
 }
@@ -66,7 +107,7 @@ function decreaseStep(event){
 
     let url = "searchResultsAjax";
 
-    let data = filterItemsPageCall(-1);
+    let data = filterItemsPageCall(-1, true);
 
     sendAjaxRequest('POST', url, data, function () {
         //console.log(this.response);
@@ -77,6 +118,7 @@ function decreaseStep(event){
 	        let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
             searchPage.replaceWith(add);
             addStepEventListeners();
+            addSortingEventListeners();
             
     }});
 }
@@ -203,20 +245,17 @@ function verifyStep(step, stepDelta){
         step = 1;
     }
     max_page = Math.floor((parseInt(totalResultsTop, 10) - 1) / 10) + 1;
-    console.log(max_page);
     if(step > (max_page)){
         step = max_page;
     }
     return step;
 }
 
-function filterItemsPageCall(stepDelta){
+function filterItemsPageCall(stepDelta, pushState){
     let step = findGetParameter("step");
     
     step = verifyStep(step, stepDelta);
 
-    console.log("new step: ");
-    console.log(step);
 
     //let category = findGetParameter("category");
     let search = findGetParameter("search");
@@ -304,8 +343,25 @@ function filterItemsPageCall(stepDelta){
     if(search == null){
         search = "";
     }
-    let urlString = createURLString(search, category, priceRangeValues, starRatingValues, step);
-    window.history.pushState(state , "Search Results", urlString);
+    if(pushState){
+        let urlString = createURLString(search, category, priceRangeValues, starRatingValues, step);
+        window.history.pushState(state , "Search Results", urlString);
+    }
+
+    let value = document.getElementById("orderSelectSearch").value;
+    if(value == 1 || value == 2){
+        data['filterBy'] = "name";
+    }
+    else{
+        data['filterBy'] = "price";
+    }
+    if(value == 1 || value == 4){
+        data['order'] = "asc";
+    }
+    else{
+        data['order'] = "desc";
+    }
+    data['filterNum'] = value;
 
     return data;
 }
@@ -418,6 +474,7 @@ function filterItems(event) {
 	        let add = parser.parseFromString(this.response, 'text/html').body.childNodes[0];
             searchPage.replaceWith(add);
             addStepEventListeners();
+            addSortingEventListeners();
             
     }});
 }
@@ -489,4 +546,5 @@ checkSelectedCategories();
 checkSelectedPrices();
 checkSelectedRatings();
 addStepEventListeners();
+addSortingEventListeners();
 //filterItems();
