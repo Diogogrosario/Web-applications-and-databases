@@ -23,7 +23,7 @@ Route::get('contacts', 'ContactsPageController@show');
 
 Route::get('userProfile', 'UserProfileController@showSelf')->middleware('canSeeProfile')->name("userProfile");
 Route::get('userProfile/wishlist', 'WishlistController@showSelf')->middleware('canSeeProfile')->name("wishlist");
-Route::get('userProfile/cart', 'CartController@showSelf')->middleware('canSeeProfile')->name("cart");
+Route::get('userProfile/cart', 'CartController@showSelf')->name("cart");
 Route::get('userProfile/purchaseHistory', 'PurchaseHistoryController@showSelf')->middleware('canSeeProfile')->name("history");
 
 Route::get('userProfile/{id}', 'UserProfileController@show')->middleware('canSeeProfile')->name("userProfileWithId");

@@ -46,7 +46,14 @@
                   </div>
               </div>
               <div class="pt-3">
-                <label style="padding-bottom: 1%;" for="username"  class="form-label"><b>Username</b></label>
+                <label style="padding-bottom: 1%;" for="username"  class="form-label">
+                  <b>Username</b>
+                  <span>
+                    <i class="bi bi-question-circle-fill" data-bs-toggle="tooltip" data-bs-placement="right" title="This will be your username visible to other users. Minimum of 20 characters">
+                    </i>
+                  </span>
+                </button>
+                </label>
                 <input id="username" type="text" name="username" value="{{ old('username') }}" required class="form-control" placeholder="Username, I.e: JonDoe2">
                 @if ($errors->has('username'))
                   <span class="error">
@@ -64,7 +71,11 @@
                   @endif
                 </div>
               <div class="pt-3">
-                <label style="padding-bottom: 1%;" for="password_confirmation"  class="form-label"><b>Confirm Password</b></label>
+                <label style="padding-bottom: 1%;" for="password_confirmation"  class="form-label">
+                  <b>Confirm Password</b>
+                  <i class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="right" title="Choose a password of at least 6 characters">
+                  </i>
+                </label>
                 <input id="password_confirmation" type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" required class="form-control" placeholder="Confirm Password">
                 @if ($errors->has('password_confirmation'))
                   <span class="error">

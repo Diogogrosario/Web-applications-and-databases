@@ -3,6 +3,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="balanceModalLabel">Add balance to account</h5>
+                <button type="button" class="btn btn-light ms-2" style="border: solid 1px lightgrey;" data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true" data-bs-content="You can add money to your account via <b>PayPal</b>.<br>Your balance can then be used to <b>buy produts</b> in the store. <b>Cannot be refunded</b>.">
+                    <i class="bi bi-info-circle"></i> What's this?
+                </button>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             @if (Auth::user()->hasVerifiedEmail())
