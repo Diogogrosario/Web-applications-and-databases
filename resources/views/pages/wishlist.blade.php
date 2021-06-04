@@ -25,14 +25,16 @@
         <meta id="user_id" value={{$id}}>
 
         
-        <div class="col-md-4 col-12 d-flex justify-md-content-end justify-content-center">
-            <label for="orderSelect" class="align-middle me-2">Order by </label>
-            <select id="orderSelect" class="form-select form-select-sm w-50 border-bottom-0 rounded-0 rounded-top">
-                <option value="1">Name A-Z</option>
-                <option value="2">Name Z-A</option>
-                <option value="3">Price: Most expensive first</option>
-                <option value="4">Price: Least expensive first</option>
-            </select>
+        <div class="row mt-3 mb-2 border-bottom d-flex flex-row-reverse">
+            <div class="col-md-4 col-12 d-flex justify-md-content-end justify-content-center">
+                <label for="orderSelect" class="align-middle me-2">Order by </label>
+                <select id="orderSelect" class="form-select form-select-sm w-50 border-bottom-0 rounded-0 ">
+                    <option value="1">Name A-Z</option>
+                    <option value="2">Name Z-A</option>
+                    <option value="3">Price: Most expensive first</option>
+                    <option value="4">Price: Least expensive first</option>
+                </select>
+            </div>
         </div>
     </header>
     
