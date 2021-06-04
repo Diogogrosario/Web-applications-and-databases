@@ -17,7 +17,7 @@ class WishlistController extends Controller
 
         $categories = Category::all()->sortBy("category_id");
         
-        return view('pages.wishlist')->with("user", $user)->with("categories", $categories);
+        return view('pages.wishlist')->with("user", $user)->with("categories", $categories)->with("id",$id);
     }
 
     public function showSelf()
@@ -26,7 +26,7 @@ class WishlistController extends Controller
 
         $categories = Category::all()->sortBy("category_id");
         
-        return view('pages.wishlist')->with("user", $user)->with("categories", $categories);
+        return view('pages.wishlist')->with("user", $user)->with("categories", $categories)->with("id",Auth::user()["user_id"]);
     }
 
     public function addToWishlist(Request $request)
@@ -60,5 +60,15 @@ class WishlistController extends Controller
             return response()->json("Item removed from wishlist successfuly.", 200);
         else 
             return response()->json("Item is not in the user's wishlist.", 406);
+    }
+
+    public function reorder(Request $request){
+        $filterBy = $request->input('filterBy');
+        $order = $request->input('order');
+        $id = $request->input('id');
+
+        $wishlist = User::findOrFail($id)->wishlist()->orderBy($filterBy,$order)->get();
+
+        return view('partials.wishlistItemCard')->with("items", $wishlist);
     }
 }

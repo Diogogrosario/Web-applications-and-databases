@@ -40,7 +40,7 @@ class User extends Authenticatable implements CanResetPassword, MustVerifyEmail
 
 
     public function wishlist() {
-        return $this->belongsToMany(Item::class,"wishlist", "user_id", "item_id")->get();
+        return $this->belongsToMany(Item::class,"wishlist", "user_id", "item_id");
     }
 
     public function wishlistItem($item_id) {

@@ -21,18 +21,10 @@
 
 <div class="col d-flex flex-column">
     <header class="row mt-3 ms-lg-3 ms-md-1 me-lg-5 me-md-2 pe-lg-5 pe-md-1 border-bottom" id="searchControlsTop">
-        <div class="col-md-4 col-5">
-            Showing <span id="nResultsCurrentTop">1-{{$user->wishlist()->count()}}</span> of <span id="totalResultsTop">{{$user->wishlist()->count()}}</span> items
-        </div>
-        <nav class="col-md-4 col-7 d-flex text-center justify-content-md-center justify-content-end" aria-label="Search Results Pages">
-            <div class="d-flex flex-column justify-content-center">
-                <ul class="pagination pagination-sm mb-0">
-                    <li class="page-item"><a class="page-link link-secondary">Previous</a></li>
-                    <li class="page-item"><a class="page-link link-dark" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link link-secondary">Next</a></li>
-                </ul>
-            </div>
-        </nav>
+
+        <meta id="user_id" value={{$id}}>
+
+        
         <div class="col-md-4 col-12 d-flex justify-md-content-end justify-content-center">
             <label for="orderSelect" class="align-middle me-2">Order by </label>
             <select id="orderSelect" class="form-select form-select-sm w-50 border-bottom-0 rounded-0 rounded-top">
@@ -43,22 +35,9 @@
             </select>
         </div>
     </header>
-    <ul class="list-group list-group-flush px-md-5 px-1" id="wishItemsList">
-        @foreach ($user->wishlist() as $item)
-            @include('partials.wishlistItemCard', array("item" => $item))
-        @endforeach
-    </ul>
-    <footer class="row mt-3 pt-2 ms-lg-3 ms-md-1 me-lg-5 me-md-2 pe-lg-5 pe-md-1 px-2 border-top" id="searchControlsBottom">
-        <div class="col-md-4 col-5">
-            Showing <span id="nResultsCurrentBot">1-{{$user->wishlist()->count()}}</span> of <span id="totalResultsBot">{{$user->wishlist()->count()}}</span> items
-        </div>
-        <nav class="col-md-4 col-7 d-flex text-center justify-content-md-center justify-content-end" aria-label="Search Results Pages">
-            <ul class="pagination pagination-sm mb-0">
-                <li class="page-item"><a class="page-link link-secondary">Previous</a></li>
-                <li class="page-item"><a class="page-link link-dark" href="#">1</a></li>
-                <li class="page-item"><a class="page-link link-secondary">Next</a></li>
-            </ul>
-        </nav>
-    </footer>
+    
+    @include('partials.wishlistItemCard', array("items" => $user->wishlist()->orderBy("name","asc")->get()))
+
+    
 </div>
 @endsection

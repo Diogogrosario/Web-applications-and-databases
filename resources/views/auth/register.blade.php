@@ -49,7 +49,7 @@
                 <label style="padding-bottom: 1%;" for="username"  class="form-label">
                   <b>Username</b>
                   <span>
-                    <i class="bi bi-question-circle-fill" data-bs-toggle="tooltip" data-bs-placement="right" title="This will be your username visible to other users. Minimum of 20 characters">
+                    <i class="bi bi-question-circle-fill" data-bs-toggle="tooltip" data-bs-placement="right" title="This will be your username visible to other users. Minimum of 4 characters">
                     </i>
                   </span>
                 </button>

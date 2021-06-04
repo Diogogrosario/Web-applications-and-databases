@@ -13,13 +13,11 @@ function reorderList(event){
     {
         filterBy = "date";
         order = "desc";
-        console.log(1);
     }
     else if(val == 2)
     {
         filterBy = "date";
         order = "asc";
-        console.log(2);
 
     }
 
